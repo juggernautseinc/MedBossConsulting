@@ -1,0 +1,32 @@
+{
+    "name": "apimatic/d7sms",
+    "type": "library",
+    "description": "D7 SMS allows you to reach your customers via SMS over D7's own connectivity to global mobile networks. D7 provides reliable and cost-effective SMS services to businesses across all industries and aims to connect all countries and territories via direct connections.",
+    "keywords": ["D7SMS","API","SDK"],
+    "homepage": "https://d7networks.com/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Emanuel",
+            "email": "int@d7networks.com",
+            "homepage": "https://d7networks.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "mashape/unirest-php": "~3.0.1",
+        "apimatic/jsonmapper": "~1.3.0"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^2.7",
+        "phpunit/phpunit": "4.8.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "D7SMSLib\\": "src/"
+        }
+    }
+}
