@@ -7,8 +7,6 @@
 # vendor and assets
 node_modules
 /vendor/*
-/help/*
-/sites/*
 /public/assets/*
 /public/themes/*
 !/public/assets/modified
@@ -28,6 +26,3 @@ ccdaservice/node_modules
 
 # testing
 .phpunit.result.cache
-
-# program file
-/sites/default

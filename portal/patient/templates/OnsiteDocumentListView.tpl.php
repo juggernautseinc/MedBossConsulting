@@ -277,17 +277,37 @@ $cuser = $_SESSION['sessionUser'] ?? $_SESSION['authUserID'];
         <a class="navbar-brand ml-auto"><h3><?php echo xlt("Document Center") ?></h3></a>
         <div id="topmenu" class="mr-auto">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item mb-1">
-                    <a class="nav-link text-success btn btn-outline-success" onclick="$('.historyHide').toggleClass('d-none');document.getElementById('historyTable').scrollIntoView({behavior: 'smooth'})"><i class="fa fa-toggle-on mr-1" aria-hidden="true"></i><?php echo xlt("Show/Hide History") ?>
+                    <!-- Sticky actions toolbar -->
+                    <div class='nav helpHide d-none'>
+                        <!--<a id='docTitle' class='navbar-brand' href='#'><?php /*echo xlt('Form Actions') */ ?></a>-->
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="signTemplate" href="#openSignModal" data-toggle="modal" data-backdrop="true" data-target="#openSignModal" data-type="patient-signature"><?php echo xlt('Signature'); ?></a></li>
+                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="saveTemplate" href="#"><?php echo xlt('Save'); ?></a></li>
+                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="printTemplate" href="javascript:;" onclick="printaDoc('templatecontent');"><?php echo xlt('Print'); ?></a></li>
+                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="submitTemplate" href="#"><?php echo xlt('Download'); ?></a></li>
+                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="sendTemplate" href="#"><?php echo xlt('Submit Document'); ?></a></li>
+                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="chartTemplate" href="#"><?php echo xlt('Chart to') . ' ' . text($catname); ?></a></li>
+                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="downloadTemplate" href="#"><?php echo xlt('Download'); ?></a></li>
+                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="chartHistory" href="#"><?php echo xlt('Chart History'); ?></a></li>
+                            <?php if (empty($is_module)) { ?>
+                                <!-- future popout -->
+                                <!--<li class="nav-item">
+                                    <a class="nav-link text-danger" id="homeTemplate" href="#" onclick='history.go(0);'><?php /*echo xlt('Dismiss'); */ ?></a>
+                                </li>-->
+                            <?php } else { ?>
+                                <li class="nav-item">
+                                    <a class="nav-link text-danger" id="homeTemplate" href="#" onclick='window.location.replace("<?php echo $referer ?>")'><?php echo xlt('Return'); ?></a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                    <li class='nav-item mb-1'>
+                        <a class='nav-link text-success btn btn-outline-success' onclick="$('.historyHide').toggleClass('d-none');document.getElementById('historyTable').scrollIntoView({behavior: 'smooth'})"><i class='fa fa-toggle-on mr-1' aria-hidden='true'></i><?php echo xlt('History') ?>
                     </a>
                 </li>
                 <?php if (empty($is_module)) { ?>
                     <li class="nav-item mb-1">
                         <a id="Help" class="nav-link text-primary btn btn-outline-primary" onclick='page.newDocument(cpid, cuser, "Help.tpl");'><?php echo xlt('Help'); ?></a>
-                    </li>
-                    <li class="nav-item nav-item mb-1">
-                        <a class="nav-link btn btn-secondary" data-toggle="tooltip" title="Refresh" id="refreshPage" href="javascript:" onclick="window.location.reload()"> <span class="fa fa-sync fa-lg"></span>
-                        </a>
                     </li>
                     <!-- future popout-->
                     <!--<li class="nav-item mb-1">
@@ -298,6 +318,10 @@ $cuser = $_SESSION['sessionUser'] ?? $_SESSION['authUserID'];
                         <a class="nav-link text-danger btn btn-secondary" id="a_docReturn" href="#" onclick='window.location.replace("<?php echo $referer ?>")'><?php echo xlt('Return'); ?></a>
                     </li>
                 <?php } ?>
+                    <li class='nav-item nav-item mb-1'>
+                        <a class='nav-link btn btn-secondary' data-toggle='tooltip' title='Refresh' id='refreshPage' href='javascript:' onclick='window.location.reload()'> <span class='fa fa-sync fa-lg'></span>
+                        </a>
+                    </li>
             </ul>
         </div>
     </nav>
@@ -328,40 +352,15 @@ $cuser = $_SESSION['sessionUser'] ?? $_SESSION['authUserID'];
 <!-- document editor and action toolbar template -->
         <script type="text/template" id="onsiteDocumentModelTemplate">
         <div class="card p-2 m-1" id="docpanel">
-            <nav class="nav navbar-light navbar-expand bg-light sticky-top helpHide">
-                <!-- Sticky actions toolbar -->
-                <div class="py-2 mr-auto ml-auto">
-                <div class="collapse navbar-collapse">
-                        <a class="navbar-brand" href="#"><?php echo xlt('Form Actions') ?></a>
-                  <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="signTemplate" href="#openSignModal" data-toggle="modal" data-backdrop="true" data-target="#openSignModal" data-type="patient-signature"><?php echo xlt('Signature'); ?></a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="saveTemplate" href="#"><?php echo xlt('Save'); ?></a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="printTemplate" href="javascript:;" onclick="printaDoc('templatecontent');"><?php echo xlt('Print'); ?></a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="submitTemplate" href="#"><?php echo xlt('Download'); ?></a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="sendTemplate" href="#"><?php echo xlt('Send for Review'); ?></a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="chartTemplate" href="#"><?php echo xlt('Chart to Category') . ' ' . text($catname); ?></a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="downloadTemplate" href="#"><?php echo xlt('Download'); ?></a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="chartHistory" href="#"><?php echo xlt('Chart History'); ?></a></li>
-                            <?php if (empty($is_module)) { ?>
-                                <!-- future popout -->
-                                <!--<li class="nav-item">
-                                    <a class="nav-link text-danger" id="homeTemplate" href="#" onclick='history.go(0);'><?php /*echo xlt('Dismiss'); */?></a>
-                                </li>-->
-                    <?php } else { ?>
-                      <li class="nav-item">
-                        <a class="nav-link text-danger" id="homeTemplate" href="#" onclick='window.location.replace("<?php echo $referer ?>")'><?php echo xlt('Return'); ?></a>
-                      </li>
-                    <?php } ?>
-                  </ul>
-                </div>
-              </div>
-            </nav>
+
             <!-- Document edit container -->
             <header class="card-header bg-dark text-light helpHide" id='docPanelHeader'><?php echo xlt('Editing'); ?></header>
             <!-- editor form -->
                 <form id='template' name='template' role="form" action="./../lib/doc_lib.php" method="POST">
                 <div id="templatediv" class="card-body border p-2 m-1 bg-white h-100 overflow-auto">
-                    <div id="templatecontent" class="template-body bg-white"><div class="text-center"><i class="fa fa-circle-notch fa-spin fa-3x ml-auto"></i></div></div>
+                                <div id="templatecontent" class="template-body bg-white">
+                                    <div class="text-center"><i class="fa fa-circle-notch fa-spin fa-3x ml-auto"></i></div>
+                                </div>
                   </div>
                   <input type="hidden" name="content" id="content" value="" />
                   <input type="hidden" name="cpid" id="cpid" value="" />

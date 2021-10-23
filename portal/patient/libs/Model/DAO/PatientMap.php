@@ -62,7 +62,7 @@ class PatientMap implements IDaoMap, IDaoMap2
             self::$FM["Id"] = new FieldMap("Id", "patient_data", "id", true, FM_TYPE_BIGINT, 20, null, true);
             self::$FM["Title"] = new FieldMap("Title", "patient_data", "title", false, FM_TYPE_VARCHAR, 255, null, false);
             self::$FM["Language"] = new FieldMap("Language", "patient_data", "language", false, FM_TYPE_VARCHAR, 255, null, false);
-            //self::$FM["Financial"] = new FieldMap("Financial", "patient_data", "financial", false, FM_TYPE_VARCHAR, 255, null, false);
+            self::$FM["Financial"] = new FieldMap("Financial", "patient_data", "financial", false, FM_TYPE_VARCHAR, 255, null, false);
             self::$FM["Fname"] = new FieldMap("Fname", "patient_data", "fname", false, FM_TYPE_VARCHAR, 255, null, false);
             self::$FM["Lname"] = new FieldMap("Lname", "patient_data", "lname", false, FM_TYPE_VARCHAR, 255, null, false);
             self::$FM["Mname"] = new FieldMap("Mname", "patient_data", "mname", false, FM_TYPE_VARCHAR, 255, null, false);

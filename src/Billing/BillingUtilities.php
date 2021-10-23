@@ -16,7 +16,7 @@ namespace OpenEMR\Billing;
 
 class BillingUtilities
 {
-    public const CLAIM_STATUS_CODES_CLP02 = array(
+    const CLAIM_STATUS_CODES_CLP02 = array(
         '1'  => 'Processed as Primary',
         '2'  => 'Processed as Secondary',
         '3'  => 'Processed as Tertiary',
@@ -36,7 +36,7 @@ class BillingUtilities
         '27' => 'Reviewed',
     );
 
-    public const CLAIM_ADJUSTMENT_REASON_CODES = array(
+    const CLAIM_ADJUSTMENT_REASON_CODES = array(
         '1' => 'Deductible Amount',
         '2' => 'Coinsurance Amount',
         '3' => 'Co-payment Amount',
@@ -326,7 +326,7 @@ class BillingUtilities
         'P29' => 'Liability Benefits jurisdictional fee schedule adjustment. Usage: If adjustment is at the Claim Level, the payer must send and the provider should refer to the 835 Class of Contract Code Identification Segment (Loop 2100 Other Claim Related Information REF). If adjustment is at the Line Level, the payer must send and the provider should refer to the 835 Healthcare Policy Identification Segment (loop 2110 Service Payment information REF) if the regulations apply. To be used for Property and Casualty Auto only.'
     );
 
-    public const REMITTANCE_ADVICE_REMARK_CODES = array(
+    const REMITTANCE_ADVICE_REMARK_CODES = array(
         'M1' => 'X-ray not taken within the past 12 months or near enough to the start of treatment.',
         'M2' => 'Not paid separately when the patient is an inpatient.',
         'M3' => 'Equipment is the same or similar to equipment already being used.',

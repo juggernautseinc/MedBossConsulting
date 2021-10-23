@@ -19,8 +19,8 @@ use OpenEMR\Services\FacilityService;
 
 class Claim
 {
-    public const X12_VERSION = '005010X222A1';
-    public const NOC_CODES = array('J3301'); // special handling for not otherwise classified HCPCS/CPT, not many so can add more here
+    const X12_VERSION = '005010X222A1';
+    const NOC_CODES = array('J3301'); // special handling for not otherwise classified HCPCS/CPT, not many so can add more here
 
     public $pid;               // patient id
     public $encounter_id;      // encounter id
@@ -602,17 +602,6 @@ class Claim
         } else {
             return ($this->x12_partner['x12_receiver_id'] ?? '');
         }
-    }
-
-//***MS Add - since we are a TPA we need to include this
-    public function x12_submitter_name()
-    {
-        $tmp = $this->x12_partner['x12_submitter_name'];
-        while (strlen($tmp) < 15) {
-            $tmp .= " ";
-        }
-
-        return $tmp;
     }
 
     public function x12gsreceiverid()

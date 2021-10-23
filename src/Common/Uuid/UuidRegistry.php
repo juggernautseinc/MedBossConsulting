@@ -161,8 +161,6 @@ class UuidRegistry
         //  facility_user_ids (vertical table)
         //  form_encounter
         //  immunizations
-        //  insurance_companies
-        //  insurance_data
         //  lists
         //  patient_data
         //  prescriptions
@@ -175,8 +173,6 @@ class UuidRegistry
         self::appendPopulateLog('facility_user_ids', (new UuidRegistry(['table_name' => 'facility_user_ids', 'table_vertical' => ['uid', 'facility_id']]))->createMissingUuids(), $logEntryComment);
         self::appendPopulateLog('form_encounter', (new UuidRegistry(['table_name' => 'form_encounter']))->createMissingUuids(), $logEntryComment);
         self::appendPopulateLog('immunizations', (new UuidRegistry(['table_name' => 'immunizations']))->createMissingUuids(), $logEntryComment);
-        self::appendPopulateLog('insurance_companies', (new UuidRegistry(['table_name' => 'insurance_companies']))->createMissingUuids(), $logEntryComment);
-        self::appendPopulateLog('insurance_data', (new UuidRegistry(['table_name' => 'insurance_data']))->createMissingUuids(), $logEntryComment);
         self::appendPopulateLog('lists', (new UuidRegistry(['table_name' => 'lists']))->createMissingUuids(), $logEntryComment);
         self::appendPopulateLog('patient_data', (new UuidRegistry(['table_name' => 'patient_data']))->createMissingUuids(), $logEntryComment);
         self::appendPopulateLog('prescriptions', (new UuidRegistry(['table_name' => 'prescriptions']))->createMissingUuids(), $logEntryComment);

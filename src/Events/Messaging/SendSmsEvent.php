@@ -29,6 +29,4 @@ class SendSmsEvent extends Event
     const ACTIONS_RENDER_SMS_POST = 'sendSMS.actions.render.post';
     // sms send dialog sendSMS('mobile phone number')
     const JAVASCRIPT_READY_SMS_POST = 'sendSMS.javascript.load.post';
-    // sms for telehealth
-    const JAVASCRIPT_SMS_TELEHEALTH = 'sendSMS.javascript.telehealth.post';
 }

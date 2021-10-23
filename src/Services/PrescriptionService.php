@@ -15,17 +15,16 @@ namespace OpenEMR\Services;
 use OpenEMR\Common\Uuid\UuidRegistry;
 use OpenEMR\Validators\ProcessingResult;
 use OpenEMR\Validators\BaseValidator;
-use OpenEMR\Validators\PatientValidator;
 
 class PrescriptionService extends BaseService
 {
-    private const DRUGS_TABLE = "drugs";
+
     private const PRESCRIPTION_TABLE = "prescriptions";
     private const PATIENT_TABLE = "patient_data";
     private const ENCOUNTER_TABLE = "form_encounter";
     private const PRACTITIONER_TABLE = "users";
+    private const DRUG_TABLE = "drugs";
     private $uuidRegistry;
-    private $patientValidator;
 
     /**
      * Default constructor.
@@ -38,12 +37,7 @@ class PrescriptionService extends BaseService
         (new UuidRegistry(['table_name' => self::PATIENT_TABLE]))->createMissingUuids();
         (new UuidRegistry(['table_name' => self::ENCOUNTER_TABLE]))->createMissingUuids();
         (new UuidRegistry(['table_name' => self::PRACTITIONER_TABLE]))->createMissingUuids();
-        $this->uuidRegistry = new UuidRegistry([
-            'table_name' => self::DRUGS_TABLE,
-            'table_id' => 'drug_id'
-        ]);
-        $this->uuidRegistry->createMissingUuids();
-        $this->patientValidator = new PatientValidator();
+        (new UuidRegistry(['table_name' => self::DRUG_TABLE, 'table_id' => 'drug_id']))->createMissingUuids();
     }
 
     /**
@@ -53,39 +47,12 @@ class PrescriptionService extends BaseService
      *
      * @param  $search search array parameters
      * @param  $isAndCondition specifies if AND condition is used for multiple criteria. Defaults to true.
-     * @param $puuidBind - Optional variable to only allow visibility of the patient with this puuid.
      * @return ProcessingResult which contains validation messages, internal error messages, and the data
      * payload.
      */
-    public function getAll($search = array(), $isAndCondition = true, $puuidBind = null)
+    public function getAll($search = array(), $isAndCondition = true)
     {
         $sqlBindArray = array();
-
-        if (isset($search['patient.uuid'])) {
-            $isValidPatient = $this->patientValidator->validateId(
-                'uuid',
-                self::PATIENT_TABLE,
-                $search['patient.uuid'],
-                true
-            );
-            if ($isValidPatient != true) {
-                return $isValidPatient;
-            }
-            $search['patient.uuid'] = UuidRegistry::uuidToBytes($search['patient.uuid']);
-        }
-
-        if (!empty($puuidBind)) {
-            // code to support patient binding
-            $isValidPatient = $this->patientValidator->validateId(
-                'uuid',
-                self::PATIENT_TABLE,
-                $puuidBind,
-                true
-            );
-            if ($isValidPatient != true) {
-                return $isValidPatient;
-            }
-        }
 
         $sql = "SELECT prescriptions.*,
                 patient.uuid AS puuid,
@@ -103,11 +70,7 @@ class PrescriptionService extends BaseService
                 ON drug.drug_id = prescriptions.drug_id";
 
         if (!empty($search)) {
-            $sql .= " WHERE ";
-            if (!empty($puuidBind)) {
-                // code to support patient binding
-                $sql .= '(';
-            }
+            $sql .= " AND ";
             $whereClauses = array();
             $wildcardFields = array();
             foreach ($search as $fieldName => $fieldValue) {
@@ -123,15 +86,6 @@ class PrescriptionService extends BaseService
             }
             $sqlCondition = ($isAndCondition == true) ? 'AND' : 'OR';
             $sql .= implode(' ' . $sqlCondition . ' ', $whereClauses);
-            if (!empty($puuidBind)) {
-                // code to support patient binding
-                $sql .= ") AND `patient`.`uuid` = ?";
-                $sqlBindArray[] = UuidRegistry::uuidToBytes($puuidBind);
-            }
-        } elseif (!empty($puuidBind)) {
-            // code to support patient binding
-            $sql .= " WHERE `patient`.`uuid` = ?";
-            $sqlBindArray[] = UuidRegistry::uuidToBytes($puuidBind);
         }
 
         $statementResults = sqlStatement($sql, $sqlBindArray);
@@ -154,11 +108,10 @@ class PrescriptionService extends BaseService
     /**
      * Returns a single prescription record by id.
      * @param $uuid - The prescription uuid identifier in string format.
-     * @param $puuidBind - Optional variable to only allow visibility of the patient with this puuid.
      * @return ProcessingResult which contains validation messages, internal error messages, and the data
      * payload.
      */
-    public function getOne($uuid, $puuidBind = null)
+    public function getOne($uuid)
     {
         $processingResult = new ProcessingResult();
 
@@ -170,18 +123,6 @@ class PrescriptionService extends BaseService
             ];
             $processingResult->setValidationMessages($validationMessages);
             return $processingResult;
-        }
-
-        if (!empty($puuidBind)) {
-            // code to support patient binding
-            $isValid = BaseValidator::validateId("uuid", self::PATIENT_TABLE, $puuidBind, true);
-            if ($isValid !== true) {
-                $validationMessages = [
-                    'puuid' => ["invalid or nonexisting value" => " value " . $puuidBind]
-                ];
-                $processingResult->setValidationMessages($validationMessages);
-                return $processingResult;
-            }
         }
 
         $sql = "SELECT prescriptions.*,
@@ -201,26 +142,16 @@ class PrescriptionService extends BaseService
                 WHERE prescriptions.uuid = ?";
 
         $uuidBinary = UuidRegistry::uuidToBytes($uuid);
-        $sqlBindArray = [$uuidBinary];
-
-        if (!empty($puuidBind)) {
-            // code to support patient binding
-            $sql .= " AND `patient`.`uuid` = ?";
-            $sqlBindArray[] = UuidRegistry::uuidToBytes($puuidBind);
+        $sqlResult = sqlQuery($sql, [$uuidBinary]);
+        $sqlResult['uuid'] = UuidRegistry::uuidToString($sqlResult['uuid']);
+        $sqlResult['puuid'] = UuidRegistry::uuidToString($sqlResult['puuid']);
+        $sqlResult['euuid'] = $sqlResult['euuid'] != null ? UuidRegistry::uuidToString($sqlResult['euuid']) : $sqlResult['euuid'];
+        $sqlResult['pruuid'] = UuidRegistry::uuidToString($sqlResult['pruuid']);
+        $sqlResult['drug_uuid'] = UuidRegistry::uuidToString($sqlResult['drug_uuid']);
+        if ($sqlResult['rxnorm_drugcode'] != "") {
+            $sqlResult['rxnorm_drugcode'] = $this->addCoding($sqlResult['rxnorm_drugcode']);
         }
-
-        $sqlResult = sqlQuery($sql, $sqlBindArray);
-        if (!empty($sqlResult)) {
-            $sqlResult['uuid'] = UuidRegistry::uuidToString($sqlResult['uuid']);
-            $sqlResult['puuid'] = UuidRegistry::uuidToString($sqlResult['puuid']);
-            $sqlResult['euuid'] = $sqlResult['euuid'] != null ? UuidRegistry::uuidToString($sqlResult['euuid']) : $sqlResult['euuid'];
-            $sqlResult['pruuid'] = UuidRegistry::uuidToString($sqlResult['pruuid']);
-            $sqlResult['drug_uuid'] = UuidRegistry::uuidToString($sqlResult['drug_uuid']);
-            if ($sqlResult['rxnorm_drugcode'] != "") {
-                $sqlResult['rxnorm_drugcode'] = $this->addCoding($sqlResult['rxnorm_drugcode']);
-            }
-            $processingResult->addData($sqlResult);
-        }
+        $processingResult->addData($sqlResult);
         return $processingResult;
     }
 }
