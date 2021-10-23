@@ -1336,12 +1336,15 @@ function find_available(extra) {
 </style>
 </head>
 <body>
-<div>
+
     <?php
-          if ($patientBalance != '0.00') {
+          if ($patientBalance >= '300.00') {
+              print "<div>";
               print "<span style='font-color: red; font-size: larger'>";
               print "Patient has a balance of " . $patientBalance . ". Do not schedule";
               print "</span>";
+              print "</div>";
+              die;
           }
     ?>
 </div>
