@@ -25,16 +25,16 @@ use OpenEMR\Core\Header;
     <meta name="author" content="Dashboard | sjpadgett@gmail.com" />
 
     <?php
-    Header::setupHeader(['datetime-picker']);
-echo "<script>var cpid='" . attr($this->cpid) . "';var cuser='" . attr($this->cuser) . "';var webRoot='" . $GLOBALS['web_root'] . "';</script>";
-?>
+    Header::setupHeader(['no_main-theme', 'patientportal-style', 'datetime-picker']);
+    echo "<script>var cpid='" . attr($this->cpid) . "';var cuser='" . attr($this->cuser) . "';var webRoot='" . $GLOBALS['web_root'] . "';</script>";
+    ?>
     <link href="<?php echo $GLOBALS['web_root']; ?>/portal/patient/styles/style.css?v=<?php echo $GLOBALS['v_js_includes']; ?>" rel="stylesheet" />
     <link href="<?php echo $GLOBALS['web_root']; ?>/portal/sign/css/signer_modal.css?v=<?php echo $GLOBALS['v_js_includes']; ?>" rel="stylesheet">
     <script src="<?php echo $GLOBALS['web_root']; ?>/portal/sign/assets/signature_pad.umd.js?v=<?php echo $GLOBALS['v_js_includes']; ?>"></script>
     <script src="<?php echo $GLOBALS['web_root']; ?>/portal/sign/assets/signer_api.js?v=<?php echo $GLOBALS['v_js_includes']; ?>"></script>
 
     <script src="<?php echo $GLOBALS['web_root']; ?>/portal/patient/scripts/libs/LAB.min.js"></script>
-<script>
+    <script>
         $LAB.script("<?php echo $GLOBALS['assets_static_relative']; ?>/underscore/underscore-min.js")
         .script("<?php echo $GLOBALS['assets_static_relative']; ?>/moment/moment.js")
         .script("<?php echo $GLOBALS['assets_static_relative']; ?>/backbone/backbone-min.js")
@@ -42,11 +42,11 @@ echo "<script>var cpid='" . attr($this->cpid) . "';var cuser='" . attr($this->cu
         .script("<?php echo $GLOBALS['web_root']; ?>/portal/patient/scripts/model.js?v=<?php echo $GLOBALS['v_js_includes']; ?>").wait()
         .script("<?php echo $GLOBALS['web_root']; ?>/portal/patient/scripts/view.js?v=<?php echo $GLOBALS['v_js_includes']; ?>")
         .wait(function () {
-        $(function () {
-            console.log('*** Provider Template Load Done ***');
+            $(function () {
+                console.log('*** Provider Template Load Done ***');
+            });
         });
-    });
-</script>
+    </script>
 </head>
 
 <body class="pt-2">

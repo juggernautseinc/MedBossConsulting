@@ -588,7 +588,7 @@ if ($userid) {
         "FROM openemr_postcalendar_categories where pc_active = 1 ORDER BY pc_seq");
     $catoptions = "";
     $prefcat_options = "    <option value='0'>-- " . xlt("None{{Category}}") . " --</option>\n";
-    $thisduration = 45;
+    $thisduration = 0;
     if ($eid) {
         $thisduration = $row['pc_alldayevent'] ? 1440 : round($row['pc_duration'] / 60);
     }

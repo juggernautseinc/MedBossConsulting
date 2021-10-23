@@ -79,14 +79,12 @@ var page = {
             // attach click handler to the table rows for editing
             $('table.collection tbody tr').click(function (e) {
                 e.preventDefault();
-                $("html, body").animate({
-                    scrollTop: 0
-                }, "slow");
                 var m = page.onsiteDocuments.get(this.id);
                 page.showDetailDialog(m);
+                $('html,body').animate({scrollTop:0},500);
             });
             // make the headers clickable for sorting
-            $('table.collection thead tr th').unbind().on('click', function (e) {
+            $('table.collection thead tr th').on('click', function (e) {
                 e.preventDefault();
                 var prop = this.id.replace('header_', '');
                 // toggle the ascending/descending before we change the sort prop
@@ -102,7 +100,7 @@ var page = {
                 page.fetchOnsiteDocuments(page.fetchParams);
             });
             // Let's scroll to document editor on selection.
-            $('.history-btn').unbind().on('click', function (e) {
+            $('.history-btn').on('click', function (e) {
                 /*e.preventDefault();
                 var m = page.onsiteDocuments.get(this.offsetParent.parentElement.id);
                 page.showDetailDialog(m);
@@ -146,6 +144,7 @@ var page = {
                     timepicker: false
                 });
             })
+
             $("#templatecontent").on('focus', ".datetimepicker:not(.hasDatetimepicker)", function () {
                 $(".datetimepicker").datetimepicker({
                     i18n: {
@@ -163,6 +162,11 @@ var page = {
                     scrollMonth: datepicker_scrollMonth,
                     timepicker: true
                 });
+            });
+
+            $('.sidebar-expand button').on('click', function () {
+                $(this).toggleClass("flip-y");
+                $('.nav-sidebar, .main-full, .main-added').toggleClass("active");
             });
 
             docid = page.onsiteDocument.get('docType');
@@ -212,7 +216,7 @@ var page = {
                 isModule ? $("#homeTemplate").show() : $("#homeTemplate").hide();
                 (page.lbfFormName === 'HIS' && !page.isLocked) ? $("#chartHistory").show() : $("#chartHistory").hide();
 
-                $("#chartTemplate").unbind().on('click', function (e) {
+                $("#chartTemplate").on('click', function (e) {
                     e.preventDefault();
                     if (page.isFrameForm) {
                         let formFrame = document.getElementById('lbfForm');
@@ -257,7 +261,7 @@ var page = {
                     }
                 });
 
-                $("#downloadTemplate").unbind().on('click', function (e) {
+                $("#downloadTemplate").on('click', function (e) {
                     // just render the existing model and not save template.
                     // For downloads we just want to give user a chance to dispose/view rendered
                     // document and leave template intact for further edits before charting.
@@ -333,7 +337,7 @@ var page = {
                 page.isLocked ? $("#submitTemplate").show() : $("#submitTemplate").hide();
             }
 
-            $("#saveTemplate").unbind().on('click', function (e) {
+            $("#saveTemplate").on('click', function (e) {
                 e.preventDefault();
                 if (page.isFrameForm) {
                     let formFrame = document.getElementById('lbfForm');
@@ -367,7 +371,7 @@ var page = {
             });
 
             // send to review and save current
-            $("#sendTemplate").unbind().on('click', function (e) {
+            $("#sendTemplate").on('click', function (e) {
                 e.preventDefault();
                 if (page.isFrameForm) {
                     let formFrame = document.getElementById('lbfForm');
@@ -398,7 +402,7 @@ var page = {
             });
 
             // download from portal
-            $("#submitTemplate").unbind().on('click', function () {
+            $("#submitTemplate").on('click', function () {
                 if (page.onsiteDocument.get('denialReason') === 'In Review') {
                     pageAudit.onsitePortalActivity.set('status', 'waiting');
                 } else {
@@ -414,7 +418,7 @@ var page = {
                 page.updateModel();
             });
 
-            $("#chartHistory").unbind().on('click', function () {
+            $("#chartHistory").on('click', function () {
                 if (page.isFrameForm) {
                     let formFrame = document.getElementById('lbfForm');
                     page.lbfFormId = 0;
@@ -528,10 +532,7 @@ var page = {
     },
 
     getDocument: function (templateName, pid) {
-        $(".helpHide").removeClass("d-none");
         let currentName = page.onsiteDocument.get('docType');
-        let currentNameStyled = currentName.substr(0, currentName.lastIndexOf('.')) || currentName;
-        currentNameStyled = currentNameStyled.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, ' ');
         page.isFrameForm = 0;
         page.lbfFormId = 0;
         page.lbfFormName = '';
@@ -622,14 +623,8 @@ var page = {
         if (cnt !== -1) {
             cdate = cdate.toString().substring(0, cnt);
         }
-        $('#docPanelHeader').append('&nbsp;<span class="bg-light text-dark px-2">' + jsText(currentNameStyled) + '</span>&nbsp;' +
-            jsText(' Dated: ' + cdate + ' Status: ' + status));
-        //$('#docTitle').html(jsText(currentNameStyled));
-        $("html, body").animate({
-            scrollTop: 0
-        }, "slow");
-    }
-    ,
+        $('#docPanelHeader').append(' : ' + currentName + ' Dated: ' + cdate + ' Status: ' + status);
+    },
     /**
      * show the doc for editing
      * @param model
@@ -709,7 +704,7 @@ var page = {
             page.onsiteDocument.set('denialReason', 'Open');
             app.showProgress('modelLoader');
         }
-        let isLink = $('#patientSignature').attr('src') ? $('#patientSignature').attr('src').indexOf('signhere') : -1;
+        var isLink = $('#patientSignature').attr('src') ? $('#patientSignature').attr('src').indexOf('signhere') : -1;
         if (isLink !== -1) {
             $('#patientSignature').attr('src', signhere);
         }

@@ -161,9 +161,10 @@ function messageCreate($uname, $pass, $encoded_link = '')
 function doCredentials($pid)
 {
     global $srcdir;
-    $pid = (int)$pid;
+
     $newpd = sqlQuery("SELECT id,fname,mname,lname,email,email_direct, providerID FROM `patient_data` WHERE `pid`=?", array($pid));
     $user = sqlQueryNoLog("SELECT users.username FROM users WHERE authorized = 1 And id = ?", array($newpd['providerID']));
+
 
     $crypto = new CryptoGen();
     $uname = $newpd['fname'] . $newpd['id'];
@@ -189,7 +190,6 @@ function doCredentials($pid)
 
     // Will store unencrypted token in database with the pin and expiration date
     $one_time = $token_new . $pin . bin2hex($expiry->format('U'));
-
     $res = sqlStatement("SELECT * FROM patient_access_onsite WHERE pid=?", array($pid));
     $query_parameters = array($uname, $one_time);
     $newHash = (new AuthHash('auth'))->passwordHash($clear_pass);
@@ -203,8 +203,7 @@ function doCredentials($pid)
     if (sqlNumRows($res)) {
         sqlStatementNoLog("UPDATE patient_access_onsite SET portal_username=?,portal_onetime=?,portal_pwd=?,portal_pwd_status=0 WHERE pid=?", $query_parameters);
     } else {
-        sqlStatementNoLog("REPLACE INTO patient_access_onsite SET portal_username=?,portal_onetime=?,portal_pwd=?,portal_pwd_status=0,pid=?", $query_parameters);
-        //sqlStatementNoLog("UPDATE patient_access_onsite SET pid = ? WHERE portal_username= ?", ["'".$pid."'", $uname]);
+        sqlStatementNoLog("INSERT INTO patient_access_onsite SET portal_username=?,portal_onetime=?,portal_pwd=?,portal_pwd_status=0,pid=?", $query_parameters);
     }
 
     if (!validEmail($newpd['email_direct'])) {

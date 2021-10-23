@@ -16,12 +16,12 @@ require_once("../interface/globals.php");
 
 use OpenEMR\Core\Header;
 
-$patient = (int)($_POST['sel_pt'] ?? 0);
-$patient_dir = $patient > 0 ? convert_safe_file_dir_name($patient . "_tpls") : "";
+$patient_dir = $_POST['sel_pt'] ?? 0;
+$patient_dir = convert_safe_file_dir_name($patient_dir . "_tpls");
 $cat_dir = convert_safe_file_dir_name($_POST['doc_category']) ?? "";
 // default root
-    $tdir = $GLOBALS['OE_SITE_DIR'] . '/documents/onsite_portal_documents/templates/';
-if (!empty($patient_dir)) {
+$tdir = $GLOBALS['OE_SITE_DIR'] . '/documents/onsite_portal_documents/templates/';
+if ($patient_dir > 0) {
     $tdir = $GLOBALS['OE_SITE_DIR'] . '/documents/onsite_portal_documents/templates/' . $patient_dir . '/';
 } elseif (!empty($cat_dir)) {
     $tdir = $GLOBALS['OE_SITE_DIR'] . '/documents/onsite_portal_documents/templates/' . $cat_dir . '/';
@@ -58,7 +58,6 @@ function getTemplateList($dir, $location = "")
         if ($entry[0] === "." || substr($entry, -3) !== 'tpl') {
             continue;
         }
-
         if (is_dir("$dir$entry")) {
             continue;
         }
@@ -85,7 +84,7 @@ function getTemplateList($dir, $location = "")
     <meta charset="UTF-8">
     <title><?php echo xlt('Portal'); ?> | <?php echo xlt('Templates'); ?></title>
     <meta name="description" content="Developed By sjpadgett@gmail.com">
-    <?php Header::setupHeader(['datetime-picker', 'summernote', 'summernote-ext-nugget']); ?>
+    <?php Header::setupHeader(['no_main-theme', 'datetime-picker', 'summernote', 'summernote-ext-nugget', 'patientportal-style']); ?>
 
 </head>
 <script>
@@ -124,7 +123,7 @@ function getTemplateList($dir, $location = "")
             success: function (templateHtml, textStatus, jqXHR) {
                 if (mode == 'get') {
                     let editHtml = '<div class="edittpl" id="templatecontent"></div>';
-                    dlgopen('','popeditor','modal-full', 850,'', '', {
+                    dlgopen('', 'popeditor', 'modal-full', 850, '', '', {
                         buttons: [
                             {text: <?php echo xlj('Save'); ?>, close: false, style: 'success btn-sm', click: tsave},
                             {text: <?php echo xlj('Dismiss'); ?>, style: 'danger btn-sm', close: true}
@@ -153,7 +152,7 @@ function getTemplateList($dir, $location = "")
                         ],
                         nugget: {
                             list: [
-                                '{ParseAsHTML}','{TextInput}','{sizedTextInput:120px}','{smTextInput}','{TextBox:03x080}','{DatePicker}','{CheckMark}','{ynRadioGroup}','{TrueFalseRadioGroup}','{DateTimePicker}','{StandardDatePicker}','{DOS}','{ReferringDOC}','{PatientID}','{PatientName}','{PatientSex}','{PatientDOB}','{PatientPhone}','{Address}','{City}','{State}','{Zip}','{PatientSignature}','{AdminSignature}','{Medications}','{ProblemList}','{Allergies}','{ChiefComplaint}','{EncounterForm:LBF}','{DEM: }','{HIS: }','{LBF: }','{GRP}{/GRP}'
+                                '{ParseAsHTML}', '{TextInput}', '{sizedTextInput:120px}', '{smTextInput}', '{TextBox:03x080}', '{DatePicker}', '{CheckMark}', '{ynRadioGroup}', '{TrueFalseRadioGroup}', '{DateTimePicker}', '{StandardDatePicker}', '{DOS}', '{ReferringDOC}', '{PatientID}', '{PatientName}', '{PatientSex}', '{PatientDOB}', '{PatientPhone}', '{Address}', '{City}', '{State}', '{Zip}', '{PatientSignature}', '{AdminSignature}', '{Medications}', '{ProblemList}', '{Allergies}', '{ChiefComplaint}', '{EncounterForm:LBF}', '{DEM: }', '{HIS: }', '{LBF: }', '{GRP}{/GRP}'
                             ],
                             label: 'Directives',
                             tooltip: 'Select Directive to insert at current cursor position.'
@@ -192,7 +191,7 @@ function getTemplateList($dir, $location = "")
         <form id="form_upload" class="form-inline" action="import_template.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
             <div class="btn-group">
-            <input class="btn btn-outline-info" type="file" name="tplFile">
+                <input class="btn btn-outline-info" type="file" name="tplFile">
                 <button class="btn btn-outline-primary" type="submit" name="upload_submit" id="upload_submit"><?php echo xlt('Uploading For'); ?> <label id='ptstatus'></label></button>
             </div>
                 <button class="btn btn-success ml-2" type="button" onclick="location.href='./patient/provider'"><?php echo xlt('Dashboard'); ?></button>
@@ -235,8 +234,7 @@ function getTemplateList($dir, $location = "")
                                 }
                             }
                             ?>
-                        </select>
-                    </div>
+                        </select></div>
                     <button type="submit" class="btn btn-secondary"><?php echo xlt('Refresh'); ?></button>
                 </form>
             </div>
@@ -266,55 +264,38 @@ function getTemplateList($dir, $location = "")
             echo "<tbody>\n";
             foreach ($dir_list as $cat => $files) {
                 foreach ($files as $file) {
-                $t = $file['pathname'];
-                echo "<tr><td>";
-                echo '<button id="tedit' . attr($t) .
-                    '" class="btn btn-sm btn-outline-primary" onclick="tedit(' . attr_js($t) . ')" type="button">' . text($file['name']) . '</button>' .
-                    '<button id="tdelete' . attr($t) .
-                    '" class="btn btn-sm btn-outline-danger" onclick="tdelete(' . attr_js($t) . ')" type="button">' . xlt("Delete") . '</button>';
+                    $t = $file['pathname'];
+                    echo "<tr><td>";
+                    echo '<button id="tedit' . attr($t) .
+                        '" class="btn btn-sm btn-outline-primary" onclick="tedit(' . attr_js($t) . ')" type="button">' . text($file['name']) . '</button>' .
+                        '<button id="tdelete' . attr($t) .
+                        '" class="btn btn-sm btn-outline-danger" onclick="tdelete(' . attr_js($t) . ')" type="button">' . xlt("Delete") . '</button>';
                     echo "</td><td>" . text(ucwords($cat)) . "</td>";
                     echo "<td>" . text($file['location']) . "</td>";
                     echo "<td>" . text($file['size']) . "</td>";
-                echo "<td>" . text(date('r', $file['lastmod'])) . "</td>";
-                echo "</tr>";
+                    echo "<td>" . text(date('r', $file['lastmod'])) . "</td>";
+                    echo "</tr>";
+                }
             }
-            }
-
             echo "</tbody>";
             echo "</table>";
             ?>
-        </div>
-    </div>
             <script>
                 $(function () {
                     $("#sel_pt").change(function () {
-                if (checkCategory()) {
                         $("#edit_form").submit();
-                }
                     });
 
                     $("#doc_category").change(function () {
-                if (checkCategory()) {
                         $("#edit_form").submit();
-                }
                     });
 
                     $("#ptstatus").text($("#sel_pt").find(":selected").text());
                     $("#ptstatus").append(' ' + xl("to Category") + ' ');
                     $("#ptstatus").append($("#doc_category").find(":selected").text());
-
-            function checkCategory() {
-                let cat = $("#doc_category").val();
-                let patient = $("#sel_pt").val();
-                if (patient !== "0" && cat !== "") {
-                    alert(xl("Alert! Can only use the General category with patients."));
-                    $("#doc_category").val("");
-                    return false;
-                }
-                return true;
-            }
                 });
-
             </script>
+        </div>
+    </div>
 </body>
 </html>

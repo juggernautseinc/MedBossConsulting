@@ -22,7 +22,7 @@ function get_template_list($root_directory)
 {
     global $pid;
 
-    $gen_const = xlt("Priority Request");
+    $gen_const = xlt("From Provider");
     $rtn = sqlStatement("SELECT `option_id`, `title`, `seq` FROM `list_options` WHERE `list_id` = ? ORDER BY `seq`", array('Document_Template_Categories'));
     $category_list = array();
     while ($row = sqlFetchArray($rtn)) {
@@ -34,10 +34,7 @@ function get_template_list($root_directory)
     // does patient have any special documents.
     if (!empty($pid)) {
         $pid_path = convert_safe_file_dir_name($pid . "_tpls");
-        $tpls = get_template_dir_array($root_directory . $pid_path, $pid_path);
-        if (count($tpls) > 0) {
-            $dir_list[$gen_const] = $tpls;
-        }
+        $dir_list[$gen_const] = get_template_dir_array($root_directory . $pid_path, $pid_path);
     }
     // get only directories from our category list
     foreach ($category_list as $cat) {
@@ -69,7 +66,7 @@ function render_template_list($tree)
                 if (is_array($filename)) {
                     continue;
                 }
-    $basefile = basename($filename, ".tpl");
+                $basefile = basename($filename, ".tpl");
                 $btnname = text(ucwords(str_replace('_', ' ', $basefile)));
                 $btnfile = attr($filename);
                 echo '<li class="nav-item mb-1"><a class="nav-link text-success btn btn-outline-success" id="' . $basefile . '"' . ' href="#" onclick="page.newDocument(' . "$pid,'$cuser','$btnfile')" . '"' . ">$btnname</a></li>\n";
@@ -95,10 +92,7 @@ function get_template_dir_array($dir, $cat_dir = ''): array
         $dir .= "/";
     }
 
-    if (!is_dir($dir)) {
-        return [];
-    }
-    if (false === ($d = @dir($dir))) {
+    if (false === $d = @dir($dir)) {
         return [];
     }
     while (false !== ($entry = $d->read())) {
@@ -111,7 +105,7 @@ function get_template_dir_array($dir, $cat_dir = ''): array
 
         if (is_readable("$dir$entry")) {
             $ret_val[] = text($cat_dir ? ($cat_dir . '/') . $entry : $entry);
-}
+        }
     }
     $d->close();
 

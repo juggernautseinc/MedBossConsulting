@@ -1,11 +1,5 @@
 <?php
 
-if ($_GET['site'] == 'default' || empty($_GET['site']) || $_GET['site'] == '') {
-
-    echo "Your registration is complete click here to login to Serenity Portal? <a href='https://ehr.medbossconsulting.com/portal/index.php?site=serenity'>Click Here</a>";
-    die;
-}
-
 /**
  * import_template.php
  *
@@ -334,7 +328,7 @@ if (!(isset($_SESSION['password_update']) || isset($_GET['requestNew']))) {
                     <img class="img-responsive center-block login-image" src='<?php echo $GLOBALS['images_static_relative']; ?>/login-logo.png' />
                     <form class="text-center" action="get_patient_info.php" method="POST" onsubmit="return process()">
                                 <fieldset>
-                                    <legend class="text-white pt-2 py-1" style="background-color: #20218a"><h3><?php echo xlt('Patient Portal Login'); ?></h3></legend>
+                                    <legend class="bg-primary text-white pt-2 py-1"><h3><?php echo xlt('Patient Portal Login'); ?></h3></legend>
                                     <div class="jumbotron jumbotron-fluid px-5 py-3">
                                         <div class="form-row my-3">
                                             <label class="col-md-2 col-form-label" for="uname"><?php echo xlt('Username') ?></label>
@@ -390,12 +384,12 @@ if (!(isset($_SESSION['password_update']) || isset($_GET['requestNew']))) {
                                     <div class="row">
                                         <div class="col-12">
                                             <?php if ($GLOBALS['portal_onsite_two_register']) { ?>
-                                                <button class="btn btn-danger float-left" onclick="location.replace('./account/register.php')"><?php echo xlt('Register Here'); ?></button>
+                                                <button class="btn btn-light float-left" onclick="location.replace('./account/register.php')"><?php echo xlt('Register'); ?></button>
                                             <?php } ?>
                                             <?php if ($GLOBALS['portal_two_pass_reset'] && isset($_GET['w']) && (isset($_GET['u']) || isset($_GET['p']))) { ?>
                                                 <button class="btn btn-danger" onclick="location.replace('./index.php?requestNew=1')" style="margin-left:10px"><?php echo xlt('Reset Credentials'); ?></button>
                                             <?php } ?>
-                                                <button class="btn btn-danger float-right" type="submit"><?php echo xlt('Log In'); ?></button>
+                                                <button class="btn btn-success float-right" type="submit"><?php echo xlt('Log In'); ?></button>
                                         </div>
                                     </div>
                                     </fieldset>

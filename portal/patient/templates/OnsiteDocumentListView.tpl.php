@@ -52,7 +52,6 @@ $cuser = $_SESSION['sessionUser'] ?? $_SESSION['authUserID'];
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <title><?php
     if ($is_dashboard) {
@@ -103,7 +102,6 @@ $cuser = $_SESSION['sessionUser'] ?? $_SESSION['authUserID'];
             border: 1px solid !important;
             border-radius: .25rem !important;
         }
-
     </style>
 </head>
 
@@ -113,8 +111,8 @@ $cuser = $_SESSION['sessionUser'] ?? $_SESSION['authUserID'];
         $LAB.script("<?php echo $GLOBALS['web_root']; ?>/portal/patient/scripts/app/onsitedocuments.js?v=<?php echo $GLOBALS['v_js_includes']; ?>").wait().script(
             "<?php echo $GLOBALS['web_root']; ?>/portal/patient/scripts/app/onsiteportalactivities.js?v=<?php echo $GLOBALS['v_js_includes']; ?>").
         wait(function() {
-                    page.init();
-                    pageAudit.init();
+            page.init();
+            pageAudit.init();
             if (isPortal) {
                 $('#Help').on('click', function (e) {
                     e.preventDefault();
@@ -123,17 +121,17 @@ $cuser = $_SESSION['sessionUser'] ?? $_SESSION['authUserID'];
                 $("#Help").click();
                 $(".helpHide").addClass("d-none");
             }
-                    console.log('init done template');
+            console.log('init done template');
 
-                setTimeout(function() {
-                    if (!page.isInitialized) {
-                        page.init();
+            setTimeout(function () {
+                if (!page.isInitialized) {
+                    page.init();
                     if (!pageAudit.isInitialized) {
-                            pageAudit.init();
+                        pageAudit.init();
                     }
                 }
             }, 2000);
-            });
+        });
 
         function printaDoc(divName) {
             flattenDocument();
@@ -277,37 +275,17 @@ $cuser = $_SESSION['sessionUser'] ?? $_SESSION['authUserID'];
         <a class="navbar-brand ml-auto"><h3><?php echo xlt("Document Center") ?></h3></a>
         <div id="topmenu" class="mr-auto">
             <ul class="navbar-nav mr-auto">
-                    <!-- Sticky actions toolbar -->
-                    <div class='nav helpHide d-none'>
-                        <!--<a id='docTitle' class='navbar-brand' href='#'><?php /*echo xlt('Form Actions') */ ?></a>-->
-                        <ul class="navbar-nav">
-                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="signTemplate" href="#openSignModal" data-toggle="modal" data-backdrop="true" data-target="#openSignModal" data-type="patient-signature"><?php echo xlt('Signature'); ?></a></li>
-                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="saveTemplate" href="#"><?php echo xlt('Save'); ?></a></li>
-                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="printTemplate" href="javascript:;" onclick="printaDoc('templatecontent');"><?php echo xlt('Print'); ?></a></li>
-                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="submitTemplate" href="#"><?php echo xlt('Download'); ?></a></li>
-                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="sendTemplate" href="#"><?php echo xlt('Submit Document'); ?></a></li>
-                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="chartTemplate" href="#"><?php echo xlt('Chart to') . ' ' . text($catname); ?></a></li>
-                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="downloadTemplate" href="#"><?php echo xlt('Download'); ?></a></li>
-                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="chartHistory" href="#"><?php echo xlt('Chart History'); ?></a></li>
-                            <?php if (empty($is_module)) { ?>
-                                <!-- future popout -->
-                                <!--<li class="nav-item">
-                                    <a class="nav-link text-danger" id="homeTemplate" href="#" onclick='history.go(0);'><?php /*echo xlt('Dismiss'); */ ?></a>
-                                </li>-->
-                            <?php } else { ?>
-                                <li class="nav-item">
-                                    <a class="nav-link text-danger" id="homeTemplate" href="#" onclick='window.location.replace("<?php echo $referer ?>")'><?php echo xlt('Return'); ?></a>
-                                </li>
-                            <?php } ?>
-                        </ul>
-                    </div>
-                    <li class='nav-item mb-1'>
-                        <a class='nav-link text-success btn btn-outline-success' onclick="$('.historyHide').toggleClass('d-none');document.getElementById('historyTable').scrollIntoView({behavior: 'smooth'})"><i class='fa fa-toggle-on mr-1' aria-hidden='true'></i><?php echo xlt('History') ?>
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-success btn btn-outline-success" onclick="$('.historyHide').toggleClass('d-none');document.getElementById('historyTable').scrollIntoView({behavior: 'smooth'})"><i class="fa fa-toggle-on mr-1" aria-hidden="true"></i><?php echo xlt("Show/Hide History") ?>
                     </a>
                 </li>
                 <?php if (empty($is_module)) { ?>
                     <li class="nav-item mb-1">
                         <a id="Help" class="nav-link text-primary btn btn-outline-primary" onclick='page.newDocument(cpid, cuser, "Help.tpl");'><?php echo xlt('Help'); ?></a>
+                    </li>
+                    <li class="nav-item nav-item mb-1">
+                        <a class="nav-link btn btn-secondary" data-toggle="tooltip" title="Refresh" id="refreshPage" href="javascript:" onclick="window.location.reload()"> <span class="fa fa-sync fa-lg"></span>
+                        </a>
                     </li>
                     <!-- future popout-->
                     <!--<li class="nav-item mb-1">
@@ -318,10 +296,6 @@ $cuser = $_SESSION['sessionUser'] ?? $_SESSION['authUserID'];
                         <a class="nav-link text-danger btn btn-secondary" id="a_docReturn" href="#" onclick='window.location.replace("<?php echo $referer ?>")'><?php echo xlt('Return'); ?></a>
                     </li>
                 <?php } ?>
-                    <li class='nav-item nav-item mb-1'>
-                        <a class='nav-link btn btn-secondary' data-toggle='tooltip' title='Refresh' id='refreshPage' href='javascript:' onclick='window.location.reload()'> <span class='fa fa-sync fa-lg'></span>
-                        </a>
-                    </li>
             </ul>
         </div>
     </nav>
@@ -350,89 +324,114 @@ $cuser = $_SESSION['sessionUser'] ?? $_SESSION['authUserID'];
         <!-- Right editor container -->
         <div class="flex-column col-md-9 col-lg-10">
 <!-- document editor and action toolbar template -->
-        <script type="text/template" id="onsiteDocumentModelTemplate">
+<script type="text/template" id="onsiteDocumentModelTemplate">
         <div class="card p-2 m-1" id="docpanel">
-
+            <nav class="nav navbar-light navbar-expand bg-light sticky-top helpHide">
+                <!-- Sticky actions toolbar -->
+                <div class="py-2 mr-auto ml-auto">
+                    <div class="collapse navbar-collapse">
+                        <a class="navbar-brand" href="#"><?php echo xlt('Form Actions') ?></a>
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="signTemplate" href="#openSignModal" data-toggle="modal" data-backdrop="true" data-target="#openSignModal" data-type="patient-signature"><?php echo xlt('Signature'); ?></a></li>
+                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="saveTemplate" href="#"><?php echo xlt('Save'); ?></a></li>
+                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="printTemplate" href="javascript:;" onclick="printaDoc('templatecontent');"><?php echo xlt('Print'); ?></a></li>
+                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="submitTemplate" href="#"><?php echo xlt('Download'); ?></a></li>
+                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="sendTemplate" href="#"><?php echo xlt('Send for Review'); ?></a></li>
+                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="chartTemplate" href="#"><?php echo xlt('Chart to Category') . ' ' . text($catname); ?></a></li>
+                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="downloadTemplate" href="#"><?php echo xlt('Download'); ?></a></li>
+                            <li class="nav-item"><a class="nav-link btn btn-outline-primary" id="chartHistory" href="#"><?php echo xlt('Chart History'); ?></a></li>
+                            <?php if (empty($is_module)) { ?>
+                                <!-- future popout -->
+                                <!--<li class="nav-item">
+                                    <a class="nav-link text-danger" id="homeTemplate" href="#" onclick='history.go(0);'><?php /*echo xlt('Dismiss'); */?></a>
+                                </li>-->
+                            <?php } else { ?>
+                                <li class="nav-item">
+                                    <a class="nav-link text-danger" id="homeTemplate" href="#" onclick='window.location.replace("<?php echo $referer ?>")'><?php echo xlt('Return'); ?></a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
             <!-- Document edit container -->
             <header class="card-header bg-dark text-light helpHide" id='docPanelHeader'><?php echo xlt('Editing'); ?></header>
             <!-- editor form -->
-                <form id='template' name='template' role="form" action="./../lib/doc_lib.php" method="POST">
-                <div id="templatediv" class="card-body border p-2 m-1 bg-white h-100 overflow-auto">
-                                <div id="templatecontent" class="template-body bg-white">
-                                    <div class="text-center"><i class="fa fa-circle-notch fa-spin fa-3x ml-auto"></i></div>
-                                </div>
-                  </div>
-                  <input type="hidden" name="content" id="content" value="" />
-                  <input type="hidden" name="cpid" id="cpid" value="" />
-                  <input type="hidden" name="docid" id="docid" value="" />
-                  <input type="hidden" name="handler" id="handler" value="download" />
-                  <input type="hidden" name="status" id="status" value="Open" />
-                </form>
+            <form id='template' name='template' role="form" action="./../lib/doc_lib.php" method="POST">
+                <div id="templatediv" class="card-body border p-2 m-1 bg-white">
+                    <div id="templatecontent" class="template-body bg-white"><div class="text-center"><i class="fa fa-circle-notch fa-spin fa-3x ml-auto"></i></div></div>
+                </div>
+                <input type="hidden" name="content" id="content" value="" />
+                <input type="hidden" name="cpid" id="cpid" value="" />
+                <input type="hidden" name="docid" id="docid" value="" />
+                <input type="hidden" name="handler" id="handler" value="download" />
+                <input type="hidden" name="status" id="status" value="Open" />
+            </form>
             <div class="clearfix">
-                <span>
+            <span>
                 <button id="dismissOnsiteDocumentButton" class="btn btn-sm btn-link float-right" onclick="history.go(0);"><?php echo xlt('Dismiss Form'); ?></button>
-                </span>
-<!-- delete button is a separate form to prevent enter key from triggering a delete-->
-                  <form id="deleteOnsiteDocumentButtonContainer" class="form-inline" onsubmit="return false;">
-                    <fieldset>
-                      <div class="form-group">
+            </span>
+            <!-- delete button is a separate form to prevent enter key from triggering a delete-->
+            <form id="deleteOnsiteDocumentButtonContainer" class="form-inline" onsubmit="return false;">
+                <fieldset>
+                    <div class="form-group">
                         <label class="col-form-label"></label>
                         <div class="controls">
-                          <button id="deleteOnsiteDocumentButton" class="btn btn-sm btn-danger"><i class="icon-trash icon-white"></i><?php echo xlt('Delete Document'); ?></button>
-                          <span id="confirmDeleteOnsiteDocumentContainer">
-                            <button id="cancelDeleteOnsiteDocumentButton" class="btn btn-link btn-sm"><?php echo xlt('Cancel'); ?></button>
-                            <button id="confirmDeleteOnsiteDocumentButton" class="btn btn-sm btn-danger"><?php echo xlt('Confirm'); ?></button>
+                            <button id="deleteOnsiteDocumentButton" class="btn btn-sm btn-danger"><i class="icon-trash icon-white"></i><?php echo xlt('Delete Document'); ?></button>
+                            <span id="confirmDeleteOnsiteDocumentContainer">
+                                <button id="cancelDeleteOnsiteDocumentButton" class="btn btn-link btn-sm"><?php echo xlt('Cancel'); ?></button>
+                                <button id="confirmDeleteOnsiteDocumentButton" class="btn btn-sm btn-danger"><?php echo xlt('Confirm'); ?></button>
                           </span>
                         </div>
-                      </div>
-                    </fieldset>
-                  </form>
-                </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
 </script>
 <div id="onsiteDocumentModelContainer" class="modelContainer">
     <!-- rendered edit document and action toolbar template -->
-              </div>
+</div>
 </div><!-- close flex right-->
 </div><!-- close flex row -->
 
 <!-- Now history table container template -->
 <script type="text/template" id="onsiteDocumentCollectionTemplate">
-    <div class="table-responsive pt-3">
+        <div class="table-responsive pt-3">
             <h4 class="text-sm-center"><?php echo xlt('Your Document History') ?><small> (Click on label to sort.)</small></h4>
-        <table class="collection table table-sm table-hover">
+            <table class="collection table table-sm table-hover">
                 <thead class='thead-dark'>
-            <tr class='cursor-pointer'>
-                <th scope="col" id="header_Id"><?php echo xlt('Id'); ?><% if (page.orderBy == 'Id') { %> <i class='icon-arrow-<%= page.orderDesc ? ' up' : 'down' %>' /><% } %></th>
-                <th scope="col" id="header_DocType"><?php echo xlt('Document'); ?><% if (page.orderBy == 'DocType') { %> <i class='fa fa-arrow-<%= page.orderDesc ? ' up' : 'down' %>' /><% } %></th>
-                <th scope="col" id="header_CreateDate"><?php echo xlt('Create Date'); ?><% if (page.orderBy == 'CreateDate') { %> <i class='fa fa-arrow-<%= page.orderDesc ? ' up' : 'down' %>' /><% } %></th>
-                <th scope="col" id="header_ReviewDate"><?php echo xlt('Reviewed Date'); ?><% if (page.orderBy == 'ReviewDate') { %> <i class='fa fa-arrow-<%= page.orderDesc ? ' up' : 'down' %>' /><% } %></th>
-                <th scope="col" id="header_DenialReason"><?php echo xlt('Review Status'); ?><% if (page.orderBy == 'DenialReason') { %> <i class='fa fa-arrow-<%= page.orderDesc ? ' up' : 'down' %>' /><% } %></th>
-                <th scope="col" id="header_PatientSignedStatus"><?php echo xlt('Signed'); ?><% if (page.orderBy == 'PatientSignedStatus') { %> <i class='fa fa-arrow-<%= page.orderDesc ? ' up' : 'down' %>' /><% } %></th>
-                <th scope="col" id="header_PatientSignedTime"><?php echo xlt('Signed Date'); ?><% if (page.orderBy == 'PatientSignedTime') { %> <i class='fa fa-arrow-<%= page.orderDesc ? ' up' : 'down' %>' /><% } %></th>
-            </tr>
-            </thead>
-            <tbody>
-            <% items.each(function(item) {
-            // if ((!isPortal && item.get('denialReason') == 'Locked')) return;
-            %>
-            <tr id="<%= _.escape(item.get('id')) %>">
-                <th scope="row"><%= _.escape(item.get('id') || '') %></th>
-                <td>
+                <tr class='cursor-pointer'>
+                    <th scope="col" id="header_Id"><?php echo xlt('Id'); ?><% if (page.orderBy == 'Id') { %> <i class='icon-arrow-<%= page.orderDesc ? ' up' : 'down' %>' /><% } %></th>
+                    <th scope="col" id="header_DocType"><?php echo xlt('Document'); ?><% if (page.orderBy == 'DocType') { %> <i class='fa fa-arrow-<%= page.orderDesc ? ' up' : 'down' %>' /><% } %></th>
+                    <th scope="col" id="header_CreateDate"><?php echo xlt('Create Date'); ?><% if (page.orderBy == 'CreateDate') { %> <i class='fa fa-arrow-<%= page.orderDesc ? ' up' : 'down' %>' /><% } %></th>
+                    <th scope="col" id="header_ReviewDate"><?php echo xlt('Reviewed Date'); ?><% if (page.orderBy == 'ReviewDate') { %> <i class='fa fa-arrow-<%= page.orderDesc ? ' up' : 'down' %>' /><% } %></th>
+                    <th scope="col" id="header_DenialReason"><?php echo xlt('Review Status'); ?><% if (page.orderBy == 'DenialReason') { %> <i class='fa fa-arrow-<%= page.orderDesc ? ' up' : 'down' %>' /><% } %></th>
+                    <th scope="col" id="header_PatientSignedStatus"><?php echo xlt('Signed'); ?><% if (page.orderBy == 'PatientSignedStatus') { %> <i class='fa fa-arrow-<%= page.orderDesc ? ' up' : 'down' %>' /><% } %></th>
+                    <th scope="col" id="header_PatientSignedTime"><?php echo xlt('Signed Date'); ?><% if (page.orderBy == 'PatientSignedTime') { %> <i class='fa fa-arrow-<%= page.orderDesc ? ' up' : 'down' %>' /><% } %></th>
+                </tr>
+                </thead>
+                <tbody>
+                <% items.each(function(item) {
+                // if ((!isPortal && item.get('denialReason') == 'Locked')) return;
+                %>
+                <tr id="<%= _.escape(item.get('id')) %>">
+                    <th scope="row"><%= _.escape(item.get('id') || '') %></th>
+                    <td>
                         <button class='btn btn-outline-success history-btn'><%= _.escape(item.get('docType').slice(0, -4).replace(/_/g, ' ') || '') %></button>
-                </td>
-                <td><%if (item.get('createDate')) { %><%= item.get('createDate') %><% } else { %>NULL<% } %></td>
-                <td><%if (item.get('reviewDate') > '1969-12-31 24') { %><%= item.get('reviewDate') %><% } else { %>Pending<% } %></td>
-                <td><%= _.escape(item.get('denialReason') || 'Pending') %></td>
-                <td><%if (item.get('patientSignedStatus')=='1') { %><%= 'Yes' %><% } else { %>No<% } %></td>
-                <td><%if (item.get('patientSignedTime') > '1969-12-31 24') { %><%= item.get('patientSignedTime') %><% } else { %>Pending<% } %></td>
-            </tr>
-            <% }); %>
-            </tbody>
-        </table>
-        <%= view.getPaginationHtml(page) %>
-    </div>
+                    </td>
+                    <td><%if (item.get('createDate')) { %><%= item.get('createDate') %><% } else { %>NULL<% } %></td>
+                    <td><%if (item.get('reviewDate') > '1969-12-31 24') { %><%= item.get('reviewDate') %><% } else { %>Pending<% } %></td>
+                    <td><%= _.escape(item.get('denialReason') || 'Pending') %></td>
+                    <td><%if (item.get('patientSignedStatus')=='1') { %><%= 'Yes' %><% } else { %>No<% } %></td>
+                    <td><%if (item.get('patientSignedTime') > '1969-12-31 24') { %><%= item.get('patientSignedTime') %><% } else { %>Pending<% } %></td>
+                </tr>
+                <% }); %>
+                </tbody>
+            </table>
+            <%= view.getPaginationHtml(page) %>
         </div>
-</script>
+        </div>
+    </script>
 <div class="container-lg px-3 pt-3 historyHide d-none" id="historyTable">
     <div id="onsiteDocumentCollectionContainer" class="collectionContainer"><!-- rendered history template --></div>
 </div>

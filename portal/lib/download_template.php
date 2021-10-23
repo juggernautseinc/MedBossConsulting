@@ -465,7 +465,7 @@ if (count($wl) === 2) {
         die(xlt("Invalid Path"));
     }
 } else {
-check_file_dir_name($form_filename);
+    check_file_dir_name($form_filename);
 }
 
 $templatepath = "$templatedir/$form_filename";

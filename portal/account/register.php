@@ -24,7 +24,7 @@ $_SESSION['authUser'] = 'portal-user';
 $_SESSION['pid'] = true;
 $_SESSION['register'] = true;
 
-$_SESSION['site_id'] = isset($_SESSION['site_id']) ? $_SESSION['site_id'] : 'serenity';
+$_SESSION['site_id'] = isset($_SESSION['site_id']) ? $_SESSION['site_id'] : 'default';
 $landingpage = "index.php?site=" . urlencode($_SESSION['site_id']);
 
 $ignoreAuth_onsite_portal = true;

@@ -31,7 +31,7 @@ require_once("$srcdir/pnotes.inc");
 require_once("./account.lib.php");
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
 if ($action == 'set_lang') {
-    $_SESSION['language_choice'] = (int) $_REQUEST['value'];
+    $_SESSION['language_choice'] = (int)$_REQUEST['value'];
     echo 'okay';
     exit();
 }
@@ -41,7 +41,7 @@ if ($action == 'userIsUnique') {
         ((int)$_SESSION['credentials_update'] === 1 && isset($_SESSION['pid'])) ||
         ((int)$_SESSION['itsme'] === 1 && isset($_SESSION['password_update']))
     ) {
-    // The above comparisons will not allow querying for usernames if not authorized (ie. not including the register stuff)
+        // The above comparisons will not allow querying for usernames if not authorized (ie. not including the register stuff)
         if (empty(trim($_REQUEST['account']))) {
             echo "0";
             exit;
@@ -69,7 +69,7 @@ if ($action == 'userIsUnique') {
 if ($action == 'get_newpid') {
     $email = isset($_REQUEST['email']) ? $_REQUEST['email'] : '';
     $rtn = isNew($_REQUEST['dob'], $_REQUEST['last'], $_REQUEST['first'], $email);
-    if ((int) $rtn != 0) {
+    if ((int)$rtn != 0) {
         echo xlt("This account already exists.") . "\r\n\r\n" .
             xlt("We are sorry you are having troubles with your account.") . "\r\n" .
             xlt("Please contact your provider.") . "\r\n" .
