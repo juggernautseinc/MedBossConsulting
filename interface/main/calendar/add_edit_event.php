@@ -1341,8 +1341,11 @@ function find_available(extra) {
           if ($patientBalance >= '300.00') {
               print "<div>";
               print "<span style='font-color: red; font-size: larger'>";
-              print "Patient has a balance of " . $patientBalance . ". Do not schedule";
+              print "Patient has a balance of " . $patientBalance . ".";
               print "</span>";
+              print "<p>";
+              print xlt("Please collect enough funds to bring balance below $300");
+              print "</p>";
               print "</div>";
               die;
           }
