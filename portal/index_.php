@@ -384,10 +384,10 @@ if (!(isset($_SESSION['password_update']) || isset($_GET['requestNew']))) {
                                     <div class="row">
                                         <div class="col-12">
                                             <?php if ($GLOBALS['portal_onsite_two_register']) { ?>
-                                                <button class="btn btn-warning float-left" onclick="location.replace('./account/register.php')"><?php echo xlt('Register'); ?></button>
+                                                <button class="btn btn-danger float-left" onclick="location.replace('./account/register.php')"><?php echo xlt('Register'); ?></button>
                                             <?php } ?>
                                             <?php if ($GLOBALS['portal_two_pass_reset'] && isset($_GET['w']) && (isset($_GET['u']) || isset($_GET['p']))) { ?>
-                                                <button class="btn btn-danger" onclick="location.replace('./index.php?requestNew=1')" style="margin-left:10px"><?php echo xlt('Reset Credentials'); ?></button>
+                                                <button class="btn btn-warning" onclick="location.replace('./index.php?requestNew=1')" style="margin-left:10px"><?php echo xlt('Reset Credentials'); ?></button>
                                             <?php } ?>
                                                 <button class="btn btn-success float-right" type="submit"><?php echo xlt('Log In'); ?></button>
                                         </div>
