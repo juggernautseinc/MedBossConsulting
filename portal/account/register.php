@@ -23,7 +23,8 @@ unset($_SESSION['itsme']);
 $_SESSION['authUser'] = 'portal-user';
 $_SESSION['pid'] = true;
 $_SESSION['register'] = true;
-var_dump($_SERVER('HTTP_REFERER')); die;
+$url = $_SERVER['HTTP_REFERER'];
+var_dump($url); die;
 $_SESSION['site_id'] = isset($_SESSION['site_id']) ? $_SESSION['site_id'] : 'default';
 $landingpage = "index.php?site=" . urlencode($_SESSION['site_id']);
 
