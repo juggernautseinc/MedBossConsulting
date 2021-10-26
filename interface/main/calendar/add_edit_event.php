@@ -1347,7 +1347,6 @@ function find_available(extra) {
               print xlt("Please collect enough funds to bring balance below $300");
               print "</p>";
               print "</div>";
-              die;
           }
     ?>
 </div>
