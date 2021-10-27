@@ -212,9 +212,10 @@ function sqlQuery($statement, $link)
         </div>
     </div>
     <div class ='row'>
+        <h2>Other Sites</h2>
         <div class="modal-dialog modal-lg">
             <div class="modal-header clearfix">
-                <p>Health Brigade
+                <p class="text-decoration-none"> Health Brigade
                     <a href="https://e.healthbrigade.org">
                         <i class="fa fa-sign-in-alt fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="" data-original-title="Login to site serenity"></i>
                     </a>
