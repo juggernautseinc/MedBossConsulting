@@ -191,7 +191,6 @@ function sqlQuery($statement, $link)
             </div>
         </div>
     </div><!--end of container div-->
-
     <div class="row">
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -209,6 +208,17 @@ function sqlQuery($statement, $link)
                         <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class ='row'>
+        <div class="modal-dialog modal-lg">
+            <div class="modal-header clearfix">
+                <p>Health Brigade
+                    <a href="https://e.healthbrigade.org">
+                        <i class="fa fa-sign-in-alt fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="" data-original-title="Login to site serenity"></i>
+                    </a>
+                </p>
             </div>
         </div>
     </div>
