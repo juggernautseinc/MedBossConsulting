@@ -192,9 +192,9 @@ function sqlQuery($statement, $link)
         </div>
         <div class ='row'>
             <h2>Other Sites</h2>
-            <div class="modal-dialog modal-lg">
-                <div class="modal-header clearfix">
-                    <span class="text-decoration-none"> Health Brigade </span>
+            <div >
+                <div >
+                    <span > Health Brigade </span>
                         <a href="https://e.healthbrigade.org" >Click Here</a>
 
                 </div>
