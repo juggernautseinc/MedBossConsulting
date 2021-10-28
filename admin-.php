@@ -190,6 +190,18 @@ function sqlQuery($statement, $link)
                 </form>
             </div>
         </div>
+        <div class ='row'>
+            <h2>Other Sites</h2>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-header clearfix">
+                    <span class="text-decoration-none"> Health Brigade
+                        <a href="https://e.healthbrigade.org" >
+                            <i class="fa fa-sign-in-alt fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="" data-original-title="Login to site serenity"></i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
     </div><!--end of container div-->
     <div class="row">
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -211,18 +223,7 @@ function sqlQuery($statement, $link)
             </div>
         </div>
     </div>
-    <div class ='row'>
-        <h2>Other Sites</h2>
-        <div class="modal-dialog modal-lg">
-            <div class="modal-header clearfix">
-                <p class="text-decoration-none"> Health Brigade
-                    <a href="https://e.healthbrigade.org">
-                        <i class="fa fa-sign-in-alt fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="" data-original-title="Login to site serenity"></i>
-                    </a>
-                </p>
-            </div>
-        </div>
-    </div>
+
     <script>
         $(function () {
             $('#help-href').click (function() {
