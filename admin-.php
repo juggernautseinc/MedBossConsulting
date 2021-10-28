@@ -196,7 +196,7 @@ function sqlQuery($statement, $link)
                 <div class="modal-header clearfix">
                     <span class="text-decoration-none"> Health Brigade
                         <a href="https://e.healthbrigade.org" >
-                            <i class="fa fa-sign-in-alt fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="" data-original-title="Login to site serenity"></i>
+                            <i class="fa fa-sign-in-alt fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="" data-original-title="Login to site"></i>
                         </a>
                     </span>
                 </div>
