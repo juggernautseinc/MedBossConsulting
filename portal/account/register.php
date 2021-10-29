@@ -25,7 +25,10 @@ $_SESSION['pid'] = true;
 $_SESSION['register'] = true;
 
 $_SESSION['site_id'] = isset($_SESSION['site_id']) ? $_SESSION['site_id'] : 'serenity';
-echo $_SESSION['site_id']; die;
+if ($_SESSION['site_id'] == 'default') {
+    die('Email sherwin@affordablecustomehr.com, please let me know which browser you are using and that you received this message. Thank you');
+}
+
 $landingpage = "index.php?site=" . urlencode($_SESSION['site_id']);
 
 $ignoreAuth_onsite_portal = true;
