@@ -47,9 +47,9 @@ $LAB.setGlobalDefaults({BasePath: "<?php $this->eprint($this->ROOT_URL); ?>"});
 (function(doc) {
     var viewport = document.getElementById('viewport');
     if ( navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
-        viewport.setAttribute("content", "initial-scale=0.3");
+        viewport.setAttribute("content", "initial-scale=0.3, shrink-to-fit=yes");
     } else if ( navigator.userAgent.match(/iPad/i) ) {
-        viewport.setAttribute("content", "initial-scale=0.7");
+        viewport.setAttribute("content", "initial-scale=0.7, shrink-to-fit=yes");
     }
 }(document));
 </script>
