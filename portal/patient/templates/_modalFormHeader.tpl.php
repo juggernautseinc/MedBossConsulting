@@ -44,6 +44,14 @@
 <script src="<?php echo $GLOBALS['web_root']; ?>/portal/patient/scripts/libs/LAB.min.js"></script>
 <script>
 $LAB.setGlobalDefaults({BasePath: "<?php $this->eprint($this->ROOT_URL); ?>"});
+(function(doc) {
+    var viewport = document.getElementById('viewport');
+    if ( navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
+        viewport.setAttribute("content", "initial-scale=0.3");
+    } else if ( navigator.userAgent.match(/iPad/i) ) {
+        viewport.setAttribute("content", "initial-scale=0.7");
+    }
+}(document));
 </script>
 </head>
 <body>
