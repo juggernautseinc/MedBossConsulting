@@ -19,7 +19,7 @@ use OpenEMR\Core\Header;
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta charset="utf-8">
@@ -35,6 +35,14 @@ use OpenEMR\Core\Header;
         const remoteDevice = '' + <?php echo js_escape($thisDevice) ?>;
         let currentAuth = '';
         window.name = remoteDevice;
+        (function(doc) {
+            const viewport = document.getElementById('viewport');
+            if ( navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
+                viewport.setAttribute("content", "initial-scale=0.3");
+            } else if ( navigator.userAgent.match(/iPad/i) ) {
+                viewport.setAttribute("content", "initial-scale=0.7");
+            }
+        }(document));
     </script>
 </head>
 <body class="container">
