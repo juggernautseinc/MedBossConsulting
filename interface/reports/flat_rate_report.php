@@ -518,13 +518,13 @@ if (!empty($_POST['form_refresh'])) {
             if (! $charges) {
                 $billed = "";
             }
-            //if (!empty($billed)) {
+            if (!empty($billed)) {
                 $docrow['charges'] += $charges;
                 $docrow['copays'] += $copays;
-            //}
-            if ($encounter && !empty($billed)) {
-                ++$docrow['encounters'];
             }
+            //if ($encounter && !empty($billed)) {
+                ++$docrow['encounters'];
+            //}
 
             if (!empty($_POST['form_details'])) {
                 ?>
