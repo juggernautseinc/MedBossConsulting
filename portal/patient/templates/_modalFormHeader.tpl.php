@@ -19,7 +19,7 @@
 <meta charset="utf-8" />
 
 <title><?php $this->eprint($this->title); ?></title>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
 
 <meta name="description" content="Patient Profile" />
 <meta name="author" content="Form | sjpadgett@gmail.com" />

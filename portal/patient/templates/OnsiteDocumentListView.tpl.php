@@ -64,7 +64,7 @@ $cuser = $_SESSION['sessionUser'] ?? $_SESSION['authUserID'];
     ?>
     </title>
     <meta name="description" content="Developed By sjpadgett@gmail.com">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
 
     <?php
 // some necessary js globals
