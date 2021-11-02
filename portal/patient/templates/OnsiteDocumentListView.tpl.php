@@ -14,6 +14,10 @@
 
 use OpenEMR\Core\Header;
 
+function isMobile() {
+    return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+}
+
 $pid = $this->cpid;
 $recid = $this->recid;
 $docid = $this->docid;
@@ -116,6 +120,11 @@ $cuser = $_SESSION['sessionUser'] ?? $_SESSION['authUserID'];
 </head>
 
 <body class="p-0 m-0">
+<?php
+    if(isMobile()) {
+        echo "<span style='color: red'></strong>Please use a PC to fill out these forms. This system is not mobile-friendly</strong></span>";
+    }
+?>
     <script>
         <?php require($GLOBALS['srcdir'] . '/js/xl/jquery-datetimepicker-2-5-4-alternate.js.php'); ?>
         $LAB.script("<?php echo $GLOBALS['web_root']; ?>/portal/patient/scripts/app/onsitedocuments.js?v=<?php echo $GLOBALS['v_js_includes']; ?>").wait().script(
