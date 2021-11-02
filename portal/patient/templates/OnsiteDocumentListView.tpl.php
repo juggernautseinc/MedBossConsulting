@@ -64,6 +64,8 @@ $cuser = $_SESSION['sessionUser'] ?? $_SESSION['authUserID'];
     ?>
     </title>
     <meta name="description" content="Developed By sjpadgett@gmail.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
     <?php
 // some necessary js globals
     echo "<script>var cpid=" . js_escape($pid) . ";var cuser=" . js_escape($cuser) . ";var ptName=" . js_escape($ptName) .
@@ -90,6 +92,14 @@ $cuser = $_SESSION['sessionUser'] ?? $_SESSION['authUserID'];
             "<?php echo $GLOBALS['assets_static_relative']; ?>/backbone/backbone-min.js").script("<?php echo $GLOBALS['web_root']; ?>/portal/patient/scripts/app.js?v=<?php echo $GLOBALS['v_js_includes']; ?>").script(
             "<?php echo $GLOBALS['web_root']; ?>/portal/patient/scripts/model.js?v=<?php echo $GLOBALS['v_js_includes']; ?>").wait().script(
             "<?php echo $GLOBALS['web_root']; ?>/portal/patient/scripts/view.js?v=<?php echo $GLOBALS['v_js_includes']; ?>").wait()
+        (function(doc) {
+            var viewport = document.getElementById('viewport');
+            if ( navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
+                viewport.setAttribute("content", "initial-scale=0.3");
+            } else if ( navigator.userAgent.match(/iPad/i) ) {
+                viewport.setAttribute("content", "initial-scale=0.7");
+            }
+        }(document));
     </script>
     <style>
         @media print {
