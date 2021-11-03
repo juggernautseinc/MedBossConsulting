@@ -19,8 +19,8 @@ use OpenEMR\Services\FacilityService;
 
 class Claim
 {
-    const X12_VERSION = '005010X222A1';
-    const NOC_CODES = array('J3301'); // special handling for not otherwise classified HCPCS/CPT, not many so can add more here
+    public const X12_VERSION = '005010X222A1';
+    public const NOC_CODES = array('J3301'); // special handling for not otherwise classified HCPCS/CPT, not many so can add more here
 
     public $pid;               // patient id
     public $encounter_id;      // encounter id
@@ -572,6 +572,15 @@ class Claim
         return Claim::X12_VERSION;
     }
 
+    public function x12_sender_id()
+    {
+        $tmp = ($this->x12_partner['x12_sender_id'] ?? '');
+        while (strlen($tmp) < 15) {
+            $tmp .= " ";
+        }
+
+        return $tmp;
+    }
     public function x12gssenderid()
     {
         $tmp = ($this->x12_partner['x12_sender_id'] ?? '');
@@ -602,6 +611,17 @@ class Claim
         } else {
             return ($this->x12_partner['x12_receiver_id'] ?? '');
         }
+    }
+
+//***MS Add - since we are a TPA we need to include this
+    public function x12_submitter_name()
+    {
+        $tmp = $this->x12_partner['x12_submitter_name'];
+        while (strlen($tmp) < 15) {
+            $tmp .= " ";
+        }
+
+        return $tmp;
     }
 
     public function x12gsreceiverid()
@@ -1445,6 +1465,18 @@ class Claim
                     $da[$diag] = $diag;
                 }
             }
+        }
+
+        // The above got all the diagnoses used for justification, in the order
+        // used for justification.  Next we go through all diagnoses, justified
+        // or not, to make sure they all get into the claim.  We do it this way
+        // so that the more important diagnoses appear first.
+        foreach ($this->diags as $diag) {
+            if ($strip_periods) {
+                $diag = str_replace('.', '', $diag);
+            }
+
+            $da[$diag] = $diag;
         }
 
         return $da;
