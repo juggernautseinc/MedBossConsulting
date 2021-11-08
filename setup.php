@@ -577,7 +577,7 @@ STP2TOP;
                                         <label class="font-weight-bold" for="login">Client Name:</label> <a href="#login_info"  class="info-anchor icon-tooltip"  data-toggle="collapse" ><i class="fa fa-question-circle" aria-hidden="true"></i></a>
                                     </div>
                                     <div>
-                                        <input name='login' ID='login' type='text' class='form-control' value='' />
+                                        <input name='login' ID='login' type='text' class='form-control' value=$client_site_id />
                                     </div>
                                 </div>
                                 <div id="login_info" class="collapse">
