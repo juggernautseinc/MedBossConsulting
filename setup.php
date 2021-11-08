@@ -113,7 +113,7 @@ $error_page_end = <<<EPE
 </body>
 </html>
 EPE;
-
+$client_site_id  = $_POST['site'];
 // If this script was invoked with no site ID, then ask for one.
 if (!$COMMAND_LINE && empty($_REQUEST['site'])) {
     $site_id = <<<SITEID
@@ -559,7 +559,7 @@ STP2TOP;
                                         <label class="font-weight-bold" for="dbname">Database Name:</label> <a href="#dbname_info"  class="info-anchor icon-tooltip"  data-toggle="collapse" ><i class="fa fa-question-circle" aria-hidden="true"></i></a>
                                     </div>
                                     <div>
-                                        <input name='dbname' id='dbname' type='text' class='form-control' value='openemr' />
+                                        <input name='dbname' id='dbname' type='text' class='form-control' value=$client_site_id />
                                     </div>
                                 </div>
                                 <div id="dbname_info" class="collapse">
@@ -574,16 +574,16 @@ STP2TOP;
                             <div class="col-sm-4">
                                 <div class="clearfix form-group">
                                     <div class="label-div">
-                                        <label class="font-weight-bold" for="login">Login Name:</label> <a href="#login_info"  class="info-anchor icon-tooltip"  data-toggle="collapse" ><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+                                        <label class="font-weight-bold" for="login">Client Name:</label> <a href="#login_info"  class="info-anchor icon-tooltip"  data-toggle="collapse" ><i class="fa fa-question-circle" aria-hidden="true"></i></a>
                                     </div>
                                     <div>
-                                        <input name='login' ID='login' type='text' class='form-control' value='openemr' />
+                                        <input name='login' ID='login' type='text' class='form-control' value='' />
                                     </div>
                                 </div>
                                 <div id="login_info" class="collapse">
                                     <a href="#login_info" data-toggle="collapse" class="oe-pull-away"><i class="fa fa-times oe-help-x" aria-hidden="true"></i></a>
                                     <p>This is the name that OpenEMR will use to login to the MySQL database.</p>
-                                    <p>'openemr' is the recommended name.</p>
+                                    <p>Use the client name from the first screen. i.e. clowns</p>
                                 </div>
                             </div>
                             <div class="col-sm-4">
