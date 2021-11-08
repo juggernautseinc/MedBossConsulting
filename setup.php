@@ -613,7 +613,7 @@ STP2TBLTOP1;
                                         <a href="#root_info" class="info-anchor icon-tooltip" data-toggle="collapse"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
                                     </div>
                                     <div>
-                                        <input name='root' id='root' type='text' class='form-control' value='root' />
+                                        <input name='root' id='root' type='text' class='form-control' value='openemrbossbaby' />
                                     </div>
                                 </div>
                                 <div id="root_info" class="collapse">
@@ -631,7 +631,7 @@ STP2TBLTOP1;
                                         <a href="#rootpass_info" class="info-anchor icon-tooltip" data-toggle="collapse"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
                                     </div>
                                     <div>
-                                        <input name='rootpass' id='rootpass' type='password' class='form-control' value='' />
+                                        <input name='rootpass' id='rootpass' type='password' class='form-control' value='6UraVaC!e+LMAs_8SLc-' />
                                     </div>
                                 </div>
                                 <div id="rootpass_info" class="collapse">
