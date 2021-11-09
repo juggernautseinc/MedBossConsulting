@@ -93,7 +93,7 @@ $c = $clientApp->getCredentials();
                         </label>
                     </div>
                     <div class="form-group">
-                        <label for="form_username"><?php echo xlt("Username, Phone or Account Sid") ?> *</label>
+                        <label for="form_username"><?php echo xlt("Username, Phone or Account Sid / Faxage Username") ?> *</label>
                         <input id="form_username" type="text" name="username" class="form-control"
                             required="required" value='<?php echo attr($c['username']) ?>'>
                     </div>
@@ -103,7 +103,7 @@ $c = $clientApp->getCredentials();
                             required="required" value='<?php echo attr($c['extension']) ?>'>
                     </div>
                     <div class="form-group">
-                        <label for="form_password"><?php echo xlt("Password or Auth Token") ?> *</label>
+                        <label for="form_password"><?php echo xlt("Password or Auth Token / Faxage Password") ?> *</label>
                         <input id="form_password" type="text" name="password" class="form-control"
                             required="required" value='<?php echo attr($c['password']) ?>'>
                     </div>
@@ -113,7 +113,7 @@ $c = $clientApp->getCredentials();
                             value='<?php echo attr($c['smsNumber']) ?>'>
                     </div>
                     <div class="form-group">
-                        <label for="form_key"><?php echo xlt("Client ID or Api Sid") ?> *</label>
+                        <label for="form_key"><?php echo xlt("Client ID or Api Sid / Faxage Company Name") ?> *</label>
                         <input id="form_key" type="text" name="key" class="form-control"
                             required="required" value='<?php echo attr($c['appKey']) ?>'>
                     </div>
