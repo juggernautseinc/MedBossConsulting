@@ -24,6 +24,17 @@ if ($response !== true) {
     die(htmlspecialchars($response));
 }
 
+function randomPassword() {
+    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()-';
+    $pass = array(); //remember to declare $pass as an array
+    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+    for ($i = 0; $i < 16; $i++) {
+        $n = rand(0, $alphaLength);
+        $pass[] = $alphabet[$n];
+    }
+    return implode($pass); //turn the array into a string
+}
+
 // Set the maximum excution time and time limit to unlimited.
 ini_set('max_execution_time', 0);
 ini_set('display_errors', 0);
@@ -516,7 +527,7 @@ STP1;
 STP2TOP;
                         echo $step2top . "\r\n";
 
-
+                        $setpassword = randomPassword();
                         $step2tabletop1 = <<<STP2TBLTOP1
                         <fieldset>
                         <legend name="form_legend" id="form_legend" class='oe-setup-legend'>MySQL Server Details<i id="enter-details-tooltip" class="fa fa-info-circle oe-text-black oe-superscript enter-details-tooltip" aria-hidden="true"></i></legend>
@@ -593,7 +604,7 @@ STP2TOP;
                                         <a href="#pass_info" class="info-anchor icon-tooltip" data-toggle="collapse"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
                                     </div>
                                     <div>
-                                        <input name='pass' id='pass' class='form-control' type='password' value='' required />
+                                        <input name='pass' id='pass' class='form-control' type='password' value=$setpassword required />
                                     </div>
                                 </div>
                                 <div id="pass_info" class="collapse">
