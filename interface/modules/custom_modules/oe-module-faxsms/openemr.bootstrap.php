@@ -56,7 +56,7 @@ function oe_module_faxsms_add_menu_item(MenuEvent $event)
 
 function createFaxModuleGlobals(GlobalsInitializedEvent $event)
 {
-    $select_array = array(0 => xl('Disabled'), 1 => xl('RingCentral'), 2 => xl('Twilio'));
+    $select_array = array(0 => xl('Disabled'), 1 => xl('RingCentral'), 2 => xl('Twilio'), 3 => xl(Faxage));
     $instruct = xl('Enable Fax SMS Support. Remember to setup credentials.');
 
     $event->getGlobalsService()->createSection("Modules", "Report");
