@@ -375,6 +375,7 @@ if (!empty($_POST['form_refresh'])) {
 </thead>
 <tbody>
     <?php
+    var_dump($res);die;
     if ($res) {
 
         $docrow = array('docname' => '', 'charges' => 0, 'copays' => 0, 'encounters' => 0);
