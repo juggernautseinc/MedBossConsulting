@@ -56,6 +56,11 @@ $grand_total_charges    = 0;
 $grand_total_copays     = 0;
 $grand_total_encounters = 0;
 
+function documents($enc)
+{
+    $docount = sqlQuery("select count(*) as number from forms where form_name NOT LIKE 'New Patient%' and encounter = ?", array($enc));
+    return $docount['number'];
+}
 function postError($msg)
 {
     global $errmsg;
@@ -346,7 +351,7 @@ if (!empty($_POST['form_refresh'])) {
 <th> <?php echo xlt('Chart'); ?>&nbsp; </th>
 <th> <?php echo xlt('Encounter'); ?>&nbsp; </th>
 <th> <?php echo xlt('Charges'); ?>&nbsp; </th>
-<th> <?php echo xlt('Copays'); ?>&nbsp; </th>
+<th> <?php echo xlt('Documents'); ?>&nbsp; </th>
 <th> <?php echo xlt('Billed'); ?> </th>
 <th> &nbsp;<?php echo xlt('Error'); ?> </th>
 </thead>
@@ -531,7 +536,7 @@ if (!empty($_POST['form_refresh'])) {
                 <?php echo text(bucks($charges)); ?>&nbsp;
          </td>
          <td>
-                <?php echo text(bucks($copays)); ?>&nbsp;
+                <?php echo documents($encounter); ?>&nbsp;
          </td>
          <td>
                 <?php echo text($billed); ?>
