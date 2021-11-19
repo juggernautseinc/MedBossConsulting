@@ -375,14 +375,13 @@ if (!empty($_POST['form_refresh'])) {
 </thead>
 <tbody>
     <?php
-    var_dump($res);die;
     if ($res) {
 
         $docrow = array('docname' => '', 'charges' => 0, 'copays' => 0, 'encounters' => 0);
 
         while ($row = sqlFetchArray($res)) {
             $userid = $row['id'];
-            if (6 !== $row['id']) {//if ($_SESSION['authUserID'] !== $row['id']) {
+            if ($_SESSION['authUserID'] !== $row['id']) {
                 continue;
             }
             if ($row['lname'] == 'Unapplied') {
