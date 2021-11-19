@@ -381,7 +381,7 @@ if (!empty($_POST['form_refresh'])) {
 
         while ($row = sqlFetchArray($res)) {
             $userid = $row['id'];
-            if ($_SESSION['authUserID'] !== $row['id']) {
+            if (6 !== $row['id']) {//if ($_SESSION['authUserID'] !== $row['id']) {
                 continue;
             }
             if ($row['lname'] == 'Unapplied') {
