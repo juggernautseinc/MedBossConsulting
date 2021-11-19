@@ -57,10 +57,10 @@ $grand_total_charges    = 0;
 $grand_total_copays     = 0;
 $grand_total_encounters = 0;
 $grand_total_provider_payouts = [];
-$userid = '';
+$userid = 6; //$_SESSION['authUserID'];
 function identity() {
     $sql = "SELECT fname, lname  FROM users WHERE id = ?";
-    $name = sqlQuery($sql, [$_SESSION['authUserID']]);
+    $name = sqlQuery($sql, [$userid]);
     return $name['lname'] . ", " . $name['fname'] ;
 }
 function getRate($userid) {
@@ -383,7 +383,7 @@ if (!empty($_POST['form_refresh'])) {
         $docrow = array('docname' => '', 'charges' => 0, 'copays' => 0, 'encounters' => 0);
 
         while ($row = sqlFetchArray($res)) {
-            $userid = 6; //$row['id'];
+            $userid = $row['id'];
 
             $patient_id = $row['pid'];
             $encounter  = $row['encounter'];
