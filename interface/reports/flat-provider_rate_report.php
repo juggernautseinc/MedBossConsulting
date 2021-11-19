@@ -383,7 +383,7 @@ if (!empty($_POST['form_refresh'])) {
         $docrow = array('docname' => '', 'charges' => 0, 'copays' => 0, 'encounters' => 0);
 
         while ($row = sqlFetchArray($res)) {
-            $userid = $row['id'];
+            $userid = 6; //$row['id'];
 
             $patient_id = $row['pid'];
             $encounter  = $row['encounter'];

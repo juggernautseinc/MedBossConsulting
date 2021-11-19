@@ -46,7 +46,7 @@ try {
 //    $mail->addBCC('john.jalbert@mindfultransitions.com', 'John Jalbert');
     $mail->addAddress($email, 'Client');
     //$mail->addEmbeddedImage('/images/receipt-logo.png', 'receipt-logo', 'receipt-logo.png');
-    $mail->Subject = 'Mindful Transitions, LLC Transaction Receipt - Reference Number '. $refId;
+    $mail->Subject = 'Email Testing - Does it work '. $refId;
     $mail->Body = $body;
     $mail->send();
     echo '<br><br>Message Sent. Please check email for results';
