@@ -57,10 +57,10 @@ $grand_total_charges    = 0;
 $grand_total_copays     = 0;
 $grand_total_encounters = 0;
 $grand_total_provider_payouts = [];
-$userid = 6; //$_SESSION['authUserID'];
+$userid = '';
 function identity() {
     $sql = "SELECT fname, lname  FROM users WHERE id = ?";
-    $name = sqlQuery($sql, [$userid]);
+    $name = sqlQuery($sql, [$_SESSION['authUserID']]);
     return $name['lname'] . ", " . $name['fname'] ;
 }
 function getRate($userid) {
@@ -359,8 +359,6 @@ if (!empty($_POST['form_refresh'])) {
 </div> <!-- end apptenc_report_parameters -->
 
 <?php
-echo $userid;
-
 if (!empty($_POST['form_refresh'])) {
     ?>
 <div id="report_results">
