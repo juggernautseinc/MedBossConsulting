@@ -84,15 +84,15 @@ function endDoctor(&$docrow)
     echo "  <td colspan='5'>\n";
     echo "   &nbsp;" . xlt('Totals for') . ' ' . text($docrow['docname']) . "\n";
     echo "  </td>\n";
-    echo "  <td align='right'>\n";
+    echo "  <td>\n";
     echo "   &nbsp;" . text($docrow['encounters']) . "&nbsp;\n";
     echo "  </td>\n";
-    echo "  <td align='right'>\n";
+    echo "  <td>\n";
     echo "   &nbsp;";
     echo text(bucks($docrow['charges']));
     echo "&nbsp;\n";
     echo "  </td>\n";
-    echo "  <td align='right'>\n";
+    echo "  <td>\n";
     echo "   &nbsp;";
     echo text(bucks($docrow['copays']));
     echo "&nbsp;\n";
@@ -343,10 +343,10 @@ if (!empty($_POST['form_refresh'])) {
 <th> &nbsp;<?php echo xlt('Date/Appt'); ?> </th>
 <th> &nbsp;<?php echo xlt('Patient'); ?> </th>
 <th> &nbsp;<?php echo xlt('ID'); ?> </th>
-<th align='right'> <?php echo xlt('Chart'); ?>&nbsp; </th>
-<th align='right'> <?php echo xlt('Encounter'); ?>&nbsp; </th>
-<th align='right'> <?php echo xlt('Charges'); ?>&nbsp; </th>
-<th align='right'> <?php echo xlt('Copays'); ?>&nbsp; </th>
+<th> <?php echo xlt('Chart'); ?>&nbsp; </th>
+<th> <?php echo xlt('Encounter'); ?>&nbsp; </th>
+<th> <?php echo xlt('Charges'); ?>&nbsp; </th>
+<th> <?php echo xlt('Copays'); ?>&nbsp; </th>
 <th> <?php echo xlt('Billed'); ?> </th>
 <th> &nbsp;<?php echo xlt('Error'); ?> </th>
 </thead>
@@ -521,16 +521,16 @@ if (!empty($_POST['form_refresh'])) {
          <td>
           &nbsp;<?php echo text($row['pubpid']); ?>
          </td>
-         <td align='right'>
+         <td>
                 <?php echo text($row['pid']); ?>&nbsp;
          </td>
-         <td align='right'>
+         <td>
                 <?php echo text($encounter); ?>&nbsp;
          </td>
-         <td align='right'>
+         <td>
                 <?php echo text(bucks($charges)); ?>&nbsp;
          </td>
-         <td align='right'>
+         <td>
                 <?php echo text(bucks($copays)); ?>&nbsp;
          </td>
          <td>
@@ -552,15 +552,15 @@ if (!empty($_POST['form_refresh'])) {
         echo "  <td colspan='5'>\n";
         echo "   &nbsp;" . xlt('Grand Totals') . "\n";
         echo "  </td>\n";
-        echo "  <td align='right'>\n";
+        echo "  <td>\n";
         echo "   &nbsp;" . text($grand_total_encounters) . "&nbsp;\n";
         echo "  </td>\n";
-        echo "  <td align='right'>\n";
+        echo "  <td>\n";
         echo "   &nbsp;";
         echo text(bucks($grand_total_charges));
         echo "&nbsp;\n";
         echo "  </td>\n";
-        echo "  <td align='right'>\n";
+        echo "  <td>\n";
         echo "   &nbsp;";
         echo text(bucks($grand_total_copays));
         echo "&nbsp;\n";
