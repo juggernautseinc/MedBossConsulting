@@ -359,6 +359,8 @@ if (!empty($_POST['form_refresh'])) {
 </div> <!-- end apptenc_report_parameters -->
 
 <?php
+echo $userid;
+
 if (!empty($_POST['form_refresh'])) {
     ?>
 <div id="report_results">
