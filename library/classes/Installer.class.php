@@ -1425,9 +1425,9 @@ $config = 1; /////////////
 
     public function deleteKeys($site_id)
     {
-        $location = dirname(__FILE__) . "/sites/default/" . $site_id . "/documents/logs_and_misc/methods/";
-        unlink($location ."sixa");
-        unlink($location ."sixb");
+        $location = "../sites/default/" . $site_id . "/documents/logs_and_misc/methods/";
+        unlink($location . "sixa");
+        unlink($location . "sixb");
     }
 
   /**
