@@ -1425,7 +1425,8 @@ $config = 1; /////////////
 
     public function deleteKeys($site_id)
     {
-        $location = "../sites/default/" . $site_id . "/documents/logs_and_misc/methods/";
+        $location = $OE_SITES_BASE ."/". $site_id . "/documents/logs_and_misc/methods/";
+        file_put_contents("/var/www/html/errors/location.txt", $location);
         unlink($location . "sixa");
         unlink($location . "sixb");
     }
