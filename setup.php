@@ -898,7 +898,7 @@ SOURCESITEBOT;
                                         <a href="#iuserpass_info" class="info-anchor icon-tooltip" data-toggle="collapse"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
                                     </div>
                                     <div>
-                                        <input name='iuserpass' id='iuserpass' type='password' class='form-control' value='' minlength='12' />
+                                        <input name='iuserpass' id='iuserpass' type='password' class='form-control' value='$setpassword' minlength='12' />
                                     </div>
                                 </div>
                                 <div id="iuserpass_info" class="collapse">
