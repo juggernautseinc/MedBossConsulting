@@ -1294,6 +1294,7 @@ TOTP;
                         }
 
                         if ($allow_cloning_setup && !empty($installer->clone_database)) {
+                            $installer->deleteKeys($site_id);
                             // Database was cloned, skip ACL setup.
                             $btn_text = 'Proceed to Select a Theme';
                             echo "<br />";

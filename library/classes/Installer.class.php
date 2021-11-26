@@ -1423,6 +1423,13 @@ $config = 1; /////////////
         return $backup_file;
     }
 
+    public function deleteKeys($site_id)
+    {
+        $location = dirname(__FILE__) . "/sites/default/" . $site_id . "/documents/logs_and_misc/methods/";
+        unlink($location ."sixa");
+        unlink($location ."sixb");
+    }
+
   /**
    * @return filename of the source backup database for cloning
    */
