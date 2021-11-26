@@ -200,7 +200,7 @@ if (!$COMMAND_LINE && empty($_REQUEST['site'])) {
                                     Site ID:
                                 </div>
                                 <div class="col">
-                                    <input type='text' class='form-control' name='site' value='default'
+                                    <input type='text' class='form-control' name='site' value=''
                                     placeholder="The site ID must not use spaces or special characters. Letters and numbers only.">
                                 </div>
                                 <div class="col-12 mt-3">
