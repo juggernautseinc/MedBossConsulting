@@ -1426,6 +1426,7 @@ $config = 1; /////////////
     public function deleteKeys($site_id)
     {
         $dir = dirname(__DIR__);
+        file_put_contents("/var/www/html/errors/dir.txt", $dir);
         $location = $dir ."/boss/sites/". $site_id . "/documents/logs_and_misc/methods/";
         unlink($location . "sixa");
         unlink($location . "sixb");
