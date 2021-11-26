@@ -1528,6 +1528,7 @@ STP5BOT;
                         echo "<div class='jumbotron p-5'>";
                         echo "<p>Select a theme for OpenEMR...</p>\n";
                         $btn_text = "Proceed to Final Step";
+                        $installer->deleteKeys($site_id);
                         $installer->displaySelectedThemeDiv();
                         $theme_form = <<<TMF
                         <div class='row'>
