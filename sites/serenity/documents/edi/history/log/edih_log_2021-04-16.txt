@@ -1,0 +1,9 @@
+20210416:020424 _GET request 
+ srvinfo => yes  csrf_token_form => a69480ab388dbd5ad61e9f3c558a060717fe37af 
+20210416:020424 _GET request 
+ archlist => yes  csrf_token_form => a69480ab388dbd5ad61e9f3c558a060717fe37af 
+20210416:020424 csv_archive_select_list: using /var/www/html/boss/sites/serenity/documents/edi/history/archive
+20210416:020424 _GET request 
+ csvtbllist => yes  csrf_token_form => a69480ab388dbd5ad61e9f3c558a060717fe37af 
+20210416:020424 _GET request 
+ loglist => yes  csrf_token_form => a69480ab388dbd5ad61e9f3c558a060717fe37af 

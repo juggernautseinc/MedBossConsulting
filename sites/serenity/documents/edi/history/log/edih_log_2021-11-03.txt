@@ -1,0 +1,4 @@
+20211103:021147 _GET request 
+ csrf_token_form => e5d82a819d6dc31c74719a4cbb225086595a6316  csv_period => 2w  csv_date_start =>   csv_date_end =>   csvShowTable => gettable  csv_show => Submit 
+20211103:021147 User: 45.130.83.131 - November 3, 2021, 2:42 am
+20211103:021147 edih_disp_csvtable:  period 2w datestart  dateend 

@@ -1,0 +1,602 @@
+
+<html>
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="shortcut icon" href="/public/images/favicon.ico" />
+
+<link rel="stylesheet" href="/public/themes/style_cobalt_blue.css?v=63" />
+
+<script src="/public/assets/jquery/dist/jquery.min.js?v=63"></script>
+<script src="/public/assets/bootstrap/dist/js/bootstrap.bundle.min.js?v=63"></script>
+<script src="/library/js/utility.js?v=63"></script>
+<script src="/library/textformat.js?v=63"></script>
+<script src="/library/dialog.js?v=63"></script>
+
+<style>
+    body {
+        font-family: sans-serif;
+        font-size: 0.6875rem;
+        font-weight: normal;
+    }
+    .dehead {
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+    .olddetail {
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .newdetail {
+        color: var(--success);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .errdetail {
+        color: var(--danger);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .infdetail {
+        color: var(--primary);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+</style>
+<title>EOB Posting - Electronic Remittances</title>
+</head>
+<body class='m-0'>
+<form action="sl_eob_process.php" method="get">
+<input type="hidden" name="csrf_token_form" value="199c964f1fa8f738a3bdc9619580833021133317" />
+
+<center>
+    <table class='table table-borderless w-100' cellpadding='2' cellspacing='0'>
+
+     <tr class="table-light">
+      <td class="dehead">
+    Patient      </td>
+      <td class="dehead">
+    Invoice      </td>
+      <td class="dehead">
+    Code      </td>
+      <td class="dehead">
+    Date      </td>
+      <td class="dehead">
+    Description      </td>
+      <td class="dehead" align="right">
+    Amount&nbsp;
+      </td>
+      <td class="dehead" align="right">
+    Balance&nbsp;
+      </td>
+     </tr>
+
+     <tr bgcolor='var(--white)'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Payer: BEACON HEALTH OPTIONS, INC.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>BRANDON RICKARD</td>
+  <td class='errdetail'>0</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-01</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-01</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>Ins1/0000539165 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>JEFFREY WELLER</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-01</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-01</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>Ins1/0000539165 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>MONICA CHAN</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-01</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-01</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>Ins1/0000538182 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>BAJUN CUI</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-01</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-01</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>Ins1/0000538182 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>JEREMIAH LINGLEY</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-01</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-01</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>Ins1/0000538182 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>BRENT MYLES</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-01</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-01</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>Ins1/0000538182 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>LOGAN ORAVETZ</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-01</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-01</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>Ins1/0000538182 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-01</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-01</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>Ins1/0000538182 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>ANNA KEENAN</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-01</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-01</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/01/2021</td>
+  <td class='errdetail'>Ins1/0000538678 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+<script>alert("Total Distribution for following check number is not full: 0000539165 0000538182 0000538678 ")</script>    </table>
+    </center>
+<script>
+</script>
+<input type="hidden" name="paydate" value="-2021-11-01-" />
+<input type="hidden" name="post_to_date" value="-2021-11-02-" />
+<input type="hidden" name="deposit_date" value="-2021-11-01-" />
+<input type="hidden" name="debug" value="0" />
+<input type="hidden" name="InsId" value="565" />
+<input type="hidden" name="eraname" value="20211029_886756880_FDX" />
+</form>
+</body>
+</html>

@@ -1,0 +1,301 @@
+
+<html>
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="shortcut icon" href="/public/images/favicon.ico" />
+
+<link rel="stylesheet" href="/public/themes/style_cobalt_blue.css?v=62" />
+
+<script src="/public/assets/jquery/dist/jquery.min.js?v=62"></script>
+<script src="/public/assets/bootstrap/dist/js/bootstrap.bundle.min.js?v=62"></script>
+<script src="/library/js/utility.js?v=62"></script>
+<script src="/library/textformat.js?v=62"></script>
+<script src="/library/dialog.js?v=62"></script>
+
+<style>
+    body {
+        font-family: sans-serif;
+        font-size: 0.6875rem;
+        font-weight: normal;
+    }
+    .dehead {
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+    .olddetail {
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .newdetail {
+        color: var(--success);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .errdetail {
+        color: var(--danger);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .infdetail {
+        color: var(--primary);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+</style>
+<title>EOB Posting - Electronic Remittances</title>
+</head>
+<body class='m-0'>
+<form action="sl_eob_process.php" method="get">
+<input type="hidden" name="csrf_token_form" value="780b79c1bc863ad2f70e8d7b066348a1f00c0486" />
+
+<center>
+    <table class='table table-borderless w-100' cellpadding='2' cellspacing='0'>
+
+     <tr class="table-light">
+      <td class="dehead">
+    Patient      </td>
+      <td class="dehead">
+    Invoice      </td>
+      <td class="dehead">
+    Code      </td>
+      <td class="dehead">
+    Date      </td>
+      <td class="dehead">
+    Description      </td>
+      <td class="dehead" align="right">
+    Amount&nbsp;
+      </td>
+      <td class="dehead" align="right">
+    Balance&nbsp;
+      </td>
+     </tr>
+
+     <tr bgcolor='var(--white)'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Payer: BEACON HEALTH OPTIONS, INC.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 4: Denied</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>Not posting adjustments for denied claims, please follow up manually!</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>DANE HANSON</td>
+  <td class='errdetail'>0</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/30/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-30</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>MA113: Incomplete/invalid taxpayer identification number (TIN) submitted by you per the Internal Revenue Service. Your claims cannot be processed without your correct TIN, and you may not bill the patient pending correction of your TIN. There are no appeal rights for unprocessable claims, but you may resubmit this claim after you have notified this office of your correct TIN.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/30/2021</td>
+  <td class='errdetail'>16: Claim/service lacks information or has submission/billing error(s). Usage: Do not use this code for claims attachment(s)/other documentation. At least one Remark Code must be provided (may be comprised of either the NCPDP Reject Reason Code, or Remittance Advice Remark Code that is not an ALERT.) Refer to the 835 Healthcare Policy Identification Segment (loop 2110 Service Payment Information REF), if present.</td>
+  <td class='errdetail' align='right'>-60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>TRISTON NORMAN</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/30/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-30</td>
+  <td class='errdetail' align='right'>85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/30/2021</td>
+  <td class='errdetail'>Ins1/0000524644 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>ANDREW GAITHER</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/30/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-30</td>
+  <td class='errdetail' align='right'>85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/30/2021</td>
+  <td class='errdetail'>Ins1/0000525109 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>PIERCE MCKENZIE</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/30/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-30</td>
+  <td class='errdetail' align='right'>85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/30/2021</td>
+  <td class='errdetail'>Ins1/0000525538 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/30/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-30</td>
+  <td class='errdetail' align='right'>85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/30/2021</td>
+  <td class='errdetail'>Ins1/0000525538 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>JULIA SEVILLA</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/30/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-30</td>
+  <td class='errdetail' align='right'>85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/30/2021</td>
+  <td class='errdetail'>Ins1/0000525538 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+<script>alert("Total Distribution for following check number is not full: 0000524644 0000525109 0000525538 ")</script>    </table>
+    </center>
+<script>
+</script>
+<input type="hidden" name="paydate" value="-2021-08-30-" />
+<input type="hidden" name="post_to_date" value="-2021-08-27-" />
+<input type="hidden" name="deposit_date" value="-2021-09-02-" />
+<input type="hidden" name="debug" value="0" />
+<input type="hidden" name="InsId" value="565" />
+<input type="hidden" name="eraname" value="20210827_865698818_FDX" />
+</form>
+</body>
+</html>

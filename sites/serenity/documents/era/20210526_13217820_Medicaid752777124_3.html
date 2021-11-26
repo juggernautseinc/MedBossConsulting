@@ -1,0 +1,145 @@
+
+<html>
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="shortcut icon" href="/public/images/favicon.ico" />
+
+<link rel="stylesheet" href="/public/themes/style_cobalt_blue.css?v=62" />
+
+<script src="/public/assets/jquery/dist/jquery.min.js?v=62"></script>
+<script src="/public/assets/bootstrap/dist/js/bootstrap.bundle.min.js?v=62"></script>
+<script src="/library/js/utility.js?v=62"></script>
+<script src="/library/textformat.js?v=62"></script>
+<script src="/library/dialog.js?v=62"></script>
+
+<style>
+    body {
+        font-family: sans-serif;
+        font-size: 0.6875rem;
+        font-weight: normal;
+    }
+    .dehead {
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+    .olddetail {
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .newdetail {
+        color: var(--success);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .errdetail {
+        color: var(--danger);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .infdetail {
+        color: var(--primary);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+</style>
+<title>EOB Posting - Electronic Remittances</title>
+</head>
+<body class='m-0'>
+<form action="sl_eob_process.php" method="get">
+<input type="hidden" name="csrf_token_form" value="95e08bed324ed77a2d8939797ce44042d739ba51" />
+
+<center>
+    <table class='table table-borderless w-100' cellpadding='2' cellspacing='0'>
+
+     <tr class="table-light">
+      <td class="dehead">
+    Patient      </td>
+      <td class="dehead">
+    Invoice      </td>
+      <td class="dehead">
+    Code      </td>
+      <td class="dehead">
+    Date      </td>
+      <td class="dehead">
+    Description      </td>
+      <td class="dehead" align="right">
+    Amount&nbsp;
+      </td>
+      <td class="dehead" align="right">
+    Balance&nbsp;
+      </td>
+     </tr>
+
+     <tr bgcolor='var(--white)'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Payer: AlohaCare</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>BRADY MINNICK</td>
+  <td class='errdetail'>928481844</td>
+  <td class='errdetail'>90847:95</td>
+  <td class='errdetail'>05/26/2021</td>
+  <td class='errdetail'>CPT4:90847:95 Added by Ins1 2021-05-26</td>
+  <td class='errdetail' align='right'>150.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 72.93</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>05/26/2021</td>
+  <td class='errdetail'>Ins1/30220511 payment</td>
+  <td class='errdetail' align='right'>-72.93</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>05/26/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-77.07</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+<script>alert("Total Distribution for following check number is not full: 30220511 ")</script>    </table>
+    </center>
+<script>
+</script>
+<input type="hidden" name="paydate" value="-2021-05-26-" />
+<input type="hidden" name="post_to_date" value="-2021-05-03-" />
+<input type="hidden" name="deposit_date" value="-2021-05-03-" />
+<input type="hidden" name="debug" value="0" />
+<input type="hidden" name="InsId" value="453" />
+<input type="hidden" name="eraname" value="20210526_13217820_Medicaid752777124" />
+</form>
+</body>
+</html>

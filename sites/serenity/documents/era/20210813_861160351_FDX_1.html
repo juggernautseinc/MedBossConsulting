@@ -1,0 +1,527 @@
+
+<html>
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="shortcut icon" href="/public/images/favicon.ico" />
+
+<link rel="stylesheet" href="/public/themes/style_cobalt_blue.css?v=62" />
+
+<script src="/public/assets/jquery/dist/jquery.min.js?v=62"></script>
+<script src="/public/assets/bootstrap/dist/js/bootstrap.bundle.min.js?v=62"></script>
+<script src="/library/js/utility.js?v=62"></script>
+<script src="/library/textformat.js?v=62"></script>
+<script src="/library/dialog.js?v=62"></script>
+
+<style>
+    body {
+        font-family: sans-serif;
+        font-size: 0.6875rem;
+        font-weight: normal;
+    }
+    .dehead {
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+    .olddetail {
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .newdetail {
+        color: var(--success);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .errdetail {
+        color: var(--danger);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .infdetail {
+        color: var(--primary);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+</style>
+<title>EOB Posting - Electronic Remittances</title>
+</head>
+<body class='m-0'>
+<form action="sl_eob_process.php" method="get">
+<input type="hidden" name="csrf_token_form" value="679e71f5a148d92b8f1ddc1a2144f1a5a71530ab" />
+
+<center>
+    <table class='table table-borderless w-100' cellpadding='2' cellspacing='0'>
+
+     <tr class="table-light">
+      <td class="dehead">
+    Patient      </td>
+      <td class="dehead">
+    Invoice      </td>
+      <td class="dehead">
+    Code      </td>
+      <td class="dehead">
+    Date      </td>
+      <td class="dehead">
+    Description      </td>
+      <td class="dehead" align="right">
+    Amount&nbsp;
+      </td>
+      <td class="dehead" align="right">
+    Balance&nbsp;
+      </td>
+     </tr>
+
+     <tr bgcolor='var(--white)'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Payer: BEACON HEALTH OPTIONS, INC.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>KATELYN MATERIALE</td>
+  <td class='errdetail'>0</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-16</td>
+  <td class='errdetail' align='right'>85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>Ins1/0000522747 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>JULIA SEVILLA</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-16</td>
+  <td class='errdetail' align='right'>85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>Ins1/0000522747 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>TIMOTHEY WALKER</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-16</td>
+  <td class='errdetail' align='right'>85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>Ins1/0000522747 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>ROSE NATOR</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-16</td>
+  <td class='errdetail' align='right'>85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>Ins1/0000522508 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>ANDREW GAITHER</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-16</td>
+  <td class='errdetail' align='right'>85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>Ins1/0000522346 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>SCOTT NOZAKI</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-16</td>
+  <td class='errdetail' align='right'>85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>Ins1/0000522346 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>JOSHUA TOVAR</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-16</td>
+  <td class='errdetail' align='right'>85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>Ins1/0000522346 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>JAMES WORRELL</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-16</td>
+  <td class='errdetail' align='right'>85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>Ins1/0000522346 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-16</td>
+  <td class='errdetail' align='right'>85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>Ins1/0000522346 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>BAJUN CUI</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-16</td>
+  <td class='errdetail' align='right'>85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>Ins1/0000521911 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>DANE HANSON</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-16</td>
+  <td class='errdetail' align='right'>85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>Ins1/0000521911 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-16</td>
+  <td class='errdetail' align='right'>85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>Ins1/0000521911 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>TRISTON NORMAN</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-08-16</td>
+  <td class='errdetail' align='right'>85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/16/2021</td>
+  <td class='errdetail'>Ins1/0000521911 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+<script>alert("Total Distribution for following check number is not full: 0000522747 0000522508 0000522346 0000521911 ")</script>    </table>
+    </center>
+<script>
+</script>
+<input type="hidden" name="paydate" value="-2021-08-16-" />
+<input type="hidden" name="post_to_date" value="-2021-08-19-" />
+<input type="hidden" name="deposit_date" value="-2021-08-18-" />
+<input type="hidden" name="debug" value="0" />
+<input type="hidden" name="InsId" value="565" />
+<input type="hidden" name="eraname" value="20210813_861160351_FDX" />
+</form>
+</body>
+</html>

@@ -1,0 +1,3275 @@
+
+<html>
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="shortcut icon" href="/public/images/favicon.ico" />
+
+<link rel="stylesheet" href="/public/themes/style_cobalt_blue.css?v=62" />
+
+<script src="/public/assets/jquery/dist/jquery.min.js?v=62"></script>
+<script src="/public/assets/bootstrap/dist/js/bootstrap.bundle.min.js?v=62"></script>
+<script src="/library/js/utility.js?v=62"></script>
+<script src="/library/textformat.js?v=62"></script>
+<script src="/library/dialog.js?v=62"></script>
+
+<style>
+    body {
+        font-family: sans-serif;
+        font-size: 0.6875rem;
+        font-weight: normal;
+    }
+    .dehead {
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+    .olddetail {
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .newdetail {
+        color: var(--success);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .errdetail {
+        color: var(--danger);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .infdetail {
+        color: var(--primary);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+</style>
+<title>EOB Posting - Electronic Remittances</title>
+</head>
+<body class='m-0'>
+<form action="sl_eob_process.php" method="get">
+<input type="hidden" name="csrf_token_form" value="d0c303b797b3935e1ebcb20a415b9ec347e7b016" />
+
+<center>
+    <table class='table table-borderless w-100' cellpadding='2' cellspacing='0'>
+
+     <tr class="table-light">
+      <td class="dehead">
+    Patient      </td>
+      <td class="dehead">
+    Invoice      </td>
+      <td class="dehead">
+    Code      </td>
+      <td class="dehead">
+    Date      </td>
+      <td class="dehead">
+    Description      </td>
+      <td class="dehead" align="right">
+    Amount&nbsp;
+      </td>
+      <td class="dehead" align="right">
+    Balance&nbsp;
+      </td>
+     </tr>
+
+     <tr bgcolor='var(--white)'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Payer: PGBA,LLC</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>Blaise Gomes</td>
+  <td class='olddetail'>729.3369</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/30/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N52: Patient not enrolled in the billing provider's managed care plan on the date of service.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail' colspan='4'>&nbsp;</td>
+  <td class='newdetail'>32: Our records indicate the patient is not an eligible dependent. 120.00</td>
+  <td class='newdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>ELIZABETH ATWATER</td>
+  <td class='errdetail'>928447623</td>
+  <td class='errdetail'>90834:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90834:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>120.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-79.64</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-40.36</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>Shawn Teasley</td>
+  <td class='olddetail'>575.212</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>04/11/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>SHAWN TEASLEY</td>
+  <td class='errdetail'>928447168</td>
+  <td class='errdetail'>90834:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90834:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>120.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-79.64</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-40.36</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928448355</td>
+  <td class='errdetail'>90834:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90834:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>120.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-79.64</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-40.36</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>MOLLY FROMILLE</td>
+  <td class='errdetail'>928495056</td>
+  <td class='errdetail'>90837:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90837:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>175.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 117.60</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-117.60</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-57.40</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928481893</td>
+  <td class='errdetail'>90837:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90837:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>175.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 117.60</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-117.60</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-57.40</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928444288</td>
+  <td class='errdetail'>90837:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90837:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>175.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 117.60</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-117.60</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-57.40</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928447710</td>
+  <td class='errdetail'>90837:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90837:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>175.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 117.60</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-117.60</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-57.40</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928447666</td>
+  <td class='errdetail'>90837:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90837:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>175.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 117.60</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-117.60</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-57.40</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>MARY ETHERIDGE</td>
+  <td class='errdetail'>928509136</td>
+  <td class='errdetail'>90837:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90837:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>175.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 117.60</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-117.60</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-57.40</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>Crystal Swint</td>
+  <td class='olddetail'>626.1224</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>05/23/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>626.992</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>05/16/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>626.690</td>
+  <td class='olddetail'>90792:95</td>
+  <td class='olddetail'>04/24/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>220.00</td>
+  <td class='olddetail' align='right'>220.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 156.57</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-156.57</td>
+  <td class='newdetail' align='right'>63.43</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-63.43</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>626.847</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>05/01/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>Shawn Teasley</td>
+  <td class='olddetail'>575.1220</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>05/23/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>575.473</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>04/18/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>575.694</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>04/25/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>Nathaniel Combs</td>
+  <td class='olddetail'>597.688</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>04/24/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>NATHANIEL COMBS</td>
+  <td class='errdetail'>928447153</td>
+  <td class='errdetail'>90834:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90834:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>120.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-79.64</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-40.36</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928447196</td>
+  <td class='errdetail'>90834:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90834:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>120.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-79.64</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-40.36</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>AMBER NGUYEN</td>
+  <td class='errdetail'>928488165</td>
+  <td class='errdetail'>90834:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90834:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>120.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-79.64</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-40.36</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928444127</td>
+  <td class='errdetail'>90834:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90834:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>120.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-79.64</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-40.36</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928447512</td>
+  <td class='errdetail'>90834:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90834:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>120.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-79.64</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-40.36</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928447618</td>
+  <td class='errdetail'>90834:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90834:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>120.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-79.64</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-40.36</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>Carrie Alverson</td>
+  <td class='olddetail'>553.297</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>04/12/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>JESSICA REDMON</td>
+  <td class='errdetail'>928447222</td>
+  <td class='errdetail'>90834:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90834:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>120.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-79.64</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-40.36</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928447292</td>
+  <td class='errdetail'>90834:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90834:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>120.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-79.64</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-40.36</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928447670</td>
+  <td class='errdetail'>90834:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90834:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>120.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-79.64</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-40.36</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>ERICA ROSENBERG</td>
+  <td class='errdetail'>928529592</td>
+  <td class='errdetail'>90847:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90847:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>150.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 81.41</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-81.41</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-68.59</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928529585</td>
+  <td class='errdetail'>90847:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90847:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>150.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 81.41</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-81.41</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-68.59</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>JOESEPH YODER</td>
+  <td class='errdetail'>928444314</td>
+  <td class='errdetail'>90791:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90791:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>190.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 139.87</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-139.87</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-50.13</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>Carrie Alverson</td>
+  <td class='olddetail'>553.125</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>04/05/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>ERICA ROSENBERG</td>
+  <td class='errdetail'>928529596</td>
+  <td class='errdetail'>90847:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90847:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>150.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 78.14</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-78.14</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-71.86</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928529599</td>
+  <td class='errdetail'>90847:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90847:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>150.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 78.14</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-78.14</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-71.86</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928530260</td>
+  <td class='errdetail'>90847:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90847:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>150.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 78.14</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-78.14</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-71.86</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928530250</td>
+  <td class='errdetail'>90847:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90847:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>150.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 78.14</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-78.14</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-71.86</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928529595</td>
+  <td class='errdetail'>90791:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90791:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>190.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 112.09</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-112.09</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-77.91</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>SANDRA ALEXANDER</td>
+  <td class='errdetail'>92823120</td>
+  <td class='errdetail'>90834:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90834:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>120.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 72.57</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-72.57</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-47.43</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>92840959</td>
+  <td class='errdetail'>90834:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90834:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>120.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 72.57</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-72.57</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-47.43</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>Elizabeth Atwater</td>
+  <td class='olddetail'>608.1216</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>05/22/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>608.1732</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>05/29/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>608.1838</td>
+  <td class='olddetail'>90846:95</td>
+  <td class='olddetail'>06/05/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 75.50</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-75.50</td>
+  <td class='newdetail' align='right'>44.50</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-44.50</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>608.1985</td>
+  <td class='olddetail'>90847:95</td>
+  <td class='olddetail'>06/12/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 78.14</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-78.14</td>
+  <td class='newdetail' align='right'>41.86</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-41.86</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>608.2134</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/19/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>608.981</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>05/15/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>608.911</td>
+  <td class='olddetail'>90847:95</td>
+  <td class='olddetail'>05/08/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 78.14</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-78.14</td>
+  <td class='newdetail' align='right'>41.86</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-41.86</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>608.448</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>04/16/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>08/19/2021</td>
+  <td class='olddetail'>ePay - 5642226228TR1Ins adjust Tricare West</td>
+  <td class='olddetail' align='right'>-2.40</td>
+  <td class='olddetail' align='right'>117.60</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>08/19/2021</td>
+  <td class='olddetail'>ePay - 5642226228TR1</td>
+  <td class='olddetail' align='right'>-117.60</td>
+  <td class='olddetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>-79.64</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>-120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>608.680</td>
+  <td class='olddetail'>90847:95</td>
+  <td class='olddetail'>04/23/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 78.14</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-78.14</td>
+  <td class='newdetail' align='right'>41.86</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-41.86</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>608.839</td>
+  <td class='olddetail'>90847:95</td>
+  <td class='olddetail'>04/30/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 78.14</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-78.14</td>
+  <td class='newdetail' align='right'>41.86</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-41.86</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>DANIELLE MEACHUM</td>
+  <td class='errdetail'>928491485</td>
+  <td class='errdetail'>90847:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90847:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>150.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 81.41</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-81.41</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-68.59</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928491484</td>
+  <td class='errdetail'>90846:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90846:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>145.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 78.69</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-78.69</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-66.31</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>Sandra Alexander</td>
+  <td class='olddetail'>400.1907</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/07/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>MARY ETHERIDGE</td>
+  <td class='errdetail'>928599771</td>
+  <td class='errdetail'>90837:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90837:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>175.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 117.60</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-117.60</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-57.40</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928599785</td>
+  <td class='errdetail'>90837:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90837:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>175.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 117.60</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-117.60</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-57.40</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>Amber Nguyen</td>
+  <td class='olddetail'>636.2486</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/03/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>MOLLY FROMILLE</td>
+  <td class='errdetail'>928599806</td>
+  <td class='errdetail'>90837:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90837:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>175.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 117.60</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-117.60</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-57.40</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>Amber Nguyen</td>
+  <td class='olddetail'>636.2484</td>
+  <td class='olddetail'>90834</td>
+  <td class='olddetail'>04/29/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 69.18</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-69.18</td>
+  <td class='newdetail' align='right'>50.82</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-50.82</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>ALEXANDRIA RODGERS</td>
+  <td class='errdetail'>928391575</td>
+  <td class='errdetail'>90791:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90791:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>190.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 139.87</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-139.87</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-50.13</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>Erica Rosenberg</td>
+  <td class='olddetail'>604.1740</td>
+  <td class='olddetail'>90837:95</td>
+  <td class='olddetail'>05/16/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>150.00</td>
+  <td class='olddetail' align='right'>150.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 117.60</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-117.60</td>
+  <td class='newdetail' align='right'>32.40</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-32.40</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>604.1736</td>
+  <td class='olddetail'>90837:95</td>
+  <td class='olddetail'>04/11/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>150.00</td>
+  <td class='olddetail' align='right'>150.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 117.60</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-117.60</td>
+  <td class='newdetail' align='right'>32.40</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-32.40</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>ALEXIS PEREZ MORAN</td>
+  <td class='errdetail'>928392282</td>
+  <td class='errdetail'>90837:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90837:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>175.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 117.60</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-117.60</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-57.40</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928599822</td>
+  <td class='errdetail'>90837:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90837:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>175.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 117.60</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-117.60</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-57.40</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>Erica Rosenberg</td>
+  <td class='olddetail'>604.1738</td>
+  <td class='olddetail'>90837:95</td>
+  <td class='olddetail'>04/18/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>150.00</td>
+  <td class='olddetail' align='right'>150.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 117.60</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-117.60</td>
+  <td class='newdetail' align='right'>32.40</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-32.40</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>Crystal Swint</td>
+  <td class='olddetail'>626.1754</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>05/30/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>626.1850</td>
+  <td class='olddetail'>90846:95</td>
+  <td class='olddetail'>06/06/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 75.50</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-75.50</td>
+  <td class='newdetail' align='right'>44.50</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-44.50</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>Shawn Teasley</td>
+  <td class='olddetail'>575.1856</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/06/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>575.2325</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/27/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.64</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='newdetail' align='right'>-79.64</td>
+  <td class='newdetail' align='right'>40.36</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>08/20/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.36</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>STEPHANIE PEREZ</td>
+  <td class='errdetail'>928447387</td>
+  <td class='errdetail'>90791:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90791:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>190.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 139.87</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-139.87</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-50.13</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928444197</td>
+  <td class='errdetail'>90837:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90837:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>175.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 117.60</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-117.60</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-57.40</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>928448408</td>
+  <td class='errdetail'>90837:95</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>CPT4:90837:95 Added by Ins1 2021-08-20</td>
+  <td class='errdetail' align='right'>175.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 117.60</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>Ins1/5642121229TR1 payment</td>
+  <td class='errdetail' align='right'>-117.60</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>08/20/2021</td>
+  <td class='errdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='errdetail' align='right'>-57.40</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+<script>alert("Total Distribution for following check number is not full: 5642121229TR1 ")</script>    </table>
+    </center>
+<script>
+</script>
+<input type="hidden" name="paydate" value="-2021-08-20-" />
+<input type="hidden" name="post_to_date" value="-2021-08-23-" />
+<input type="hidden" name="deposit_date" value="-2021-08-25-" />
+<input type="hidden" name="debug" value="0" />
+<input type="hidden" name="InsId" value="106" />
+<input type="hidden" name="eraname" value="20210819_863391237_" />
+</form>
+</body>
+</html>

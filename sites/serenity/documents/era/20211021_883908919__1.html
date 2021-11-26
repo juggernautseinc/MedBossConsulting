@@ -1,0 +1,202 @@
+
+<html>
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="shortcut icon" href="/public/images/favicon.ico" />
+
+<link rel="stylesheet" href="/public/themes/style_cobalt_blue.css?v=62" />
+
+<script src="/public/assets/jquery/dist/jquery.min.js?v=62"></script>
+<script src="/public/assets/bootstrap/dist/js/bootstrap.bundle.min.js?v=62"></script>
+<script src="/library/js/utility.js?v=62"></script>
+<script src="/library/textformat.js?v=62"></script>
+<script src="/library/dialog.js?v=62"></script>
+
+<style>
+    body {
+        font-family: sans-serif;
+        font-size: 0.6875rem;
+        font-weight: normal;
+    }
+    .dehead {
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+    .olddetail {
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .newdetail {
+        color: var(--success);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .errdetail {
+        color: var(--danger);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .infdetail {
+        color: var(--primary);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+</style>
+<title>EOB Posting - Electronic Remittances</title>
+</head>
+<body class='m-0'>
+<form action="sl_eob_process.php" method="get">
+<input type="hidden" name="csrf_token_form" value="fb331cf969f587628565d8cf73195c30882b3f7b" />
+
+<center>
+    <table class='table table-borderless w-100' cellpadding='2' cellspacing='0'>
+
+     <tr class="table-light">
+      <td class="dehead">
+    Patient      </td>
+      <td class="dehead">
+    Invoice      </td>
+      <td class="dehead">
+    Code      </td>
+      <td class="dehead">
+    Date      </td>
+      <td class="dehead">
+    Description      </td>
+      <td class="dehead" align="right">
+    Amount&nbsp;
+      </td>
+      <td class="dehead" align="right">
+    Balance&nbsp;
+      </td>
+     </tr>
+
+     <tr bgcolor='var(--white)'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Payer: PGBA,LLC</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>Jessica Morris</td>
+  <td class='olddetail'>2070.5483</td>
+  <td class='olddetail'>90837:95</td>
+  <td class='olddetail'>10/14/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>150.00</td>
+  <td class='olddetail' align='right'>150.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 103.96</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N212: Charges processed under a Point of Service benefit.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>10/21/2021</td>
+  <td class='newdetail'>Ins1/5042166292TR2 payment</td>
+  <td class='newdetail' align='right'>-51.98</td>
+  <td class='newdetail' align='right'>98.02</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>10/21/2021</td>
+  <td class='newdetail'>242: Services not provided by network/primary care providers.</td>
+  <td class='newdetail' align='right'>-46.04</td>
+  <td class='newdetail' align='right'>51.98</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail' colspan='4'>&nbsp;</td>
+  <td class='newdetail'>2: Coinsurance Amount 51.98</td>
+  <td class='newdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>Kate Marsi</td>
+  <td class='olddetail'>724.5525</td>
+  <td class='olddetail'>90837:95</td>
+  <td class='olddetail'>10/15/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>150.00</td>
+  <td class='olddetail' align='right'>150.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 103.96</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N212: Charges processed under a Point of Service benefit.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>10/21/2021</td>
+  <td class='newdetail'>Ins1/5042166292TR2 payment</td>
+  <td class='newdetail' align='right'>-51.98</td>
+  <td class='newdetail' align='right'>98.02</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>10/21/2021</td>
+  <td class='newdetail'>242: Services not provided by network/primary care providers.</td>
+  <td class='newdetail' align='right'>-46.04</td>
+  <td class='newdetail' align='right'>51.98</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail' colspan='4'>&nbsp;</td>
+  <td class='newdetail'>2: Coinsurance Amount 51.98</td>
+  <td class='newdetail' colspan='2'>&nbsp;</td>
+ </tr>
+    </table>
+    </center>
+<script>
+</script>
+<input type="hidden" name="paydate" value="-2021-10-21-" />
+<input type="hidden" name="post_to_date" value="-2021-10-21-" />
+<input type="hidden" name="deposit_date" value="-2021-10-21-" />
+<input type="hidden" name="debug" value="0" />
+<input type="hidden" name="InsId" value="106" />
+<input type="hidden" name="eraname" value="20211021_883908919_" />
+</form>
+</body>
+</html>

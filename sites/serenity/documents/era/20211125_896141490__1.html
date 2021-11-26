@@ -1,0 +1,3294 @@
+
+<html>
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="shortcut icon" href="/public/images/favicon.ico" />
+
+<link rel="stylesheet" href="/public/themes/style_cobalt_blue.css?v=63" />
+
+<script src="/public/assets/jquery/dist/jquery.min.js?v=63"></script>
+<script src="/public/assets/bootstrap/dist/js/bootstrap.bundle.min.js?v=63"></script>
+<script src="/library/js/utility.js?v=63"></script>
+<script src="/library/textformat.js?v=63"></script>
+<script src="/library/dialog.js?v=63"></script>
+
+<style>
+    body {
+        font-family: sans-serif;
+        font-size: 0.6875rem;
+        font-weight: normal;
+    }
+    .dehead {
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+    .olddetail {
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .newdetail {
+        color: var(--success);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .errdetail {
+        color: var(--danger);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .infdetail {
+        color: var(--primary);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+</style>
+<title>EOB Posting - Electronic Remittances</title>
+</head>
+<body class='m-0'>
+<form action="sl_eob_process.php" method="get">
+<input type="hidden" name="csrf_token_form" value="44e829cb46757bf76444e8594c58b1096ddcefdc" />
+
+<center>
+    <table class='table table-borderless w-100' cellpadding='2' cellspacing='0'>
+
+     <tr class="table-light">
+      <td class="dehead">
+    Patient      </td>
+      <td class="dehead">
+    Invoice      </td>
+      <td class="dehead">
+    Code      </td>
+      <td class="dehead">
+    Date      </td>
+      <td class="dehead">
+    Description      </td>
+      <td class="dehead" align="right">
+    Amount&nbsp;
+      </td>
+      <td class="dehead" align="right">
+    Balance&nbsp;
+      </td>
+     </tr>
+
+     <tr bgcolor='var(--white)'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Payer: BEACON HEALTH OPTIONS, INC.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>DAVID BYARS-ALLMAN</td>
+  <td class='errdetail'>0</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Ins1/0000545331 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>MATTHEW MELTZER</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Ins1/0000545331 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>LUKE MORRIS</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Ins1/0000545331 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>MONICA CHAN</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Ins1/0000544536 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 4: Denied</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>Not posting adjustments for denied claims, please follow up manually!</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>MARTIN CORTEZ</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N54: Claim information is inconsistent with pre-certified/authorized services.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>16: Claim/service lacks information or has submission/billing error(s). Usage: Do not use this code for claims attachment(s)/other documentation. At least one Remark Code must be provided (may be comprised of either the NCPDP Reject Reason Code, or Remittance Advice Remark Code that is not an ALERT.) Refer to the 835 Healthcare Policy Identification Segment (loop 2110 Service Payment Information REF), if present.</td>
+  <td class='errdetail' align='right'>-60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>BAJUN CUI</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Ins1/0000544536 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 4: Denied</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>Not posting adjustments for denied claims, please follow up manually!</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>JEREMIAH LINGLEY</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>MA113: Incomplete/invalid taxpayer identification number (TIN) submitted by you per the Internal Revenue Service. Your claims cannot be processed without your correct TIN, and you may not bill the patient pending correction of your TIN. There are no appeal rights for unprocessable claims, but you may resubmit this claim after you have notified this office of your correct TIN.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>16: Claim/service lacks information or has submission/billing error(s). Usage: Do not use this code for claims attachment(s)/other documentation. At least one Remark Code must be provided (may be comprised of either the NCPDP Reject Reason Code, or Remittance Advice Remark Code that is not an ALERT.) Refer to the 835 Healthcare Policy Identification Segment (loop 2110 Service Payment Information REF), if present.</td>
+  <td class='errdetail' align='right'>-60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>BRENT MYLES</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Ins1/0000544536 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>LOGAN ORAVETZ</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Ins1/0000544536 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>TERRELL SMALL</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Ins1/0000544536 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>JULISSA HEFFERNAN</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Ins1/0000544928 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>QUINTEN JOHNSON</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Ins1/0000544928 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>ANNA KEENAN</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Ins1/0000544928 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>BRIEN TARKINGTON</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Ins1/0000544928 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>JOSHUA TOVAR</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Ins1/0000544928 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>MICHAEL WARTENBERG</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Ins1/0000544928 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail' colspan='4'>&nbsp;</td>
+  <td class='errdetail'>The following claim is not in our database</td>
+  <td class='errdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Procedure 'Claim' is inserted artificially to force claim balancing.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>HAYDEN KINNEY</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>Claim</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:Claim Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>0.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Balancing: </td>
+  <td class='errdetail' align='right'>25.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>AEA:60</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>CPT4:AEA:60 Added by Ins1 2021-11-29</td>
+  <td class='errdetail' align='right'>60.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 85.00</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>&amp;nbsp;</td>
+  <td class='errdetail'>11/29/2021</td>
+  <td class='errdetail'>Ins1/0000545101 payment</td>
+  <td class='errdetail' align='right'>-85.00</td>
+  <td class='errdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>Isis Botello</td>
+  <td class='olddetail'>625.3421</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/05/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>625.2726</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/08/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>625.2728</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/15/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>625.2730</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/22/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>625.3419</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/30/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>Gilbert Garcia</td>
+  <td class='olddetail'>655.935</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>05/10/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>29: The time limit for filing has expired.</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>Ashley Fairman</td>
+  <td class='olddetail'>740.2263</td>
+  <td class='olddetail'>90837:95</td>
+  <td class='olddetail'>06/24/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>150.00</td>
+  <td class='olddetail' align='right'>150.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-150.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>JASON HOY</td>
+  <td class='olddetail'>380.1226</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>05/23/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>29: The time limit for filing has expired.</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>380.1756</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>05/30/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>380.1852</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/06/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>380.1987</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/13/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>Gilbert Garcia</td>
+  <td class='olddetail'>655.863</td>
+  <td class='olddetail'>90791:95</td>
+  <td class='olddetail'>05/04/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>180.00</td>
+  <td class='olddetail' align='right'>180.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>29: The time limit for filing has expired.</td>
+  <td class='newdetail' align='right'>-180.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>JASON HOY</td>
+  <td class='olddetail'>380.3012</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/19/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>380.3224</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/26/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>380.3687</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>08/09/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>Samuel Macedo</td>
+  <td class='olddetail'>643.3532</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/21/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>643.4781</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>09/01/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>643.6053</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>09/29/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>643.2823</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/30/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>643.3519</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/07/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>643.3522</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/14/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>Paul Bestwick</td>
+  <td class='olddetail'>660.3179</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/30/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>660.3181</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/14/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>660.3183</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/21/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>660.3876</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>08/11/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>660.3963</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>08/17/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>Henry Elvenia</td>
+  <td class='olddetail'>742.2911</td>
+  <td class='olddetail'>90837:95</td>
+  <td class='olddetail'>07/13/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>150.00</td>
+  <td class='olddetail' align='right'>150.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-150.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>JASON HOY</td>
+  <td class='olddetail'>380.2162</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/20/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>Loren Coleman</td>
+  <td class='olddetail'>642.3441</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/28/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.51</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>Ins1/5409871327VT2 payment</td>
+  <td class='newdetail' align='right'>-79.51</td>
+  <td class='newdetail' align='right'>40.49</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.49</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>642.3443</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/21/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.51</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>Ins1/5409871327VT2 payment</td>
+  <td class='newdetail' align='right'>-79.51</td>
+  <td class='newdetail' align='right'>40.49</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.49</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>642.3445</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/14/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.51</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>Ins1/5409871327VT2 payment</td>
+  <td class='newdetail' align='right'>-79.51</td>
+  <td class='newdetail' align='right'>40.49</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.49</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>642.3447</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/30/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.51</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>Ins1/5409871327VT2 payment</td>
+  <td class='newdetail' align='right'>-79.51</td>
+  <td class='newdetail' align='right'>40.49</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.49</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>642.3967</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>08/06/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.51</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>Ins1/5409871327VT2 payment</td>
+  <td class='newdetail' align='right'>-79.51</td>
+  <td class='newdetail' align='right'>40.49</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.49</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>642.3969</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>08/11/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.51</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>Ins1/5409871327VT2 payment</td>
+  <td class='newdetail' align='right'>-79.51</td>
+  <td class='newdetail' align='right'>40.49</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.49</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>642.3971</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>08/18/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.51</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>Ins1/5409871327VT2 payment</td>
+  <td class='newdetail' align='right'>-79.51</td>
+  <td class='newdetail' align='right'>40.49</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.49</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>642.4557</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>08/25/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.51</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>Ins1/5409871327VT2 payment</td>
+  <td class='newdetail' align='right'>-79.51</td>
+  <td class='newdetail' align='right'>40.49</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.49</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>642.4559</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>09/01/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.51</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>Ins1/5409871327VT2 payment</td>
+  <td class='newdetail' align='right'>-79.51</td>
+  <td class='newdetail' align='right'>40.49</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.49</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>JASON HOY</td>
+  <td class='olddetail'>380.209</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>04/11/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>29: The time limit for filing has expired.</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>Henry Elvenia</td>
+  <td class='olddetail'>742.2112</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/18/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>742.2299</td>
+  <td class='olddetail'>90837:95</td>
+  <td class='olddetail'>06/25/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>150.00</td>
+  <td class='olddetail' align='right'>150.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-150.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>742.2535</td>
+  <td class='olddetail'>90837:95</td>
+  <td class='olddetail'>07/02/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>150.00</td>
+  <td class='olddetail' align='right'>150.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-150.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>742.2681</td>
+  <td class='olddetail'>90837:95</td>
+  <td class='olddetail'>07/08/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>150.00</td>
+  <td class='olddetail' align='right'>150.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-150.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>Edward Sawicki</td>
+  <td class='olddetail'>703.3110</td>
+  <td class='olddetail'>90837:95</td>
+  <td class='olddetail'>07/23/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>150.00</td>
+  <td class='olddetail' align='right'>150.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-150.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>703.3494</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>08/02/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>703.3681</td>
+  <td class='olddetail'>90791:95</td>
+  <td class='olddetail'>08/09/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>180.00</td>
+  <td class='olddetail' align='right'>180.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-180.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>703.3839</td>
+  <td class='olddetail'>90837:95</td>
+  <td class='olddetail'>08/16/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>150.00</td>
+  <td class='olddetail' align='right'>150.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-150.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>703.4007</td>
+  <td class='olddetail'>90846:95</td>
+  <td class='olddetail'>08/23/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>703.4281</td>
+  <td class='olddetail'>90837:95</td>
+  <td class='olddetail'>08/30/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>150.00</td>
+  <td class='olddetail' align='right'>150.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-150.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>703.1728</td>
+  <td class='olddetail'>90792:95</td>
+  <td class='olddetail'>05/29/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>220.00</td>
+  <td class='olddetail' align='right'>220.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-220.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>703.2360</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/28/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>703.2607</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/05/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>703.2850</td>
+  <td class='olddetail'>90847:95</td>
+  <td class='olddetail'>07/12/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>703.2885</td>
+  <td class='olddetail'>90791:95</td>
+  <td class='olddetail'>07/12/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>180.00</td>
+  <td class='olddetail' align='right'>180.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-180.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>703.3007</td>
+  <td class='olddetail'>90847:95</td>
+  <td class='olddetail'>07/19/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>Hollis Read</td>
+  <td class='olddetail'>591.2838</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/30/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>591.2840</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/07/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>591.2925</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/14/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>591.3068</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/21/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>591.3271</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/28/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>591.3546</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>08/02/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>591.4069</td>
+  <td class='olddetail'>90837:95</td>
+  <td class='olddetail'>08/19/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>150.00</td>
+  <td class='olddetail' align='right'>150.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-150.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>591.4108</td>
+  <td class='olddetail'>90837:95</td>
+  <td class='olddetail'>08/25/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>150.00</td>
+  <td class='olddetail' align='right'>150.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-150.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>591.274</td>
+  <td class='olddetail'>90832:95</td>
+  <td class='olddetail'>04/12/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>90.00</td>
+  <td class='olddetail' align='right'>90.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>29: The time limit for filing has expired.</td>
+  <td class='newdetail' align='right'>-90.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>Zachary Rogers</td>
+  <td class='olddetail'>735.2679</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/08/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>735.3028</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/15/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>735.3175</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/22/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>735.3557</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/29/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>735.4067</td>
+  <td class='olddetail'>90837:95</td>
+  <td class='olddetail'>08/19/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>150.00</td>
+  <td class='olddetail' align='right'>150.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-150.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>Hollis Read</td>
+  <td class='olddetail'>591.2236</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>06/23/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>Ivan Vega</td>
+  <td class='olddetail'>666.2705</td>
+  <td class='olddetail'>90791:95</td>
+  <td class='olddetail'>07/09/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>180.00</td>
+  <td class='olddetail' align='right'>180.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 138.74</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>Ins1/5409871327VT2 payment</td>
+  <td class='newdetail' align='right'>-138.74</td>
+  <td class='newdetail' align='right'>41.26</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-41.26</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>AMT segment at claim level ignored.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>Deisy Valencia</td>
+  <td class='olddetail'>733.2678</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/08/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Allowed amount is 79.51</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>Ins1/5409871327VT2 payment</td>
+  <td class='newdetail' align='right'>-79.51</td>
+  <td class='newdetail' align='right'>40.49</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>45: Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement. Usage: This adjustment amount cannot equal the total service or claim charge amount; and must not duplicate provider adjustment amounts (payments and contractual reductions) that have resulted from prior payer(s) adjudication. (Use only with Group Codes PR or CO depending upon liability)</td>
+  <td class='newdetail' align='right'>-40.49</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>George White</td>
+  <td class='olddetail'>404.2063</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>05/18/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>29: The time limit for filing has expired.</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>404.3185</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/06/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>404.3187</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/13/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>404.3189</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>07/20/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>404.4259</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>08/17/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ddddff'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>Claim status 1: Processed as Primary</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='olddetail'>&amp;nbsp;</td>
+  <td class='olddetail'>404.4261</td>
+  <td class='olddetail'>90834:95</td>
+  <td class='olddetail'>08/24/2021</td>
+  <td class='olddetail'>Service Item</td>
+  <td class='olddetail' align='right'>120.00</td>
+  <td class='olddetail' align='right'>120.00</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='infdetail' colspan='4'>&nbsp;</td>
+  <td class='infdetail'>N489: Missing referral form.</td>
+  <td class='infdetail' colspan='2'>&nbsp;</td>
+ </tr>
+ <tr bgcolor='#ffdddd'>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>&amp;nbsp;</td>
+  <td class='newdetail'>11/29/2021</td>
+  <td class='newdetail'>288: Referral absent</td>
+  <td class='newdetail' align='right'>-120.00</td>
+  <td class='newdetail' align='right'>0.00</td>
+ </tr>
+<script>alert("Total Distribution for following check number is not full: 0000545331 0000544536 0000544928 0000545101 ")</script>    </table>
+    </center>
+<script>
+</script>
+<input type="hidden" name="paydate" value="-2021-11-29-" />
+<input type="hidden" name="post_to_date" value="-2021-11-26-" />
+<input type="hidden" name="deposit_date" value="-2021-11-29-" />
+<input type="hidden" name="debug" value="0" />
+<input type="hidden" name="InsId" value="133" />
+<input type="hidden" name="eraname" value="20211125_896141490_" />
+</form>
+</body>
+</html>

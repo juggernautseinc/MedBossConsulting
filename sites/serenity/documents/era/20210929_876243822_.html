@@ -1,0 +1,71 @@
+
+<html>
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="shortcut icon" href="/public/images/favicon.ico" />
+
+<link rel="stylesheet" href="/public/themes/style_cobalt_blue.css?v=62" />
+
+<script src="/public/assets/jquery/dist/jquery.min.js?v=62"></script>
+<script src="/public/assets/bootstrap/dist/js/bootstrap.bundle.min.js?v=62"></script>
+<script src="/library/js/utility.js?v=62"></script>
+<script src="/library/textformat.js?v=62"></script>
+<script src="/library/dialog.js?v=62"></script>
+
+<style>
+    body {
+        font-family: sans-serif;
+        font-size: 0.6875rem;
+        font-weight: normal;
+    }
+    .dehead {
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+    .olddetail {
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .newdetail {
+        color: var(--success);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .errdetail {
+        color: var(--danger);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    .infdetail {
+        color: var(--primary);
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+</style>
+<title>EOB Posting - Electronic Remittances</title>
+</head>
+<body class='m-0'>
+<form action="sl_eob_process.php" method="get">
+<input type="hidden" name="csrf_token_form" value="5a18e97b4e2387ebff54741f0a90fd295ce18d96" />
+
+<center>
+<br/><br/><br/><br/><br/><br/><table class='table table-bordered' cellpadding='0' cellspacing='0' width='750'><tr class='table-light'><td width='50'></td><td class='dehead' width='150' align='center'>Check Number</td><td class='dehead' width='400' align='center'>Payee Name</td><td class='dehead' width='150' align='center'>Check Amount</td></tr><tr bgcolor='#ddddff'><td><input type='checkbox'  name='chkR35010928001839' value='R35010928001839'/></td><td>R35010928001839</td><td>DAVID LINARES</td><td align='right'>0.00</td></tr><tr bgcolor='#ffdddd'><td><input type='checkbox'  name='chk5452855270VT1' value='5452855270VT1'/></td><td>5452855270VT1</td><td>DAVID LINARES</td><td align='right'>218.25</td></tr><tr class='table-light'><td colspan='4' align='center'><input type='submit' name='CheckSubmit' value='Submit'/></td></tr></table></center>
+<script>
+</script>
+<input type="hidden" name="paydate" value="2021-09-29" />
+<input type="hidden" name="post_to_date" value="2021-09-29" />
+<input type="hidden" name="deposit_date" value="2021-09-29" />
+<input type="hidden" name="debug" value="0" />
+<input type="hidden" name="InsId" value="133" />
+<input type="hidden" name="eraname" value="20210929_876243822_" />
+</form>
+</body>
+</html>

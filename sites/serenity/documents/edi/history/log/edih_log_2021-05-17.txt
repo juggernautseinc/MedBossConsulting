@@ -1,0 +1,363 @@
+20210517:030528 _GET request 
+ loglist => yes  csrf_token_form => 69ac9da644d3922ea18bd32f58b99d5310ed40a2 
+20210517:030528 _GET request 
+ archlist => yes  csrf_token_form => 69ac9da644d3922ea18bd32f58b99d5310ed40a2 
+20210517:030528 csv_archive_select_list: using /var/www/html/boss/sites/serenity/documents/edi/history/archive
+20210517:030528 _GET request 
+ csvtbllist => yes  csrf_token_form => 69ac9da644d3922ea18bd32f58b99d5310ed40a2 
+20210517:030528 _GET request 
+ srvinfo => yes  csrf_token_form => 69ac9da644d3922ea18bd32f58b99d5310ed40a2 
+20210517:090527 _GET request 
+ csvtbllist => yes  csrf_token_form => da82bd186bee427ec4aa866575dfeabf4454ee6c 
+20210517:090527 _GET request 
+ srvinfo => yes  csrf_token_form => da82bd186bee427ec4aa866575dfeabf4454ee6c 
+20210517:090527 _GET request 
+ loglist => yes  csrf_token_form => da82bd186bee427ec4aa866575dfeabf4454ee6c 
+20210517:090527 _GET request 
+ archlist => yes  csrf_token_form => da82bd186bee427ec4aa866575dfeabf4454ee6c 
+20210517:090527 csv_archive_select_list: using /var/www/html/boss/sites/serenity/documents/edi/history/archive
+20210517:090531 _GET request 
+ csvtbllist => yes  csrf_token_form => da82bd186bee427ec4aa866575dfeabf4454ee6c 
+20210517:090531 _GET request 
+ csrf_token_form => da82bd186bee427ec4aa866575dfeabf4454ee6c  process_html => htm  process_err => err  ProcessFiles => ProcessNew 
+20210517:090531 User: 98.208.143.212 - May 17, 2021, 9:27 am
+20210517:090531 edih_disp_file_process GET vars csrf_token_form da82bd186bee427ec4aa866575dfeabf4454ee6c  process_html htm  process_err err  ProcessFiles ProcessNew  
+20210517:090531 csv_processed_files_list: csv file does not exist files_f837.csv
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-14-0705-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-14-0705-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-14-1021-batch.txt]
+20210517:090531 <p>
+edih_x12_type: error in identifying type <br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-20-0317-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-20-0317-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-21-0914-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-21-0914-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: invalid object /var/www/html/boss/sites/serenity/documents/edi/2021-04-06-191619-batch.pdf
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-20-0319-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-20-0319-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-21-033756_process_bills.log]
+20210517:090531 invalid message string csv_check_x12_obj
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-21-0339-batch.txt]
+20210517:090531 <p>
+edih_x12_type: error in identifying type <br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: invalid object /var/www/html/boss/sites/serenity/documents/edi/2021-04-06-191548-batch.pdf
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-14-0740-batch.txt]
+20210517:090531 <p>
+edih_x12_type: error in identifying type <br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 edih_csv_write: created files_csv file for f837
+20210517:090531 edih_csv_write: created claims_csv file for f837
+20210517:090531 edih_csv_write() wrote 1 rows to claims_f837.csv
+20210517:090531 edih_csv_write() wrote 1 rows to files_f837.csv
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-20-1324-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-20-1324-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-20-0313-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-20-0313-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-05-07-025605_process_bills.log]
+20210517:090531 invalid message string csv_check_x12_obj
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-14-1038-batch.txt]
+20210517:090531 <p>
+edih_x12_type: error in identifying type <br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-20-0407-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-20-0407-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-20-1329-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-20-1329-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 edih_csv_write: csv check for files csv f837
+20210517:090531 edih_csv_write: csv check for claims csv f837
+20210517:090531 edih_csv_write() wrote 15 rows to claims_f837.csv
+20210517:090531 edih_csv_write() wrote 1 rows to files_f837.csv
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-21-0938-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-21-0938-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 edih_csv_write: csv check for files csv f837
+20210517:090531 edih_csv_write: csv check for claims csv f837
+20210517:090531 edih_csv_write() wrote 1 rows to claims_f837.csv
+20210517:090531 edih_csv_write() wrote 1 rows to files_f837.csv
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-21-0932-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-21-0932-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 edih_csv_write: csv check for files csv f837
+20210517:090531 edih_csv_write: csv check for claims csv f837
+20210517:090531 edih_csv_write() wrote 1 rows to claims_f837.csv
+20210517:090531 edih_csv_write() wrote 1 rows to files_f837.csv
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-21-0917-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-21-0917-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 edih_csv_write: csv check for files csv f837
+20210517:090531 edih_csv_write: csv check for claims csv f837
+20210517:090531 edih_csv_write() wrote 1 rows to claims_f837.csv
+20210517:090531 edih_csv_write() wrote 1 rows to files_f837.csv
+20210517:090531 edih_csv_write: csv check for files csv f837
+20210517:090531 edih_csv_write: csv check for claims csv f837
+20210517:090531 edih_csv_write() wrote 1 rows to claims_f837.csv
+20210517:090531 edih_csv_write() wrote 1 rows to files_f837.csv
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-16-0708-batch.txt]
+20210517:090531 <p>
+edih_x12_type: error in identifying type <br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 edih_csv_write: csv check for files csv f837
+20210517:090531 edih_csv_write: csv check for claims csv f837
+20210517:090531 edih_csv_write() wrote 1 rows to claims_f837.csv
+20210517:090531 edih_csv_write() wrote 1 rows to files_f837.csv
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-20-0314-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-20-0314-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-21-0907-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-21-0907-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 edih_csv_write: csv check for files csv f837
+20210517:090531 edih_csv_write: csv check for claims csv f837
+20210517:090531 edih_csv_write() wrote 1 rows to claims_f837.csv
+20210517:090531 edih_csv_write() wrote 1 rows to files_f837.csv
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-20-0424-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-20-0424-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-06-190247-batch-p4.txt]
+20210517:090531 <p>
+edih_x12_type: error in identifying type <br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-23-154200_process_bills.log]
+20210517:090531 invalid message string csv_check_x12_obj
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-15-0333-batch.txt]
+20210517:090531 <p>
+edih_x12_type: error in identifying type <br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/process_bills.log]
+20210517:090531 invalid message string csv_check_x12_obj
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 edih_csv_write: csv check for files csv f837
+20210517:090531 edih_csv_write: csv check for claims csv f837
+20210517:090531 edih_csv_write() wrote 8 rows to claims_f837.csv
+20210517:090531 edih_csv_write() wrote 1 rows to files_f837.csv
+20210517:090531 edih_csv_write: csv check for files csv f837
+20210517:090531 edih_csv_write: csv check for claims csv f837
+20210517:090531 edih_csv_write() wrote 1 rows to claims_f837.csv
+20210517:090531 edih_csv_write() wrote 1 rows to files_f837.csv
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-20-0413-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-20-0413-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-21-0931-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-21-0931-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-20-1331-batch.txt]
+20210517:090531 <p>
+edih_x12_type: error in identifying type <br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-14-1001-batch.txt]
+20210517:090531 invalid message string csv_check_x12_obj
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: invalid object /var/www/html/boss/sites/serenity/documents/edi/2021-05-14-131930-batch.pdf
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: invalid object /var/www/html/boss/sites/serenity/documents/edi/2021-05-14-131745-batch.pdf
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-20-0325-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-20-0325-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-20-0411-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-20-0411-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-05-10-031523_process_bills.log]
+20210517:090531 invalid message string csv_check_x12_obj
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090531 edih_csv_write: csv check for files csv f837
+20210517:090531 edih_csv_write: csv check for claims csv f837
+20210517:090531 edih_csv_write() wrote 9 rows to claims_f837.csv
+20210517:090531 edih_csv_write() wrote 1 rows to files_f837.csv
+20210517:090531 csv_check_x12_obj: object missing properties [/var/www/html/boss/sites/serenity/documents/edi/2021-04-20-0257-batch.txt]
+20210517:090531 <p>
+edih_x12_segments: invalid delimiters<br />
+edih_x12_file: error in creating segment array 2021-04-20-0257-batch.txt
+<br />
+
+</p>
+
+20210517:090531 edih_parse_select: error in file path
+20210517:090531 edih_csv_write(): invalid data array
+20210517:090543 _GET request 
+ gtbl => file  fname => 2021-05-15-034655-batch-p4.txt  ftype => f837  fmt => seg  csrf_token_form => da82bd186bee427ec4aa866575dfeabf4454ee6c 
+20210517:090543 User: 98.208.143.212 - May 17, 2021, 9:27 am
+20210517:090543 edih_disp_x12file: segments display 2021-05-15-034655-batch-p4.txt

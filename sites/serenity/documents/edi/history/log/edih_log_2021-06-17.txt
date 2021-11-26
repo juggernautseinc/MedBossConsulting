@@ -1,0 +1,17 @@
+20210617:000629 _GET request 
+ csvtbllist => yes  csrf_token_form => 15b92ce7400bc2c3cda366c1d3d275ed62fa0e62 
+20210617:000629 _GET request 
+ loglist => yes  csrf_token_form => 15b92ce7400bc2c3cda366c1d3d275ed62fa0e62 
+20210617:000629 _GET request 
+ srvinfo => yes  csrf_token_form => 15b92ce7400bc2c3cda366c1d3d275ed62fa0e62 
+20210617:000629 _GET request 
+ archlist => yes  csrf_token_form => 15b92ce7400bc2c3cda366c1d3d275ed62fa0e62 
+20210617:000629 csv_archive_select_list: using /var/www/html/boss/sites/serenity/documents/edi/history/archive
+20210617:000656 _POST request 
+ csrf_token_form => 15b92ce7400bc2c3cda366c1d3d275ed62fa0e62  viewx12Files => view_x12  x12_html => html 
+20210617:000656 User: 69.28.93.63 - June 17, 2021, 12:23 am
+20210617:000656 edih_disp_x12file: submitted POST htm f835 /var/www/html/boss/sites/serenity/documents/edi/history/tmp/835_5010_VO_2563829_21452099_2021_06_17_T06_17_38.edi 835_5010_VO_2563829_21452099_2021_06_17_T06_17_38.edi
+20210617:000656 edih_format_telephone: invalid argument: esupportservices@valueoptions.com
+20210617:000605 _GET request 
+ getnotes => yes  csrf_token_form => 15b92ce7400bc2c3cda366c1d3d275ed62fa0e62 
+20210617:000605 User: 69.28.93.63 - June 17, 2021, 12:25 am

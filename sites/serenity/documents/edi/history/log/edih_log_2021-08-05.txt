@@ -1,0 +1,18 @@
+20210805:050808 _GET request 
+ srvinfo => yes  csrf_token_form => 651e02b53480522eb33fc58b41b94a5340e43838 
+20210805:050808 _GET request 
+ loglist => yes  csrf_token_form => 651e02b53480522eb33fc58b41b94a5340e43838 
+20210805:050808 _GET request 
+ csvtbllist => yes  csrf_token_form => 651e02b53480522eb33fc58b41b94a5340e43838 
+20210805:050808 _GET request 
+ archlist => yes  csrf_token_form => 651e02b53480522eb33fc58b41b94a5340e43838 
+20210805:050808 csv_archive_select_list: using /var/www/html/boss/sites/serenity/documents/edi/history/archive
+20210805:070815 _GET request 
+ srvinfo => yes  csrf_token_form => 0737506059681dae578c4f1572ea6c7407e0a6ce 
+20210805:070815 _GET request 
+ csvtbllist => yes  csrf_token_form => 0737506059681dae578c4f1572ea6c7407e0a6ce 
+20210805:070815 _GET request 
+ loglist => yes  csrf_token_form => 0737506059681dae578c4f1572ea6c7407e0a6ce 
+20210805:070815 _GET request 
+ archlist => yes  csrf_token_form => 0737506059681dae578c4f1572ea6c7407e0a6ce 
+20210805:070815 csv_archive_select_list: using /var/www/html/boss/sites/serenity/documents/edi/history/archive

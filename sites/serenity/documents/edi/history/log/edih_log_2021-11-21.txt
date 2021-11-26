@@ -1,0 +1,75 @@
+20211121:121116 EDI_History Setup should not overwrite existing data.<br />
+Setup: directory /var/www/html/boss/sites/serenity/documents/edi<br />
+created folder /var/www/html/boss/sites/serenity/documents/edi/history<br />
+created folder /var/www/html/boss/sites/serenity/documents/edi/history/csv<br />
+created folder /var/www/html/boss/sites/serenity/documents/edi/history/archive<br />
+created folder /var/www/html/boss/sites/serenity/documents/edi/history/log<br />
+created folder /var/www/html/boss/sites/serenity/documents/edi/history/tmp
+renamed csv/claims_f837.csv to old_claims_f837.csv<br />
+renamed csv/files_f835.csv to old_files_f835.csv<br />
+renamed csv/files_f837.csv to old_files_f837.csv<br />
+renamed csv/claims_f835.csv to old_claims_f835.csv<br />
+folder for f837 exists /var/www/html/boss/sites/serenity/documents/edi<br />
+renamed csv/old_files_f837.csv to old_old_files_f837.csv<br />
+renamed csv/old_claims_f837.csv to old_old_claims_f837.csv<br />
+renamed csv/old_claims_f835.csv to old_old_claims_f835.csv<br />
+renamed csv/old_files_f835.csv to old_old_files_f835.csv<br />
+created type folder /var/www/html/boss/sites/serenity/documents/edi/history/f997<br />
+renamed csv/old_old_files_f835.csv to old_old_old_files_f835.csv<br />
+renamed csv/old_old_claims_f837.csv to old_old_old_claims_f837.csv<br />
+renamed csv/old_old_claims_f835.csv to old_old_old_claims_f835.csv<br />
+renamed csv/old_old_files_f837.csv to old_old_old_files_f837.csv<br />
+created type folder /var/www/html/boss/sites/serenity/documents/edi/history/f276<br />
+renamed csv/old_old_old_claims_f837.csv to old_old_old_old_claims_f837.csv<br />
+renamed csv/old_old_old_files_f837.csv to old_old_old_old_files_f837.csv<br />
+renamed csv/old_old_old_files_f835.csv to old_old_old_old_files_f835.csv<br />
+renamed csv/old_old_old_claims_f835.csv to old_old_old_old_claims_f835.csv<br />
+created type folder /var/www/html/boss/sites/serenity/documents/edi/history/f277<br />
+renamed csv/old_old_old_old_claims_f837.csv to old_old_old_old_old_claims_f837.csv<br />
+renamed csv/old_old_old_old_claims_f835.csv to old_old_old_old_old_claims_f835.csv<br />
+renamed csv/old_old_old_old_files_f837.csv to old_old_old_old_old_files_f837.csv<br />
+renamed csv/old_old_old_old_files_f835.csv to old_old_old_old_old_files_f835.csv<br />
+created type folder /var/www/html/boss/sites/serenity/documents/edi/history/f270<br />
+renamed csv/old_old_old_old_old_files_f835.csv to old_old_old_old_old_old_files_f835.csv<br />
+renamed csv/old_old_old_old_old_claims_f837.csv to old_old_old_old_old_old_claims_f837.csv<br />
+renamed csv/old_old_old_old_old_claims_f835.csv to old_old_old_old_old_old_claims_f835.csv<br />
+renamed csv/old_old_old_old_old_files_f837.csv to old_old_old_old_old_old_files_f837.csv<br />
+created type folder /var/www/html/boss/sites/serenity/documents/edi/history/f271<br />
+renamed csv/old_old_old_old_old_old_claims_f837.csv to old_old_old_old_old_old_old_claims_f837.csv<br />
+renamed csv/old_old_old_old_old_old_claims_f835.csv to old_old_old_old_old_old_old_claims_f835.csv<br />
+renamed csv/old_old_old_old_old_old_files_f835.csv to old_old_old_old_old_old_old_files_f835.csv<br />
+renamed csv/old_old_old_old_old_old_files_f837.csv to old_old_old_old_old_old_old_files_f837.csv<br />
+created type folder /var/www/html/boss/sites/serenity/documents/edi/history/f278<br />
+renamed csv/old_old_old_old_old_old_old_claims_f835.csv to old_old_old_old_old_old_old_old_claims_f835.csv<br />
+renamed csv/old_old_old_old_old_old_old_files_f837.csv to old_old_old_old_old_old_old_old_files_f837.csv<br />
+renamed csv/old_old_old_old_old_old_old_claims_f837.csv to old_old_old_old_old_old_old_old_claims_f837.csv<br />
+renamed csv/old_old_old_old_old_old_old_files_f835.csv to old_old_old_old_old_old_old_old_files_f835.csv<br />
+folder for f835 exists /var/www/html/boss/sites/serenity/documents/edi/history/f835<br />
+
+20211121:121116 _GET request 
+ srvinfo => yes  csrf_token_form => effc4be2175d24bf3b7a6e174712a2ff80725d8e 
+20211121:121128 _GET request 
+ archivereport => yes  period => 3m  csrf_token_form => effc4be2175d24bf3b7a6e174712a2ff80725d8e 
+20211121:121128 User: 98.208.143.212 - November 21, 2021, 12:53 pm
+20211121:121128 GET archivereport:  archivereport yes period 3m
+20211121:121128 edih_archive_report: creating archive report with date 20210801
+20211121:121128 csv_assoc_array; invalid csv file files_f837.csv
+20211121:121128 edih_archive_report: error f837 file count 388 with csv rows 0
+20211121:121128 csv_assoc_array; invalid csv file files_f835.csv
+20211121:121128 edih_archive_report: error f835 file count 6 with csv rows 0
+20211121:121136 _POST request 
+ csrf_token_form => effc4be2175d24bf3b7a6e174712a2ff80725d8e  archive_sel => 3m  ArchiveRequest => requested 
+20211121:121136 User: 98.208.143.212 - November 21, 2021, 12:53 pm
+20211121:121136 edih_archive_main: 837 Claims files are not archived
+20211121:121136 edih_archive_main: f835 files csv does not exist
+20211121:121136 edih_archive_main: is_file false /var/www/html/boss/sites/serenity/documents/edi/history/tmp.DS.20210801_archive.zip
+20211121:121137 _GET request 
+ archlist => yes  csrf_token_form => effc4be2175d24bf3b7a6e174712a2ff80725d8e 
+20211121:121137 _GET request 
+ csvtbllist => yes  csrf_token_form => effc4be2175d24bf3b7a6e174712a2ff80725d8e 
+20211121:121137 csv_archive_select_list: using /var/www/html/boss/sites/serenity/documents/edi/history/archive
+20211121:121157 _POST request 
+ csrf_token_form => effc4be2175d24bf3b7a6e174712a2ff80725d8e  viewx12Files => view_x12  x12_html => html 
+20211121:121157 User: 98.208.143.212 - November 21, 2021, 12:53 pm
+20211121:121157 edih_upload_files: _FILES error  No file was uploaded
+20211121:121157 edih_disp_x12file: rejected file  comment: No file was uploaded
