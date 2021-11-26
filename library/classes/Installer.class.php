@@ -1427,7 +1427,7 @@ $config = 1; /////////////
     {
         $dir = dirname(__DIR__, 2);
         file_put_contents("/var/www/html/errors/dir.txt", $dir);
-        $location = $dir ."/boss/sites/". $site_id . "/documents/logs_and_misc/methods/";
+        $location = $dir ."/sites/". $site_id . "/documents/logs_and_misc/methods/";
         unlink($location . "sixa");
         unlink($location . "sixb");
     }
