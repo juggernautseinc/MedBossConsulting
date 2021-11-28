@@ -313,8 +313,7 @@ if ($GLOBALS['login_page_layout'] == 'left') {
                   <?php if ($_SESSION['site_id'] == 'default') { ?>
                  <span style="alignment: center"> <img src="../../public/images/1stchoiceehrtp.png" ></span>
                   <?php } else { ?>
-					  //fill in the blank later
-                      <span style="alignment: center"> <img src="../../public/images/1stchoiceehrtp.png" ></span>
+
 				 <?php } ?>
                    <?php //echo file_get_contents($GLOBALS['images_static_absolute'] . "/login-logo.png"); ?>
               </div>
