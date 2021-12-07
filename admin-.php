@@ -200,6 +200,13 @@ function sqlQuery($statement, $link)
                         </a>
                     </span>
                 </div>
+                <div class="modal-header clearfix">
+                    <span class="text-decoration-none"> Saemz Therapeutic Care. PLLC
+                        <a href="https://e.healthbrigade.org" >
+                            <i class="fa fa-sign-in-alt fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="" data-original-title="Login to site"></i>
+                        </a>
+                    </span>
+                </div>
             </div>
         </div>
     </div><!--end of container div-->
