@@ -202,7 +202,7 @@ function sqlQuery($statement, $link)
                 </div>
                 <div class="modal-header clearfix">
                     <span class="text-decoration-none"> Saemz Therapeutic Care. PLLC
-                        <a href="https://e.healthbrigade.org" >
+                        <a href="https://emr.rgvbehavioralhealth.com" >
                             <i class="fa fa-sign-in-alt fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="" data-original-title="Login to site"></i>
                         </a>
                     </span>
