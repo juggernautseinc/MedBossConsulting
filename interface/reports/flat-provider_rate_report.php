@@ -374,7 +374,7 @@ if (!empty($_POST['form_refresh'])) {
 <th> <?php echo xlt('Charges'); ?>&nbsp; </th>
 <th> <?php echo xlt('Docs'); ?>&nbsp; </th>
 <th> <?php echo xlt('Billed'); ?> </th>
-<th> &nbsp;<?php echo xlt('Error'); ?> </th>
+<!--<th> &nbsp;<?php echo xlt('Error'); ?> </th>-->
 </thead>
 <tbody>
     <?php
@@ -573,9 +573,9 @@ if (!empty($_POST['form_refresh'])) {
          <td>
                 <?php echo text($billed); ?>
          </td>
-         <td style='color:#cc0000'>
+         <!--<td style='color:#cc0000'>
                 <?php echo $errmsg; ?>&nbsp;
-         </td>
+         </td>-->
         </tr>
                 <?php
             } // end of details line
