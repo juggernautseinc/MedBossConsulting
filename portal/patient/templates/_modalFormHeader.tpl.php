@@ -19,7 +19,7 @@
 <meta charset="utf-8" />
 
 <title><?php $this->eprint($this->title); ?></title>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
 <meta name="description" content="Patient Profile" />
 <meta name="author" content="Form | sjpadgett@gmail.com" />
@@ -44,14 +44,6 @@
 <script src="<?php echo $GLOBALS['web_root']; ?>/portal/patient/scripts/libs/LAB.min.js"></script>
 <script>
 $LAB.setGlobalDefaults({BasePath: "<?php $this->eprint($this->ROOT_URL); ?>"});
-(function(doc) {
-    var viewport = document.getElementById('viewport');
-    if ( navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
-        viewport.setAttribute("content", "initial-scale=0.3, shrink-to-fit=yes");
-    } else if ( navigator.userAgent.match(/iPad/i) ) {
-        viewport.setAttribute("content", "initial-scale=0.7, shrink-to-fit=yes");
-    }
-}(document));
 </script>
 </head>
 <body>
