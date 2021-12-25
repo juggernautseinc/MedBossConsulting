@@ -204,7 +204,6 @@ function doCredentials($pid)
         sqlStatementNoLog("UPDATE patient_access_onsite SET portal_username=?,portal_onetime=?,portal_pwd=?,portal_pwd_status=0 WHERE pid=?", $query_parameters);
     } else {
         sqlStatementNoLog("INSERT INTO patient_access_onsite SET portal_username=?,portal_onetime=?,portal_pwd=?,portal_pwd_status=0,pid=?", $query_parameters);
-        sqlStatementNoLog("DELETE FROM patient_access_onsite WHERE pid = 0");
     }
 
     if (!validEmail($newpd['email_direct'])) {

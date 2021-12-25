@@ -110,6 +110,14 @@ if (typeof isModule === 'undefined') {
     var isModule = false;
 }
 
+if (typeof cpid === 'undefined') {
+    var cpid;
+}
+
+if (typeof cuser === 'undefined') {
+    var cuser;
+}
+
 function signerAlertMsg(message, timer = 5000, type = 'danger', size = '') {
     $('#signerAlertBox').remove();
     size = (size == 'lg') ? 'left:25%;width:50%;' : 'left:35%;width:30%;';
@@ -589,7 +597,7 @@ function initSignerApi() {
         }
 
         // for our dynamically added modal
-        $("#openSignModal").on('show.bs.modal', function (e) {
+        $("#openSignModal").on('shown.bs.modal', function (e) {
             let type = $('#openSignModal #signatureModal').data('type');
             if (type) {
                 if (type === "admin-signature") {

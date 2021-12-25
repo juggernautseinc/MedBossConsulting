@@ -201,7 +201,7 @@ class PatientService extends BaseService
         $beforePatientUpdatedEvent = new BeforePatientUpdatedEvent($data);
         $GLOBALS["kernel"]->getEventDispatcher()->dispatch(BeforePatientUpdatedEvent::EVENT_HANDLE, $beforePatientUpdatedEvent, 10);
         $data = $beforePatientUpdatedEvent->getPatientData();
-//var_dump($data); die;
+
         $query = $this->buildUpdateColumns($data);
         $sql = " UPDATE $table SET ";
         $sql .= $query['set'];
