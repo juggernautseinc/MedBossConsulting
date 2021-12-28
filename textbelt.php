@@ -24,7 +24,7 @@ function sendSMS($sendTo, $link)
     $ch = curl_init('https://textbelt.com/text');
     $data = array(
       'phone' => $sendTo,
-      'message' => "Serenity Telehealth 8084682439 $link",
+      'message' => "Serenity Telehealth $link",
       'key' => API_KEY,
     );
 
