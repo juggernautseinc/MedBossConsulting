@@ -2,11 +2,12 @@
 
 require_once "interface/globals.php";
 
+const API_KEY = '2fdab352c078e28c7cc1b1e2b3a1044798330532ATN0rDH2HW7V0dPOOHSIRhyex';
+
 function createMeetingId()
 {
     $newmeetingid = sqlQuery("select DOB from patient_data where pid = ?", [$_SESSION['pid']]);
-    $room = md5($newmeetingid['DOB'] . $_SESSION['pid']);
-    return $room;
+    return md5($newmeetingid['DOB'] . $_SESSION['pid']);
 }
 
 $link = '';
@@ -17,25 +18,29 @@ if ($wherefrom[5] == 'tabs') {
     $link = "https://" . $_SERVER['SERVER_NAME'] . "/interface/jitsi/jitsi.php?room=" . $meetingid . "&pid=" . $_SESSION['pid'];
 }
 
-$sendto = $_GET['recipient'];
+$sendTo = $_GET['recipient'];
+function sendSMS($sendTo, $link)
+{
+    $ch = curl_init('https://textbelt.com/text');
+    $data = array(
+      'phone' => $sendTo,
+      'message' => "Serenity Telehealth 8084682439 $link",
+      'key' => API_KEY,
+    );
 
-$ch = curl_init('https://textbelt.com/text');
-$data = array(
-  'phone' => $sendto,
-  'message' => "Serenity Telehealth 8084682439 $link",
-  'key' => '2fdab352c078e28c7cc1b1e2b3a1044798330532ATN0rDH2HW7V0dPOOHSIRhyex',
-);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    return $response;
+}
 
-$response = curl_exec($ch);
-curl_close($ch);
-
+$response = sendSMS($sendTo, $link);
 $message = json_decode($response, true);
 if ($message['success'] === true) {
-    echo "Message send successfully";
+    echo "Message send successfully. Remaining quota " . $message['quotaRemaining'];
 } else {
     echo "Message failed : <br>" . $message['error'];
 }
