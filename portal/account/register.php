@@ -23,6 +23,9 @@ unset($_SESSION['itsme']);
 $_SESSION['authUser'] = 'portal-user';
 $_SESSION['pid'] = true;
 $_SESSION['register'] = true;
+if (!empty($_GET['site'])) {
+    $_SESSION['site_id'] = $_GET['site'];
+}
 
 $_SESSION['site_id'] = isset($_SESSION['site_id']) ? $_SESSION['site_id'] : 'default';
 $landingpage = "index.php?site=" . urlencode($_SESSION['site_id']);
