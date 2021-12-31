@@ -2,7 +2,7 @@
 
 require_once "interface/globals.php";
 
-const API_KEY = '2fdab352c078e28c7cc1b1e2b3a1044798330532ATN0rDH2HW7V0dPOOHSIRhyex';
+const API_KEY = '';
 
 function createMeetingId()
 {
@@ -24,7 +24,7 @@ function sendSMS($sendTo, $link)
     $ch = curl_init('https://textbelt.com/text');
     $data = array(
       'phone' => $sendTo,
-      'message' => "Serenity Telehealth 8084682439 $link",
+      'message' => "Serenity Telehealth $link",
       'key' => API_KEY,
     );
 
