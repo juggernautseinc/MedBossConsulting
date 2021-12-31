@@ -316,6 +316,7 @@ while ($currdate <= $enddate) {
 [-xlt t='Providers'-]
 <div>
 [-php-]
+
 // ==============================
 // FACILITY FILTERING (lemonsoftware)
 /*********************************************************************
@@ -344,9 +345,11 @@ if (count($facilities) > 1) {
  // ==============================
  echo "</div>";
  echo "   <select multiple size='5' name='pc_username[]' id='pc_username' class='view2 form-control'>\n";
+if ($_SESSION['userauthorized'] != 1) {
  echo "    <option value='__PC_ALL__'>"  . xlt("All Users") . "</option>\n";
+}
  foreach ($provinfo as $doc) {
-    //if ($_SESSION['authUser'] != $username) continue;
+    if ($_SESSION['authUser'] != $doc['username'] && $_SESSION['userauthorized'] == 1) continue;
     $username = $doc['username'];
     echo "    <option value='" . attr($username) . "'";
     foreach ($providers as $provider)
@@ -354,6 +357,7 @@ if (count($facilities) > 1) {
     echo ">" . text($doc['lname']) . ", " . text($doc['fname']) . "</option>\n";
  }
  echo "   </select>\n";
+
 [-/php-]
 </div>
 [-php-]
