@@ -172,7 +172,7 @@ if ($_REQUEST['mode'] === 'editor_render_html') {
 function renderEditorHtml($template_id, $content)
 {
     $lists = [
-    '{ParseAsHTML}', '{TextInput}', '{sizedTextInput:120px}', '{smTextInput}', '{TextBox:03x080}', '{CheckMark}', '{ynRadioGroup}', '{TrueFalseRadioGroup}', '{DatePicker}', '{DateTimePicker}', '{StandardDatePicker}', '{CurrentDate:"global"}', '{CurrentTime}', '{DOS}', '{ReferringDOC}', '{PatientID}', '{PatientName}', '{PatientSex}', '{PatientDOB}', '{PatientPhone}', '{Address}', '{City}', '{State}', '{Zip}', '{PatientSignature}', '{AdminSignature}', '{AcknowledgePdf: : }', '{EncounterForm:LBF}', '{Medications}', '{ProblemList}', '{Allergies}', '{ChiefComplaint}', '{DEM: }', '{HIS: }', '{LBF: }', '{GRP}{/GRP}'
+    '{ParseAsHTML}', '{TextInput}', '{sizedTextInput:120px}', '{smTextInput}', '{TextBox:03x080}', '{CheckMark}', '{ynRadioGroup}', '{TrueFalseRadioGroup}', '{DatePicker}', '{DateTimePicker}', '{StandardDatePicker}', '{CurrentDate:"global"}', '{CurrentTime}', '{DOS}', '{ReferringDOC}', '{PatientID}', '{PatientName}', '{PatientSex}', '{PatientDOB}', '{PatientPhone}', '{Address}', '{City}', '{State}', '{Zip}', '{PatientSignature}', '{AdminSignature}', '{WitnessSignature}', '{AcknowledgePdf:pdf name or id:title}', '{EncounterForm:LBF}', '{Medications}', '{ProblemList}', '{Allergies}', '{ChiefComplaint}', '{DEM: }', '{HIS: }', '{LBF: }', '{GRP}{/GRP}'
     ];
     ?>
 <!DOCTYPE html>
@@ -198,7 +198,7 @@ function renderEditorHtml($template_id, $content)
             <div class="col-10 px-1 sticky-top">
                 <form class="sticky-top" action='./import_template.php' method='post'>
                     <input type="hidden" name="docid" value="<?php echo attr($template_id) ?>">
-                    <input type='hidden' name='mode' value="save_profiles">
+                    <input type='hidden' name='mode' value="save">
                     <input type='hidden' name='service' value='window'>
                     <textarea cols='80' rows='10' id='templateContent' name='content'><?php echo text($content) ?></textarea>
                     <div class="row btn-group mt-1 float-right">
