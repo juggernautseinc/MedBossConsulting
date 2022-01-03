@@ -23,7 +23,7 @@ ccdaservice/node_modules
 .buildpath
 .project
 .settings
-textbelt.php
+/textbelt.php
 
 # testing
 .phpunit.result.cache
