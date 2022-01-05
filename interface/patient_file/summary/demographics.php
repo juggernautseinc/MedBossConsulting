@@ -25,7 +25,7 @@ require_once("$srcdir/options.inc.php");
 require_once("../history/history.inc.php");
 require_once("$srcdir/clinical_rules.php");
 require_once("$srcdir/group.inc");
-require_once(__DIR__ . "/../../../library/appointments.inc.php");
+require_once(dirname(__FILE__) . "/../../../library/appointments.inc.php");
 
 use OpenEMR\Billing\EDI270;
 use OpenEMR\Common\Acl\AclMain;
