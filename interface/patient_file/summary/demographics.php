@@ -48,8 +48,8 @@ $oefax = !empty($GLOBALS['oefax_enable']) ? $GLOBALS['oefax_enable'] : 0;
 if (isset($_GET['set_pid'])) {
     require_once("$srcdir/pid.inc");
     setpid($_GET['set_pid']);
-    if (isset($_GET['set_encounterid']) && ((int)$_GET['set_encounterid'] > 0)) {
-        $encounter = (int)$_GET['set_encounterid'];
+    if (isset($_GET['set_encounterid']) && (intval($_GET['set_encounterid']) > 0)) {
+        $encounter = intval($_GET['set_encounterid']);
         SessionUtil::setSession('encounter', $encounter);
     }
 }
