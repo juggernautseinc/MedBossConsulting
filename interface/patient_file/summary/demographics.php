@@ -394,19 +394,6 @@ require_once("$srcdir/options.js.php");
         }
     }
 
-    /**
-     * Assign and persist documents to portal patients
-     * @var int patientId pid
-     */
-    function assignPatientDocuments(patientId) {
-        let url = top.webroot_url + '/portal/import_template_ui.php?from_demo_pid=' + encodeURIComponent(patientId);
-        dlgopen(url, 'pop-assignments', 'modal-xl', 850, '', '', {
-            allowDrag: true,
-            allowResize: true,
-            sizeHeight: 'full',
-        });
-    }
-
     $(function () {
         var msg_updation = '';
         <?php
