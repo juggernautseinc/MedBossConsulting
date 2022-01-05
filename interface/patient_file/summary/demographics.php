@@ -25,7 +25,7 @@ require_once("$srcdir/options.inc.php");
 require_once("../history/history.inc.php");
 require_once("$srcdir/clinical_rules.php");
 require_once("$srcdir/group.inc");
-require_once(dirname(__FILE__) . "/../../../library/appointments.inc.php");
+require_once(__DIR__ . "/../../../library/appointments.inc.php");
 
 use OpenEMR\Billing\EDI270;
 use OpenEMR\Common\Acl\AclMain;
@@ -48,8 +48,8 @@ $oefax = !empty($GLOBALS['oefax_enable']) ? $GLOBALS['oefax_enable'] : 0;
 if (isset($_GET['set_pid'])) {
     require_once("$srcdir/pid.inc");
     setpid($_GET['set_pid']);
-    if (isset($_GET['set_encounterid']) && (intval($_GET['set_encounterid']) > 0)) {
-        $encounter = intval($_GET['set_encounterid']);
+    if (isset($_GET['set_encounterid']) && ((int)$_GET['set_encounterid'] > 0)) {
+        $encounter = (int)$_GET['set_encounterid'];
         SessionUtil::setSession('encounter', $encounter);
     }
 }
@@ -394,6 +394,19 @@ require_once("$srcdir/options.js.php");
         }
     }
 
+    /**
+     * Assign and persist documents to portal patients
+     * @var int patientId pid
+     */
+    function assignPatientDocuments(patientId) {
+        let url = top.webroot_url + '/portal/import_template_ui.php?from_demo_pid=' + encodeURIComponent(patientId);
+        dlgopen(url, 'pop-assignments', 'modal-xl', 850, '', '', {
+            allowDrag: true,
+            allowResize: true,
+            sizeHeight: 'full',
+        });
+    }
+
     $(function () {
         var msg_updation = '';
         <?php
@@ -447,7 +460,23 @@ require_once("$srcdir/options.js.php");
 
         // load divs
         placeHtml("stats.php", "stats_div", true);
+        placeHtml("pnotes_fragment.php", 'pnotes_ps_expand').then(() => {
+            // must be delegated event!
+            $(this).on("click", ".complete_btn", function(){
+                let btn = $(this);
+                let csrf = new FormData;
+                csrf.append("csrf_token_form", <?php echo js_escape(CsrfUtils::collectCsrfToken()); ?>);
+                fetch("pnotes_fragment.php?docUpdateId=" + encodeURIComponent(btn.attr('data-id')),
+                    {
+                    method: "POST",
+                    credentials: 'same-origin',
+                    body: csrf
+                })
+                .then(function() {
         placeHtml("pnotes_fragment.php", 'pnotes_ps_expand');
+                });
+            });
+        });
         placeHtml("disc_fragment.php", "disclosures_ps_expand");
         placeHtml("labdata_fragment.php", "labdata_ps_expand");
         placeHtml("track_anything_fragment.php", "track_anything_ps_expand");
@@ -1350,7 +1379,7 @@ $oemr_ui = new OemrUI($arrOeUiSettings);
 
 <?php
 // if anyone wants to render anything after the patient demographic list
-//$GLOBALS["kernel"]->getEventDispatcher()->dispatch(RenderEvent::EVENT_SECTION_LIST_RENDER_AFTER, new RenderEvent($pid), 10);
+$GLOBALS["kernel"]->getEventDispatcher()->dispatch(RenderEvent::EVENT_SECTION_LIST_RENDER_AFTER, new RenderEvent($pid), 10);
 // This generates a section similar to Vitals for each LBF form that
 // supports charting.  The form ID is used as the "widget label".
 //
