@@ -35,7 +35,7 @@ if (!empty($_GET['room'])) {
 <div id="meet" class="margin:auto; text-align:center;"></div>
 
 <script>
-    const room = "vpaas-magic-cookie-02bc0019d5a3438186239dc1711e0ee1/<?php echo $room; ?>";
+    const room = "/<?php echo $room; ?>";
 <?php //die; ?>
     const domain = "8x8.vc";
     const options = {
