@@ -1156,6 +1156,7 @@ $partners = $x->_utility_array($x->x12_partner_factory());
                                     if ($GLOBALS['notes_to_display_in_Billing'] == 1 || $GLOBALS['notes_to_display_in_Billing'] == 3) {
                                         $lhtml .= "<br /><span class='font-weight-bold text-success ml-3'>" . text($enc_billing_note[$iter['enc_encounter']]) . "</span>";
                                     }
+                                    $lhtml .= "<span class='font-weight-bold text-success ml-3'> Payments : " . BillingUtilities::getAnyPayment($iter['enc_pid'], $iter['enc_encounter']) . "</span>";
                                     $lhtml .= "<br />\n&nbsp;<div id='divid_" . attr($divnos) . "' style='display:none'>" . text(oeFormatShortDate(substr($iter['date'], 0, 10))) . text(substr($iter['date'], 10, 6)) . " " . xlt("Encounter was coded");
 
                                     $query = "SELECT * FROM claims WHERE patient_id = ? AND encounter_id = ? ORDER BY version";
