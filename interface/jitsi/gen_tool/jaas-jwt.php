@@ -115,4 +115,4 @@ $token = $serializer->serialize($jws, 0);
 /**
  * Write the token to standard output.
  */
-echo $token;
+//echo $token;
