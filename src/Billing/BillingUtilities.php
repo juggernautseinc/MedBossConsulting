@@ -1718,6 +1718,16 @@ class BillingUtilities
         return $Copay * -1;
     }
 
+    public static function getAnyPayment($patient_id, $encounter)
+    {
+        $totalPayments = sqlQuery(
+            "select pay_amount as paidAmount from ar_activity where " .
+            "deleted IS NULL AND pid = ? AND encounter = ?", array($patient_id, $encounter)
+        );
+        //show payments on the encounter
+        return $totalPayments['paidAmount'];
+    }
+
     // Get the "next invoice reference number" from this user's pool of reference numbers.
     //
     public static function getInvoiceRefNumber()
