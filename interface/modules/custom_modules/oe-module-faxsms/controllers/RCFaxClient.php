@@ -162,11 +162,11 @@ class RCFaxClient extends AppDispatch
         if (file_exists($authback)) {
             // stored tokens may be expired but, will try em anyway.
             // anything but a ridiculous log in!
-            error_log("Trying to delete the json file " . time(), 0);
+            error_log("Trying to delete the json file ", 0);
             $cachedAuth = file_get_contents($authback);
             $cachedAuth = json_decode($this->crypto->decryptStandard($cachedAuth), true);
             // delete will update with current auth.
-            //unlink($authback);
+            unlink($authback);
         }
 
         $logged_in = 0;

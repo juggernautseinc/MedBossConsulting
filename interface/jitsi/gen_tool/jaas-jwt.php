@@ -41,9 +41,9 @@ $NBF_DELAY_SEC=10;
 ///
 
 /**
- * We read the JSON Web Key (https://tools.ietf.org/html/rfc7517) 
+ * We read the JSON Web Key (https://tools.ietf.org/html/rfc7517)
  * from the private key we generated at https://jaas.8x8.vc/#/apikeys .
- * 
+ *
  * @var \Jose\Component\Core\JWK jwk
  */
 $jwk = JWKFactory::createFromKeyFile(__DIR__."/private.pk");
@@ -115,4 +115,4 @@ $token = $serializer->serialize($jws, 0);
 /**
  * Write the token to standard output.
  */
-//echo $token;
+echo $token;
