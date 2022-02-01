@@ -1350,7 +1350,7 @@ $oemr_ui = new OemrUI($arrOeUiSettings);
 
 <?php
 // if anyone wants to render anything after the patient demographic list
-//$GLOBALS["kernel"]->getEventDispatcher()->dispatch(RenderEvent::EVENT_SECTION_LIST_RENDER_AFTER, new RenderEvent($pid), 10);
+$GLOBALS["kernel"]->getEventDispatcher()->dispatch(RenderEvent::EVENT_SECTION_LIST_RENDER_AFTER, new RenderEvent($pid), 10);
 // This generates a section similar to Vitals for each LBF form that
 // supports charting.  The form ID is used as the "widget label".
 //

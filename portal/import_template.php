@@ -84,14 +84,12 @@ if ($_POST['mode'] === 'send') {
                 // get all template ids for this profile
                 $rtn_ids = sqlStatement('SELECT `template_id` as id FROM `document_template_profiles` WHERE `profile` = ? AND `template_id` > "0"', array($profile));
                 while ($rtn_id = sqlFetchArray($rtn_ids)) {
-                    $master_ids[] = $rtn_id['id'];
+                    $master_ids[$rtn_id['id']] = $profile;
                 }
                 continue;
             }
-            $master_ids[] = $id;
+            $master_ids[$id] = '';
         }
-        $master_ids = array_unique($master_ids);
-
         $last_id = $templateService->sendTemplate($pids_array, $master_ids, $_POST['category']);
         if ($last_id) {
             echo xlt('Templates Successfully sent to Locations.');
@@ -204,6 +202,10 @@ function renderEditorHtml($template_id, $content)
 
       .list-group-item {
         font-size: .9rem;
+      }
+
+      .cke_contents {
+        height: 78vh !important;
       }
     </style>
     <body>
@@ -321,14 +323,14 @@ function renderProfileHtml()
                 group: {
                     name: 'repo',
                     handle: '.move-handle',
-                    //pull: 'clone'
+                    pull: 'clone'
                 },
                 sort: true,
                 animation: 150,
-                /*onAdd: function (evt) {
+                onAdd: function (evt) {
                     let el = evt.item;
                     el.parentNode.removeChild(el);
-                }*/
+                }
             });
 
             Object.keys(profiles).forEach(key => {
@@ -339,14 +341,14 @@ function renderProfileHtml()
                         name: 'repo',
                         delay: 1000,
                         handle: '.move-handle',
-                        /*pull: (to, from, dragEl, event) => {
+                        put: (to, from, dragEl, event) => {
                             for (let i = 0; i < to.el.children.length; i++) {
                                 if (to.el.children[i].getAttribute('data-id') === dragEl.getAttribute('data-id')) {
                                     return false
                                 }
                             }
                             return true
-                        },*/
+                        },
                     },
                     animation: 150
                 });
@@ -397,10 +399,12 @@ function renderProfileHtml()
     <body>
         <div class='container-fluid'>
             <?php
-            $templates = $templateService->getTemplateListUnique();
+            // exclude templates sent to all patients(defaults)
+            $templates = $templateService->getTemplateListAllCategories(-1, true);
+            //$templates = $templateService->getTemplateListUnique(); // Reserved TBD future use
             ?>
             <div class='row'>
-                <div class='col-5 col-height'>
+                <div class='col-6 col-height'>
                     <nav id='disposeProfile' class='navbar navbar-light bg-light sticky-top'>
                         <div class='btn-group'>
                             <button class='btn btn-primary btn-save btn-sm' onclick='return submitProfiles();'><?php echo xlt('Save Profiles'); ?></button>
@@ -433,7 +437,7 @@ function renderProfileHtml()
                         </ul>
                     </div>
                 </div>
-                <div class='col-7 col-height'>
+                <div class='col-6 col-height'>
                     <div id="edit-profiles" class='control-group mx-1 border-left border-right'>
                         <?php
                         foreach ($profile_list as $profile => $profiles) {
@@ -446,15 +450,17 @@ function renderProfileHtml()
                             ?>
                             <form id="<?php echo $profile_esc ?>-form" name="<?php echo $profile_esc; ?>" class='form form-inline bg-dark text-light py-1 pl-1'>
                                 <label class='mr-1'><?php echo xlt($profiles['title']) ?></label>
-                                <div class='input-group-prepend'>
+                                <div class='input-group-prepend ml-auto'>
                                     <label for="<?php echo $profile_esc ?>-recurring" class="form-check-inline"><?php echo xlt('Recurring') ?>
                                         <input <?php echo $recurring ? 'checked' : '' ?> name="recurring" type='checkbox' class="input-control ml-1 mt-1" id="<?php echo $profile_esc ?>-recurring" />
                                     </label>
                                 </div>
-                                <div class='input-group-prepend'>
+                                <!-- @TODO Hide for now until sensible events can be determined. -->
+                                <div class='input-group-prepend d-none'>
                                     <label for="<?php echo $profile_esc ?>-when"><?php echo xlt('On') ?></label>
                                     <select name="when" class='input-control-sm mx-1' id="<?php echo $profile_esc ?>-when">
-                                        <option value="completed"><?php echo xlt('Completed') ?></option>
+                                        <!--<option value=""><?php /*echo xlt('Unassigned') */?></option>-->
+                                        <option <?php echo $trigger === 'completed' ? 'selected' : ''; ?> value="completed"><?php echo xlt('Completed') ?></option>
                                         <option <?php echo $trigger === 'always' ? 'selected' : ''; ?> value='always'><?php echo xlt('Always') ?></option>
                                         <option <?php echo $trigger === 'once' ? 'selected' : ''; ?> value='once'><?php echo xlt('One time') ?></option>
                                     </select>
@@ -462,6 +468,7 @@ function renderProfileHtml()
                                 <div class='input-group-prepend'>
                                     <label for="<?php echo $profile_esc ?>-days"><?php echo xlt('Every') ?></label>
                                     <input name="days" type="text" style="width: 50px" class='input-control-sm ml-1' id="<?php echo $profile_esc ?>-days" placeholder="<?php echo xla('days') ?>" value="<?php echo $days ?>" />
+                                    <label class="mx-1" for="<?php echo $profile_esc ?>-days"><?php echo xlt('Days') ?></label>
                                 </div>
                             </form>
                             <?php

@@ -91,6 +91,7 @@ $esignApi = new Api();
             // Send the skip_timeout_reset parameter to not count this as a manual entry in the
             // timing out mechanism in OpenEMR. Notify App for various portal and reminder alerts.
             // Combined portal and reminders ajax to fetch sjp 06-07-2020.
+            // Incorporated timeout mechanism in 2021
             restoreSession();
             let request = new FormData;
             request.append("skip_timeout_reset", "1");
@@ -107,6 +108,10 @@ $esignApi = new Api();
                 }
                 return response.json();
             }).then((data) => {
+                if (data.timeoutMessage && (data.timeoutMessage == 'timeout')) {
+                    // timeout has happened, so logout
+                    timeoutLogout();
+                }
                 if (isPortalEnabled) {
                     let mail = data.mailCnt;
                     let chats = data.chatCnt;
@@ -132,6 +137,9 @@ $esignApi = new Api();
             });
 
             // run background-services
+            // delay 10 seconds to prevent both utility trigger at close to same time.
+            // Both call globals so that is my concern.
+            setTimeout(function () {
             restoreSession();
             request = new FormData;
             request.append("skip_timeout_reset", "1");
@@ -148,6 +156,7 @@ $esignApi = new Api();
             }).catch(function(error) {
                 console.log('HTML Background Service start Request failed: ', error);
             });
+            }, 10000);
 
             // auto run this function every 60 seconds
             var repeater = setTimeout("goRepeaterServices()", 60000);
@@ -204,6 +213,19 @@ $esignApi = new Api();
         }).catch(error => {
             console.log(error.message);
         });
+
+        /**
+         * Assign and persist documents to portal patients
+         * @var int patientId pid
+         */
+        function assignPatientDocuments(patientId) {
+            let url = top.webroot_url + '/portal/import_template_ui.php?from_demo_pid=' + encodeURIComponent(patientId);
+            dlgopen(url, 'pop-assignments', 'modal-lg', 850, '', '', {
+                allowDrag: true,
+                allowResize: true,
+                sizeHeight: 'full',
+            });
+        }
     </script>
 
     <script src="js/custom_bindings.js?v=<?php echo $v_js_includes; ?>"></script>
@@ -269,8 +291,6 @@ $esignApi = new Api();
 </style>
 </head>
 <body class="min-vw-100">
-    <!-- Below iframe is to support auto logout when timeout is reached -->
-    <iframe name="timeout" style="visibility:hidden; position:absolute; left:0; top:0; height:0; width:0; border:none;" src="timeout_iframe.php"></iframe>
     <!-- Below iframe is to support logout, which needs to be run in an inner iframe to work as intended -->
     <iframe name="logoutinnerframe" id="logoutinnerframe" style="visibility:hidden; position:absolute; left:0; top:0; height:0; width:0; border:none;" src="about:blank"></iframe>
     <?php // mdsupport - app settings
@@ -289,7 +309,7 @@ $esignApi = new Api();
     ?>
     <div id="mainBox" <?php echo $disp_mainBox ?> >
         <nav class="navbar navbar-expand-xl navbar-light bg-light py-0">
-            <a class="navbar-brand mt-2 mt-xl-0 mr-3 mr-xl-2" href="https://medbossconsulting.com/contact/" title="Med Boss Contact <?php echo xla("Website"); ?>" rel="noopener" target="_blank">
+            <a class="navbar-brand mt-2 mt-xl-0 mr-3 mr-xl-2" href="https://www.open-emr.org" title="OpenEMR <?php echo xla("Website"); ?>" rel="noopener" target="_blank">
                 <?php echo file_get_contents($GLOBALS['images_static_absolute'] . "/menu-logo.svg"); ?>
             </a>
             <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -312,7 +332,6 @@ $esignApi = new Api();
 
         $(function () {
             $('.dropdown-toggle').dropdown();
-            goRepeaterServices();
             $('#patient_caret').click(function () {
                 $('#attendantData').slideToggle();
                 $('#patient_caret').toggleClass('fa-caret-down').toggleClass('fa-caret-up');
@@ -334,6 +353,9 @@ $esignApi = new Api();
             }
         });
         document.addEventListener('touchstart', {}); //specifically added for iOS devices, especially in iframes
+        $(function () {
+            goRepeaterServices();
+        });
     </script>
 </body>
 </html>
