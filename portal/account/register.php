@@ -168,6 +168,7 @@ if ($GLOBALS['language_menu_login']) {
                     profile.find('input#dob').prop("disabled", true);
                     profile.find('input#email').prop("disabled", true);
                     profile.find('input#emailDirect').prop("disabled", true);
+                        profile.find('input#pid').prop('disabled', true);
 
                         profile.find('input[name=allowPatientPortal]').val(['YES']);
                     profile.find('input[name=hipaaAllowemail]').val(['YES']);
@@ -196,10 +197,10 @@ if ($GLOBALS['language_menu_login']) {
                 var curStep = $(this).closest(".setup-content"),
                     curStepBtn = curStep.attr("id"),
                     nextstepwiz = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-                    curInputs = $("#profileFrame").contents().find("input[type='text'],input[type='email'],select"),
+                    curInputs = profile.find("input[type='text'],input[type='email'],select"),
                     isValid = true;
                 $(".form-group").removeClass("has-error");
-                var flg = 0;
+                let flg = 0;
                 for (var i = 0; i < curInputs.length; i++) {
                     if (!curInputs[i].validity.valid) {
                         isValid = false;
@@ -214,11 +215,12 @@ if ($GLOBALS['language_menu_login']) {
             // test for new once again
             // this time using the profile data that will be saved as new patient.
             // callserver will intercept on fail or silence to continue.
-            let stillNew = callServer('get_newpid', '',
+                curPid = callServer('get_newpid', '',
                 encodeURIComponent(profile.find('input#dob').val()),
                 encodeURIComponent(profile.find('input#lname').val()),
                 encodeURIComponent(profile.find('input#fname').val()),
-                encodeURIComponent(profile.find('input#email').val()));
+                    encodeURIComponent(profile.find('input#email').val())
+                );
                 if (isValid) {
                     provider = profile.find('select#providerid').val();
                     nextstepwiz.removeClass('disabled').trigger('click');
@@ -226,15 +228,13 @@ if ($GLOBALS['language_menu_login']) {
             });
 
             $("#submitPatient").click(function () {
-                var profile = $("#profileFrame").contents();
-                var pid = profile.find('input#pid').val();
+                let profile = $("#profileFrame").contents();
+                let pid = profile.find('input#pid').val();
 
                 if (pid < 1) {
-                    callServer('get_newpid', '');
+                    curPid = callServer('get_newpid', '');
                 }
-
-                var isOk = checkRegistration(newPid);
-                if (isOk) {
+                if (checkRegistration(newPid)) {
                     // Use portals rest api. flag 1 is write to chart. flag 0 writes an audit record for review in dashboard.
                     // rest update will determine if new or existing pid for save. In register step-1 we catch existing pid but,
                     // we can still use update here if we want to allow changing passwords.
@@ -242,7 +242,7 @@ if ($GLOBALS['language_menu_login']) {
                     // save the new patient.
                     document.getElementById('profileFrame').contentWindow.postMessage({submitForm: true}, window.location.origin);
                     $("#insuranceForm").submit();
-                    //  cleanup is in callServer done promise. This starts end session.
+                    // cleanup is in callServer done promise. This will start end session.
                 }
             });
 
@@ -257,31 +257,30 @@ if ($GLOBALS['language_menu_login']) {
 
             $("#insuranceForm").submit(function (e) {
                 e.preventDefault();
-                var url = "account.php?action=new_insurance&pid=" + encodeURIComponent(newPid);
+                let url = "account.php?action=new_insurance&pid=" + encodeURIComponent(newPid);
                 $.ajax({
                     url: url,
                     type: 'post',
-                    data: $("#insuranceForm").serialize(),
-                    success: function (serverResponse) {
+                    data: $("#insuranceForm").serialize()
+                }).done(function (serverResponse) {
                         doCredentials(newPid) // this is the end for session.
                         return false;
-                    }
                 });
             });
 
             $('#selLanguage').on('change', function () {
-                callServer("set_lang", this.value);
+                return callServer("set_lang", this.value);
             });
 
             $(document.body).on('hidden.bs.modal', function () { //@TODO maybe make a promise for wiz exit
-                callServer('cleanup');
+                return callServer('cleanup');
             });
 
             $('#inscompany').on('change', function () {
                 if ($('#inscompany').val().toUpperCase() === 'SELF') {
                     $("#insuranceForm input").removeAttr("required");
                     let message = <?php echo xlj('You have chosen to be self insured or currently do not have insurance. Click next to continue registration.'); ?>;
-                    alert(message);
+                    //alert(message);
                 }
             });
 
@@ -302,7 +301,7 @@ if ($GLOBALS['language_menu_login']) {
         }); // ready end
 
         function doCredentials(pid) {
-            callServer('do_signup', pid);
+            return callServer('do_signup', pid);
         }
 
         function checkRegistration(pid) {
@@ -313,8 +312,8 @@ if ($GLOBALS['language_menu_login']) {
                 curInputs = $("#profileFrame").contents().find("input[type='text'],input[type='email'],select"),
                 isValid = true;
             $(".form-group").removeClass("has-error");
-            var flg = 0;
-            for (var i = 0; i < curInputs.length; i++) {
+            let flg = 0;
+            for (let i = 0; i < curInputs.length; i++) {
                 if (!curInputs[i].validity.valid) {
                     isValid = false;
                     if (!flg) {
@@ -325,61 +324,34 @@ if ($GLOBALS['language_menu_login']) {
                     $(curInputs[i]).closest(".form-group").addClass("has-error");
                 }
             }
-
-            if (!isValid) {
-                return false;
+            return isValid;
             }
 
-            return true;
-        }
-
-    function callServer(action, value, value2, last, first, email = null) {
+        function callServerAction(data) {
             let message = '';
-            let data = {
-                'action': action,
-                'value': value,
-                'dob': value2,
-                'last': last,
-                'first': first,
-                'email': email
-            }
-            if (action == 'do_signup') {
-                data = {
-                    'action': action,
-                    'pid': value
-                };
-            } else if (action == 'notify_admin') {
-                data = {
-                    'action': action,
-                    'pid': value,
-                    'provider': value2
-                };
-            } else if (action == 'cleanup') {
-                data = {
-                    'action': action
-                };
-            }
-            // The magic that is jquery ajax.
-            $.ajax({
+            let action = data.action;
+            return $.ajax({
                 type: 'GET',
                 url: 'account.php',
                 data: data
             }).done(function (rtn) {
-                if (action == "cleanup") {
-                window.location.href = "./../index.php" // Goto landing page.
-                } else if (action == "set_lang") {
+                let profileContent = $("#profileFrame").contents();
+                if (action === "cleanup") {
+                    window.location.replace("./../index.php");  // Goto landing page.
+                } else if (action === "set_lang") {
                     window.location.href = window.location.href;
-                } else if (action == "get_newpid") {
+                } else if (action === "get_newpid") {
                     if (parseInt(rtn) > 0) {
                         newPid = rtn;
-                        $("#profileFrame").contents().find('input#pubpid').val(newPid);
-                        $("#profileFrame").contents().find('input#pid').val(newPid);
+                        profileContent.find('input#pubpid').val(newPid);
+                        profileContent.find('input#pid').val(newPid);
+                        profileContent.find('input#pid').prop('disabled', true);
                     } else {
                         // After error alert app exit to landing page.
                         // Existing user error. Error message is translated in account.lib.php.
                         dialog.alert(rtn);
                     }
-                } else if (action == 'do_signup') {
+                } else if (action === 'do_signup') {
                     if (rtn.indexOf('ERROR') !== -1) {
                         message = <?php echo xlj('Unable to either create credentials or send email.'); ?>;
                         message += "<br /><br />" + <?php echo xlj('Here is what we do know.'); ?> +": " + rtn + "<br />";
@@ -400,10 +372,39 @@ if ($GLOBALS['language_menu_login']) {
                 alert(message);
             });
         }
+
+        async function callServer(action, value = '', value2 = '', last = '', first = '', email = null) {
+            let data = {
+                'action': action,
+                'value': value,
+                'dob': value2,
+                'last': last,
+                'first': first,
+                'email': email
+            }
+            if (action === 'do_signup') {
+                data = {
+                    'action': action,
+                    'pid': value
+                }
+            } else if (action === 'notify_admin') {
+                data = {
+                    'action': action,
+                    'pid': value,
+                    'provider': value2
+                }
+            } else if (action === 'cleanup') {
+                data = {
+                    'action': action
+                }
+            }
+
+            return await callServerAction(data);
+        }
     </script>
 </head>
 <body class="mt-4 skin-blue">
-    <div class="container">
+    <div class="container-lg">
         <h1 class="text-center"><?php echo xlt('Account Registration'); ?></h1>
         <div class="stepwiz">
             <div class="stepwiz-row setup-panel">
@@ -461,19 +462,19 @@ if ($GLOBALS['language_menu_login']) {
                         <?php }
                     } ?>
                     <div class="form-row">
-                        <div class="col form-group">
+                        <div class="col-12 col-md-6 col-lg-3 form-group">
                           <label for="fname"><?php echo xlt('First Name') ?></label>
                           <input type="text" class="form-control" id="fname" required placeholder="<?php echo xla('First Name'); ?>" />
                         </div>
-                        <div class="col form-group">
+                        <div class="col-12 col-md-6 col-lg-3 form-group">
                           <label for="mname"><?php echo xlt('Middle Name') ?></label>
                           <input type="text" class="form-control" id="mname" placeholder="<?php echo xla('Full or Initial'); ?>" />
                         </div>
-                        <div class="col form-group">
+                        <div class="col-12 col-md-6 col-lg-3 form-group">
                           <label for="lname"><?php echo xlt('Last Name') ?></label>
                           <input type="text" class="form-control" id="lname" required placeholder="<?php echo xla('Enter Last'); ?>" />
                         </div>
-                        <div class="col form-group">
+                        <div class="col-12 col-md-6 col-lg-3 form-group">
                           <label for="dob"><?php echo xlt('Birth Date') ?></label>
                           <input id="dob" type="text" required class="form-control datepicker" placeholder="<?php echo xla('YYYY-MM-DD'); ?>" />
                         </div>
@@ -504,19 +505,19 @@ if ($GLOBALS['language_menu_login']) {
                 <legend class='bg-primary text-white'><?php echo xlt('Insurance') ?></legend>
                 <div class="jumbotron">
                     <div class="form-row">
-                        <div class="col form-group">
+                        <div class="col-12 col-md-6 col-lg-3 form-group">
                             <label for="provider"><?php echo xlt('Insurance Company') ?></label>
                             <div class="controls inline-inputs">
                                 <input type="text" class="form-control" name="provider" id="inscompany" required placeholder="<?php echo xla('Enter Self if None'); ?>">
                             </div>
                         </div>
-                        <div class="col form-group">
+                        <div class="col-12 col-md-6 col-lg-3 form-group">
                             <label for="plan_name"><?php echo xlt('Plan Name') ?></label>
                             <div class="controls inline-inputs">
                                 <input type="text" class="form-control" name="plan_name" required placeholder="<?php echo xla('required'); ?>">
                             </div>
                         </div>
-                        <div class="col form-group">
+                        <div class="col-12 col-md-6 col-lg-3 form-group">
                             <label for="policy_number"><?php echo xlt('Policy Number') ?></label>
                             <div class="controls inline-inputs">
                                 <input type="text" class="form-control" name="policy_number" required placeholder="<?php echo xla('required'); ?>">
@@ -524,19 +525,19 @@ if ($GLOBALS['language_menu_login']) {
                         </div>
                       </div>
                       <div class="form-row">
-                        <div class="col form-group">
+                        <div class="col-12 col-md-6 col-lg-3 form-group">
                             <label for="group_number"><?php echo xlt('Group Number') ?></label>
                             <div class="controls inline-inputs">
                                 <input type="text" class="form-control" name="group_number" required placeholder="<?php echo xla('required'); ?>">
                             </div>
                         </div>
-                        <div class="col form-group">
+                        <div class="col-12 col-md-6 col-lg-3 form-group">
                             <label for="date"><?php echo xlt('Policy Begin Date') ?></label>
                             <div class="controls inline-inputs">
                                 <input type="text" class="form-control datepicker" name="date" placeholder="<?php echo xla('Policy effective date'); ?>">
                             </div>
                         </div>
-                        <div class="col form-group">
+                        <div class="col-12 col-md-6 col-lg-3 form-group">
                             <label for="copay"><?php echo xlt('Co-Payment') ?></label>
                             <div class="controls inline-inputs">
                                 <input type="number" class="form-control" name="copay" placeholder="<?php echo xla('Plan copay if known'); ?>">
