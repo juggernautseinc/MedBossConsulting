@@ -108,6 +108,7 @@ class AppointmentService extends BaseService
         return $validator->validate($appointment);
     }
 
+
     public function getAppointmentsForPatient($pid)
     {
         $sqlBindArray = array();
@@ -149,6 +150,19 @@ class AppointmentService extends BaseService
             }
         }
         return $finalRecords;
+    }
+
+    /**
+     * @param $pid
+     * @param $date
+     * @return mixed
+     */
+    public function getPatientAppointmentCategory($pid, $date)
+    {
+        $sql = "select a.pc_catname from openemr_postcalendar_categories a JOIN openemr_postcalendar_events b  " .
+            " where b.pc_pid = ? and b.pc_eventDate = ? AND a.pc_catid = b.pc_catid";
+        $title = sqlQuery($sql, array($pid, $date));
+        return $title['pc_catname'];
     }
 
     public function getAppointment($eid)
