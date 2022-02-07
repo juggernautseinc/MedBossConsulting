@@ -39,6 +39,9 @@ class FormPriorAuth extends ORDataObject
     var $comments;
     var $date_from;
     var $date_to;
+    var $units_allocated;
+    var $units_left;
+
 
     /**
      * Constructor sets all Form attributes to their default value
@@ -149,6 +152,38 @@ class FormPriorAuth extends ORDataObject
     function set_date_to($dt)
     {
         $this->date_to = $dt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function get_units_allocated()
+    {
+        return $this->units_allocated;
+    }
+
+    /**
+     * @param mixed $units_allocated
+     */
+    public function set_units_allocated($string): void
+    {
+        $this->units_allocated = $string;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function get_units_left()
+    {
+        return $this->units_left;
+    }
+
+    /**
+     * @param mixed $units_left
+     */
+    public function set_units_left($string): void
+    {
+        $this->units_left = $string;
     }
 }
 // end of Form
