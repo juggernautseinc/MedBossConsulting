@@ -56,12 +56,12 @@
 								<th>Adjust Count</th>
 							</tr>
 							<tr>
-								<td>{$FORM_PRIOR_AUTH}</td>
-								<td>15 (Static#)</td>
-								<td>7 (Static#)</td>
-								<td>{$FORM_DATE_TO|oeFormatShortDate|attr}</td>
-								<td>{$FORM_DATE_TO|oeFormatShortDate|attr}</td>
-								<td style="width: 20%">{$FORM_COMMENTS}</td>
+								<td>{$prior_auth->get_prior_auth_number()|attr}</td>
+								<td>{$prior_auth->get_units_allocated()|attr}</td>
+								<td>{$prior_auth->get_units_left()|attr}</td>
+								<td>{$prior_auth->get_date_from()|oeFormatShortDate|attr}</td>
+								<td>{$prior_auth->get_date_to()|oeFormatShortDate|attr}</td>
+								<td style="width: 20%">{$prior_auth->get_comments()|text}</td>
 								<td><button>+</button><button>-</button></td>
 							</tr>
 
