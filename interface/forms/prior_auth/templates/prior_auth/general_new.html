@@ -76,11 +76,11 @@
 						    </div>
 							<div class="col-sm-2">
 								<label for="units" class="col-form-label">{xlt t="Units"}</label>
-								<input type="text" class="form-control" size="5" name="units" value="{$prior_auth->get_units_allocated|attr}">
+								<input type="text" class="form-control" size="5" name="units" value="{$prior_auth->get_units_allocated()|attr}">
 							</div>
 						    <div class="col-sm-2">
 							    <label for="date_from" class="col-form-label">{xlt t="From"}:</label>
-							    <input type='text' size='10' class='form-control datetimepicker' name='date_from' id='date_from' value='{$prior_auth->get_date_from|oeFormatShortDate|attr}' />
+							    <input type='text' size='10' class='form-control datetimepicker' name='date_from' id='date_from' value='{$prior_auth->get_date_from()|oeFormatShortDate|attr}' />
 
 						    </div>
 						    <div class="col-sm-2">
