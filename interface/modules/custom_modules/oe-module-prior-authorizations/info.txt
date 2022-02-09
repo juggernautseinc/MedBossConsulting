@@ -1,1 +1,1 @@
-Prior Authorization Management Module v1.0.0
+Prior Auth Mgmt Module v1.0.0
