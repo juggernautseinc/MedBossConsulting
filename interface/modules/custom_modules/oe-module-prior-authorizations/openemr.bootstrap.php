@@ -45,9 +45,11 @@ function oe_module_priorauth_add_menu_item(MenuEvent $event)
 }
 
 /**
- * @global EventDispatcher $eventDispatcher Injected by the OpenEMR module loader
+ * @var EventDispatcherInterface $eventDispatcher
+ * @var array                    $module
+ * @global                       $eventDispatcher @see ModulesApplication::loadCustomModule
+ * @global                       $module          @see ModulesApplication::loadCustomModule
  */
-//$bootstrap = new Bootstrap($eventDispatcher);
-//$bootstrap->subscribeToEvents();
+
 
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_priorauth_add_menu_item');
