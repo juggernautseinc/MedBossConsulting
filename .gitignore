@@ -8,7 +8,8 @@
 node_modules
 /vendor/*
 /public/assets/*
-
+/interface/jitsi/jitsi.php
+/portal/jitsi/jitsi.php
 !/public/assets/modified
 /.docs/.out/*
 
@@ -23,7 +24,7 @@ ccdaservice/node_modules
 .buildpath
 .project
 .settings
-/textbelt.php
+textbelt.php
 
 # testing
 .phpunit.result.cache
