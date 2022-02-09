@@ -13,6 +13,11 @@
 
 namespace Juggernaut\OpenEMR\Modules\PriorAuthModule;
 
+
+use OpenEMR\Menu\MenuEvent;
+use Symfony\Component\EventDispatcher\Event;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+
 function oe_module_priorauth_add_menu_item(MenuEvent $event)
 {
     $menu = $event->getMenu();
@@ -42,7 +47,7 @@ function oe_module_priorauth_add_menu_item(MenuEvent $event)
 /**
  * @global EventDispatcher $eventDispatcher Injected by the OpenEMR module loader
  */
-$bootstrap = new Bootstrap($eventDispatcher);
-$bootstrap->subscribeToEvents();
+//$bootstrap = new Bootstrap($eventDispatcher);
+//$bootstrap->subscribeToEvents();
 
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_priorauth_add_menu_item');
