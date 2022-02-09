@@ -22,10 +22,10 @@ function oe_module_priorauth_add_menu_item(MenuEvent $event)
     $menuItem->target = 'mod';
     $menuItem->menu_id = 'mod0';
     $menuItem->label = xlt("Prior Authorization Manager");
-    $menuItem->url = "/interface/modules/custom_modules/oe-module-faxsms/messageUI.php";
+    $menuItem->url = "/interface/modules/custom_modules/oe-module-prior-authorizations/";
     $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
-    $menuItem->global_req = ["oefax_enable"];
+    $menuItem->global_req = [];
 
     foreach ($menu as $item) {
         if ($item->menu_id == 'patimg') {
