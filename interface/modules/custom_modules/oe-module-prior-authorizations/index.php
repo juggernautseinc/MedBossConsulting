@@ -37,9 +37,13 @@ $pid = $_SESSION['pid']
             <form id="theform" method="post" action="index.php" onsubmit="top-restoreSession()">
                 <div class="form-group">
                     <label for="authorization">
-                        <?php echo xlt('Authorization') ?>
+                        <?php echo xlt('Authorization Number') ?>
                     </label>
                     <input class="form-control" name="authorization" value="">
+                    <label class="label">Initial Units</label>
+                    <input class="form-control" name="units" value="">
+                    <label class="label">CPTs</label>
+                    <input class="form-control" name="cpts" value="">
                 </div>
             </form>
         </div>
