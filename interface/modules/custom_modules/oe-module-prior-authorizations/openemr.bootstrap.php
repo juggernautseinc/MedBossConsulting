@@ -13,7 +13,6 @@
 
 namespace Juggernaut\OpenEMR\Modules\PriorAuthModule;
 
-
 use OpenEMR\Menu\MenuEvent;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
