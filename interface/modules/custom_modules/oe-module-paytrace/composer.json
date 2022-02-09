@@ -1,8 +1,8 @@
 {
-    "name": "juggernautsei/oe-module-paytrace",
-    "description": "Integration of PayTrace Merchant Card Services",
+    "name": "juggernautsei/oe-module-prior-authorizations",
+    "description": "Prior Authorizations Module",
     "type": "openemr-module",
-    "license": "proprietary",
+    "license": "All rights reserved",
     "authors": [
         {
             "name": "Sherwin",
@@ -13,7 +13,7 @@
     "keywords": ["openemr", "openemr-module"],
     "minimum-stability": "stable",
     "autoload": {
-        "psr-4": {"OpenEMR\\Modules\\PayTrace\\": "src/"}
+        "psr-4": {"Juggernaut\\OpenEMR\\Modules\\PriorAuthModule\\": "src/"}
     },
     "require": {
         "openemr/oe-module-installer-plugin": "^0.1.0",
