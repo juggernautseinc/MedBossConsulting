@@ -35,15 +35,18 @@ $pid = $_SESSION['pid']
                 die("You must be in a patients Chart to enter this information");
             } ?>
             <form id="theform" method="post" action="index.php" onsubmit="top-restoreSession()">
-                <div class="form-group">
-                    <label for="authorization">
-                        <?php echo xlt('Authorization Number') ?>
-                    </label>
-                    <input class="form-control" name="authorization" value="">
-                    <label class="label">Initial Units</label>
-                    <input class="form-control" name="units" value="">
-                    <label class="label">CPTs</label>
-                    <input class="form-control" name="cpts" value="">
+                <div class="form-row">
+                    <div class="col">
+                        <input class="form-control" name="authorization" value="" placeholder="<?php echo xlt('Authorization Number') ?>">
+                    </div>
+                    <div class="col">
+                        <input class="form-control" name="units" value="" placeholder="<?php echo xlt('Units') ?>">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <input class="form-control" name="cpts" value="" placeholder="<?php echo xlt('CPTs') ?>">
+                    </div>
                 </div>
             </form>
         </div>
