@@ -23,7 +23,19 @@ $pid = $_SESSION['pid']
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo xlt('Prior Authorization Manager'); ?></title>
-    <?php Header::setupHeader(['common'])?>
+    <?php Header::setupHeader(['common', 'datetime-picker'])?>
+
+    <script>
+        $(function() {
+            $('.datepicker').datetimepicker({
+                <?php $datetimepicker_timepicker = false; ?>
+                <?php $datetimepicker_showseconds = false; ?>
+                <?php $datetimepicker_formatInput = true; ?>
+                <?php require($GLOBALS['srcdir'] . '/js/xl/jquery-datetimepicker-2-5-4.js.php'); ?>
+                <?php // can add any additional javascript settings to datetimepicker here; need to prepend first setting with a comma ?>
+            });
+        })
+    </script>
 </head>
 <body>
     <div class="container">
@@ -41,6 +53,12 @@ $pid = $_SESSION['pid']
                     </div>
                     <div class="col">
                         <input class="form-control" name="units" value="" placeholder="<?php echo xlt('Units') ?>">
+                    </div>
+                    <div class="col">
+                        <input class="form-control datepicker" name="start_date" value="" placeholder="<?php echo xlt('Start Date') ?>">
+                    </div>
+                    <div class="col">
+                        <input class="form-control datepicker" name="end_date" value="" placeholder="<?php echo xlt('End Date') ?>">
                     </div>
                 </div>
                 <div class="form-row">
