@@ -48,7 +48,7 @@ $pid = $_SESSION['pid']
                 die;
             } ?>
             <div class="m-5">
-                <h5><<?php echo xlt('Enter new authorization'); ?></h5>
+                <h3><<?php echo xlt('Enter new authorization'); ?></h3>
             </div>
             <form id="theform" method="post" action="index.php" onsubmit="top-restoreSession()">
                 <div class="form-row">
