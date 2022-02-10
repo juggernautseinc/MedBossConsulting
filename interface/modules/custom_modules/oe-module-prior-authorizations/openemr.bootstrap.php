@@ -12,7 +12,6 @@
  */
 
 use OpenEMR\Menu\MenuEvent;
-use OpenEMR\Menu\PatientMenuEvent;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -22,8 +21,8 @@ function oe_module_priorauth_add_menu_item(MenuEvent $event)
 
     $menuItem = new stdClass();
     $menuItem->requirement = 0;
-    $menuItem->target = 'main';
-    $menuItem->menu_id = 'history';
+    $menuItem->target = 'mod';
+    $menuItem->menu_id = 'mod0';
     $menuItem->label = xlt("Prior Authorization Manager");
     $menuItem->url = "/interface/modules/custom_modules/oe-module-prior-authorizations/";
     $menuItem->children = [];
@@ -31,7 +30,7 @@ function oe_module_priorauth_add_menu_item(MenuEvent $event)
     $menuItem->global_req = [];
 
     foreach ($menu as $item) {
-        if ($item->menu_id == 'history') {
+        if ($item->menu_id == 'patimg') {
             $item->children[] = $menuItem;
             break;
         }
@@ -50,5 +49,4 @@ function oe_module_priorauth_add_menu_item(MenuEvent $event)
  */
 
 
-//$eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_priorauth_add_menu_item');
-$eventDispatcher->addListener(PatientMenuEvent::MENU_UPDATE, 'oe_module_priorauth_add_menu_item');
+$eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_priorauth_add_menu_item');
