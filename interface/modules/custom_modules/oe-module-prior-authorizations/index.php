@@ -40,11 +40,10 @@ $pid = $_SESSION['pid']
 <body>
     <div class="container">
         <div class="m-4">
-                <h1><?php echo xlt('Prior Authorization Manager'); ?></h1>
-            <div style="float: left">
+                <span><?php echo xlt('Prior Authorization Manager'); ?></span>
                 <a href="../../../patient_file/summary/demographics.php" onclick="top.restoreSession()" title="Go Back">
                     <i id="advanced-tooltip" class="fa fa-undo fa-2x small" aria-hidden="true"></i></a>
-            </div>
+
         </div>
         <div class="m-4">
             <?php if (empty($pid)) {
