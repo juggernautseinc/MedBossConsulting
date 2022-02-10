@@ -67,7 +67,7 @@
         "menu_id": "priorauth",
         "target": "main",
         "on_click":"top.restoreSession()",
-        "url": "interface/patient_file/encounter/load_form.php?formname=prior_auth",
+        "url": "interface/modules/custom_modules/oe-module-prior-authorizations/",
         "pid":"false",
         "children": [],
         "requirement": 0
