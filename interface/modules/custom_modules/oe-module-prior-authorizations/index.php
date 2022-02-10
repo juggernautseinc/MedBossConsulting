@@ -44,8 +44,12 @@ $pid = $_SESSION['pid']
         </div>
         <div class="m-4">
             <?php if (empty($pid)) {
-                die("You must be in a patients Chart to enter this information");
+                echo xlt("You must be in a patients Chart to enter this information");
+                die;
             } ?>
+            <div class="m-5">
+                <h5><<?php echo xlt('Enter new authorization'); ?></h5>
+            </div>
             <form id="theform" method="post" action="index.php" onsubmit="top-restoreSession()">
                 <div class="form-row">
                     <div class="col">
