@@ -41,6 +41,8 @@ $pid = $_SESSION['pid']
     <div class="container">
         <div class="m-4">
             <h1><?php echo xlt('Prior Authorization Manager'); ?></h1>
+            <a href="interface/patient_file/summary/demographics.php" onclick="top.restoreSession()" title="Go Back">
+                <i id="advanced-tooltip" class="fa fa-undo fa-2x small" aria-hidden="true"></i></a>
         </div>
         <div class="m-4">
             <?php if (empty($pid)) {
@@ -50,7 +52,7 @@ $pid = $_SESSION['pid']
             <div class="m-3">
                 <h3><?php echo xlt('Enter new authorization'); ?></h3>
             </div>
-            <form id="theform" method="post" action="index.php" onsubmit="top-restoreSession()">
+            <form id="theform" method="post" action="index.php" onsubmit="top.restoreSession()">
                 <div class="form-row">
                     <div class="col">
                         <input class="form-control" name="authorization" value="" placeholder="<?php echo xlt('Authorization Number') ?>">
