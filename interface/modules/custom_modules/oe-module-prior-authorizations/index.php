@@ -68,6 +68,19 @@ $pid = $_SESSION['pid']
                 </div>
             </form>
         </div>
+        <div class="m-4">
+            <table class="table table-striped">
+                <caption><?php echo xlt('Display of authorization code'); ?></caption>
+                <tr>
+                    <th scope="col"><?php echo xlt('Authorization Number'); ?></th>
+                    <th scope="col"><?php echo xlt('Allocated Units'); ?></th>
+                    <th scope="col"><?php echo xlt('Remaining Units'); ?></th>
+                    <th scope="col"><?php echo xlt('Start Date'); ?></th>
+                    <th scope="col"><?php echo xlt('End Date'); ?></th>
+                    <th scope="col"><?php echo xlt('CPTs'); ?></th>
+                </tr>
+            </table>
+        </div>
 
     </div>
 </body>
