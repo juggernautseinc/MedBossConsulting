@@ -40,7 +40,7 @@ $pid = $_SESSION['pid']
 <body>
     <div class="container">
         <div class="m-4">
-                <span style="font-size: larger"><?php echo xlt('Prior Authorization Manager'); ?></span>
+                <span style="font-size: xx-large; padding-right: 20px"><?php echo xlt('Prior Authorization Manager'); ?></span>
                 <a href="../../../patient_file/summary/demographics.php" onclick="top.restoreSession()" title="Go Back">
                     <i id="advanced-tooltip" class="fa fa-undo fa-2x small" aria-hidden="true"></i></a>
 
