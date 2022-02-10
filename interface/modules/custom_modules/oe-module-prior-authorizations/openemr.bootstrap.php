@@ -12,6 +12,7 @@
  */
 
 use OpenEMR\Menu\MenuEvent;
+use OpenEMR\Menu\PatientMenuEvent;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -49,4 +50,5 @@ function oe_module_priorauth_add_menu_item(MenuEvent $event)
  */
 
 
-$eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_priorauth_add_menu_item');
+//$eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_priorauth_add_menu_item');
+$eventDispatcher->addListener(PatientMenuEvent::MENU_UPDATE, 'oe_module_priorauth_add_menu_item');
