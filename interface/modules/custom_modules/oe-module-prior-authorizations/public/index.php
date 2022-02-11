@@ -39,8 +39,6 @@ if (!empty($_POST['token'])) {
 $listData = new ListAuthorizations();
 $listData->setPid($pid);
 $authList = $listData->getAllAuthorizations();
-
-var_dump($authList);
 ?>
 
 <!doctype html>
@@ -120,6 +118,7 @@ var_dump($authList);
                     <th scope="col"><?php echo xlt('End Date'); ?></th>
                     <th scope="col"><?php echo xlt('CPTs'); ?></th>
                 </tr>
+                <pre>
                 <?php
                     if (!empty($authList)) {
                         while ($iter = sqlFetchArray($authList)) {
@@ -127,6 +126,7 @@ var_dump($authList);
                         }
                     }
                 ?>
+                    </pre>
             </table>
         </div>
 
