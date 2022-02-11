@@ -27,8 +27,10 @@ if (!empty($_POST['token'])) {
     $postData->setPid($pid);
     $postData->setAuthNum($_POST['authorization']);
     $postData->setInitUnits($_POST['units']);
-    $postData->setStartDate($_POST['start_date']);
-    $postData->setEndDate($_POST['end_date']);
+    $startDate = oeFormatDateTime($_POST['start_date']);
+    $postData->setStartDate($startDate);
+    $endDate = oeFormatDateTime($_POST['end_date']);
+    $postData->setEndDate($endDate);
     $postData->setCpt($_POST['cpts']);
     $postData->storeAuthorizationInfo();
 }
