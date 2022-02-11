@@ -10,9 +10,31 @@
 
 require_once dirname(__FILE__, 4) . "/globals.php";
 
+use Juggernaut\OpenEMR\Modules\PriorAuthModule\Controller\AuthorizationService;
 use OpenEMR\Core\Header;
+use OpenEMR\Common\Csrf\CsrfUtils;
 
-$pid = $_SESSION['pid']
+$pid = $_SESSION['pid'];
+
+if (!empty($_POST['token'])) {
+    if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token_form"])) {
+        CsrfUtils::csrfNotVerified();
+    }
+    $auth_num = filter_input('POST', 'authorization', FILTER_SANITIZE_SPECIAL_CHARS);
+    $start_date = filter_input('POST', 'start_date', FILTER_SANITIZE_SPECIAL_CHARS);
+    $end_date = filter_input('POST', 'end_date', FILTER_SANITIZE_SPECIAL_CHARS);
+    $cpts = filter_input('POST', 'cpts', FILTER_SANITIZE_SPECIAL_CHARS);
+    $units = filter_input('POST', 'units', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $postData = new AuthorizationService();
+    $postData->setPid($pid);
+    $postData->setAuthNum($auth_num);
+    $postData->setStartDate($start_date);
+    $postData->setEndDate($end_date);
+    $postData->setCpt($cpts);
+    $postData->storeAuthorizationInfo();
+}
+
 ?>
 
 <!doctype html>
@@ -54,6 +76,7 @@ $pid = $_SESSION['pid']
                 <h3><?php echo xlt('Enter new authorization'); ?></h3>
             </div>
             <form id="theform" method="post" action="index.php" onsubmit="top.restoreSession()">
+                <input type="hidden" name="token" value="<?php echo attr(CsrfUtils::collectCsrfToken()); ?>">
                 <div class="form-row">
                     <div class="col">
                         <input class="form-control" name="authorization" value="" placeholder="<?php echo xlt('Authorization Number') ?>">
