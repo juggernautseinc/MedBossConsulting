@@ -10,9 +10,9 @@ CREATE TABLE IF NOT EXISTS `module_prior_authorizations`
 (
     `id`  INT NOT NULL PRIMARY KEY auto_increment,
     `pid` bigint(20) NULL,
-    `auth_num` VARCHAR,
-    `start_date` DATETIME,
-    `end_data` DATETIME,
+    `auth_num` VARCHAR(20) NOT NULL,
+    `start_date` DATE NOT NULL,
+    `end_data` DATE NOT NULL,
     `cpt` TEXT,
     `init_units` INT,
     `remaining_units` INT
