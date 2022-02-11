@@ -31,9 +31,16 @@ class ListAuthorizations
 
     public function getAllAuthorizations()
     {
-        $statement = "SELECT * FROM module_prior_authorizations WHERE `pid` = ?";
-        //return QueryUtils::fetchRecords($statement, [637]);
-        return $statement . $this->pid;
+        $statement = "SELECT id,
+                        pid,
+                        auth_num,
+                        init_units,
+                        start_date,
+                        end_date,
+                        remaining_units
+                        FROM module_prior_authorizations
+                        WHERE pid = ?";
+        return QueryUtils::fetchRecords($statement, [$this->pid]);
     }
 
 
