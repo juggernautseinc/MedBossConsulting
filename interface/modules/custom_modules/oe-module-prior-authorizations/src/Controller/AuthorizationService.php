@@ -29,7 +29,7 @@ class AuthorizationService
     }
     public function storeAuthorizationInfo()
     {
-        $statement = "INSERT INTO " . MODULE_TABLE .
+        $statement = "INSERT INTO " . self::MODULE_TABLE .
             "(`pid`, `auth_num`, `start_date`, `end_date`, `cpt`, `init_units`, `remaining_units`)
             VALUES (?, ?, ?, ?, ?, ?, ?)";
 
