@@ -120,6 +120,13 @@ var_dump($authList);
                     <th scope="col"><?php echo xlt('End Date'); ?></th>
                     <th scope="col"><?php echo xlt('CPTs'); ?></th>
                 </tr>
+                <?php
+                    if (!empty($authList)) {
+                        while ($iter = sqlFetchArray($authList)) {
+                            var_dump($iter);
+                        }
+                    }
+                ?>
             </table>
         </div>
 
