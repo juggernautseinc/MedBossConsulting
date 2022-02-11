@@ -118,15 +118,18 @@ $authList = $listData->getAllAuthorizations();
                     <th scope="col"><?php echo xlt('End Date'); ?></th>
                     <th scope="col"><?php echo xlt('CPTs'); ?></th>
                 </tr>
-                <pre>
                 <?php
                     if (!empty($authList)) {
                         while ($iter = sqlFetchArray($authList)) {
-                            var_dump($iter);
+                            print "<tr><td>"  . $iter['auth_num'];
+                            print "</td><td>" . $iter['init_units'];
+                            print "</td><td>" . $iter['remaining_units'];
+                            print "</td><td>" . $iter['start_date'];
+                            print "</td><td>" . $iter['end_date'];
+                            print "</td><td>" . $iter['cpts'] . "</td></tr>";
                         }
                     }
                 ?>
-                    </pre>
             </table>
         </div>
 
