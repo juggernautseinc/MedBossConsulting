@@ -28,7 +28,7 @@ if (!empty($_POST['token'])) {
     $postData->setPid($pid);
     $postData->setAuthNum($_POST['authorization']);
     $postData->setInitUnits($_POST['units']);
-    $startDate = DateToYYYYMMDD($_POST['start_date']);
+    echo $startDate = DateToYYYYMMDD($_POST['start_date']);
     $postData->setStartDate($startDate);
     $endDate = DateToYYYYMMDD($_POST['end_date']);
     $postData->setEndDate($endDate);
@@ -127,7 +127,11 @@ const TABLE_TD = "</td><td>";
                             print TABLE_TD . $iter['init_units'];
                             print TABLE_TD . $iter['remaining_units'];
                             print TABLE_TD . $iter['start_date'];
-                            print TABLE_TD . $iter['end_date'];
+                            if ($iter['end_date']) {
+                                print TABLE_TD . $iter['end_date'];
+                            } else {
+                                print TABLE_TD;
+                            }
                             print TABLE_TD . $iter['cpt'] . "</td></tr>";
                         }
                     }
