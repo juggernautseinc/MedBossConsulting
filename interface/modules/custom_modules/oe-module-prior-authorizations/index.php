@@ -17,6 +17,7 @@ use OpenEMR\Common\Csrf\CsrfUtils;
 $pid = $_SESSION['pid'];
 
 if (!empty($_POST['token'])) {
+
     if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token_form"])) {
         CsrfUtils::csrfNotVerified();
     }
@@ -75,7 +76,7 @@ if (!empty($_POST['token'])) {
             <div class="m-3">
                 <h3><?php echo xlt('Enter new authorization'); ?></h3>
             </div>
-            <form id="theform" method="post" action="index.php" onsubmit="top.restoreSession()">
+            <form id="theform" method="post" action="index.php" >
                 <input type="hidden" name="token" value="<?php echo attr(CsrfUtils::collectCsrfToken()); ?>">
                 <div class="form-row">
                     <div class="col">
@@ -98,7 +99,7 @@ if (!empty($_POST['token'])) {
                 </div>
                 <div class="form-row">
                     <div class="col">
-                        <input class="form-control" type="submit" value="Save">
+                        <input class="form-control btn btn-primary" type="submit" value="Save">
                     </div>
                 </div>
             </form>
