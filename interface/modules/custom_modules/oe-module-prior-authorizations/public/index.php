@@ -18,7 +18,7 @@ $pid = $_SESSION['pid'];
 
 if (!empty($_POST['token'])) {
 
-    if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token_form"])) {
+    if (!CsrfUtils::verifyCsrfToken($_POST["token"])) {
         CsrfUtils::csrfNotVerified();
     }
     $auth_num = filter_input('POST', 'authorization', FILTER_SANITIZE_SPECIAL_CHARS);
