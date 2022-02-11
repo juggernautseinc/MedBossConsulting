@@ -39,6 +39,8 @@ if (!empty($_POST['token'])) {
 $listData = new ListAuthorizations();
 $listData->setPid($pid);
 $authList = $listData->getAllAuthorizations();
+
+const TABLE_TD = "</td><td>";
 ?>
 
 <!doctype html>
@@ -122,11 +124,11 @@ $authList = $listData->getAllAuthorizations();
                     if (!empty($authList)) {
                         while ($iter = sqlFetchArray($authList)) {
                             print "<tr><td>"  . $iter['auth_num'];
-                            print "</td><td>" . $iter['init_units'];
-                            print "</td><td>" . $iter['remaining_units'];
-                            print "</td><td>" . $iter['start_date'];
-                            print "</td><td>" . $iter['end_date'];
-                            print "</td><td>" . $iter['cpts'] . "</td></tr>";
+                            print TABLE_TD . $iter['init_units'];
+                            print TABLE_TD . $iter['remaining_units'];
+                            print TABLE_TD . $iter['start_date'];
+                            print TABLE_TD . $iter['end_date'];
+                            print TABLE_TD . $iter['cpt'] . "</td></tr>";
                         }
                     }
                 ?>
