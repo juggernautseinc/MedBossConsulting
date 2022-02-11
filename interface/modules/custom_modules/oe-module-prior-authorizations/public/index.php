@@ -127,10 +127,10 @@ const TABLE_TD = "</td><td>";
                             print TABLE_TD . $iter['init_units'];
                             print TABLE_TD . $iter['remaining_units'];
                             print TABLE_TD . $iter['start_date'];
-                            if ($iter['end_date']) {
-                                print TABLE_TD . $iter['end_date'];
-                            } else {
+                            if ($iter['end_date'] == '0000-00-00') {
                                 print TABLE_TD;
+                            } else {
+                                print TABLE_TD . $iter['end_date'];
                             }
                             print TABLE_TD . $iter['cpt'] . "</td></tr>";
                         }
