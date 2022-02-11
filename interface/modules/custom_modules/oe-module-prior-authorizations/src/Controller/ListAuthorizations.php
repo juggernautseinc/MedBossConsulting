@@ -34,7 +34,7 @@ class ListAuthorizations
         $statement = "SELECT * FROM module_prior_authorizations WHERE `pid` = ?";
         $binds = array();
         $binds[] = $this->pid;
-        return QueryUtils::sqlStatementThrowException($statement, $binds);
+        return QueryUtils::fetchRecords($statement, $binds);
     }
 
 
