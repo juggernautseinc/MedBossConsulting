@@ -9,10 +9,10 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `module_prior_authorizations`
 (
     `id`  INT NOT NULL PRIMARY KEY auto_increment,
-    `pid` INT NULL,
+    `pid` bigint(20) NULL,
     `auth_num` VARCHAR,
-    `start_date` DATE,
-    `end_data` DATE,
+    `start_date` DATETIME,
+    `end_data` DATETIME,
     `cpt` TEXT,
     `init_units` INT,
     `remaining_units` INT
