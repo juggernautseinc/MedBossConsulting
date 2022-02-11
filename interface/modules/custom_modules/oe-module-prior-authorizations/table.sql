@@ -12,8 +12,8 @@ CREATE TABLE IF NOT EXISTS `module_prior_authorizations`
     `pid` bigint(20) NULL,
     `auth_num` VARCHAR(20) NOT NULL,
     `start_date` DATE NOT NULL,
-    `end_data` DATE NOT NULL,
-    `cpt` TEXT,
-    `init_units` INT,
-    `remaining_units` INT
+    `end_date` DATE NOT NULL,
+    `cpt` TEXT NULL,
+    `init_units` INT(5) NULL,
+    `remaining_units` INT(5) NULL
 ) ENGINE = InnoDB COMMENT = 'Store authorizations';
