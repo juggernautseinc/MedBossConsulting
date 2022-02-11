@@ -12,6 +12,7 @@ require_once dirname(__FILE__, 5) . "/globals.php";
 require_once dirname(__FILE__, 2) . '/vendor/autoload.php';
 
 use Juggernaut\OpenEMR\Modules\PriorAuthModule\Controller\AuthorizationService;
+use Juggernaut\OpenEMR\Modules\PriorAuthModule\Controller\ListAuthorizations;
 use OpenEMR\Core\Header;
 use OpenEMR\Common\Csrf\CsrfUtils;
 
@@ -27,14 +28,19 @@ if (!empty($_POST['token'])) {
     $postData->setPid($pid);
     $postData->setAuthNum($_POST['authorization']);
     $postData->setInitUnits($_POST['units']);
-    echo $startDate = DateToYYYYMMDD($_POST['start_date']);
+    $startDate = DateToYYYYMMDD($_POST['start_date']);
     $postData->setStartDate($startDate);
-    echo $endDate = DateToYYYYMMDD($_POST['end_date']);
+    $endDate = DateToYYYYMMDD($_POST['end_date']);
     $postData->setEndDate($endDate);
     $postData->setCpt($_POST['cpts']);
     $postData->storeAuthorizationInfo();
 }
 
+$listData = new ListAuthorizations();
+$listData->setPid($pid);
+$authList = $listData->getAllAuthorizations();
+
+var_dump($authList);
 ?>
 
 <!doctype html>
