@@ -29,13 +29,11 @@ class ListAuthorizations
         //do epic stuff
     }
 
-    public function getAllAuthorizations(): array
+    public function getAllAuthorizations()
     {
         $statement = "SELECT *
                         FROM module_prior_authorizations
                         WHERE pid = ?";
         return QueryUtils::sqlStatementThrowException($statement, [$this->pid]);
     }
-
-
 }
