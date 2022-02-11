@@ -96,6 +96,11 @@ if (!empty($_POST['token'])) {
                         <input class="form-control" name="cpts" value="" placeholder="<?php echo xlt('CPTs') ?>">
                     </div>
                 </div>
+                <div class="form-row">
+                    <div class="col">
+                        <input class="form-control" type="submit" value="Save">
+                    </div>
+                </div>
             </form>
         </div>
         <div class="m-4">
