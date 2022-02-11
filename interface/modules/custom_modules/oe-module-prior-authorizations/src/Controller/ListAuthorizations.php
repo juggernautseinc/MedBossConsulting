@@ -31,9 +31,9 @@ class ListAuthorizations
 
     public function getAllAuthorizations()
     {
-        $statement = "SELECT *
-                        FROM module_prior_authorizations
-                        WHERE pid = ?";
-        return QueryUtils::sqlStatementThrowException($statement, [$this->pid]);
+        $sql = "SELECT *
+                      FROM module_prior_authorizations
+                      WHERE pid = ?";
+        return sqlStatement($sql, [$this->pid]);
     }
 }
