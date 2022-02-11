@@ -22,11 +22,11 @@ if (!empty($_POST['token'])) {
     if (!CsrfUtils::verifyCsrfToken($_POST["token"])) {
         CsrfUtils::csrfNotVerified();
     }
-    $auth_num = filter_input('POST', 'authorization', FILTER_SANITIZE_SPECIAL_CHARS);
-    $start_date = filter_input('POST', 'start_date', FILTER_SANITIZE_SPECIAL_CHARS);
-    $end_date = filter_input('POST', 'end_date', FILTER_SANITIZE_SPECIAL_CHARS);
-    $cpts = filter_input('POST', 'cpts', FILTER_SANITIZE_SPECIAL_CHARS);
-    $units = filter_input('POST', 'units', FILTER_SANITIZE_SPECIAL_CHARS);
+    $auth_num = filter_input('POST', 'authorization', FILTER_SANITIZE_STRING);
+    $start_date = filter_input('POST', 'start_date', FILTER_SANITIZE_STRING);
+    $end_date = filter_input('POST', 'end_date', FILTER_SANITIZE_STRING);
+    $cpts = filter_input('POST', 'cpts', FILTER_SANITIZE_STRING);
+    $units = filter_input('POST', 'units', FILTER_SANITIZE_STRING);
 
     $postData = new AuthorizationService();
     $postData->setPid($pid);
