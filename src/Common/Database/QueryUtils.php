@@ -21,7 +21,7 @@ class QueryUtils
      * @throws SqlQueryException Thrown if there is an error in the database executing the statement
      * @return array
      */
-    public static function fetchTableColumn($sqlStatement, $column, $binds = array())
+    public static function fetchTableColumn($sqlStatement, $column, $binds = array()): array
     {
         $recordSet = self::sqlStatementThrowException($sqlStatement, $binds);
         $list = [];
@@ -40,7 +40,7 @@ class QueryUtils
         return null;
     }
 
-    public static function fetchRecords($sqlStatement, $binds = array())
+    public static function fetchRecords($sqlStatement, $binds = array()): array
     {
         $result = self::sqlStatementThrowException($sqlStatement, $binds);
         $list = [];
