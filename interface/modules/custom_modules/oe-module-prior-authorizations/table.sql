@@ -6,7 +6,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION = @@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
-CREATE TABLE IF NOT EXIST `module_prior_authorizations`
+CREATE TABLE IF NOT EXISTS `module_prior_authorizations`
 (
     `id`  INT NOT NULL PRIMARY KEY auto_increment,
     `pid` INT NULL,
