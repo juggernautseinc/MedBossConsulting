@@ -76,7 +76,7 @@ if (!empty($_POST['token'])) {
             <div class="m-3">
                 <h3><?php echo xlt('Enter new authorization'); ?></h3>
             </div>
-            <form id="theform" method="post" action="index.php" >
+            <form id="theform" method="post" action="" >
                 <input type="hidden" name="token" value="<?php echo attr(CsrfUtils::collectCsrfToken()); ?>">
                 <div class="form-row">
                     <div class="col">
