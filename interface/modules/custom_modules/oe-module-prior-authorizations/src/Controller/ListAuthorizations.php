@@ -33,7 +33,12 @@ class ListAuthorizations
     {
         $sql = "SELECT *
                       FROM module_prior_authorizations
-                      WHERE pid = ?";
+                      WHERE pid = ? ORDER BY `start_date` DESC";
         return sqlStatement($sql, [$this->pid]);
+    }
+
+    public function getAuthsFromFormPriorAuth()
+    {
+        $sql = "SELECT * FROM form_prior_auth";
     }
 }
