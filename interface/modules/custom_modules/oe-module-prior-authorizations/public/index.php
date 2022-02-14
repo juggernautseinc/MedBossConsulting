@@ -124,7 +124,7 @@ const TABLE_TD = "</td><td>";
                     if (!empty($authList)) {
                         while ($iter = sqlFetchArray($authList)) {
                             print "<tr><td><a id='row' href='#' onclick=getRowData(" . $iter['id'] . ")";
-                            print "' title='" . xlt('Click to edit') . "'>";
+                            print " title='" . xlt('Click to edit') . "'>";
                             print $iter['auth_num'] . "</a>";
                             print TABLE_TD . $iter['init_units'];
                             print TABLE_TD . $iter['remaining_units'];
@@ -144,7 +144,7 @@ const TABLE_TD = "</td><td>";
 <script>
 
     function getRowData(id) {
-        alert('Hello' + id);
+        alert('Hello, working out the edit feature ' + id);
     }
 </script>
 </body>
