@@ -123,7 +123,8 @@ const TABLE_TD = "</td><td>";
                 <?php
                     if (!empty($authList)) {
                         while ($iter = sqlFetchArray($authList)) {
-                            print "<tr><td>"  . $iter['auth_num'];
+                            print "<tr><td><a href='' title='" . xlt('Click to edit') . "'>";
+                            print $iter['auth_num'] . "</a>";
                             print TABLE_TD . $iter['init_units'];
                             print TABLE_TD . $iter['remaining_units'];
                             print TABLE_TD . $iter['start_date'];
