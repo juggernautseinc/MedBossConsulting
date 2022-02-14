@@ -123,7 +123,8 @@ const TABLE_TD = "</td><td>";
                 <?php
                     if (!empty($authList)) {
                         while ($iter = sqlFetchArray($authList)) {
-                            print "<tr><td><a href='' title='" . xlt('Click to edit') . "'>";
+                            print "<tr><td><a id='row' href='#' onclick=getRowData(" . $iter['id'] . ")";
+                            print "' title='" . xlt('Click to edit') . "'>";
                             print $iter['auth_num'] . "</a>";
                             print TABLE_TD . $iter['init_units'];
                             print TABLE_TD . $iter['remaining_units'];
@@ -139,7 +140,12 @@ const TABLE_TD = "</td><td>";
                 ?>
             </table>
         </div>
-
     </div>
+<script>
+
+    function getRowData(id) {
+        alert('Hello' + id);
+    }
+</script>
 </body>
 </html>
