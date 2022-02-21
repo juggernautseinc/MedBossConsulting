@@ -55,7 +55,7 @@ class ListAuthorizations
         $insertArray = array_diff($formsAuths, $moduleAuths);
 
         foreach ($insertArray as $auth) {
-            $getinfo = sqlQuery("SELECT date_from, date_to FROM form_prior_auth WHERE prior_auth_number = ? ORDER BY id DESC LIMIT 1");
+            $getinfo = sqlQuery("SELECT date_from, date_to FROM form_prior_auth WHERE prior_auth_number = ? ORDER BY id DESC LIMIT 1", [$_SESSION['pid']]);
 
         }
         return $getinfo;
