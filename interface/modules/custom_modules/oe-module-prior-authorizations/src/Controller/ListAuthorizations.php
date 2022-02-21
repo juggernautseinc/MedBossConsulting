@@ -48,7 +48,12 @@ class ListAuthorizations
         return $auth_array;
     }
 
-    private function insertMissingAuthsFromForm()
+    /**
+     * @return void
+     * this method is to back populate the module table in case someone just uses the prior auth form
+     * this is a silent function
+     */
+    public function insertMissingAuthsFromForm()
     {
         $formsAuths = self::getArrayOfAuthNumbers();
         $moduleAuths = self::getAuthsFromModulePriorAuth();
@@ -60,11 +65,8 @@ class ListAuthorizations
                 $saveInfoWithDate = "INSERT INTO `module_prior_authorizations` (`id`, `pid`, `authnumber`, `start_date`, `end_date`) VALUES ('', ?, ?, ?, ?)";
                 $bindArray = [$_SESSION['pid'], $auth, $getinfo['date_from'], $getinfo['date_to']];
                 sqlStatement($saveInfoWithDate, $bindArray);
-            } else {
-                return $auth;
             }
         }
-        return $getinfo;
     }
 
     /**
@@ -80,9 +82,5 @@ class ListAuthorizations
             $auths_array[] = $row['prior_auth_number'];
         }
         return $auths_array;
-    }
-    public function seeAuthArray()
-    {
-        return self::insertMissingAuthsFromForm();
     }
 }

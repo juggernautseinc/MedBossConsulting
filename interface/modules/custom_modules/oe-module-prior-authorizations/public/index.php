@@ -39,8 +39,8 @@ if (!empty($_POST['token'])) {
 $listData = new ListAuthorizations();
 $listData->setPid($pid);
 $authList = $listData->getAllAuthorizations();
-$arrayofauthnumbers = $listData->seeAuthArray(); //from form prior auth
-var_dump($arrayofauthnumbers);
+$listData->insertMissingAuthsFromForm(); //from form prior auth
+
 
 const TABLE_TD = "</td><td>";
 ?>
