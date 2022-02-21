@@ -61,7 +61,7 @@ class ListAuthorizations
 
         foreach ($insertArray as $auth) {
             $getinfo = sqlQuery("SELECT date_from, date_to FROM `form_prior_auth` WHERE `prior_auth_number` = ? ORDER BY `id` DESC LIMIT 1 ", [$auth]);
-            if (!empty($getinfo)) {
+            if (!empty($getinfo['date_from'])) {
                 $saveInfoWithDate = "INSERT INTO `module_prior_authorizations` (`id`, `pid`, `auth_num`, `start_date`, `end_date`) VALUES ('', ?, ?, ?, ?)";
                 $bindArray = [$_SESSION['pid'], $auth, $getinfo['date_from'], $getinfo['date_to']];
             } else {
