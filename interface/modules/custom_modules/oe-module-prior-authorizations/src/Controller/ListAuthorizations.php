@@ -65,7 +65,7 @@ class ListAuthorizations
                 $saveInfoWithDate = "INSERT INTO `module_prior_authorizations` (`id`, `pid`, `auth_num`, `start_date`, `end_date`) VALUES ('', ?, ?, ?, ?)";
                 $bindArray = [$_SESSION['pid'], $auth, $getinfo['date_from'], $getinfo['date_to']];
             } else {
-                $saveInfoWithDate = "INSERT INTO `module_prior_authorizations` (`id`, `pid`, `auth_num`) VALUES ('', ?, ?)";
+                $saveInfoWithDate = "INSERT INTO `module_prior_authorizations` SET `id` = '', `pid` = ?, `auth_num` = ?";
                 $bindArray = [$_SESSION['pid'], $auth];
             }
             sqlStatement($saveInfoWithDate, $bindArray);
