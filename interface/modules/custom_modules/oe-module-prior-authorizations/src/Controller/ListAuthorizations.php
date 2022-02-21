@@ -39,6 +39,21 @@ class ListAuthorizations
 
     public function getAuthsFromFormPriorAuth()
     {
-        $sql = "SELECT * FROM form_prior_auth";
+        $sql = "SELECT  FROM form_prior_auth";
+    }
+
+    private function getArrayOfAuthNumbers()
+    {
+        $sql = "select auth_num from module_prior_authorizations where pid = ?";
+        $auths = sqlStatement($sql, [$_SESSION['pid']]);
+        $auths_array = [];
+        while ($row = sqlFetchArray($auths)) {
+            $auths_array[] = $row['auth_num'];
+        }
+        return $auths_array;
+    }
+    public function seeAuthArray()
+    {
+        return self::getArrayOfAuthNumbers();
     }
 }

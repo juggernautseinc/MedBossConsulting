@@ -39,6 +39,8 @@ if (!empty($_POST['token'])) {
 $listData = new ListAuthorizations();
 $listData->setPid($pid);
 $authList = $listData->getAllAuthorizations();
+$arrayofauthnumbers = $listData->seeAuthArray();
+var_dump($arrayofauthnumbers);
 
 const TABLE_TD = "</td><td>";
 ?>
