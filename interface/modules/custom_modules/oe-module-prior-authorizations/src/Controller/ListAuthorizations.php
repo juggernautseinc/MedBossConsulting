@@ -39,7 +39,7 @@ class ListAuthorizations
 
     private function getAuthsFromModulePriorAuth()
     {
-        $sql = "SELECT auth_num FROM module_prior_authorizations";
+        $sql = "SELECT auth_num FROM module_prior_authorizations WHERE pid = ?";
         $auths = sqlStatement($sql, [$_SESSION['pid']]);
         $auth_array = [];
         while ($row = sqlFetchArray($auths)) {
