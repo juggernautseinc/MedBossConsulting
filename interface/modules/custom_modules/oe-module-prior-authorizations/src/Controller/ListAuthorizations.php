@@ -48,6 +48,14 @@ class ListAuthorizations
         return $auth_array;
     }
 
+    private function insertMissingAuthsFromForm()
+    {
+        $formsAuths = self::getArrayOfAuthNumbers();
+        $moduleAuths = self::getAuthsFromModulePriorAuth();
+        $insertArray = array_diff($formsAuths, $moduleAuths);
+        return $insertArray;
+    }
+
     /**
      * @return array
      * from form prior auth
@@ -64,6 +72,6 @@ class ListAuthorizations
     }
     public function seeAuthArray()
     {
-        return self::getAuthsFromModulePriorAuth();
+        return self::insertMissingAuthsFromForm();
     }
 }
