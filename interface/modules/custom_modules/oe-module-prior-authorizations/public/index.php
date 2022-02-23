@@ -25,6 +25,7 @@ if (!empty($_POST['token'])) {
     }
 
     $postData = new AuthorizationService();
+    $postData->setId($_POST['id']);
     $postData->setPid($pid);
     $postData->setAuthNum($_POST['authorization']);
     $postData->setInitUnits($_POST['units']);

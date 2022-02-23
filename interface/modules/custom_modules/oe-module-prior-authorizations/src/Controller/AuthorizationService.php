@@ -14,6 +14,7 @@ use OpenEMR\Common\Database\QueryUtils;
 
 class AuthorizationService
 {
+    private $id;
     private $pid;
     private $auth_num;
     private $start_date;
@@ -31,9 +32,13 @@ class AuthorizationService
     {
         $statement = "INSERT INTO " . self::MODULE_TABLE .
             "(`id`, `pid`, `auth_num`, `start_date`, `end_date`, `cpt`, `init_units`, `remaining_units`)
-            VALUES ('',?, ?, ?, ?, ?, ?, ?)";
+            VALUES (?,?, ?, ?, ?, ?, ?, ?)
+            ON DUPLICATE KEY UPDATE
+            auth_num = VALUES(auth_num), start_date = VALUES(start_date), end_date = VALUE(end_date),
+            cpt = VALUES(cpt), init_units = VALUE(init_units)";
 
         $binding = [];
+        $binding[] = $this->id;
         $binding[] = $this->pid;
         $binding[] = $this->auth_num;
         $binding[] = $this->start_date;
@@ -42,6 +47,11 @@ class AuthorizationService
         $binding[] = $this->init_units;
         $binding[] = $this->remaining_units;
         QueryUtils::sqlInsert($statement, $binding);
+    }
+
+    public function setId($id): void
+    {
+        $this->id = $id;
     }
     /**
      * @return mixed
