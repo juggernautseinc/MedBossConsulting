@@ -128,11 +128,11 @@ const TABLE_TD = "</td><td>";
                     if (!empty($authList)) {
                         while ($iter = sqlFetchArray($authList)) {
                             $editData = json_encode($iter);
+                            $used = AuthorizationService::getUnitsUsed($iter['auth_num']);
                             print "<tr><td>";
                             print $iter['auth_num'];
                             print TABLE_TD . $iter['init_units'];
-                            $used = AuthorizationService::getUnitsUsed($iter['auth_num']);
-                            print TABLE_TD .  $iter['init_units'] - $used['count'];
+                            print TABLE_TD . $used['count'];
                             print TABLE_TD . $iter['start_date'];
                             if ($iter['end_date'] == '0000-00-00') {
                                 print TABLE_TD;
