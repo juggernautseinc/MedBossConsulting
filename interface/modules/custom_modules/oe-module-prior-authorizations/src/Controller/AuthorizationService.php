@@ -31,9 +31,9 @@ class AuthorizationService
     public function storeAuthorizationInfo()
     {
         $statement = "INSERT INTO " . self::MODULE_TABLE .
-            "(`id`, `pid`, `auth_num`, `start_date`, `end_date`, `cpt`, `init_units`, `remaining_units`)
-            VALUES (?,?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE " .
-            "auth_num = VALUES(auth_num), start_date = VALUES(start_date), end_date = VALUE(end_date)," .
+            "(`id`, `pid`, `auth_num`, `start_date`, `end_date`, `cpt`, `init_units`, `remaining_units`) " .
+            "VALUES (?,?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE " .
+            "auth_num = VALUES(auth_num), start_date = VALUES(start_date), end_date = VALUE(end_date), " .
             "cpt = VALUES(cpt), init_units = VALUE(init_units)";
 
         $binding = [];
