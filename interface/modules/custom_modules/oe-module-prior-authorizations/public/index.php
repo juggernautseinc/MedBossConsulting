@@ -132,7 +132,7 @@ const TABLE_TD = "</td><td>";
                             print $iter['auth_num'];
                             print TABLE_TD . $iter['init_units'];
                             $used = AuthorizationService::getUnitsUsed($iter['auth_num']);
-                            print TABLE_TD . $iter['remaining_units'] . var_dump($used['count']);
+                            print TABLE_TD .  $iter['init_units'] - $used['count'];
                             print TABLE_TD . $iter['start_date'];
                             if ($iter['end_date'] == '0000-00-00') {
                                 print TABLE_TD;
