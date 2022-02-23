@@ -150,13 +150,13 @@ const TABLE_TD = "</td><td>";
     function getRowData(jsonData) {
         let dataArray = document.getElementById(jsonData).value;
         const obj = JSON.parse(dataArray);
-        let cpt = obj.cpt;
+
         document.getElementById('id').value = obj.id;
         document.getElementById('authorization').value = obj.auth_num;
         document.getElementById('start_date').value = obj.start_date;
         document.getElementById('end_date').value = obj.end_date;
-        document.getElementById('cpt').value = cpt;
-        document.getElementById('init_units').value = obj.init_units;
+        document.getElementById('cpts').value = obj.cpt;
+        document.getElementById('units').value = obj.init_units;
     }
 </script>
 </body>
