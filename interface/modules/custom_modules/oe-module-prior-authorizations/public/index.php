@@ -85,24 +85,24 @@ const TABLE_TD = "</td><td>";
             </div>
             <form id="theform" method="post" action="index.php" onsubmit="top.restoreSession()">
                 <input type="hidden" name="token" value="<?php echo attr(CsrfUtils::collectCsrfToken()); ?>">
-                <input type="hidden" name="id" value="">
+                <input type="hidden" id="id" name="id" value="">
                 <div class="form-row">
                     <div class="col">
                         <input class="form-control" id="authorization" name="authorization" value="" placeholder="<?php echo xlt('Authorization Number') ?>">
                     </div>
                     <div class="col">
-                        <input class="form-control" name="units" value="" placeholder="<?php echo xlt('Units') ?>">
+                        <input class="form-control" id="units" name="units" value="" placeholder="<?php echo xlt('Units') ?>">
                     </div>
                     <div class="col">
-                        <input class="form-control datepicker" name="start_date" value="" placeholder="<?php echo xlt('Start Date') ?>">
+                        <input class="form-control datepicker" id="start_date" name="start_date" value="" placeholder="<?php echo xlt('Start Date') ?>">
                     </div>
                     <div class="col">
-                        <input class="form-control datepicker" name="end_date" value="" placeholder="<?php echo xlt('End Date') ?>">
+                        <input class="form-control datepicker" id="end_date" name="end_date" value="" placeholder="<?php echo xlt('End Date') ?>">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col">
-                        <input class="form-control" name="cpts" value="" placeholder="<?php echo xlt('CPTs') ?>">
+                        <input class="form-control" id="cpts" name="cpts" value="" placeholder="<?php echo xlt('CPTs') ?>">
                     </div>
                 </div>
                 <div class="form-row">
@@ -151,8 +151,12 @@ const TABLE_TD = "</td><td>";
     function getRowData(jsonData) {
         let dataArray = document.getElementById(jsonData).value;
         const obj = JSON.parse(dataArray);
+        document.getElementById('id').value = obj.id;
         document.getElementById('authorization').value = obj.auth_num;
-
+        document.getElementById('start_date').value = obj.start_date;
+        document.getElementById('end_date').value = obj.end_date;
+        document.getElementById('cpt').value = obj.cpt;
+        document.getElementById('init_units').value = obj.init_units;
     }
 </script>
 </body>
