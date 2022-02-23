@@ -137,8 +137,8 @@ const TABLE_TD = "</td><td>";
                                 print TABLE_TD . $iter['end_date'];
                             }
                             print TABLE_TD . $iter['cpt'];
-                            print TABLE_TD . " <button class='btn btn-primary' onclick=getRowData(" . $iter['id'] . ")>" . xlt('Edit'). "</button>
-                            <input type='hidden' name='" . $iter['id'] . "' value='" . $editData . "' ></td></tr>";
+                            print TABLE_TD . " <button class='btn btn-primary' onclick=getRowData(" . $iter['id'] . ")>" . xlt('Edit') . "</button>
+                            <input type='hidden' id='" . $iter['id'] . "' value='" . $editData . "' ></td></tr>";
                         }
                     }
                 ?>
@@ -148,7 +148,8 @@ const TABLE_TD = "</td><td>";
 <script>
 
     function getRowData(jsonData) {
-        alert('Hello, working out the edit feature ' + jsonData);
+        let dataArray = document.getElementById(jsonData).value;
+        alert('Hello, working out the edit feature ' + dataArray);
     }
 </script>
 </body>
