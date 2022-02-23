@@ -151,9 +151,8 @@ const TABLE_TD = "</td><td>";
     function getRowData(jsonData) {
         let dataArray = document.getElementById(jsonData).value;
         const obj = JSON.parse(dataArray);
-        let authorization = obj.auth_num;
-        document.getElementById('authorization').value = authorization;
-        alert('Hello, working out the edit feature ' + obj.auth_num);
+        document.getElementById('authorization').value = obj.auth_num;
+
     }
 </script>
 </body>
