@@ -52,7 +52,7 @@ class AuthorizationService
     {
         $statement = "SELECT count(prior_auth_number) AS count FROM `form_misc_billing_options` WHERE `prior_auth_number` = ?";
         $binds = [$number];
-        return sqlStatementThrowException($statement, $binds);
+        return sqlStatementNoLog($statement, $binds);
     }
 
     public function setId($id): void
