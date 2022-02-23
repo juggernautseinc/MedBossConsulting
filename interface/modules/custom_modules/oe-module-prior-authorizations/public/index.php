@@ -137,7 +137,8 @@ const TABLE_TD = "</td><td>";
                                 print TABLE_TD . $iter['end_date'];
                             }
                             print TABLE_TD . $iter['cpt'];
-                            print TABLE_TD . " <button class='btn btn-primary' onclick=getRowData('" . $editData . "')>" . xlt('Edit'). "</button> </td></tr>";
+                            print TABLE_TD . " <button class='btn btn-primary' onclick=getRowData(" . $iter['id'] . ")>" . xlt('Edit'). "</button>
+                            <input type='hidden' name='" . $iter['id'] . "' value='" . $editData . "' ></td></tr>";
                         }
                     }
                 ?>
