@@ -70,7 +70,6 @@ class ListAuthorizations
                 $bindArray = [$_SESSION['pid'], $auth];
                 sqlStatement($saveInfoWithDate, $bindArray);
             }
-
         }
     }
 

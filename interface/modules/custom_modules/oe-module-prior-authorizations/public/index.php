@@ -125,9 +125,9 @@ const TABLE_TD = "</td><td>";
                 <?php
                     if (!empty($authList)) {
                         while ($iter = sqlFetchArray($authList)) {
-                            print "<tr><td><a id='row' href='#' onclick=getRowData(" . $iter['id'] . ")";
-                            print " title='" . xlt('Click to edit') . "'>";
-                            print $iter['auth_num'] . "</a>";
+                            $editData = json_encode($iter);
+                            print "<tr><td>";
+                            print $iter['auth_num'];
                             print TABLE_TD . $iter['init_units'];
                             print TABLE_TD . $iter['remaining_units'];
                             print TABLE_TD . $iter['start_date'];
@@ -136,7 +136,8 @@ const TABLE_TD = "</td><td>";
                             } else {
                                 print TABLE_TD . $iter['end_date'];
                             }
-                            print TABLE_TD . $iter['cpt'] . "</td></tr>";
+                            print TABLE_TD . $iter['cpt'];
+                            print TABLE_TD . " <button onclick=getRowData(" . $editData . ")>" . xlt('Edit'). "</button> </td></tr>";
                         }
                     }
                 ?>
@@ -145,8 +146,8 @@ const TABLE_TD = "</td><td>";
     </div>
 <script>
 
-    function getRowData(id) {
-        alert('Hello, working out the edit feature ' + id);
+    function getRowData(jsonData) {
+        alert('Hello, working out the edit feature ' + jsonData);
     }
 </script>
 </body>
