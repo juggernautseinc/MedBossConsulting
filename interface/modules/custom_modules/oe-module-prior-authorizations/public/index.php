@@ -152,7 +152,7 @@ const TABLE_TD = "</td><td>";
         let dataArray = document.getElementById(jsonData).value;
         const obj = JSON.parse(dataArray);
         let authorization = obj.auth_num;
-        document.getElementById('authorization').values = authorization;
+        document.getElementById('authorization').value = authorization;
         alert('Hello, working out the edit feature ' + obj.auth_num);
     }
 </script>
