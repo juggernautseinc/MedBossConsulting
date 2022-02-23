@@ -48,6 +48,13 @@ class AuthorizationService
         QueryUtils::sqlInsert($statement, $binding);
     }
 
+    public static function getUnitsUsed($number)
+    {
+        $statement = "SELECT count(prior_auth_number) AS count FROM `form_misc_billing_options` WHERE `prior_auth_number` = ?";
+        $binds = [$number];
+        return QueryUtils::fetchRecords($statement, $binds);
+    }
+
     public function setId($id): void
     {
         $this->id = $id;
