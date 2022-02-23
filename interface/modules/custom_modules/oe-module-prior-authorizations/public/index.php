@@ -29,7 +29,7 @@ if (!empty($_POST['token'])) {
     $postData->setPid($pid);
     $postData->setAuthNum($_POST['authorization']);
     $postData->setInitUnits($_POST['units']);
-    echo $startDate = DateToYYYYMMDD($_POST['start_date']);
+    $startDate = DateToYYYYMMDD($_POST['start_date']);
     $postData->setStartDate($startDate);
     $endDate = DateToYYYYMMDD($_POST['end_date']);
     $postData->setEndDate($endDate);
