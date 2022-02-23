@@ -85,9 +85,10 @@ const TABLE_TD = "</td><td>";
             </div>
             <form id="theform" method="post" action="index.php" onsubmit="top.restoreSession()">
                 <input type="hidden" name="token" value="<?php echo attr(CsrfUtils::collectCsrfToken()); ?>">
+                <input type="hidden" name="id" value="">
                 <div class="form-row">
                     <div class="col">
-                        <input class="form-control" name="authorization" value="" placeholder="<?php echo xlt('Authorization Number') ?>">
+                        <input class="form-control" id="authorization" name="authorization" value="" placeholder="<?php echo xlt('Authorization Number') ?>">
                     </div>
                     <div class="col">
                         <input class="form-control" name="units" value="" placeholder="<?php echo xlt('Units') ?>">
@@ -151,7 +152,7 @@ const TABLE_TD = "</td><td>";
         let dataArray = document.getElementById(jsonData).value;
         const obj = JSON.parse(dataArray);
         let authorization = obj.auth_num;
-        document.getElementsByName('authorization').values = authorization;
+        document.getElementById('authorization').values = authorization;
         alert('Hello, working out the edit feature ' + obj.auth_num);
     }
 </script>
