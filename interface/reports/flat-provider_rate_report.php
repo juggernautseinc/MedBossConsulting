@@ -113,7 +113,7 @@ function endDoctor(&$docrow)
     $mpay = $rate['flat'] * $docrow['encounters'];
     echo   "$" . $pay . " / ";
     echo $rate['flat'] . " / ";
-    echo $userid;
+    echo $userid . " / ";
     echo text($docrow['encounters']);
     echo "&nbsp;\n";
     echo "  </td>\n";
