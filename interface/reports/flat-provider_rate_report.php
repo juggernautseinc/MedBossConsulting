@@ -111,7 +111,9 @@ function endDoctor(&$docrow)
     echo "   &nbsp;";
     $pay = bucks($rate['flat'] * text($docrow['encounters']));
     $mpay = $rate['flat'] * $docrow['encounters'];
-    echo   "$" . $pay;
+    echo   "$" . $pay . " / ";
+    echo $rate['flat'] . " / ";
+    echo text($docrow['encounters']);
     echo "&nbsp;\n";
     echo "  </td>\n";
     echo "  <td>\n";
