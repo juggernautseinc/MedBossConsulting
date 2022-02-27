@@ -51,13 +51,16 @@ class ListAuthorizations
     /**
      * @return void
      * this method is to back populate the module table in case someone just uses the prior auth form
+     * or they have already been using the misc billing options
      * this is a silent function
      */
     public function insertMissingAuthsFromForm()
     {
-        $formsAuths = self::getArrayOfAuthNumbers();
+        $formsAuths = self::formPriorAuth();
+        $formMiscBilling = self::formMiscBilling();
+        $array_merger = array_push($formsAuths, $formMiscBilling);
         $moduleAuths = self::getAuthsFromModulePriorAuth();
-        $insertArray = array_diff($formsAuths, $moduleAuths);
+        $insertArray = array_diff($moduleAuths, $array_merger);
 
         foreach ($insertArray as $auth) {
             $getinfo = sqlQuery("SELECT date_from, date_to FROM `form_prior_auth` WHERE `prior_auth_number` = ? ORDER BY `id` DESC LIMIT 1 ", [$auth]);
@@ -77,9 +80,23 @@ class ListAuthorizations
      * @return array
      * from form prior auth
      */
-    private function getArrayOfAuthNumbers()
+    private function formPriorAuth(): array
     {
         $sql = "select prior_auth_number from form_prior_auth where pid = ?";
+        $auths = sqlStatement($sql, [$_SESSION['pid']]);
+        $auths_array = [];
+        while ($row = sqlFetchArray($auths)) {
+            $auths_array[] = $row['prior_auth_number'];
+        }
+        return $auths_array;
+    }
+
+    /**
+     * @return array
+     */
+    private function formMiscBilling()
+    {
+        $sql = "select prior_auth_number from form_misc_billing_options where pid = ?";
         $auths = sqlStatement($sql, [$_SESSION['pid']]);
         $auths_array = [];
         while ($row = sqlFetchArray($auths)) {
