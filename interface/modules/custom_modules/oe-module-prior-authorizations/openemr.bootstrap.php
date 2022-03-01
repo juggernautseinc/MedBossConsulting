@@ -57,6 +57,7 @@ function oe_module_priorauth_patient_menu_item(MenuEvent $event)
     foreach ($menu as $item) {
         if ($item->menu_id == 'history') {
             $item->children[] = $menuItem;
+            file_put_contents("/var/www/html/errors/menu.txt", print_r($menuItem, true));
             break;
         }
     }
