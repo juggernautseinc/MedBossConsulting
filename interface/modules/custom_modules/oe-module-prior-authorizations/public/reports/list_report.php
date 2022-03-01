@@ -25,7 +25,11 @@ require_once dirname(__FILE__, 6) . "/globals.php";
 <body>
     <div class="container-lg mt-30">
         <h1>Prior Auths</h1>
+        <div >
+
+        </div>
+        &copy; <?php echo date('Y') . " Juggernaut Systems Express" ?>
     </div>
-    &copy; <?php echo date('Y') . "Juggernaut Systems Express" ?>
+
 </body>
 </html>

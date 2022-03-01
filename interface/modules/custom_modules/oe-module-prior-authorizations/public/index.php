@@ -148,6 +148,7 @@ const TABLE_TD = "</td><td>";
                 ?>
             </table>
         </div>
+        &copy; <?php echo date('Y') . " Juggernaut Systems Express" ?>
     </div>
 <script>
     function getRowData(jsonData) {
@@ -162,6 +163,6 @@ const TABLE_TD = "</td><td>";
         document.getElementById('units').value = obj.init_units;
     }
 </script>
-    &copy; <?php echo date('Y') . "Juggernaut Systems Express" ?>
+
 </body>
 </html>
