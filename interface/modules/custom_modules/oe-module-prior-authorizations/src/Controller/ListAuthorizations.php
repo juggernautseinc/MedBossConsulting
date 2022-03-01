@@ -50,7 +50,7 @@ class ListAuthorizations
 
     /**
      * @return void
-     * this method is to back populate the module table in case someone just uses the prior auth form
+     * this method is to back populate the module table in case just uses the prior auth form
      * or they have already been using the misc billing options
      * this is a silent function
      */

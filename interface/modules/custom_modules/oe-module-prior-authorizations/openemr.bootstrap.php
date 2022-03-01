@@ -21,16 +21,15 @@ function oe_module_priorauth_add_menu_item(MenuEvent $event)
 
     $menuItem = new stdClass();
     $menuItem->requirement = 0;
-    $menuItem->target = 'mod';
-    $menuItem->menu_id = 'mod0';
+    $menuItem->target = 'main';
+    $menuItem->menu_id = 'priauth';
     $menuItem->label = xlt("Prior Authorization Manager");
     $menuItem->url = "/interface/modules/custom_modules/oe-module-prior-authorizations/";
     $menuItem->children = [];
-    $menuItem->acl_req = ["patients", "docs"];
-    $menuItem->global_req = [];
+    $menuItem->requirement = 0;
 
     foreach ($menu as $item) {
-        if ($item->menu_id == 'patimg') {
+        if ($item->menu_id == 'history') {
             $item->children[] = $menuItem;
             break;
         }
