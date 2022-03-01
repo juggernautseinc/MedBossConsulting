@@ -25,14 +25,6 @@
                 "pid":"false",
                 "children": [],
                 "requirement": 0
-            },
-            {
-                "label": "Prior Auth Report",
-                "menu_id": "praur",
-                "target": "main",
-                "on_click":"top.restoreSession()",
-                "url": "/interface/modules/custom_modules/oe-module-prior-authorizations/public/reports/list_report.php",
-                "pid":"false"
             }
         ],
         "requirement": 0

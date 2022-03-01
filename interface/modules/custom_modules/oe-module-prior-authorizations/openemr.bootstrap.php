@@ -24,8 +24,8 @@ function oe_module_priorauth_add_menu_item(MenuEvent $event)
     $menuItem->requirement = 0;
     $menuItem->target = 'mod';
     $menuItem->menu_id = 'mod0';
-    $menuItem->label = xlt("Prior Authorization Manager");
-    $menuItem->url = "/interface/modules/custom_modules/oe-module-prior-authorizations/";
+    $menuItem->label = xlt("Prior Authorization Report");
+    $menuItem->url = "/interface/modules/custom_modules/oe-module-prior-authorizations/public/reports/list_auths.php";
     $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
     $menuItem->global_req = [];
