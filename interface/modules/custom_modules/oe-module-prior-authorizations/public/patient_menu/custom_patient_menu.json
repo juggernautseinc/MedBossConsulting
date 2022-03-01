@@ -21,7 +21,7 @@
                 "menu_id": "",
                 "target": "main",
                 "on_click":"top.restoreSession()",
-                "url": "interface/modules/custom_modules/oe-module-prior-authorizations/",
+                "url": "/interface/modules/custom_modules/oe-module-prior-authorizations/",
                 "pid":"false",
                 "children": [],
                 "requirement": 0
