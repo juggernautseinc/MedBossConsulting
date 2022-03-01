@@ -31,6 +31,7 @@ $patients = sqlStatement($sql);
         <h1>Prior Auths</h1>
         <div class="table">
             <table class="table table-striped">
+                <caption><?php echo xlt("Patients with prior auths"); ?></caption>
                 <th scope="col">MRN</th>
                 <th scope="col">Name</th>
                 <th scope="col">Auths</th>
@@ -38,13 +39,15 @@ $patients = sqlStatement($sql);
                     while ($iter = sqlFetchArray($patients)) {
                         print "<tr><td>" . $iter['MRN'] . "</td>";
                         print "<td>" . $iter['fname'] . " " . $iter['lname'] . "</td>";
+                        print "<td>";
                         $sql = "SELECT DISTINCT `prior_auth_number` FROM `form_misc_billing_options` WHERE pid = ?";
                         $numbers = sqlStatement($sql, [$iter['MRN']]);
                         $num_array = [];
                         while ($row = sqlFetchArray($numbers)) {
                             $num_array[] = $row;
                         }
-                        print "<td><pre>" . var_dump($num_array) . "</pre></td>";
+                        var_dump($num_array);
+                        print "</td>";
                         print "</tr>";
                     }
                 ?>
