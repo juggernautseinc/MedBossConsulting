@@ -35,6 +35,8 @@ $patients = sqlStatement($sql);
                 <th scope="col">MRN</th>
                 <th scope="col">Name</th>
                 <th scope="col">Auths</th>
+                <th scope="col">#of Units</th>
+                <th scope="col">Remaining</th>
                 <?php
                     while ($iter = sqlFetchArray($patients)) {
                         print "<tr><td>" . $iter['MRN'] . "</td>";
@@ -46,6 +48,7 @@ $patients = sqlStatement($sql);
                             echo $row['prior_auth_number'] . "<br> ";
                         }
                         print "</td>";
+                        print "<td></td>";
                         print "</tr>";
                     }
                 ?>
