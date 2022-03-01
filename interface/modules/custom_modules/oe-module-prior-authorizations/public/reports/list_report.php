@@ -42,11 +42,9 @@ $patients = sqlStatement($sql);
                         print "<td>";
                         $sql = "SELECT DISTINCT `prior_auth_number` FROM `form_misc_billing_options` WHERE pid = ?";
                         $numbers = sqlStatement($sql, [$iter['MRN']]);
-                        $num_array = [];
                         while ($row = sqlFetchArray($numbers)) {
-                            $num_array[] = $row;
+                            echo $row . " ";
                         }
-                        var_dump($num_array);
                         print "</td>";
                         print "</tr>";
                     }
