@@ -23,7 +23,7 @@ require_once dirname(__FILE__, 6) . "/globals.php";
     <title>List Exising Prior Auths Report</title>
 </head>
 <body>
-    <div class="container-lg mt-30">
+    <div class="container-lg" style="padding-top: 6em">
         <h1>Prior Auths</h1>
         <div >
 
