@@ -12,6 +12,7 @@
  */
 
 use OpenEMR\Menu\MenuEvent;
+use OpenEMR\Menu\PatientMenuEvent;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -41,7 +42,7 @@ function oe_module_priorauth_add_menu_item(MenuEvent $event)
     return $event;
 }
 
-function oe_module_priorauth_patient_menu_item(MenuEvent $event)
+function oe_module_priorauth_patient_menu_item(PatientMenuEvent $event)
 {
     $menu = $event->getMenu();
     $menuItem = new stdClass();
@@ -57,7 +58,6 @@ function oe_module_priorauth_patient_menu_item(MenuEvent $event)
     foreach ($menu as $item) {
         if ($item->menu_id == 'history') {
             $item->children[] = $menuItem;
-            file_put_contents("/var/www/html/errors/menu.txt", print_r($menuItem, true));
             break;
         }
     }
