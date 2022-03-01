@@ -40,7 +40,7 @@ function oe_module_priorauth_add_menu_item(MenuEvent $event)
 
     return $event;
 }
-
+/*
 function oe_module_priorauth_patient_menu_item(MenuEvent $event)
 {
     $menu = event->getMenu();
@@ -61,7 +61,7 @@ function oe_module_priorauth_patient_menu_item(MenuEvent $event)
     $event->setMenu($menu);
     return $event;
 }
-
+*/
 /**
  * @var EventDispatcherInterface $eventDispatcher
  * @var array                    $module
@@ -71,4 +71,4 @@ function oe_module_priorauth_patient_menu_item(MenuEvent $event)
 
 
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_priorauth_add_menu_item');
-$eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_priorauth_patient_menu_item');
+//$eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_priorauth_patient_menu_item');
