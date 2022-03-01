@@ -44,7 +44,7 @@ $patients = sqlStatement($sql);
                         while ($row = sqlFetchArray($numbers)) {
                             $num_array[] = $row;
                         }
-                        print "<td>" . var_dump($num_array) . "</td>";
+                        print "<td><pre>" . var_dump($num_array) . "</pre></td>";
                         print "</tr>";
                     }
                 ?>
