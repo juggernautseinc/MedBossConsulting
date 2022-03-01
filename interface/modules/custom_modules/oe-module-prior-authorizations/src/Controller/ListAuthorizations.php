@@ -106,4 +106,5 @@ class ListAuthorizations
         }
         return $auths_array;
     }
+
 }

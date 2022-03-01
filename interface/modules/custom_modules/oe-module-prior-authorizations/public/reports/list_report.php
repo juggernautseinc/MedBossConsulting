@@ -11,6 +11,10 @@
 use OpenEMR\Core\Header;
 
 require_once dirname(__FILE__, 6) . "/globals.php";
+
+$sql = "SELECT DISTINCT pd.pid AS MRN, pd.fname, pd.lname FROM patient_data AS pd JOIN form_misc_billing_options mb ON mb.pid = pd.pid ";
+$patients = sqlStatement($sql);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -25,7 +29,14 @@ require_once dirname(__FILE__, 6) . "/globals.php";
 <body>
     <div class="container-lg" style="padding-top: 6em">
         <h1>Prior Auths</h1>
-        <div >
+        <div class="table">
+            <table class="table table-striped">
+                <?php
+                    while ($iter = sqlFetchArray($patients)) {
+                        var_dump($iter);
+                    }
+                ?>
+            </table>
 
         </div>
         &copy; <?php echo date('Y') . " Juggernaut Systems Express" ?>
