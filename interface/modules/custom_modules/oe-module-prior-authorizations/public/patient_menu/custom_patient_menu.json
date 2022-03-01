@@ -1,5 +1,5 @@
 [	{
-    "label": "Dashboard{{patient file}}",
+    "label": "Dashboard",
     "menu_id": "dashboard",
     "target": "main",
     "on_click":"top.restoreSession()",
@@ -15,7 +15,16 @@
         "on_click":"top.restoreSession()",
         "url": "interface/modules/custom_modules/oe-module-prior-authorizations/",
         "pid":"false",
-        "children": [],
+        "children": [
+            {
+                "label": "Prior Auth Report",
+                "menu_id": "praur",
+                "target": "main",
+                "on_click":"top.restoreSession()",
+                "url": "interface/modules/custom_modules/oe-module-prior-authorizations/public/reports/list_report.php",
+                "pid":"false"
+            }
+        ],
         "requirement": 0
     },
     {
