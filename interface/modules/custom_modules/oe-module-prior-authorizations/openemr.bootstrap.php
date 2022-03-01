@@ -46,8 +46,10 @@ function oe_module_priorauth_patient_menu_item(MenuEvent $event)
     $menu = $event->getMenu();
     $menuItem = new stdClass();
     $menuItem->requirement = 0;
-    $menuItem->target = 'priorauth';
+    $menuItem->target = 'main';
+    $menuItem->pid = 'false';
     $menuItem->menu_id = 'prior_auth';
+    $menuItem->on_click = "top.restoreSession()";
     $menuItem->label = xlt("Prior Authorization Report");
     $menuItem->url = "/interface/modules/custom_modules/oe-module-prior-authorizations/";
     $menuItem->children = [];
