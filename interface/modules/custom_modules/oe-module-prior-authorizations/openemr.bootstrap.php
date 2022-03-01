@@ -42,28 +42,12 @@ function oe_module_priorauth_add_menu_item(MenuEvent $event)
     return $event;
 }
 
-function oe_module_priorauth_patient_menu_item(PatientMenuEvent $event)
+function oe_module_priorauth_patient_menu_item(PatientMenuEvent $menuEvent)
 {
-    $menu = $event->getMenu();
-    $menuItem = new stdClass();
-    $menuItem->requirement = 0;
-    $menuItem->target = 'main';
-    $menuItem->pid = 'false';
-    $menuItem->menu_id = 'prior_auth';
-    $menuItem->on_click = "top.restoreSession()";
-    $menuItem->label = xlt("Prior Authorization Report");
-    $menuItem->url = "/interface/modules/custom_modules/oe-module-prior-authorizations/";
-    $menuItem->children = [];
-
-    foreach ($menu as $item) {
-        if ($item->menu_id == 'history') {
-            $item->children[] = $menuItem;
-            file_put_contents("/var/www/html/errors/menu.txt", print_r($menuItem, true));
-            break;
-        }
-    }
-    $event->setMenu($menu);
-    return $event;
+    $menu = file_get_contents(__DIR__ . '/public/patient_menu/custom_patient_menu.json');
+    $menu_parsed = json_decode($menu);
+    $menuEvent->setMenu($menu_parsed);
+    return $menuEvent;
 }
 
 /**
