@@ -60,18 +60,20 @@ class ListAuthorizations
         $formMiscBilling = self::formMiscBilling();
         $array_merger = array_push($formsAuths, $formMiscBilling);
         $moduleAuths = self::getAuthsFromModulePriorAuth();
-        $insertArray = array_diff($moduleAuths, $array_merger);
 
-        foreach ($insertArray as $auth) {
-            $getinfo = sqlQuery("SELECT date_from, date_to FROM `form_prior_auth` WHERE `prior_auth_number` = ? ORDER BY `id` DESC LIMIT 1 ", [$auth]);
-            if (!empty($getinfo['date_from'])) {
-                $saveInfoWithDate = "INSERT INTO `module_prior_authorizations` SET `id` = '', `pid` = ?, `auth_num` = ?, `start_date` = ?, `end_date` = ?";
-                $bindArray = [$_SESSION['pid'], $auth, $getinfo['date_from'], $getinfo['date_to']];
-                sqlStatement($saveInfoWithDate, $bindArray);
-            } elseif (!empty($auth)) {
-                $saveInfoWithDate = "INSERT INTO `module_prior_authorizations` SET `id` = '', `pid` = ?, `auth_num` = ?";
-                $bindArray = [$_SESSION['pid'], $auth];
-                sqlStatement($saveInfoWithDate, $bindArray);
+        if (!empty($moduleAuths) &&  !empty($array_merger)) {
+            $insertArray = array_diff($moduleAuths, $array_merger);
+            foreach ($insertArray as $auth) {
+                $getinfo = sqlQuery("SELECT date_from, date_to FROM `form_prior_auth` WHERE `prior_auth_number` = ? ORDER BY `id` DESC LIMIT 1 ", [$auth]);
+                if (!empty($getinfo['date_from'])) {
+                    $saveInfoWithDate = "INSERT INTO `module_prior_authorizations` SET `id` = '', `pid` = ?, `auth_num` = ?, `start_date` = ?, `end_date` = ?";
+                    $bindArray = [$_SESSION['pid'], $auth, $getinfo['date_from'], $getinfo['date_to']];
+                    sqlStatement($saveInfoWithDate, $bindArray);
+                } elseif (!empty($auth)) {
+                    $saveInfoWithDate = "INSERT INTO `module_prior_authorizations` SET `id` = '', `pid` = ?, `auth_num` = ?";
+                    $bindArray = [$_SESSION['pid'], $auth];
+                    sqlStatement($saveInfoWithDate, $bindArray);
+                }
             }
         }
     }
