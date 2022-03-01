@@ -21,15 +21,16 @@ function oe_module_priorauth_add_menu_item(MenuEvent $event)
 
     $menuItem = new stdClass();
     $menuItem->requirement = 0;
-    $menuItem->target = 'main';
-    $menuItem->menu_id = 'priauth';
+    $menuItem->target = 'mod';
+    $menuItem->menu_id = 'mod0';
     $menuItem->label = xlt("Prior Authorization Manager");
     $menuItem->url = "/interface/modules/custom_modules/oe-module-prior-authorizations/";
     $menuItem->children = [];
-    $menuItem->requirement = 0;
+    $menuItem->acl_req = ["patients", "docs"];
+    $menuItem->global_req = [];
 
     foreach ($menu as $item) {
-        if ($item->menu_id == 'history') {
+        if ($item->menu_id == 'patimg') {
             $item->children[] = $menuItem;
             break;
         }
@@ -37,6 +38,27 @@ function oe_module_priorauth_add_menu_item(MenuEvent $event)
 
     $event->setMenu($menu);
 
+    return $event;
+}
+
+function oe_module_priorauth_patient_menu_item(MenuEvent $event)
+{
+    $menu = event->getMenu();
+    $menuItem = new stdClass();
+    $menuItem->requirement = 0;
+    $menuItem->target = 'priorauth';
+    $menuItem->menu_id = 'prior_auth';
+    $menuItem->label = xlt("Prior Authorization Report");
+    $menuItem->url = "/interface/modules/custom_modules/oe-module-prior-authorizations/";
+    $menuItem->children = [];
+
+    foreach ($menu as $item) {
+        if ($item->menu_id == 'history') {
+            $item->children[] = $menuItem;
+            break;
+        }
+    }
+    $event->setMenu($menu);
     return $event;
 }
 
@@ -49,3 +71,4 @@ function oe_module_priorauth_add_menu_item(MenuEvent $event)
 
 
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_priorauth_add_menu_item');
+$eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_priorauth_patient_menu_item');
