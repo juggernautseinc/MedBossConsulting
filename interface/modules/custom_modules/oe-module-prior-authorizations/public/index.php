@@ -53,7 +53,7 @@ const TABLE_TD = "</td><td>";
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo xlt('Prior Authorization Manager'); ?></title>
+    <title><?php echo xlt('Add Prior Auth'); ?></title>
     <?php Header::setupHeader(['common', 'datetime-picker'])?>
 
     <script>
@@ -162,5 +162,6 @@ const TABLE_TD = "</td><td>";
         document.getElementById('units').value = obj.init_units;
     }
 </script>
+    &copy; <?php echo date('Y') . "Juggernaut Systems Express" ?>
 </body>
 </html>

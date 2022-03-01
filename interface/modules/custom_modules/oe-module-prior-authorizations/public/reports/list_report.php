@@ -23,8 +23,9 @@ require_once dirname(__FILE__, 6) . "/globals.php";
     <title>List Exising Prior Auths Report</title>
 </head>
 <body>
-    <div class="container-lg">
+    <div class="container-lg mt-30">
         <h1>Prior Auths</h1>
     </div>
+    &copy; <?php echo date('Y') . "Juggernaut Systems Express" ?>
 </body>
 </html>
