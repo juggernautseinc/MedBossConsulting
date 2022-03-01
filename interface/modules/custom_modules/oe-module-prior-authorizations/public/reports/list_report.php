@@ -31,9 +31,21 @@ $patients = sqlStatement($sql);
         <h1>Prior Auths</h1>
         <div class="table">
             <table class="table table-striped">
+                <th scope="col">MRN</th>
+                <th scope="col">Name</th>
+                <th scope="col">Auths</th>
                 <?php
                     while ($iter = sqlFetchArray($patients)) {
-                        var_dump($iter);
+                        print "<tr><td>" . $iter['MRN'] . "</td>";
+                        print "<td>" . $iter['fname'] . " " . $iter['lname'] . "</td>";
+                        $sql = "SELECT DISTINCT `prior_auth_number` FROM `form_misc_billing_options` WHERE pid = ?";
+                        $numbers = sqlStatement($sql, [$iter['MRN']]);
+                        $num_array = [];
+                        while ($row = sqlFetchArray($numbers)) {
+                            $num_array[] = $row;
+                        }
+                        print "<td>" . var_dump($num_array) . "</td>";
+                        print "</tr>";
                     }
                 ?>
             </table>
