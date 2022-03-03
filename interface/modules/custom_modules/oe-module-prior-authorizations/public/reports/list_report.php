@@ -42,7 +42,7 @@ $patients = sqlStatement($sql);
                 <?php
                     while ($iter = sqlFetchArray($patients)) {
 
-                        $sql = "SELECT count(*) AS count `prior_auth_number` FROM `form_misc_billing_options` WHERE pid = ? AND `prior_auth_number` = ?";
+                        $sql = "SELECT count(*) AS count FROM `form_misc_billing_options` WHERE pid = ? AND `prior_auth_number` = ?";
                         $numbers = sqlQuery($sql, [$iter['pid'], $iter['auth_num']]);
 
                         print "<tr><td>" . $iter['pid'] . "</td>";
