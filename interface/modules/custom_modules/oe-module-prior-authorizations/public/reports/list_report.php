@@ -13,7 +13,7 @@ use OpenEMR\Core\Header;
 require_once dirname(__FILE__, 6) . "/globals.php";
 
 $sql = "SELECT pd.fname, pd.lname, mpa.pid, mpa.auth_num, mpa.start_date, mpa.end_date, mpa.cpt, mpa.init_units " .
-    "FROM `module_prior_authorizations` mpa JOIN `patient_data` pd ON pd.pid = mpa.pid ";
+    "FROM `module_prior_authorizations` mpa JOIN `patient_data` pd ON pd.pid = mpa.pid ORDER BY mpa.pid";
 $patients = sqlStatement($sql);
 
 ?>
@@ -38,23 +38,21 @@ $patients = sqlStatement($sql);
                 <th scope="col">Auths</th>
                 <th scope="col">#of Units</th>
                 <th scope="col">Remaining</th>
-                <pre>
+
                 <?php
                     while ($iter = sqlFetchArray($patients)) {
-                        var_dump($iter); continue;
-                        print "<tr><td>" . $iter['MRN'] . "</td>";
+
+                        $sql = "SELECT count(*) AS count `prior_auth_number` FROM `form_misc_billing_options` WHERE pid = ? AND `prior_auth_number` = ?";
+                        $numbers = sqlQuery($sql, [$iter['pid'], $iter['auth_num']]);
+
+                        print "<tr><td>" . $iter['pid'] . "</td>";
                         print "<td>" . $iter['fname'] . " " . $iter['lname'] . "</td>";
-                        print "<td>";
-                        $sql = "SELECT * DISTINCT `prior_auth_number` FROM `form_misc_billing_options` WHERE pid = ?";
-                        $numbers = sqlStatement($sql, [$iter['MRN']]);
-                        while ($row = sqlFetchArray($numbers)) {
-                            echo $row['prior_auth_number'] . "<br> ";
-                        }
-                        print "</td>";
-                        print "<td></td>";
+                        print "<td>" . $iter['auth_num'] . "</td>";
+                        print "<td>" . $iter['init_units'] . "</td>";
+                        print "<td>" . $numbers['count'] . "</td>";
                         print "</tr>";
                     }
-                ?></pre>
+                ?>
             </table>
 
         </div>
