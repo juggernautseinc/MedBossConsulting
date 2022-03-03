@@ -48,8 +48,6 @@ $patients = sqlStatement($sql);
                 <th scope="col">End</th>
                 <th scope="col">#of Units</th>
                 <th scope="col">Remaining</th>
-                <th scope="col">Start</th>
-                <th scope="col">End</th>
 
                 <?php
                 $name = '';
