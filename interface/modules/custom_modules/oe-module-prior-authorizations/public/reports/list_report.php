@@ -58,7 +58,7 @@ $patients = sqlStatement($sql);
                             "WHERE `pid` = ? AND type = 'primary'";
                         $insurance = sqlQuery($icname, [$iter['pid']]);
 
-                        if ($name !== $iter['fname']) {
+                        if ($name !== $iter['fname'] . " " . $iter['lname'] ) {
                             print "<tr><td><a href='#' onclick='openNewTopWindow(" . $iter['pid'] . ")'>" . $iter['pid'] . "</a></td>";
                             print "<td><strong>" . $iter['fname'] . " " . $iter['lname'] . "</strong></td>";
                             print "<td style='max-width:75px;'>" . $insurance['name'] . "</td>";
@@ -71,7 +71,7 @@ $patients = sqlStatement($sql);
                         print "<td>" . $iter['init_units'] . "</td>";
                         print "<td>" . ($iter['init_units'] - $numbers['count']) . "</td>";
                         print "</tr>";
-                        $name = $iter['fname'];
+                        $name = $iter['fname'] . " " . $iter['lname'];
                     }
                 ?>
             </table>
