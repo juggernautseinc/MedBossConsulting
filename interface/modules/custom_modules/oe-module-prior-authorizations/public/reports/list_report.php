@@ -28,9 +28,9 @@ $patients = sqlStatement($sql);
     <title>List Exising Prior Auths Report</title>
     <script>
         // opens the demographic and encounter screens in a new window
-        function openNewTopWindow(newpid, newencounterid) {
+        function openNewTopWindow(newpid) {
             top.restoreSession();
-            top.RTop.location = "<?php echo $GLOBALS['webroot']; ?>/interface/patient_file/summary/demographics.php?set_pid=" + encodeURIComponent(newpid) + "&set_encounterid=" + encodeURIComponent(newencounterid);
+            top.RTop.location = "<?php echo $GLOBALS['webroot']; ?>/interface/patient_file/summary/demographics.php?set_pid=" + encodeURIComponent(newpid);
         }
     </script>
 </head>
@@ -59,7 +59,7 @@ $patients = sqlStatement($sql);
                         $insurance = sqlQuery($icname, [$iter['pid']]);
 
                         if ($name !== $iter['fname']) {
-                            print "<tr><td><a href='#' onclick='openNewTopWindow(" . $iter['pid'] . "null)'>" . $iter['pid'] . "</a></td>";
+                            print "<tr><td><a href='#' onclick='openNewTopWindow(" . $iter['pid'] . ")'>" . $iter['pid'] . "</a></td>";
                             print "<td><strong>" . $iter['fname'] . " " . $iter['lname'] . "</strong></td>";
                             print "<td style='max-width:75px;'>" . $insurance['name'] . "</td>";
                         } else {
