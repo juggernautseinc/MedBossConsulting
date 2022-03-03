@@ -25,7 +25,7 @@ $patients = sqlStatement($sql);
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>List Exising Prior Auths Report</title>
+    <title><?php xlt("List Exising Prior Auths Report"); ?></title>
     <script>
         // opens the demographic and encounter screens in a new window
         function openNewTopWindow(newpid) {
@@ -36,18 +36,18 @@ $patients = sqlStatement($sql);
 </head>
 <body>
     <div class="container-lg" style="padding-top: 6em">
-        <h1>Prior Auths</h1>
+        <h1><?php echo xlt("Prior Auths") ?></h1>
         <div class="table">
             <table class="table table-striped">
                 <caption><?php echo xlt("Patients with prior auths"); ?></caption>
-                <th scope="col">MRN</th>
-                <th scope="col">Name</th>
-                <th scope="col"> Ins</th>
-                <th scope="col">Auths</th>
-                <th scope="col">Start</th>
-                <th scope="col">End</th>
-                <th scope="col">#of Units</th>
-                <th scope="col">Remaining</th>
+                <th scope="col"><?php echo xlt("MRN"); ?></th>
+                <th scope="col"><?php echo xlt("Name"); ?></th>
+                <th scope="col"><?php echo xlt("Ins"); ?></th>
+                <th scope="col"><?php echo xlt("Auths"); ?></th>
+                <th scope="col"><?php echo xlt("Start"); ?></th>
+                <th scope="col"><?php echo xlt("End"); ?></th>
+                <th scope="col">#<?php echo xlt("of Units"); ?></th>
+                <th scope="col"><?php echo xlt("Remaining"); ?></th>
 
                 <?php
                 $name = '';
