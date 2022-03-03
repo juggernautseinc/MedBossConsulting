@@ -20,7 +20,7 @@ $patients = sqlStatement($sql);
 <!doctype html>
 <html lang="en">
 <head>
-    <?php Header::setupHeader(['common']) ?>
+    <?php Header::setupHeader(['common', 'opener']) ?>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
