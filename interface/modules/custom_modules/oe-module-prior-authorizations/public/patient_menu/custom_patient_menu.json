@@ -9,7 +9,7 @@
     "requirement": 0
     },
     {
-        "label": "Add Prior Auth",
+        "label": "Authorizations",
         "menu_id": "priorauth",
         "target": "main",
         "on_click":"top.restoreSession()",
