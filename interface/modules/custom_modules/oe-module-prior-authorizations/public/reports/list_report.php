@@ -12,7 +12,7 @@ use OpenEMR\Core\Header;
 
 require_once dirname(__FILE__, 6) . "/globals.php";
 
-$sql = "SELECT DISTINCT pd.pid AS MRN, pd.fname, pd.lname FROM patient_data AS pd JOIN form_misc_billing_options mb ON mb.pid = pd.pid ";
+$sql = "SELECT * FROM `module_prior_authorizations`";
 $patients = sqlStatement($sql);
 
 ?>
@@ -39,10 +39,11 @@ $patients = sqlStatement($sql);
                 <th scope="col">Remaining</th>
                 <?php
                     while ($iter = sqlFetchArray($patients)) {
+                        var_dump($iter); continue;
                         print "<tr><td>" . $iter['MRN'] . "</td>";
                         print "<td>" . $iter['fname'] . " " . $iter['lname'] . "</td>";
                         print "<td>";
-                        $sql = "SELECT DISTINCT `prior_auth_number` FROM `form_misc_billing_options` WHERE pid = ?";
+                        $sql = "SELECT * DISTINCT `prior_auth_number` FROM `form_misc_billing_options` WHERE pid = ?";
                         $numbers = sqlStatement($sql, [$iter['MRN']]);
                         while ($row = sqlFetchArray($numbers)) {
                             echo $row['prior_auth_number'] . "<br> ";
