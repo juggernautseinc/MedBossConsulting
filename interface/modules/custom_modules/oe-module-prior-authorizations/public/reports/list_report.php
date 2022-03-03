@@ -73,7 +73,7 @@ $patients = sqlStatement($sql);
                         print "<td>" . $iter['start_date'] . "</td>";
                         print "<td>" . $iter['end_date'] . "</td>";
                         if (($iter['end_date'] < date('Y-m-d')) && ($iter['end_date'] !== '0000-00-00')) {
-                            print "<td>" . xlt('Expired') . "</td>";
+                            print "<td style='color: red'><strong>" . xlt('Expired') . "</strong></td>";
                             print "<td></td>";
                         } else {
                             print "<td>" . $iter['init_units'] . "</td>";
