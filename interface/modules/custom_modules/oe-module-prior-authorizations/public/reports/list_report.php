@@ -26,11 +26,15 @@ $patients = sqlStatement($sql);
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>List Exising Prior Auths Report</title>
-    <style>
-        table{
-            table-layout: fixed;
+    <script>
+        // opens the demographic and encounter screens in a new window
+        function openNewTopWindow(newpid, newencounterid) {
+            document.fnew.patientID.value = newpid;
+            document.fnew.encounterID.value = newencounterid;
+            top.restoreSession();
+            document.fnew.submit();
         }
-    </style>
+    </script>
 </head>
 <body>
     <div class="container-lg" style="padding-top: 6em">
@@ -57,7 +61,7 @@ $patients = sqlStatement($sql);
                         $insurance = sqlQuery($icname, [$iter['pid']]);
 
                         if ($name !== $iter['fname']) {
-                            print "<tr><td>" . $iter['pid'] . "</td>";
+                            print "<tr><td><a href='#' onclick='return openNewTopWindow(" . $iter['pid'] . "null)' " . $iter['pid'] . "</a></td>";
                             print "<td><strong>" . $iter['fname'] . " " . $iter['lname'] . "</strong></td>";
                             print "<td style='max-width:75px;'>" . $insurance['name'] . "</td>";
                         } else {
