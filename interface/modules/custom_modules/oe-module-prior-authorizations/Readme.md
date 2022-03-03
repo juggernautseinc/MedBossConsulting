@@ -1,26 +1,14 @@
-# PayTrace Mechant Services Module for OpenEMR
-This is a sample module project that developers can clone and use to create their own custom modules inside
-the OpenEMR codebase.  These modules leverage the oe-module-install-plugin which installs the custom module
-into the OpenEMR custom module installation folder.
-
-The project has sample code that demostrates adding your module to the menu system, creating global settings,
-and adding a rest api endpoint.
-
-There are a limited number of events currently in the OpenEMR codebase, as we continue to add support for
-module writers we will add more events to the codebase.  If there is a place in the core codebase you would
-like your custom module to connect to please file an issue at [https://github.com/openemr/openemr](https://github.com/openemr/openemr)
+# Authorizations Module of OpenEMR
+This module is to help a practice manage the authorizations needed to be paid for a patients visit.
+Most practices that need to get authorization need a way to manage those authorizations. This module provides
+the tools necessary to see what authorizations the patient have in the system. The module allows this
+authorization to be tracked through the life cycle so when expired a new authorization can be obtained.
 
 ## Getting Started
-You can start by cloning the project.  When developing modules the best initial location would be to clone the directory
-inside the OpenEMR custom modules location.  This is at *<openemr_installation_directory>//interface/modules/custom_modules/*
-```git
-git clone https://github.com/adunsulag/oe-module-custom-skeleton <your-project-name>
-```
-
-Update the composer.json file properties for your own project.
-
-Look at src/Bootstrap.php to see how to add menu items, subscribe to system events, insert global settings, or adjust the OpenEMR api.
-
+If you are installing this module into an already existing practice. The module will grab the authorizations that
+have been stored in the system. These authorizations are stored when the Miscellaneous Billing Option form is used.
+The module pulls those out and displays them to present a history of the authorizations for that patient. The
+system will allow the management of units.
 
 ### Installing Module Via Composer
 There are two ways to install your module via composer.

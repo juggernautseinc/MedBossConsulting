@@ -44,6 +44,8 @@ $patients = sqlStatement($sql);
                 <th scope="col">Name</th>
                 <th scope="col"> Ins</th>
                 <th scope="col">Auths</th>
+                <th scope="col">Start</th>
+                <th scope="col">End</th>
                 <th scope="col">#of Units</th>
                 <th scope="col">Remaining</th>
                 <th scope="col">Start</th>
@@ -70,10 +72,11 @@ $patients = sqlStatement($sql);
                             print "<td></td>";
                         }
                         print "<td>" . $iter['auth_num'] . "</td>";
-                        print "<td>" . $iter['init_units'] . "</td>";
-                        print "<td>" . ($iter['init_units'] - $numbers['count']) . "</td>";
                         print "<td>" . $iter['start_date'] . "</td>";
                         print "<td>" . $iter['end_date'] . "</td>";
+                        print "<td>" . $iter['init_units'] . "</td>";
+                        print "<td>" . ($iter['init_units'] - $numbers['count']) . "</td>";
+
                         print "</tr>";
                         $name = $iter['fname'] . " " . $iter['lname'];
                     }
