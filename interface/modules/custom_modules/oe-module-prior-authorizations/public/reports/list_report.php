@@ -26,6 +26,11 @@ $patients = sqlStatement($sql);
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>List Exising Prior Auths Report</title>
+    <style>
+        table{
+            table-layout: fixed;
+        }
+    </style>
 </head>
 <body>
     <div class="container-lg" style="padding-top: 6em">
@@ -54,7 +59,7 @@ $patients = sqlStatement($sql);
                         if ($name !== $iter['fname']) {
                             print "<tr><td>" . $iter['pid'] . "</td>";
                             print "<td><strong>" . $iter['fname'] . " " . $iter['lname'] . "</strong></td>";
-                            print "<td>" . $insurance['name'] . "</td>";
+                            print "<td style='max-width:75px;'>" . $insurance['name'] . "</td>";
                         } else {
                             print "<td></td>";
                             print "<td></td>";
