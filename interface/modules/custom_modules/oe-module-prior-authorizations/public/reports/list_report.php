@@ -35,6 +35,7 @@ $patients = sqlStatement($sql);
                 <caption><?php echo xlt("Patients with prior auths"); ?></caption>
                 <th scope="col">MRN</th>
                 <th scope="col">Name</th>
+                <th scope="col"> Ins</th>
                 <th scope="col">Auths</th>
                 <th scope="col">#of Units</th>
                 <th scope="col">Remaining</th>
@@ -44,11 +45,17 @@ $patients = sqlStatement($sql);
                     while ($iter = sqlFetchArray($patients)) {
                         $sql = "SELECT count(*) AS count FROM `form_misc_billing_options` WHERE pid = ? AND `prior_auth_number` = ?";
                         $numbers = sqlQuery($sql, [$iter['pid'], $iter['auth_num']]);
+                        $icname = "SELECT ic.name  FROM `insurance_data` id " .
+                            "JOIN insurance_companies ic ON id.provider = ic.id " .
+                            "WHERE `pid` = ? AND type = 'primary'";
+                        $insurance = sqlQuery($sql, [$iter['pid']]);
 
                         if ($name !== $iter['fname']) {
                             print "<tr><td>" . $iter['pid'] . "</td>";
                             print "<td><strong>" . $iter['fname'] . " " . $iter['lname'] . "</strong></td>";
+                            print "<td>" . $insurance['name'] . "</td>";
                         } else {
+                            print "<td></td>";
                             print "<td></td>";
                             print "<td></td>";
                         }
