@@ -29,10 +29,8 @@ $patients = sqlStatement($sql);
     <script>
         // opens the demographic and encounter screens in a new window
         function openNewTopWindow(newpid, newencounterid) {
-            document.fnew.patientID.value = newpid;
-            document.fnew.encounterID.value = newencounterid;
             top.restoreSession();
-            document.fnew.submit();
+            top.RTop.location = "<?php echo $GLOBALS['webroot']; ?>/interface/patient_file/summary/demographics.php?set_pid=" + encodeURIComponent(newpid) + "&set_encounterid=" + encodeURIComponent(newencounterid);
         }
     </script>
 </head>
