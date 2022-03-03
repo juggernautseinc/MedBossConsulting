@@ -61,7 +61,7 @@ $patients = sqlStatement($sql);
                         $insurance = sqlQuery($icname, [$iter['pid']]);
 
                         if ($name !== $iter['fname']) {
-                            print "<tr><td><a href='#' onclick='return openNewTopWindow(" . $iter['pid'] . "null)' " . $iter['pid'] . "</a></td>";
+                            print "<tr><td><a href='#' onclick='return openNewTopWindow(" . $iter['pid'] . "null)'>" . $iter['pid'] . "</a></td>";
                             print "<td><strong>" . $iter['fname'] . " " . $iter['lname'] . "</strong></td>";
                             print "<td style='max-width:75px;'>" . $insurance['name'] . "</td>";
                         } else {
