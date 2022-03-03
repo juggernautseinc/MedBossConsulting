@@ -12,7 +12,8 @@ use OpenEMR\Core\Header;
 
 require_once dirname(__FILE__, 6) . "/globals.php";
 
-$sql = "SELECT * FROM `module_prior_authorizations`";
+$sql = "SELECT pd.fname, pd.lname, mpa.pid, mpa.auth_num, mpa.start_date, mpa.end_date, mpa.cpt, mpa.init_units " .
+    "FROM `module_prior_authorizations` mpa JOIN `patient_data` pd ON pd.pid = mpa.pid ";
 $patients = sqlStatement($sql);
 
 ?>
@@ -37,6 +38,7 @@ $patients = sqlStatement($sql);
                 <th scope="col">Auths</th>
                 <th scope="col">#of Units</th>
                 <th scope="col">Remaining</th>
+                <pre>
                 <?php
                     while ($iter = sqlFetchArray($patients)) {
                         var_dump($iter); continue;
@@ -52,7 +54,7 @@ $patients = sqlStatement($sql);
                         print "<td></td>";
                         print "</tr>";
                     }
-                ?>
+                ?></pre>
             </table>
 
         </div>
