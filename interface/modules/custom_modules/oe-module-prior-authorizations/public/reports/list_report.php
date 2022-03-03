@@ -49,7 +49,7 @@ $patients = sqlStatement($sql);
                         print "<td>" . $iter['fname'] . " " . $iter['lname'] . "</td>";
                         print "<td>" . $iter['auth_num'] . "</td>";
                         print "<td>" . $iter['init_units'] . "</td>";
-                        print "<td>" . $numbers['count'] . "</td>";
+                        print "<td>" . ($iter['init_units'] - $numbers['count']) . "</td>";
                         print "</tr>";
                     }
                 ?>
