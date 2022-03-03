@@ -40,17 +40,21 @@ $patients = sqlStatement($sql);
                 <th scope="col">Remaining</th>
 
                 <?php
+                $name = '';
                     while ($iter = sqlFetchArray($patients)) {
-
                         $sql = "SELECT count(*) AS count FROM `form_misc_billing_options` WHERE pid = ? AND `prior_auth_number` = ?";
                         $numbers = sqlQuery($sql, [$iter['pid'], $iter['auth_num']]);
-
                         print "<tr><td>" . $iter['pid'] . "</td>";
-                        print "<td>" . $iter['fname'] . " " . $iter['lname'] . "</td>";
+                        if ($name !== $iter['fname']) {
+                            print "<td>" . $iter['fname'] . " " . $iter['lname'] . "</td>";
+                        } else {
+                            print "<td></td>";
+                        }
                         print "<td>" . $iter['auth_num'] . "</td>";
                         print "<td>" . $iter['init_units'] . "</td>";
                         print "<td>" . ($iter['init_units'] - $numbers['count']) . "</td>";
                         print "</tr>";
+                        $name = $iter['fname'];
                     }
                 ?>
             </table>
