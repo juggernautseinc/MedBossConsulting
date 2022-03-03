@@ -13,7 +13,7 @@ use OpenEMR\Core\Header;
 require_once dirname(__FILE__, 6) . "/globals.php";
 
 $sql = "SELECT pd.fname, pd.lname, mpa.pid, mpa.auth_num, mpa.start_date, mpa.end_date, mpa.cpt, mpa.init_units " .
-    "FROM `module_prior_authorizations` mpa JOIN `patient_data` pd ON pd.pid = mpa.pid ORDER BY mpa.pid";
+    "FROM `module_prior_authorizations` mpa JOIN `patient_data` pd ON pd.pid = mpa.pid ORDER BY pd.lname";
 $patients = sqlStatement($sql);
 
 ?>
