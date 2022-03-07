@@ -26,7 +26,7 @@ class ModuleImport
 
     private function download(): array
     {
-        $path = dirname(__DIR__, 5) .  '/custom_modules/' . $this->name;
+        $path = dirname(__DIR__, 6) .  '/custom_modules/' . $this->name;
         var_dump($path); die;
         $file_path = fopen($path,'w');
         $client = new Client();
