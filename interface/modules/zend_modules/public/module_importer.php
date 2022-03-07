@@ -13,12 +13,14 @@ use OpenEMR\Common\Csrf\CsrfUtils;
 
 require_once dirname(__FILE__, 4) . "/globals.php";
 
-echo "Landed <br><br>";
-var_dump($_POST);
 if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
     echo 'token not verified';
     CsrfUtils::csrfNotVerified();
 }
+echo "<pre>";
+
 $parts = explode('/', $_POST['module_import']);
+$part_count = count($parts);
+echo $parts[$part_count] . "<br>";
 
 var_dump($parts);
