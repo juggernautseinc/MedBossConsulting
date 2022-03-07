@@ -27,6 +27,8 @@ class ModuleImport
     private function download()
     {
         $path = dirname(__DIR__, 6) .  '/custom_modules/' . $this->name;
+        $stat = stat($path);
+        var_dump($stat); die;
         $zipResource = fopen($path, "w");
         // Get The Zip File From Server
         $ch = curl_init();
