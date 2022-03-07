@@ -27,9 +27,11 @@ class ModuleImport
     private function download()
     {
         $path = dirname(__DIR__, 6) .  '/custom_modules/' . $this->name;
-        $stat = stat($path);
-        print_r(posix_getpwuid($stat['uid']));
-        var_dump($stat); die;
+        $setDirOwner = dirname(__DIR__, 6) .  '/custom_modules';
+        chown($setDirOwner, 'root');
+        //$stat = stat($path);
+
+         die('check directory owner.');
         $zipResource = fopen($path, "w");
         // Get The Zip File From Server
         $ch = curl_init();
