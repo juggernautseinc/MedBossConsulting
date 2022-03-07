@@ -9,12 +9,13 @@
  */
 
 use OpenEMR\Core\Header;
+use Juggernaut\OpenEMR\Modules\PriorAuthModule\Controller\AuthorizationService;
 
 require_once dirname(__FILE__, 6) . "/globals.php";
+require_once dirname(__FILE__, 3) . "/vendor/autoload.php";
 
-$sql = "SELECT pd.fname, pd.lname, mpa.pid, mpa.auth_num, mpa.start_date, mpa.end_date, mpa.cpt, mpa.init_units " .
-    "FROM `module_prior_authorizations` mpa JOIN `patient_data` pd ON pd.pid = mpa.pid ORDER BY pd.lname";
-$patients = sqlStatement($sql);
+$data = new AuthorizationService();
+$patients = $data->listPatientAuths();
 
 ?>
 <!doctype html>

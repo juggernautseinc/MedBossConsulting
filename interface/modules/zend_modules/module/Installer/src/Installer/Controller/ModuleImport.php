@@ -52,4 +52,16 @@ class ModuleImport
         curl_close($ch);
 
     }
+
+    private function createImportDir()
+    {
+        $setDir = dirname(__DIR__, 6) .  '/custom_modules';
+        if (is_dir($setDir)) {
+
+        } else {
+
+        }
+
+    }
+
 }
