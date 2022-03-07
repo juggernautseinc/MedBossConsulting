@@ -27,9 +27,9 @@ class ModuleImport
     private function download(): array
     {
         $path = dirname(__DIR__, 6) .  '/custom_modules/' . $this->name;
-        $file_path = fopen($path,'w');
+        //$file_path = fopen($path,'w');
         $client = new Client();
-        $response = $client->get($this->url, ['sink' => $file_path]);
+        $response = $client->get($this->url, ['sink' => $path]);
         return ['response_code' => $response->getStatusCode(), 'name' => $this->name];
     }
 }
