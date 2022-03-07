@@ -24,12 +24,10 @@ class ModuleImport
         return self::download();
     }
 
-    private function download(): array
+    private function download()
     {
         $path = dirname(__DIR__, 6) .  '/custom_modules/' . $this->name;
-        //$file_path = fopen($path,'w');
-        $client = new Client();
-        $response = $client->get($this->url, ['sink' => $path]);
-        return ['response_code' => $response->getStatusCode(), 'name' => $this->name];
+        $import = file_get_contents($this->url);
+        return file_put_contents($path, $import);
     }
 }
