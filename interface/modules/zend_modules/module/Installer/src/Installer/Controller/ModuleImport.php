@@ -28,6 +28,7 @@ class ModuleImport
     {
         $path = dirname(__DIR__, 6) .  '/custom_modules/' . $this->name;
         $stat = stat($path);
+        print_r(posix_getpwuid($stat['uid']));
         var_dump($stat); die;
         $zipResource = fopen($path, "w");
         // Get The Zip File From Server
