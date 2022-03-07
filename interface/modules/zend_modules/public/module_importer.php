@@ -14,3 +14,4 @@ echo "Landed <br><br>";
 
 var_dump($_POST['module_import']);
 
+var_dump($_POST['token']);
