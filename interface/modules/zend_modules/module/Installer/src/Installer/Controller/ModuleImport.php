@@ -27,6 +27,7 @@ class ModuleImport
     private function download()
     {
         $path = dirname(__DIR__, 6) .  '/custom_modules/' . $this->name;
+        $zipResource = fopen($path, "w");
         // Get The Zip File From Server
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->url);
@@ -38,7 +39,7 @@ class ModuleImport
         curl_setopt($ch, CURLOPT_TIMEOUT, 10);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_FILE, $path);
+        curl_setopt($ch, CURLOPT_FILE, $zipResource);
         $page = curl_exec($ch);
         if(!$page) {
             echo "Error :- ".curl_error($ch);
