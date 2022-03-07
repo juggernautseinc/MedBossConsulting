@@ -8,10 +8,13 @@
  *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  */
 
-use Installer\Controller\DownloadRemoteFile;
+use Installer\Controller\ModuleImport;
 
 echo "Landed <br><br>";
 
-var_dump($_POST['module_import']);
+if (!CsrfUtils::verifyCsrfToken($_POST["module_import"])) {
+    CsrfUtils::csrfNotVerified();
+}
+$parts = explode('/', $_POST['module_import']);
 
-var_dump($_POST['token']);
+var_dump($parts);

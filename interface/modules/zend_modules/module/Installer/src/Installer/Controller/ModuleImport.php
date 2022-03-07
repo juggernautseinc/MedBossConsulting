@@ -12,7 +12,7 @@ namespace Installer\Controller;
 
 use GuzzleHttp\Client;
 
-class DownloadRemoteFile
+class ModuleImport
 {
     private $url;
     private $name;
