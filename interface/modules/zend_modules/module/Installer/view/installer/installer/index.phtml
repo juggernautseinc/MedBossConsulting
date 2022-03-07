@@ -320,13 +320,13 @@ $depObj = $this->dependencyObject;
     </div>
 </div>
 <div class="mt-15">
-    <form  method="post" action="module_downloader.php" name="module_import">
+    <form  method="post" action="module_importer.php" name="module_import">
         <div class="form-group">
             <label for="module_uploader"><?php echo xlt("Module Uploader") ?></label>
-            <input class="ml-5 form-control" type="text"  name="module_uploader" size="82" value="" placeholder="Enter URL of module here to upload server">
+            <input class="ml-5 form-control" type="text"  name="module_import" size="82" value="" placeholder="Enter URL of module here to upload server">
         </div>
         <div class="form-group">
-            <input class="btn btn-caution" type="submit" value="Import">
+            <input class="btn btn-primary" type="submit" value="Import">
         </div>
 
     </form>

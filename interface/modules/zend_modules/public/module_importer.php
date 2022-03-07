@@ -10,5 +10,7 @@
 
 use Installer\Controller\DownloadRemoteFile;
 
-echo "Landed";
+echo "Landed <br><br>";
+
+var_dump($_POST['module_import']);
 
