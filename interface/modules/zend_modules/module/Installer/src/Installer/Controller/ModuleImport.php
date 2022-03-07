@@ -16,17 +16,18 @@ class ModuleImport
 {
     private $url;
     private $name;
-    private $extension;
 
-    public function __construct($url, $name, $extension)
+
+    public function __construct($url, $name)
     {
         $this->url = $url;
-        $this->extension = $extension;
         $this->name = $name;
+        return self::download();
     }
 
-    private function download(){
-        $path = $GLOBALS['webroot'] . '/interface/modules/custom_modules/' . $this->name . $this->extensions;
+    private function download(): array
+    {
+        $path = $GLOBALS['webroot'] . '/interface/modules/custom_modules/' . $this->name;
         $file_path = fopen($path,'w');
         $client = new Client();
         $response = $client->get($this->url, ['sink' => $file_path]);

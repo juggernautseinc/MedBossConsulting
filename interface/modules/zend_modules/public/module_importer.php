@@ -17,11 +17,12 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
     echo 'token not verified';
     CsrfUtils::csrfNotVerified();
 }
-echo "<pre>";
 
 $parts = explode('/', $_POST['module_import']);
 $part_count = count($parts);
-echo $part_count . "<br>";
-echo $zip = ($part_count - 1);
-var_dump($parts);
-var_dump($parts[$zip]) . "<br>";
+$zip = ($part_count - 1);
+
+//var_dump($parts[$zip]) . "<br>";
+$import = new ModuleImport($_POST['module_import'], $parts[$zip]);
+
+var_dump($import);
