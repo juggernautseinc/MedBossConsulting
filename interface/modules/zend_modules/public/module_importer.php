@@ -12,7 +12,7 @@ use Installer\Controller\ModuleImport;
 
 echo "Landed <br><br>";
 
-if (!CsrfUtils::verifyCsrfToken($_POST["module_import"])) {
+if (!CsrfUtils::verifyCsrfToken($_POST["token"])) {
     CsrfUtils::csrfNotVerified();
 }
 $parts = explode('/', $_POST['module_import']);
