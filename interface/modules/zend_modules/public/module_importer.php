@@ -22,7 +22,8 @@ $parts = explode('/', $_POST['module_import']);
 $part_count = count($parts);
 $zip = ($part_count - 1);
 
-//var_dump($parts[$zip]) . "<br>";
+echo $path = $GLOBALS['webroot'] . '/interface/modules/custom_modules/';
+die;
 $import = new ModuleImport($_POST['module_import'], $parts[$zip]);
 
 var_dump($import);

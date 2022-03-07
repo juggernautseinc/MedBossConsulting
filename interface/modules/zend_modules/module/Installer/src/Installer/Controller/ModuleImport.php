@@ -17,7 +17,6 @@ class ModuleImport
     private $url;
     private $name;
 
-
     public function __construct($url, $name)
     {
         $this->url = $url;
