@@ -22,6 +22,6 @@ echo "<pre>";
 $parts = explode('/', $_POST['module_import']);
 $part_count = count($parts);
 echo $part_count . "<br>";
-
+$zip = $part_count - 1;
 var_dump($parts);
 var_dump($parts[$part_count]) . "<br>";
