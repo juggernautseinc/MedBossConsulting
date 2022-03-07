@@ -11,6 +11,8 @@
 use Installer\Controller\ModuleImport;
 use OpenEMR\Common\Csrf\CsrfUtils;
 
+require_once dirname(__FILE__, 4) . "/globals.php";
+
 echo "Landed <br><br>";
 var_dump($_POST);
 if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
