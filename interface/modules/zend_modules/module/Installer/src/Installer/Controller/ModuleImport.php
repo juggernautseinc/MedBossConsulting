@@ -54,7 +54,7 @@ class ModuleImport
     public static function createImportDir()
     {
         $import_dir = dirname(__DIR__, 8) . DIRECTORY_SEPARATOR . "sites" . $_SESSION['site_id'] .
-            DIRECTORY_SEPARATOR . "documents" . DIRECTORY_SEPARATOR . 'imports';
+            DIRECTORY_SEPARATOR . "documents" . DIRECTORY_SEPARATOR . 'imports/';
         if (!file_exists($import_dir)) {
             $import_dir = dirname(__DIR__, 8) . DIRECTORY_SEPARATOR . "sites" .
                 DIRECTORY_SEPARATOR . $_SESSION['site_id'] .
@@ -65,7 +65,7 @@ class ModuleImport
                 return "An error occurred: " . $e->getMessage();
                 exit;
             }
-            return $import_dir  . "imports";
+            return $import_dir  . "imports/";
         } else {
             return $import_dir;
         }
