@@ -55,7 +55,7 @@ class ModuleImport
 
     public static function createImportDir()
     {
-        return $GLOBALS['webroot'];
+        return $import_dir = dirname(__DIR__, 4) ;
         if (!file_exists($import_dir)) {
             $import_dir = dirname(__DIR__, 6) .  '/custom_modules/';
             try {
