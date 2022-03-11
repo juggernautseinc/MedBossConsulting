@@ -28,7 +28,7 @@ class ModuleImport
 
     private function download()
     {
-        $zipResource = fopen($this->importDir, "w");
+        $zipResource = fopen($this->importDir . $this->name, "w");
         // Get The Zip File From Server
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->url);
