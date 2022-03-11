@@ -60,7 +60,7 @@ class ModuleImport
                 DIRECTORY_SEPARATOR . $_SESSION['site_id'] .
                 DIRECTORY_SEPARATOR . "documents" . DIRECTORY_SEPARATOR;
             try {
-                mkdir($import_dir . DIRECTORY_SEPARATOR . "imports", '755', true);
+                mkdir($import_dir . DIRECTORY_SEPARATOR . "imports", '755');
             } catch (Exception $e) {
                 return "An error occurred: " . $e->getMessage();
                 exit;
