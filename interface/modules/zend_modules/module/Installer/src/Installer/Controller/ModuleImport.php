@@ -65,7 +65,7 @@ class ModuleImport
                 return "An error occurred: " . $e->getMessage();
                 exit;
             }
-            return $import_dir  . DIRECTORY_SEPARATOR . "imports";
+            return $import_dir  . "imports";
         } else {
             return $import_dir;
         }
