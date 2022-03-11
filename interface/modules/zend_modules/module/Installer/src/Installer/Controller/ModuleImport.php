@@ -55,14 +55,17 @@ class ModuleImport
 
     public static function createImportDir()
     {
-        return $import_dir = dirname(__DIR__, 7) ;
+        echo $import_dir = dirname(__DIR__, 8) . DIRECTORY_SEPARATOR . "sites" . $_SESSION['site_id'] .
+            DIRECTORY_SEPARATOR . "documents" . DIRECTORY_SEPARATOR . 'import';
         if (!file_exists($import_dir)) {
-            $import_dir = dirname(__DIR__, 6) .  '/custom_modules/';
+            $import_dir = dirname(__DIR__, 8) .  . DIRECTORY_SEPARATOR . "sites" . $_SESSION['site_id'] .
+                DIRECTORY_SEPARATOR . "documents" . DIRECTORY_SEPARATOR;
             try {
                 mkdir($import_dir . DIRECTORY_SEPARATOR . "import", '755', true);
             } catch (Exception $e) {
                 return "An error occurred: " . $e->getMessage();
             }
+            return "created";
         } else {
             return "does";
         }
