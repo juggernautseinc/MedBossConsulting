@@ -178,6 +178,4 @@ class AuthorizationService
         return sqlStatement($sql);
     }
 
-
-
 }
