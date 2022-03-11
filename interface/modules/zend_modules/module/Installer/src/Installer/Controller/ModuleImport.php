@@ -57,7 +57,12 @@ class ModuleImport
     {
         $import_dir = dirname(__DIR__, 6) .  '/custom_modules/import';
         if (!file_exists($import_dir)) {
-            return "does not";
+            $import_dir = dirname(__DIR__, 6) .  '/custom_modules/';
+            try {
+                mkdir($import_dir . DIRECTORY_SEPARATOR . "import", '755');
+            } catch (Exception $e) {
+                return "An error occurred: " . $e->getMessage();
+            }
         } else {
             return "does";
         }
