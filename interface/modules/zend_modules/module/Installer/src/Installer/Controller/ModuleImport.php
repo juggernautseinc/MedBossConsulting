@@ -53,14 +53,9 @@ class ModuleImport
 
     }
 
-    private function createImportDir()
+    public static function createImportDir()
     {
-        $setDir = dirname(__DIR__, 6) .  '/custom_modules';
-        if (is_dir($setDir)) {
-
-        } else {
-
-        }
+        return dirname(__DIR__, 6) .  '/custom_modules/import';
 
     }
 

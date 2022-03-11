@@ -20,6 +20,9 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
     CsrfUtils::csrfNotVerified();
 }
 
+echo ModuleImport::createImportDir();
+
+die;
 $parts = explode('/', $_POST['module_import']);
 $part_count = count($parts);
 $zip = ($part_count - 1);
