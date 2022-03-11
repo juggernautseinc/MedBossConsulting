@@ -16,23 +16,19 @@ class ModuleImport
 {
     private $url;
     private $name;
+    public $importDir;
 
-    public function __construct($url, $name)
+    public function __construct($url, $name, $import_dir)
     {
         $this->url = $url;
         $this->name = $name;
+        $this->importDir = $import_dir;
         return self::download();
     }
 
     private function download()
     {
-        $path = dirname(__DIR__, 6) .  '/custom_modules/' . $this->name;
-        $setDirOwner = dirname(__DIR__, 6) .  '/custom_modules';
-        chown($setDirOwner, 'root');
-        //$stat = stat($path);
-
-         die('check directory owner.');
-        $zipResource = fopen($path, "w");
+        $zipResource = fopen($this->importDir, "w");
         // Get The Zip File From Server
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->url);
@@ -47,16 +43,18 @@ class ModuleImport
         curl_setopt($ch, CURLOPT_FILE, $zipResource);
         $page = curl_exec($ch);
         if(!$page) {
-            echo "Error :- ".curl_error($ch);
+            return "Error :- ".curl_error($ch);
+        } else {
+            $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         }
         curl_close($ch);
-
+        return $status;
     }
 
     public static function createImportDir()
     {
-        echo $import_dir = dirname(__DIR__, 8) . DIRECTORY_SEPARATOR . "sites" . $_SESSION['site_id'] .
-            DIRECTORY_SEPARATOR . "documents" . DIRECTORY_SEPARATOR . 'import';
+        $import_dir = dirname(__DIR__, 8) . DIRECTORY_SEPARATOR . "sites" . $_SESSION['site_id'] .
+            DIRECTORY_SEPARATOR . "documents" . DIRECTORY_SEPARATOR . 'imports';
         if (!file_exists($import_dir)) {
             $import_dir = dirname(__DIR__, 8) . DIRECTORY_SEPARATOR . "sites" .
                 DIRECTORY_SEPARATOR . $_SESSION['site_id'] .
@@ -67,9 +65,9 @@ class ModuleImport
                 return "An error occurred: " . $e->getMessage();
                 exit;
             }
-            return "created";
+            return $import_dir;
         } else {
-            return "does";
+            return $import_dir;
         }
     }
 }
