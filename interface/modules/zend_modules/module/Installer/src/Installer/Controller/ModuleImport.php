@@ -55,7 +55,7 @@ class ModuleImport
     {
         $import_dir = dirname(__DIR__, 8) . DIRECTORY_SEPARATOR . "sites" . $_SESSION['site_id'] .
             DIRECTORY_SEPARATOR . "documents" . DIRECTORY_SEPARATOR . 'imports/';
-        if (!file_exists($import_dir)) {
+        if (!is_dir($import_dir)) {
             $import_dir = dirname(__DIR__, 8) . DIRECTORY_SEPARATOR . "sites" .
                 DIRECTORY_SEPARATOR . $_SESSION['site_id'] .
                 DIRECTORY_SEPARATOR . "documents" . DIRECTORY_SEPARATOR;

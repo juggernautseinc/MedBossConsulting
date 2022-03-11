@@ -37,4 +37,4 @@ $zip = ($part_count - 1);
  */
 $import = new ModuleImport($_POST['module_import'], $parts[$zip], $import_dir);
 
-echo $import;
+var_dump($import);
