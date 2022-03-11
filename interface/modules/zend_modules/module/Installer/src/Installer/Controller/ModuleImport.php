@@ -55,11 +55,11 @@ class ModuleImport
 
     public static function createImportDir()
     {
-        $import_dir = dirname(__DIR__, 6) .  '/custom_modules/import';
+        return $import_dir = dirname(__DIR__, 6) .  '/custom_modules/import';
         if (!file_exists($import_dir)) {
             $import_dir = dirname(__DIR__, 6) .  '/custom_modules/';
             try {
-                mkdir($import_dir . DIRECTORY_SEPARATOR . "import", '755');
+                mkdir($import_dir . DIRECTORY_SEPARATOR . "import", '755', true);
             } catch (Exception $e) {
                 return "An error occurred: " . $e->getMessage();
             }
