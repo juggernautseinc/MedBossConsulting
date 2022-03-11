@@ -58,7 +58,7 @@ class ModuleImport
         echo $import_dir = dirname(__DIR__, 8) . DIRECTORY_SEPARATOR . "sites" . $_SESSION['site_id'] .
             DIRECTORY_SEPARATOR . "documents" . DIRECTORY_SEPARATOR . 'import';
         if (!file_exists($import_dir)) {
-            $import_dir = dirname(__DIR__, 8) .  . DIRECTORY_SEPARATOR . "sites" . $_SESSION['site_id'] .
+            $import_dir = dirname(__DIR__, 8) . DIRECTORY_SEPARATOR . "sites" . $_SESSION['site_id'] .
                 DIRECTORY_SEPARATOR . "documents" . DIRECTORY_SEPARATOR;
             try {
                 mkdir($import_dir . DIRECTORY_SEPARATOR . "import", '755', true);
