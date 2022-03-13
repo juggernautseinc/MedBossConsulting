@@ -24,7 +24,7 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
          * first use.
          */
         $import_dir = ModuleImport::createImportDir();
-        $custom_module = ModuleImport::moduleLocation();  //get abosulute path to module destination
+
 ?>
     <!doctype html>
     <html lang="en">
@@ -73,8 +73,8 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
                 if (!empty($stats)) {
                     echo xlt("File successfully downloaded ") . "<br>";
                     $destination = dirname(__DIR__, 2) . "/custom_modules";
-
-                    echo xlt("Moving file to destination ") . $destination . "<br>";
+                    $custom_module = ModuleImport::createDestinationFolder($destination);  //get abosulute path to module destination
+                    echo xlt("Moving file to destination ") . $destination . $parts[$zip] . "<br>";
                     //$zip->extractTo();
                 } else {
                     echo xlt("Zip file has no content");
