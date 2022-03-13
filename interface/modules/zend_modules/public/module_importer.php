@@ -19,11 +19,11 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
     CsrfUtils::csrfNotVerified();
 }
 
-/*
+        /*
          * check if the directory exist to download the import. If it does not exist create it on
          * first use.
          */
-$import_dir = ModuleImport::createImportDir();
+        $import_dir = ModuleImport::createImportDir();
 ?>
     <!doctype html>
     <html lang="en">
@@ -40,7 +40,7 @@ $import_dir = ModuleImport::createImportDir();
             <div class="m-3">
                 <h1><?php echo xlt("Module Import") ?></h1>
             </div>
-            <div class="m-5">
+            <div class="m-3">
                 <?php
                 /*
                  * get the file name to be imported from the URL supplied
@@ -49,7 +49,7 @@ $import_dir = ModuleImport::createImportDir();
                 $part_count = count($parts);
                 $zip = ($part_count - 1);
                 echo "<p><strong>" . xlt('Download location given ') . "</strong></p> " .
-                    "<span style='color:#0a246a'> " . $_POST['module_import'] . "</span>";
+                    "<span style='color:#0a246a; margin-left: 30px'> " . $_POST['module_import'] . "</span>";
                 ?>
             </div>
             <div class="m-5">
@@ -60,11 +60,9 @@ $import_dir = ModuleImport::createImportDir();
                  */
                 $import = new ModuleImport($_POST['module_import'], $parts[$zip], $import_dir);
 
-                echo  "<strong>" . xlt('Result of download') . "</strong><pre>";
-                var_dump($import);
-                foreach ($import as $key => $value) {
-                    echo $value;
-                }
+                echo  "<strong>" . xlt('Result of download') . "</strong><br>";
+
+                echo $import_dir.$parts[$zip];
                 ?>
             </div>
         </div>
