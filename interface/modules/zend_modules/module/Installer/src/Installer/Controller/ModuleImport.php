@@ -43,7 +43,7 @@ class ModuleImport
         curl_setopt($ch, CURLOPT_FILE, $zipResource);
         $page = curl_exec($ch);
         if(!$page) {
-            return "finished"; //"Error :- ".curl_error($ch);
+            return "Error :- ".curl_error($ch);
         } else {
             $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         }
