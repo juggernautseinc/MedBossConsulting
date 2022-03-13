@@ -78,7 +78,7 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
                     echo xlt("Moving file to destination ") . $destination . DIRECTORY_SEPARATOR . $foldername[0] . "<br>";
                     //$zip->extractTo();
                 } else {
-                    echo xlt("Zip file has no content");
+                    echo xlt("Zip file has no content. Please check source file and try again");
                     exit;
                 }
                 //move file to the final destination
