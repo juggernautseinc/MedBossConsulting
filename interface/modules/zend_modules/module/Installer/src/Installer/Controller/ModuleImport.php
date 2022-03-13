@@ -88,6 +88,8 @@ class ModuleImport
 
     public static function createDestinationFolder($destination)
     {
-        //find abosulute path to custom modules folder
+        if (isset($destination)) {
+            return "Got Destination";
+        }
     }
 }
