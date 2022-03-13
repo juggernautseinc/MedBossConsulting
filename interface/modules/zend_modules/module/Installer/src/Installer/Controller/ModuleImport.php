@@ -95,7 +95,7 @@ class ModuleImport
                 return "An error occured: " . $e->getMessage();
                 exit;
             }
-            return "check it! ";
+            return "check it! " . $destination;
         } else {
             return "Something else happened";
         }
