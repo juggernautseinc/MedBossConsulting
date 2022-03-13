@@ -74,12 +74,8 @@ class ModuleImport
             $import_dir = dirname(__DIR__, 8) . DIRECTORY_SEPARATOR . "sites" .
                 DIRECTORY_SEPARATOR . $_SESSION['site_id'] .
                 DIRECTORY_SEPARATOR . "documents" . DIRECTORY_SEPARATOR;
-            try {
                 mkdir($import_dir . DIRECTORY_SEPARATOR . "imports");
-            } catch (Exception $e) {
-                return "An error occurred: " . $e->getMessage();
-                exit;
-            }
+
             return $import_dir  . "imports/";
         } else {
             return $import_dir;
@@ -92,11 +88,16 @@ class ModuleImport
      */
     public static function createDestinationFolder($destination): string
     {
+        //if this is the first time installing the module create directory for unzipping
         if (isset($destination)  && !is_dir($destination)) {
             mkdir($destination);
             return "created";
         } else {
-            return "exists";
+            // if the folder exist and this could be a re-installation or update to the module.
+            array_map('unlink', glob($destination . DIRECTORY_SEPARATOR . "*.*"));
+            rmdir($destination);
+            mkdir($destination);
+            return "created";
         }
     }
 }
