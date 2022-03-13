@@ -62,6 +62,9 @@ $import_dir = ModuleImport::createImportDir();
 
                 echo  "<strong>" . xlt('Result of download') . "</strong><pre>";
                 var_dump($import);
+                echo $import["url"] . "<br>";
+                echo $import["name"] . "<br>";
+                echo $import["importDir"] . "<br>";
                 ?>
             </div>
         </div>
