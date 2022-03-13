@@ -89,15 +89,15 @@ class ModuleImport
     public static function createDestinationFolder($destination): string
     {
         //if this is the first time installing the module create directory for unzipping
+        $makeDir = mkdir($destination);
         if (isset($destination)  && !is_dir($destination)) {
-            mkdir($destination);
-            return "created";
+            $makeDir;
         } else {
             // if the folder exist and this could be a re-installation or update to the module.
             array_map('unlink', glob($destination . DIRECTORY_SEPARATOR . "*.*"));
             rmdir($destination);
-            mkdir($destination);
-            return "created";
+            $makeDir;
         }
+        return "created";
     }
 }
