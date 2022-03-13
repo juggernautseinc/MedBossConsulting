@@ -12,12 +12,21 @@ namespace Installer\Controller;
 
 use GuzzleHttp\Client;
 
+/**
+ * the purpose for this class is to allow users to import modules to the system with no technical knowledge
+ * All they need is a zip file location from the module author
+ */
 class ModuleImport
 {
     private $url;
     private $name;
     public $importDir;
 
+    /**
+     * @param $url
+     * @param $name
+     * @param $import_dir
+     */
     public function __construct($url, $name, $import_dir)
     {
         $this->url = $url;
@@ -26,6 +35,9 @@ class ModuleImport
         return self::download();
     }
 
+    /**
+     * @return mixed|string
+     */
     private function download()
     {
         $zipResource = fopen($this->importDir . $this->name, "w");
@@ -51,6 +63,9 @@ class ModuleImport
         return $status;
     }
 
+    /**
+     * @return string
+     */
     public static function createImportDir()
     {
         $import_dir = dirname(__DIR__, 8) . DIRECTORY_SEPARATOR . "sites" . $_SESSION['site_id'] .
@@ -69,5 +84,10 @@ class ModuleImport
         } else {
             return $import_dir;
         }
+    }
+
+    public static function createDestinationFolder($destination)
+    {
+        //find abosulute path to custom modules folder
     }
 }
