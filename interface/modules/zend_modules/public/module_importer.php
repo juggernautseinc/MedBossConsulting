@@ -53,13 +53,13 @@ $import_dir = ModuleImport::createImportDir();
             </div>
             <div class="m-5">
                 <?php
-                echo xlt("Attempting to download file. ");
+                echo "<p><strong>" . xlt("Attempting to download file. ") . "</strong></p>";
                 /*
                  * download the file to the import folder
                  */
                 $import = new ModuleImport($_POST['module_import'], $parts[$zip], $import_dir);
 
-                echo "<pre>" . xlt('Result of download');
+                echo  "<strong>" . xlt('Result of download') . "</strong><pre>";
                 var_dump($import);
                 ?>
             </div>
