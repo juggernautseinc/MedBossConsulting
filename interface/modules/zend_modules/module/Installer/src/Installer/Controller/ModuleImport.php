@@ -89,7 +89,8 @@ class ModuleImport
     public static function createDestinationFolder($destination)
     {
         if (isset($destination)  && is_dir($destination)) {
-            return "Is not a directory yet! ";
+            mkdir($destination);
+            return "check it! ";
         } else {
             return "Something else happened";
         }
