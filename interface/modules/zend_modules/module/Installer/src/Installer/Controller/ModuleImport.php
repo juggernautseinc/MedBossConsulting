@@ -88,7 +88,7 @@ class ModuleImport
 
     public static function createDestinationFolder($destination): string
     {
-        if (isset($destination)  && is_dir($destination)) {
+        if (isset($destination)  && !is_dir($destination)) {
             try {
                 mkdir($destination);
             } catch (Exception $e) {
