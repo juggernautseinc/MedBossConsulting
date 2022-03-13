@@ -10,7 +10,6 @@
 
 namespace Installer\Controller;
 
-use GuzzleHttp\Client;
 
 /**
  * the purpose for this class is to allow users to import modules to the system with no technical knowledge
