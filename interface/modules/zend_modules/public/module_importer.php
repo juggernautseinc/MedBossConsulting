@@ -74,7 +74,8 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
                     echo xlt("File successfully downloaded ") . "<br>";
                     $destination = dirname(__DIR__, 2) . "/custom_modules";
                     $custom_module = ModuleImport::createDestinationFolder($destination);  //get abosulute path to module destination
-                    echo xlt("Moving file to destination ") . $destination . $parts[$zip] . "<br>";
+                    $foldername = explode(".", $parts[$zip]);
+                    echo xlt("Moving file to destination ") . $destination . $foldername[0] . "<br>";
                     //$zip->extractTo();
                 } else {
                     echo xlt("Zip file has no content");
