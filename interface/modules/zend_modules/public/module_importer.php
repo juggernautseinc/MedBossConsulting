@@ -10,6 +10,7 @@
 
 use Installer\Controller\ModuleImport;
 use OpenEMR\Common\Csrf\CsrfUtils;
+use OpenEMR\Core\Header;
 
 require_once dirname(__FILE__, 4) . "/globals.php";
 
@@ -17,23 +18,51 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
     echo 'token not verified';
     CsrfUtils::csrfNotVerified();
 }
+
 /*
- * check if the directory exist to download the import. If it does not exist create it on
- * first use.
- */
+         * check if the directory exist to download the import. If it does not exist create it on
+         * first use.
+         */
 $import_dir = ModuleImport::createImportDir();
+?>
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title><?php echo xlt("Module Import") ?></title>
+        <?php Header::setupHeader(); ?>
+    </head>
+    <body>
+        <div class="container-lg">
+            <div class="m-5">
+                <h1><?php echo xlt("Module Import") ?></h1>
+            </div>
+            <div class="m-5">
+                <?php
+                /*
+                 * get the file name to be imported from the URL supplied
+                 */
+                $parts = explode('/', $_POST['module_import']);
+                $part_count = count($parts);
+                $zip = ($part_count - 1);
+                echo xlt('Download location given ') . $_POST['module_import'];
+                ?>
+            </div>
+            <div class="m-5">
+                <?php
+                echo xlt("Attempting to download file. ");
+                /*
+                 * download the file to the import folder
+                 */
+                $import = new ModuleImport($_POST['module_import'], $parts[$zip], $import_dir);
 
-/*
- * get the file name to be imported from the URL supplied
- */
-$parts = explode('/', $_POST['module_import']);
-$part_count = count($parts);
-$zip = ($part_count - 1);
-
-/*
- * download the file to the import folder
- */
-$import = new ModuleImport($_POST['module_import'], $parts[$zip], $import_dir);
-
-echo "<pre>";
-var_dump($import);
+                echo "<pre>" . xlt('Result of download');
+                var_dump($import);
+                ?>
+            </div>
+        </div>
+    </body>
+    </html>
