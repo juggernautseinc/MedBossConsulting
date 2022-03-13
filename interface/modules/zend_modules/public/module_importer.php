@@ -37,7 +37,7 @@ $import_dir = ModuleImport::createImportDir();
     </head>
     <body>
         <div class="container-lg">
-            <div class="m-5">
+            <div class="m-3">
                 <h1><?php echo xlt("Module Import") ?></h1>
             </div>
             <div class="m-5">
@@ -48,7 +48,8 @@ $import_dir = ModuleImport::createImportDir();
                 $parts = explode('/', $_POST['module_import']);
                 $part_count = count($parts);
                 $zip = ($part_count - 1);
-                echo "<p><strong>" . xlt('Download location given ') . "</strong></p> " . $_POST['module_import'];
+                echo "<p><strong>" . xlt('Download location given ') . "</strong></p> " .
+                    "<span style='color:#0a246a'> " . $_POST['module_import'] . "</span>";
                 ?>
             </div>
             <div class="m-5">
@@ -60,7 +61,7 @@ $import_dir = ModuleImport::createImportDir();
                 $import = new ModuleImport($_POST['module_import'], $parts[$zip], $import_dir);
 
                 echo  "<strong>" . xlt('Result of download') . "</strong><pre>";
-                print_r($import, true);
+                var_dump($import);
                 ?>
             </div>
         </div>
