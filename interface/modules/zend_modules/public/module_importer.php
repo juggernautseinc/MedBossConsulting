@@ -55,13 +55,13 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
             </div>
             <div class="m-5">
                 <?php
-                echo "<p><strong>" . xlt("Attempting to download file. ") . "</strong></p>";
+                echo "<p><strong>" . xlt("Attempting to import file. ") . "</strong></p>";
                 /*
                  * download the file to the import folder
                  */
                 $import = new ModuleImport($_POST['module_import'], $parts[$zip], $import_dir);
 
-                echo  "<strong>" . xlt('Result of download') . "</strong><br>";
+                echo  "<strong>" . xlt('Result of import') . "</strong><br>";
                 //Check to see if the zip file is empty
                 $za = new ZipArchive();
                 $za->open($import_dir.$parts[$zip]);
@@ -71,7 +71,7 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
                 }
 
                 if (!empty($stats)) {
-                    echo xlt("File successfully downloaded ") . "<br>";
+                    echo xlt("File successfully imported ") . "<br>";
                     $destination = dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "custom_modules";
                     $foldername = explode(".", $parts[$zip]);
                     $custom_module = ModuleImport::createDestinationFolder($destination . DIRECTORY_SEPARATOR . $foldername[0] );
