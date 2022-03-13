@@ -86,18 +86,17 @@ class ModuleImport
         }
     }
 
+    /**
+     * @param $destination
+     * @return string
+     */
     public static function createDestinationFolder($destination): string
     {
         if (isset($destination)  && !is_dir($destination)) {
-            try {
-                mkdir($destination);
-            } catch (Exception $e) {
-                return "An error occured: " . $e->getMessage();
-                exit;
-            }
-            return "check it! " . $destination;
+            mkdir($destination);
+            return "created";
         } else {
-            return "Something else happened";
+            return "exists";
         }
     }
 }

@@ -1,7 +1,5 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 /*
  *  package OpenEMR
  *  link    https://www.open-emr.org
@@ -78,8 +76,11 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
                     $foldername = explode(".", $parts[$zip]);
                     $custom_module = ModuleImport::createDestinationFolder($destination . DIRECTORY_SEPARATOR . $foldername[0] );
                     echo xlt("Moving file to destination ") . $destination . DIRECTORY_SEPARATOR . $foldername[0] . "<br>";
-                    echo $custom_module;
-                    //$zip->extractTo();
+                    if ($custom_module === 'created') {
+                        $za->extractTo($destination . DIRECTORY_SEPARATOR . $foldername[0]);
+                        $za->close();
+                    }
+                    echo xlt("Module import completed. Return to module manager and select Unregistered to see this module");
                 } else {
                     echo xlt("Zip file has no content. Please check source file and try again");
                     exit;
