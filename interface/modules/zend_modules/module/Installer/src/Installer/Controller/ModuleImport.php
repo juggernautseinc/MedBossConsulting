@@ -66,7 +66,7 @@ class ModuleImport
     /**
      * @return string
      */
-    public static function createImportDir()
+    public static function createImportDir(): string
     {
         $import_dir = dirname(__DIR__, 8) . DIRECTORY_SEPARATOR . "sites" . $_SESSION['site_id'] .
             DIRECTORY_SEPARATOR . "documents" . DIRECTORY_SEPARATOR . 'imports/';
@@ -86,10 +86,15 @@ class ModuleImport
         }
     }
 
-    public static function createDestinationFolder($destination)
+    public static function createDestinationFolder($destination): string
     {
         if (isset($destination)  && is_dir($destination)) {
-            mkdir($destination);
+            try {
+                mkdir($destination);
+            } catch (Exception $e) {
+                return "An error occured: " . $e->getMessage();
+                exit;
+            }
             return "check it! ";
         } else {
             return "Something else happened";
