@@ -88,8 +88,8 @@ class ModuleImport
 
     public static function createDestinationFolder($destination)
     {
-        if (isset($destination) && !is_dir($destination)) {
-            return "Is not a directory yet!";
+        if (isset($destination)) {
+            return "Is not a directory yet! " . !is_dir($destination);
         } else {
             return "Something else happened";
         }
