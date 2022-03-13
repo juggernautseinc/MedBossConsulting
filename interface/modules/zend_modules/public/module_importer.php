@@ -62,7 +62,14 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
 
                 echo  "<strong>" . xlt('Result of download') . "</strong><br>";
 
-                echo $import_dir.$parts[$zip];
+                $za = new ZipArchive();
+                $za->open($import_dir.$parts[$zip]);
+                $stats = '';
+                for ( $i = 0; $i < $za->numFiles; $i++) {
+                    $stats = $za->statIndex( $i );
+                }
+                var_dump($stats);
+
                 ?>
             </div>
         </div>
