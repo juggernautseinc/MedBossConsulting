@@ -61,14 +61,19 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
                 $import = new ModuleImport($_POST['module_import'], $parts[$zip], $import_dir);
 
                 echo  "<strong>" . xlt('Result of download') . "</strong><br>";
-
+                //Check to see if the zip file is empty
                 $za = new ZipArchive();
                 $za->open($import_dir.$parts[$zip]);
                 $stats = '';
                 for ( $i = 0; $i < $za->numFiles; $i++) {
                     $stats = $za->statIndex( $i );
                 }
-                var_dump($stats);
+
+                if (!empty($stats)) {
+                    echo "File successfully downloaded";
+                } else {
+                    echo "Zip file has no content";
+                }
 
                 ?>
             </div>
