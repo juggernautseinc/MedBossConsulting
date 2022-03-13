@@ -72,7 +72,7 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
 
                 if (!empty($stats)) {
                     echo xlt("File successfully downloaded ") . "<br>";
-                    $destination = dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "custom_modules/";
+                    $destination = dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "custom_modules";
                     $custom_module = ModuleImport::createDestinationFolder($destination);  //get abosulute path to module destination
                     $foldername = explode(".", $parts[$zip]);
                     echo xlt("Moving file to destination ") . $destination . DIRECTORY_SEPARATOR . $foldername[0] . "<br>";
