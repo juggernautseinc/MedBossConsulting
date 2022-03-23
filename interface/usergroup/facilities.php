@@ -188,7 +188,6 @@ $(function () {
                             <?php
                             $fres = 0;
                             $fres = $facilityService->getAllFacility();
-                            var_dump($fres);
                             if ($fres) {
                                 $result2 = array();
                                 for ($iter3 = 0; $iter3 < sizeof($fres); $iter3++) {
