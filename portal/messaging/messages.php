@@ -426,7 +426,22 @@ function getAuthPortalUsers()
                             $scope.editor.destroy(true);
                         }
                         $scope.editor = CKEDITOR.replace('inputBody', {
-                            removeButtons: 'PasteFromWord',
+                            toolbarGroups: [
+                                { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+                                { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+                                { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+                                { name: 'forms', groups: [ 'forms' ] },
+                                { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+                                { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+                                { name: 'links', groups: [ 'links' ] },
+                                { name: 'insert', groups: [ 'insert' ] },
+                                { name: 'styles', groups: [ 'styles' ] },
+                                { name: 'colors', groups: [ 'colors' ] },
+                                { name: 'tools', groups: [ 'tools' ] },
+                                { name: 'others', groups: [ 'others' ] },
+                                { name: 'about', groups: [ 'about' ] }
+                            ],
+                            removeButtons: 'About,Table,Smiley,SpecialChar,PageBreak,Iframe,HorizontalRule,Anchor,Unlink,Link,NumberedList,BulletedList,Outdent,Indent,Blockquote,CreateDiv,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,Language,BidiRtl,BidiLtr,CopyFormatting,RemoveFormat,Superscript,Subscript,Strike,Underline,Italic,Bold,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,SelectAll,Scayt,Find,Replace,PasteFromWord,Templates,NewPage,ExportPdf,Maximize,ShowBlocks,Source,Save,Preview,Print,Cut,Copy,Paste,PasteText,TextColor,BGColor',
                             height: 250,
                             width: '100%',
                             resize_maxHeight: 650
@@ -456,7 +471,22 @@ function getAuthPortalUsers()
                             $scope.editor.destroy(true);
                         }
                         $scope.editor = CKEDITOR.replace('inputBody', {
-                            removeButtons: 'PasteFromWord',
+                            toolbarGroups: [
+                                { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+                                { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+                                { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+                                { name: 'forms', groups: [ 'forms' ] },
+                                { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+                                { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+                                { name: 'links', groups: [ 'links' ] },
+                                { name: 'insert', groups: [ 'insert' ] },
+                                { name: 'styles', groups: [ 'styles' ] },
+                                { name: 'colors', groups: [ 'colors' ] },
+                                { name: 'tools', groups: [ 'tools' ] },
+                                { name: 'others', groups: [ 'others' ] },
+                                { name: 'about', groups: [ 'about' ] }
+                            ],
+                            removeButtons: 'About,Table,Smiley,SpecialChar,PageBreak,Iframe,HorizontalRule,Anchor,Unlink,Link,NumberedList,BulletedList,Outdent,Indent,Blockquote,CreateDiv,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,Language,BidiRtl,BidiLtr,CopyFormatting,RemoveFormat,Superscript,Subscript,Strike,Underline,Italic,Bold,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,SelectAll,Scayt,Find,Replace,PasteFromWord,Templates,NewPage,ExportPdf,Maximize,ShowBlocks,Source,Save,Preview,Print,Cut,Copy,Paste,PasteText,TextColor,BGColor',
                             height: 250,
                             width: '100%',
                             resize_maxHeight: 650
@@ -556,15 +586,15 @@ function getAuthPortalUsers()
                                     </li>
                                     <li class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="" data-mode="add" data-toggle="modal" data-target="#modalCompose"><?php echo xlt('Compose new'); ?></a>
+                                        <a class="dropdown-item" href="" data-mode="add" data-toggle="modal" data-target="#modalCompose"><i class="fa fa-edit"></i><?php echo xlt('Compose new'); ?></a>
                                     </li>
                                     <li ng-show='!isTrash'>
-                                        <a class="dropdown-item" href="javascript:;" ng-click="batchDelete(items)"><i class="fa fa-trash"></i> <?php echo xlt('Send Selected to Archive'); ?></a></li>
+                                        <a class="dropdown-item" href="javascript:;" ng-click="batchDelete(items)"><i class="fa fa-trash"></i><?php echo xlt('Send Selected to Archive'); ?></a></li>
                                     <li>
-                                        <a href="javascript:;" onclick='window.location.replace("<?php echo $GLOBALS['web_root'] ?>/portal/home.php")' ng-show="isPortal" class="dropdown-item text-muted"><?php echo xlt('Return Home'); ?></a>
+                                        <a href="javascript:;" onclick='window.location.replace("./messages.php")' ng-show="isPortal" class="dropdown-item"><i class="fa fa-sync"></i><?php echo xlt('Refresh'); ?></a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo $GLOBALS['web_root'] ?>/portal/patient/provider" ng-show="!isPortal" class="dropdown-item text-muted"><?php echo xlt('Return Home'); ?></a>
+                                        <a href="<?php echo $GLOBALS['web_root'] ?>/portal/patient/provider" ng-show="!isPortal" class="dropdown-item"><i class="fa fa-home"></i><?php echo xlt('Return Home'); ?></a>
                                     </li>
                                 </ul>
                             </div>
