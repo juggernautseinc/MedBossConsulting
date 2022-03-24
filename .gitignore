@@ -13,6 +13,9 @@ node_modules
 !/public/assets/modified
 /.docs/.out/*
 
+# ignore a single file
+textbelt.php
+
 # ccda service build
 ccdaservice/node_modules
 
@@ -24,7 +27,7 @@ ccdaservice/node_modules
 .buildpath
 .project
 .settings
-textbelt.php
+
 
 # testing
 .phpunit.result.cache
