@@ -1,11 +1,12 @@
 <?php
 
 /*
- *  @package OpenEMR
- *  @link    http://www.open-emr.org
- *  @author  Sherwin Gaddis <sherwingaddis@gmail.com>
- *  @copyright Copyright (c) 2020 Sherwin Gaddis <sherwingaddis@gmail.com>
- *  @license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
+ * @package OpenEMR
+ * @link    http://www.open-emr.org
+ * @author  Sherwin Gaddis <sherwingaddis@gmail.com>
+ * @copyright Copyright (c)  2021 Sherwin Gaddis <sherwingaddis@gmail.com>
+ * @license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
+ *
  */
 
 namespace OpenEMR\Rx\Weno;
@@ -64,8 +65,8 @@ class LogProperties
         $this->rxsynclog = $GLOBALS['OE_SITE_DIR'] . "/documents/logs_and_misc/logsync.csv";
         $this->enc_key = $this->cryptoGen->decryptStandard($GLOBALS['weno_encryption_key']);
         $this->key = substr(hash('sha256', $this->enc_key, true), 0, 32);
-        $this->iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
         $this->provider = $this->container->getTransmitproperties();
+        $this->iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
     }
 
     /**
