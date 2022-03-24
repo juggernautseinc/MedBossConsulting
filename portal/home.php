@@ -9,7 +9,7 @@
  * @author    Brady Miller <brady.g.miller@gmail.com>
  * @author    Shiqiang Tao <StrongTSQ@gmail.com>
  * @author    Ben Marte <benmarte@gmail.com>
- * @copyright Copyright (c) 2016-2022 Jerry Padgett <sjpadgett@gmail.com>
+ * @copyright Copyright (c) 2016-2021 Jerry Padgett <sjpadgett@gmail.com>
  * @copyright Copyright (c) 2019-2021 Brady Miller <brady.g.miller@gmail.com>
  * @copyright Copyright (c) 2020 Shiqiang Tao <StrongTSQ@gmail.com>
  * @copyright Copyright (c) 2021 Ben Marte <benmarte@gmail.com>
@@ -36,17 +36,6 @@ if (isset($_SESSION['register']) && $_SESSION['register'] === true) {
 
 if (!isset($_SESSION['portal_init'])) {
     $_SESSION['portal_init'] = true;
-}
-
-// Get language definitions for js
-$language = $_SESSION['language_choice'] ?? '1'; // defaults english
-$sql = "SELECT c.constant_name, d.definition FROM lang_definitions as d
-        JOIN lang_constants AS c ON d.cons_id = c.cons_id
-        WHERE d.lang_id = ?";
-$tarns = sqlStatement($sql, $language);
-$language_defs = array();
-while ($row = SqlFetchArray($tarns)) {
-    $language_defs[$row['constant_name']] = $row['definition'];
 }
 
 $whereto = $_SESSION['whereto'] ?? null;
@@ -166,15 +155,9 @@ function buildNav($newcnt, $pid, $result)
             'dropdownID' => 'reports',
             'children' => [
                 [
-                    'url' => $GLOBALS['web_root'] . '' . '/ccdaservice/ccda_gateway.php?action=view&csrf_token_form=' . urlencode(CsrfUtils::collectCsrfToken()),
+                    'url' => $GLOBALS['web_root'] . '' . '/ccdaservice/ccda_gateway.php?action=startandrun&csrf_token_form=' . urlencode(CsrfUtils::collectCsrfToken()),
                     'label' => xl('View CCD'),
-                    'icon' => 'fa-eye',
-                    'target_blank' => 'true',
-                ],
-                [
-                    'url' => $GLOBALS['web_root'] . '' . '/ccdaservice/ccda_gateway.php?action=dl&csrf_token_form=' . urlencode(CsrfUtils::collectCsrfToken()),
-                    'label' => xl('Download CCD'),
-                    'icon' => 'fa-download',
+                    'icon' => 'fa-envelope',
                 ]
             ]
         ]
@@ -247,7 +230,7 @@ function buildNav($newcnt, $pid, $result)
                 ],
                 [
                     'url' => '#downloadcard',
-                    'label' => xl('Download Charted Documents'),
+                    'label' => xl('Download Lab Documents'),
                     'icon' => 'fa-download',
                     'dataToggle' => 'collapse'
                 ]
@@ -271,7 +254,7 @@ $navMenu = buildNav($newcnt, $pid, $result);
 $twig = (new TwigContainer('', $GLOBALS['kernel']))->getTwig();
 echo $twig->render('portal/home.html.twig', [
     'user' => $user,
-    'whereto' => $_SESSION['whereto'] ?? null ?: ($whereto ?? '#documentscard'),
+    'whereto' => $_SESSION['whereto'] ?: ($whereto ?? '#documentscard'),
     'result' => $result,
     'msgs' => $msgs,
     'msgcnt' => $msgcnt,
@@ -290,7 +273,7 @@ echo $twig->render('portal/home.html.twig', [
     'pagetitle' => xl('Home') . ' | ' . xl('OpenEMR Portal'),
     'messagesURL' => $messagesURL,
     'patientID' => $pid,
-    'patientName' => $_SESSION['ptName'] ?? null,
+    'patientName' => $_SESSION['ptName'],
     'csrfUtils' => CsrfUtils::collectCsrfToken(),
     'isEasyPro' => $isEasyPro,
     'appointments' => $appointments,
@@ -298,9 +281,6 @@ echo $twig->render('portal/home.html.twig', [
     'appointmentLimit' => $apptLimit,
     'appointmentCount' => $count,
     'displayLimitLabel' => xl('Display limit reached'),
-    'site_id' => $_SESSION['site_id'] ?? ($_GET['site'] ?? 'default'), // one way or another, we will have a site_id.
-    'portal_timeout' => $GLOBALS['portal_timeout'] ?? 1800, // timeout is in seconds
-    'language_defs' => $language_defs,
     'eventNames' => [
         'sectionRenderPost' => RenderEvent::EVENT_SECTION_RENDER_POST,
         'scriptsRenderPre' => RenderEvent::EVENT_SCRIPTS_RENDER_PRE

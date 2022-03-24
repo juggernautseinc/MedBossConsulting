@@ -8,7 +8,7 @@
  * @author    Rod Roark <rod@sunsetsystems.com>
  * @author    Stephen Waite <stephen.waite@cmsvt.com>
  * @author    Brady Miller <brady.g.miller@gmail.com>
- * @copyright Copyright (c) 2010-2021 Rod Roark <rod@sunsetsystems.com>
+ * @copyright Copyright (c) 2015 Rod Roark <rod@sunsetsystems.com>
  * @copyright Copyright (c) 2018 Stephen Waite <stephen.waite@cmsvt.com>
  * @copyright Copyright (c) 2019 Brady Miller <brady.g.miller@gmail.com>
  * @license   https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
@@ -3036,9 +3036,10 @@ $GLOBALS_METADATA = array(
         'payment_gateway' => array(
             xl('Select Credit Card Payment Gateway'),
             array(
-                'InHouse' => xl('In House'),
-                'AuthorizeNet' => xl('Authorize.Net'),
-                'Stripe' => xl('Stripe')
+                'InHouse' => xl('In House Authorize Payments'),
+                'AuthorizeNet' => xl('Gateway for AuthorizeNet Manual Payments'),
+                'Sphere' => xl('Gateway for Sphere Payments'),
+                'Stripe' => xl('Gateway for Stripe Manual Payments')
             ),
             'InHouse',
             xl('Enable a Payment Gateway Service for processing credit card transactions')
@@ -3070,6 +3071,76 @@ $GLOBALS_METADATA = array(
             'encrypted',
             '',
             xl('Mainly Authorize.Net uses two keys')
+        ),
+
+        'sphere_clinicfront_trxcustid' => array(
+            xl('Sphere Clinicfront over phone (MOTO) Transaction CustID'),
+            'encrypted',
+            '',
+            xl('Sphere Clinicfront over phone (MOTO) Transaction CustID')
+        ),
+
+        'sphere_clinicfront_trxcustid_licensekey' => array(
+            xl('Sphere Clinicfront over phone (MOTO) Transaction CustID License Key'),
+            'encrypted',
+            '',
+            xl('Sphere Clinicfront over phone (MOTO) Transaction CustID License Key')
+        ),
+
+        'sphere_moto_tc_link_pass' => array(
+            xl('Sphere MOTO TC Link Password'),
+            'encrypted',
+            '',
+            xl('Sphere MOTO TC Link Password')
+        ),
+
+        'sphere_clinicfront_retail_trxcustid' => array(
+            xl('Sphere Clinicfront in person (RETAIL) Transaction CustID'),
+            'encrypted',
+            '',
+            xl('Sphere Clinicfront in person (RETAIL) Transaction CustID')
+        ),
+
+        'sphere_clinicfront_retail_trxcustid_licensekey' => array(
+            xl('Sphere Clinicfront in person (RETAIL) Transaction CustID License Key'),
+            'encrypted',
+            '',
+            xl('Sphere Clinicfront in person (RETAIL) Transaction CustID License Key')
+        ),
+
+        'sphere_retail_tc_link_pass' => array(
+            xl('Sphere RETAIL TC Link Password'),
+            'encrypted',
+            '',
+            xl('Sphere RETAIL TC Link Password')
+        ),
+
+        'sphere_patientfront_trxcustid' => array(
+            xl('Sphere Patientfront (Ecomm) Transaction CustID'),
+            'encrypted',
+            '',
+            xl('Sphere Patientfront (Ecomm) Transaction CustID')
+        ),
+
+        'sphere_patientfront_trxcustid_licensekey' => array(
+            xl('Sphere Patientfront (Ecomm) Transaction CustID License Key'),
+            'encrypted',
+            '',
+            xl('Sphere Patientfront (Ecomm) Transaction CustID License Key')
+        ),
+
+        'sphere_ecomm_tc_link_pass' => array(
+            xl('Sphere Ecomm TC Link Password'),
+            'encrypted',
+            '',
+            xl('Sphere Ecomm TC Link Password')
+        ),
+
+        'sphere_credit_void_confirm_pin' => array(
+            xl('Sphere Void/Credit Confirmation PIN'),
+            'encrypted_hash',
+            '',
+            xl('Sphere Void/Credit Confirmation Password. OpenEMR confirms pin/password before proceeding with void/credit.')
         ),
 
         'medex_enable' => array(

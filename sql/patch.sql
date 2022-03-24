@@ -240,3 +240,31 @@ ALTER TABLE `document_template_profiles` ADD `recurring` TINYINT(1) NOT NULL DEF
 ALTER TABLE `document_template_profiles` CHANGE `profile` `profile` VARCHAR(64) NOT NULL, CHANGE `category` `category` VARCHAR(64) NOT NULL, CHANGE `template_name` `template_name` VARCHAR(255) NOT NULL;
 ALTER TABLE `document_template_profiles` DROP INDEX `location`, ADD UNIQUE `location` (`profile`, `template_id`, `member_of`);
 #EndIf
+
+-- drop if view was converted to a table
+#IfTable onsite_activity_view
+DROP TABLE IF EXISTS `onsite_activity_view`;
+#EndIf
+
+#IfNotRow3D layout_options form_id HIS field_id usertext11 datacols 3
+UPDATE `layout_options` SET `datacols` = '3' WHERE `form_id` = 'HIS' AND `field_id` = 'usertext11';
+UPDATE `layout_options` SET `datacols` = '3' WHERE `form_id` = 'HIS' AND `field_id` = 'exams';
+#EndIf
+
+#IfNotTable verify_email
+CREATE TABLE `verify_email` (
+`id` bigint NOT NULL auto_increment,
+`pid_holder` bigint DEFAULT NULL,
+`email` varchar(255) DEFAULT NULL,
+`language` varchar(100) DEFAULT NULL,
+`fname` varchar(255) DEFAULT NULL,
+`mname` varchar(255) DEFAULT NULL,
+`lname` varchar(255) DEFAULT NULL,
+`dob` date DEFAULT NULL,
+`token_onetime`  VARCHAR(255) DEFAULT NULL,
+`active` tinyint NOT NULL default 1,
+PRIMARY KEY (`id`),
+UNIQUE KEY (`email`)
+) ENGINE=InnoDB;
+#EndIf
+

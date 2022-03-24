@@ -826,8 +826,13 @@ class X125010837P
             $out .= "NM1" .     // Loop 2310A Referring Provider
                 "*" . "DN" .
                 "*" . "1" .
-                "*" . $claim->referrerLastName() .
                 "*";
+            if ($claim->referrerLastName()) {
+                $out .= $claim->referrerLastName();
+            } else {
+                $log .= "*** Missing referrer last name.\n";
+            }
+            $out .= "*";
             if ($claim->referrerFirstName()) {
                 $out .= $claim->referrerFirstName();
             } else {
@@ -1261,7 +1266,7 @@ class X125010837P
                 }
             }
 
-            // needed for epstd
+            # needed for epstd
             if ($claim->epsdtFlag()) {
                 $out .= "*" .
                     "*" .
