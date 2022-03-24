@@ -2,7 +2,7 @@
 
 require_once "interface/globals.php";
 
-const API_KEY = 'a6269a7521f10975b349f975f0178e8c36ae1f32cOPgHBXAQjUqbUIA0Rqk4IMPI';
+const API_KEY = '';
 
 function createMeetingId()
 {
