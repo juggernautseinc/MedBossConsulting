@@ -24,7 +24,7 @@ if (!empty($_GET['room'])) {
 } else {
     $room = createMeetingId();
 }
-var_dump($room);
+//var_dump($room);
 ?>
 <html>
 <head>
