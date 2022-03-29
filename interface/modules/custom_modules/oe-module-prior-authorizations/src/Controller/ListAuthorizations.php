@@ -84,11 +84,15 @@ class ListAuthorizations
      */
     private function formPriorAuth(): array
     {
-        $sql = "select prior_auth_number from form_prior_auth where pid = ?";
-        $auths = sqlStatement($sql, [$_SESSION['pid']]);
+        $doesExist = sqlQuery('select 1 from `form_form_auth` LIMIT 1');
         $auths_array = [];
-        while ($row = sqlFetchArray($auths)) {
-            $auths_array[] = $row['prior_auth_number'];
+        if ($doesExist !== FALSE) {
+            $sql = "select prior_auth_number from form_prior_auth where pid = ?";
+            $auths = sqlStatement($sql, [$_SESSION['pid']]);
+            while ($row = sqlFetchArray($auths)) {
+                $auths_array[] = $row['prior_auth_number'];
+            }
+            return $auths_array;
         }
         return $auths_array;
     }
