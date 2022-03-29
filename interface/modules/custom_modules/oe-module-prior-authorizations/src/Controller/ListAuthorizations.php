@@ -84,9 +84,9 @@ class ListAuthorizations
      */
     private function formPriorAuth(): array
     {
-        $doesExist = sqlQuery('select 1 from `form_form_auth` LIMIT 1');
+        $doesExist = sqlQuery("SELECT table_name FROM information_schema.tables WHERE table_name = 'form_form_prior_auth'");
         $auths_array = [];
-        if ($doesExist !== FALSE) {
+        if (!empty($doesExist)) {
             $sql = "select prior_auth_number from form_prior_auth where pid = ?";
             $auths = sqlStatement($sql, [$_SESSION['pid']]);
             while ($row = sqlFetchArray($auths)) {

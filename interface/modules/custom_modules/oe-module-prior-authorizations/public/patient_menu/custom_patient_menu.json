@@ -3,7 +3,7 @@
     "menu_id": "dashboard",
     "target": "main",
     "on_click":"top.restoreSession()",
-    "url": "/interface/patient_file/summary/demographics.php",
+    "url": "../summary/demographics.php",
     "pid":"false",
     "children": [],
     "requirement": 0
@@ -13,7 +13,7 @@
         "menu_id": "priorauth",
         "target": "main",
         "on_click":"top.restoreSession()",
-        "url": "/interface/modules/custom_modules/oe-module-prior-authorizations/",
+        "url": "../../modules/custom_modules/oe-module-prior-authorizations/",
         "pid":"false",
         "children": [],
         "requirement": 0
@@ -23,7 +23,7 @@
         "menu_id": "history",
         "target": "main",
         "on_click":"top.restoreSession()",
-        "url": "/interface/patient_file/history/history.php",
+        "url": "../history/history.php",
         "pid":"false",
         "children": [],
         "requirement": 0
@@ -33,7 +33,7 @@
         "menu_id": "report",
         "target": "main",
         "on_click":"top.restoreSession()",
-        "url": "/interface/patient_file/report/patient_report.php",
+        "url": "../report/patient_report.php",
         "pid":"false",
         "children": [],
         "requirement": 0,
@@ -47,7 +47,7 @@
         "menu_id": "documents",
         "target": "main",
         "on_click":"top.restoreSession()",
-        "url": "/controller.php?document&list&patient_id=",
+        "url": "../../../controller.php?document&list&patient_id=",
         "pid":"true",
         "children": [],
         "requirement": 0
@@ -57,7 +57,7 @@
         "menu_id": "transactions",
         "target": "main",
         "on_click":"top.restoreSession()",
-        "url": "/interface/patient_file/transaction/transactions.php",
+        "url": "../transaction/transactions.php",
         "pid":"false",
         "children": [],
         "requirement": 0
@@ -67,7 +67,7 @@
         "menu_id": "issues",
         "target": "main",
         "on_click":"top.restoreSession()",
-        "url": "/interface/patient_file/summary/stats_full.php?active=all",
+        "url": "../summary/stats_full.php?active=all",
         "pid":"false",
         "children": [],
         "requirement": 0
@@ -77,7 +77,7 @@
         "menu_id": "ledger",
         "target": "main",
         "on_click":"top.restoreSession()",
-        "url": "/interface/reports/pat_ledger.php?form=1&patient_id=",
+        "url": "../../reports/pat_ledger.php?form=1&patient_id=",
         "pid":"true",
         "children": [],
         "requirement": 2,
