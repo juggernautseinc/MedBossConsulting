@@ -477,7 +477,11 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
                 <?php echo text($row['reason']); ?>&nbsp;
   </td>
    <td>
-                <?php echo text($row['encounter']); ?>&nbsp;
+       <?php  $ptname = $row['fname'] . ' ' . $row['lname'];
+       echo
+           "<a class=\"btn btn-xs btn-default\" role=\"button\" " . "href=\"javascript:    window.toencounter(" . attr_js($row['pid']) . "," . attr_js($row['pubpid']) . "," . attr_js($ptname) . "," . attr_js($row['encounter']) . "," . attr_js(oeFormatShortDate($row['date'])) . "," . attr_js(" ".xl('DOB').": ".oeFormatShortDate($row['DOB'])." ".xl('Age').": ".getPatientAge($row['DOB'])) . ");
+      top.window.parent.left_nav.setPatientEncounter(EncounterIdArray[" . attr($row['pid']) . "],EncounterDateArray[" . attr($row['pid']) . "], CalendarCategoryArray[" . attr($row['pid']) . "]);
+if (top.tab_mode)       { top.setEncounter(" . attr_js($row['encounter']) . "); } \">" .  text($row['encounter']) . "</a>"; ?>
   </td>
   <td>
                 <?php echo $encnames; //since this variable contains html, have already html escaped it above ?>&nbsp;
