@@ -196,16 +196,9 @@ $res = sqlStatement($query, $sqlBindArray);
             encurl = 'patient_file/encounter/encounter_top.php?set_encounter=' + encodeURIComponent(enc) +
                 '&pid=' + encodeURIComponent(pid);
             parent.left_nav.setPatient(pname, pid, pubpid, '', dobstr);
-            <?php if ($GLOBALS['new_tabs_layout']) { ?>
             parent.left_nav.setEncounter(datestr, enc, 'enc');
             parent.left_nav.loadFrame('enc2', 'enc', encurl);
-            <?php } else { ?>
-            var othername = (window.name == 'RTop') ? 'RBot' : 'RTop';
-            parent.left_nav.setEncounter(datestr, enc, othername);
-            parent.frames[othername].location.href = '../' + encurl;
-            <?php } ?>
         }
-
 
         function refreshme() {
             document.forms[0].submit();
@@ -495,10 +488,11 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
   </td>
    <td>
        <?php  $ptname = $row['fname'] . ' ' . $row['lname'];
-       echo
-           "<a class=\"btn btn-xs btn-default\" role=\"button\" " . "href=\"javascript:    window.toencounter(" . attr_js($row['pid']) . "," . attr_js($row['pubpid']) . "," . attr_js($ptname) . "," . attr_js($row['encounter']) . "," . attr_js(oeFormatShortDate($row['date'])) . "," . attr_js(" ".xl('DOB').": ".oeFormatShortDate($row['DOB'])." ".xl('Age').": ".getPatientAge($row['DOB'])) . ");
-      top.window.parent.left_nav.setPatientEncounter(EncounterIdArray[" . attr($row['pid']) . "],EncounterDateArray[" . attr($row['pid']) . "], CalendarCategoryArray[" . attr($row['pid']) . "]);
-if (top.tab_mode)       { top.setEncounter(" . attr_js($row['encounter']) . "); } \">" .  text($row['encounter']) . "</a>"; ?>
+       echo "<a class='btn btn-sm btn-primary' role='button'" . "href='javascript:
+                                    window.toencounter(" . attr_js($row['pid']) . "," . attr_js($row['pubpid']) . "," . attr_js($ptname) . "," . attr_js($row['encounter']) . "," . attr_js(oeFormatShortDate($raw_encounter_date)) . "," . attr_js(" " . xl('DOB') . ": " . oeFormatShortDate($row['DOB']) . " " . xl('Age') . ": " . getPatientAge($row['DOB'])) . ");
+                                    top.window.parent.left_nav.setPatientEncounter(EncounterIdArray[" . attr($row['pid']) . "],EncounterDateArray[" . attr($row['pid']) . "], CalendarCategoryArray[" . attr($row['pid']) . "]);
+                                    top.setEncounter(" . attr_js($row['encounter']) . ");
+                                    '>" . text($row['encounter']) . " " . text(oeFormatShortDate($raw_encounter_date)) . "</a>"; ?>
   </td>
   <td>
                 <?php echo $encnames; //since this variable contains html, have already html escaped it above ?>&nbsp;
