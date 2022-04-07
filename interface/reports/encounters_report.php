@@ -483,8 +483,8 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
   <td>
                 <?php echo text($status); ?>&nbsp;
   </td>
-  <td><span style="width: 450px">
-                <?php echo text($row['reason']); ?></span>&nbsp;
+  <td style="width: 650px">
+                <?php echo text($row['reason']); ?>
   </td>
    <td>
        <?php  $ptname = $row['fname'] . ' ' . $row['lname'];
