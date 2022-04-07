@@ -190,6 +190,23 @@ $res = sqlStatement($query, $sqlBindArray);
             return false;
         }
 
+        // Process a click to go to an encounter.
+        function toencounter(pid, pubpid, pname, enc, datestr, dobstr) {
+            top.restoreSession();
+            encurl = 'patient_file/encounter/encounter_top.php?set_encounter=' + encodeURIComponent(enc) +
+                '&pid=' + encodeURIComponent(pid);
+            parent.left_nav.setPatient(pname, pid, pubpid, '', dobstr);
+            <?php if ($GLOBALS['new_tabs_layout']) { ?>
+            parent.left_nav.setEncounter(datestr, enc, 'enc');
+            parent.left_nav.loadFrame('enc2', 'enc', encurl);
+            <?php } else { ?>
+            var othername = (window.name == 'RTop') ? 'RBot' : 'RTop';
+            parent.left_nav.setEncounter(datestr, enc, othername);
+            parent.frames[othername].location.href = '../' + encurl;
+            <?php } ?>
+        }
+
+
         function refreshme() {
             document.forms[0].submit();
         }
