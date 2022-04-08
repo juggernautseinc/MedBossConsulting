@@ -23,6 +23,9 @@ class ApiTestClientTest extends TestCase
     const EXAMPLE_API_ENDPOINT_SCOPE = "user/facility.read";
     const API_ROUTE_SCOPE = "api:oemr";
 
+    /**
+     * @var ApiTestClient
+     */
     private $client;
 
     /**
@@ -552,5 +555,14 @@ class ApiTestClientTest extends TestCase
         $this->client->removeAuthToken();
         $actualHeaders = $this->client->getConfig("headers");
         $this->assertArrayNotHasKey("Authorization", $actualHeaders);
+    }
+
+    public function testApiAuthPublicClientDoesNotReturnRefreshToken()
+    {
+        $actualValue = $this->client->setAuthToken(ApiTestClient::OPENEMR_AUTH_ENDPOINT, [], 'public');
+        $this->assertEquals(200, $actualValue->getStatusCode(), "public client authorization should return valid status code");
+        $this->assertNull($this->client->getRefreshToken(), "Refresh token should be empty for public client");
+        $this->assertNotNull($this->client->getAccessToken(), "Access token should be populated");
+        $this->assertNotNull($this->client->getIdToken(), "Id token should be populated");
     }
 }
