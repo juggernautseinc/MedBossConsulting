@@ -575,6 +575,9 @@ foreach ($providers as $provider) {
             // $event['aid']!=0 :With the holidays we included clinic events, they have provider id =0
             // we dont want to exclude those events from being displayed
             if (!empty($event['aid']) && ($providerid != $event['aid'])) { continue; }
+                    // skip cancelled appointments
+                    if ($event['apptstatus'] == "x") { continue; }
+                    if ($event['apptstatus'] == "xx") { continue; }  //practice cancelled
 
             // skip events without an ID (why they are in the loop, I have no idea)
             if (empty($event['eid'])) { continue; }
