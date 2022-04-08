@@ -24,9 +24,10 @@ use OpenEMR\Common\Auth\OpenIDConnect\Repositories\AccessTokenRepository;
 use OpenEMR\Common\Logging\EventAuditLogger;
 use OpenEMR\Common\Logging\SystemLogger;
 use OpenEMR\Common\Session\SessionUtil;
-use OpenEMR\Common\Uuid\UuidRegistry;
+use OpenEMR\Services\TrustedUserService;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+
 
 // also a handy place to add utility methods
 // TODO before v6 release: refactor http_response_code(); for psr responses.
@@ -41,9 +42,6 @@ class RestConfig
 
     /** @var portal routemap is an  of patterns and routes */
     public static $PORTAL_ROUTE_MAP;
-
-    /** @var portal fhir routemap is an  of patterns and routes */
-    public static $PORTAL_FHIR_ROUTE_MAP;
 
     /** @var app root is the root directory of the application */
     public static $APP_ROOT;
@@ -195,7 +193,7 @@ class RestConfig
 
     public static function verifyAccessToken()
     {
-        $logger = SystemLogger::instance();
+        $logger = new SystemLogger();
         $response = self::createServerResponse();
         $request = self::createServerRequest();
         $server = new ResourceServer(
@@ -216,22 +214,40 @@ class RestConfig
         return $raw;
     }
 
+    /**
+     * Returns true if the access token for the given token id is valid.  Otherwise returns the access denied response.
+     * @param $tokenId
+     * @return bool|ResponseInterface
+     */
+    public static function validateAccessTokenRevoked($tokenId)
+    {
+        $repository = new AccessTokenRepository();
+        if ($repository->isAccessTokenRevokedInDatabase($tokenId)) {
+            $response = self::createServerResponse();
+            return OAuthServerException::accessDenied('Access token has been revoked')->generateHttpResponse($response);
+        }
+        return true;
+    }
+
     public static function isTrustedUser($clientId, $userId)
     {
+        $trustedUserService = new TrustedUserService();
         $response = self::createServerResponse();
         try {
-            $trusted = sqlQueryNoLog("SELECT * FROM `oauth_trusted_user` WHERE `client_id`= ? AND `user_id`= ?", array($clientId, $userId));
-            if (empty($trusted['session_cache'])) {
+            if (!$trustedUserService->isTrustedUser($clientId, $userId)) {
+                (new SystemLogger())->debug(
+                    "invalid Trusted User.  Refresh Token revoked or logged out",
+                    ['clientId' => $clientId, 'userId' => $userId]
+                );
                 throw new OAuthServerException('Refresh Token revoked or logged out', 0, 'invalid _request', 400);
             }
+            return $trustedUserService->getTrustedUser($clientId, $userId);
         } catch (OAuthServerException $exception) {
             return $exception->generateHttpResponse($response);
         } catch (\Exception $exception) {
             return (new OAuthServerException($exception->getMessage(), 0, 'unknown_error', 500))
                 ->generateHttpResponse($response);
         }
-
-        return $trusted;
     }
 
     public static function createServerResponse(): ResponseInterface
@@ -278,9 +294,9 @@ class RestConfig
         return null;
     }
 
-    public static function authorization_check($section, $value): void
+    public static function authorization_check($section, $value, $user = ''): void
     {
-        $result = AclMain::aclCheckCore($section, $value);
+        $result = AclMain::aclCheckCore($section, $value, $user);
         if (!$result) {
             if (!self::$notRestCall) {
                 http_response_code(401);
@@ -306,9 +322,14 @@ class RestConfig
                 $scope = $scopeType . '/' . $resource . '.' . $permission;
             }
             if (!in_array($scope, $GLOBALS['oauth_scopes'])) {
+                (new SystemLogger())->debug("RestConfig::scope_check scope not in access token", ['scope' => $scope, 'scopes_granted' => $GLOBALS['oauth_scopes']]);
                 http_response_code(401);
                 exit;
             }
+        } else {
+            (new SystemLogger())->error("RestConfig::scope_check global scope array is empty");
+            http_response_code(401);
+            exit;
         }
     }
 
@@ -330,11 +351,6 @@ class RestConfig
     public static function is_portal_request($resource): bool
     {
         return stripos(strtolower($resource), "/portal/") !== false;
-    }
-
-    public static function is_portal_fhir_request($resource): bool
-    {
-        return stripos(strtolower($resource), "/portalfhir/") !== false;
     }
 
     public static function is_api_request($resource): bool
@@ -368,18 +384,30 @@ class RestConfig
 
     public static function apiLog($response = '', $requestBody = ''): void
     {
+        $logResponse = $response;
+
         // only log when using standard api calls (skip when using local api calls from within OpenEMR)
         //  and when api log option is set
         if (!$GLOBALS['is_local_api'] && !self::$notRestCall && $GLOBALS['api_log_option']) {
             if ($GLOBALS['api_log_option'] == 1) {
                 // Do not log the response and requestBody
-                $response = '';
+                $logResponse = '';
                 $requestBody = '';
+            }
+            if ($response instanceof ResponseInterface) {
+                if (self::shouldLogResponse($response)) {
+                    $body = $response->getBody();
+                    $logResponse = $body->getContents();
+                    $body->rewind();
+                } else {
+                    $logResponse = 'Content not application/json - Skip binary data';
+                }
+            } else {
+                $logResponse = (!empty($logResponse)) ? json_encode($response) : '';
             }
 
             // convert pertinent elements to json
             $requestBody = (!empty($requestBody)) ? json_encode($requestBody) : '';
-            $response = (!empty($response)) ? json_encode($response) : '';
 
             // prepare values and call the log function
             $event = 'api';
@@ -395,7 +423,7 @@ class RestConfig
                 'request' => $GLOBALS['resource'],
                 'request_url' => $url,
                 'request_body' => $requestBody,
-                'response' => $response
+                'response' => $logResponse
             ];
             if ($patientId === 0) {
                 $patientId = null; //entries in log table are blank for no patient_id, whereas in api_log are 0, which is why above $api value uses 0 when empty
@@ -423,29 +451,59 @@ class RestConfig
         echo $response->getBody();
     }
 
-    public function authenticateUserToken($tokenId, $userId): bool
+    /**
+     * If the FHIR System scopes enabled or not.  True if its turned on, false otherwise.
+     * @return bool
+     */
+    public static function areSystemScopesEnabled()
+    {
+        return $GLOBALS['rest_system_scopes_api'] === '1';
+    }
+
+    public function authenticateUserToken($tokenId, $clientId, $userId): bool
     {
         $ip = collectIpAddresses();
 
         // check for token
-        $authToken = sqlQueryNoLog("SELECT `expiry` FROM `api_token` WHERE `token` = ? AND `user_id` = ?", [$tokenId, $userId]);
-        if (empty($authToken) || empty($authToken['expiry'])) {
-            EventAuditLogger::instance()->newEvent('api', '', '', 0, "API failure: " . $ip['ip_string'] . ". Token not found for " . $userId . ".");
+        $accessTokenRepo = new AccessTokenRepository();
+        $authTokenExpiration = $accessTokenRepo->getTokenExpiration($tokenId, $clientId, $userId);
+
+        if (empty($authTokenExpiration)) {
+            EventAuditLogger::instance()->newEvent('api', '', '', 0, "API failure: " . $ip['ip_string'] . ". Token not found for client[" . $clientId . "] and user " . $userId . ".");
             return false;
         }
 
         // Ensure token not expired (note an expired token should have already been caught by oauth2, however will also check here)
         $currentDateTime = date("Y-m-d H:i:s");
-        $expiryDateTime = date("Y-m-d H:i:s", strtotime($authToken['expiry']));
+        $expiryDateTime = date("Y-m-d H:i:s", strtotime($authTokenExpiration));
         if ($expiryDateTime <= $currentDateTime) {
-            EventAuditLogger::instance()->newEvent('api', '', '', 0, "API failure: " . $ip['ip_string'] . ". Token expired for " . $userId . ".");
+            EventAuditLogger::instance()->newEvent('api', '', '', 0, "API failure: " . $ip['ip_string'] . ". Token expired for client[" . $clientId . "] and user " . $userId . ".");
             return false;
         }
 
         // Token authentication passed
-        EventAuditLogger::instance()->newEvent('api', '', '', 1, "API success: " . $ip['ip_string'] . ". Token successfully used for " . $userId . ".");
+        EventAuditLogger::instance()->newEvent('api', '', '', 1, "API success: " . $ip['ip_string'] . ". Token successfully used for client[" . $clientId . "] and user " . $userId . ".");
         return true;
     }
+
+    /**
+     * Checks if we should log the response interface (we don't want to log binary documents or anything like that)
+     * We only log requests with a content-type of any form of json fhir+application/json or application/json
+     * @param ResponseInterface $response
+     * @return bool If the request should be logged, false otherwise
+     */
+    private static function shouldLogResponse(ResponseInterface $response)
+    {
+        if ($response->hasHeader("Content-Type")) {
+            $contentType = $response->getHeaderLine("Content-Type");
+            if ($contentType === 'application/json') {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 
     /** prevents external cloning */
     private function __clone()

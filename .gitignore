@@ -8,13 +8,13 @@
 node_modules
 /vendor/*
 /public/assets/*
-/interface/jitsi/jitsi.php
-/portal/jitsi/jitsi.php
+/public/themes/*
 !/public/assets/modified
 /.docs/.out/*
 
-# ignore a single file
-textbelt.php
+# Custom modules
+interface/modules/custom_modules/**
+!interface/modules/custom_modules/README.md
 
 # ccda service build
 ccdaservice/node_modules
@@ -27,7 +27,6 @@ ccdaservice/node_modules
 .buildpath
 .project
 .settings
-
 
 # testing
 .phpunit.result.cache
