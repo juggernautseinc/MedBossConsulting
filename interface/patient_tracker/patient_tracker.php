@@ -652,10 +652,12 @@ if (!$_REQUEST['flb_table']) {
                         <td class="detail text-center">
                             <?php
                                 $checkDate = sqlQuery("SELECT `end_date` FROM `module_prior_authorizations` WHERE pid = ?", [$appt_pid]);
-                                if ($checkDate < date('Y-m-d')) {
-                                    echo "<span class='dot'></span>";
-                                } else {
-                                    echo "<span class='good'></span>";
+                                if (!empty($checkDate['end_date'])) {
+                                    if ($checkDate['end_date'] < date('Y-m-d')) {
+                                        echo "<span class='dot'></span>";
+                                    } else {
+                                        echo "<span class='good'></span>";
+                                    }
                                 }
                             ?>
                         </td>
