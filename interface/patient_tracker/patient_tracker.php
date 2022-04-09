@@ -161,7 +161,22 @@ if (!$_REQUEST['flb_table']) {
     <?php } ?>
 
     <script src="<?php echo $GLOBALS['web_root']; ?>/interface/main/messages/js/reminder_appts.js?v=<?php echo $v_js_includes; ?>"></script>
-
+    <style>
+        .dot {
+          height: 25px;
+          width: 25px;
+          background-color: red;
+          border-radius: 50%;
+          display: inline-block;
+        }
+        .good {
+            height: 25px;
+          width: 25px;
+          background-color: green;
+          border-radius: 50%;
+          display: inline-block;
+        }
+</style>
 </head>
 
 <body>
@@ -633,12 +648,16 @@ if (!$_REQUEST['flb_table']) {
                             <td class="detail text-center" name="kiosk_hide">
                                 <?php echo text($appt_pid); ?>
                             </td>
-                            <?php
-                        }
-
-                        ?>
+                            <?php } ?>
                         <td class="detail text-center">
-
+                            <?php
+                                $checkDate = sqlQuery("SELECT `end_date` FROM `module_prior_authorizations WHERE pid = ?`", [$appt_pid]);
+                                if ($checkDate < date('Y-m-d')) {
+                                    echo "<span class='dot'></span>";
+                                } else {
+                                    echo "<span class='good'></span>";
+                                }
+                            ?>
                         </td>
                         <td class="detail text-center" name="kiosk_hide">
                             <a href="#" onclick="return topatient(<?php echo attr_js($appt_pid); ?>,<?php echo attr_js($appt_enc); ?>)">
