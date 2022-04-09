@@ -384,6 +384,9 @@ if (!$_REQUEST['flb_table']) {
                                 <?php echo xlt('PID'); ?>
                             </td>
                         <?php } ?>
+                            <td>
+                                <?php echo xlt('Auth'); ?>
+                            </td>
                         <td class="dehead text-center text-ovr-dark" style="max-width: 150px;">
                             <?php echo xlt('Patient'); ?>
                         </td>
@@ -634,6 +637,9 @@ if (!$_REQUEST['flb_table']) {
                         }
 
                         ?>
+                        <td class="detail text-center">
+
+                        </td>
                         <td class="detail text-center" name="kiosk_hide">
                             <a href="#" onclick="return topatient(<?php echo attr_js($appt_pid); ?>,<?php echo attr_js($appt_enc); ?>)">
                                 <?php echo text($ptname); ?></a>
