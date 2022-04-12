@@ -66,6 +66,20 @@ const TABLE_TD = "</td><td>";
                 <?php // can add any additional javascript settings to datetimepicker here; need to prepend first setting with a comma ?>
             });
         })
+
+        function deleteThis(id) {
+            alert('Still Building the process, stop rushing me.');
+            e.preventDefault();
+            let url = 'deleter.php?id=' + encodeURIComponent(id);
+            dlgopen(url, 'Delete Auth', 'modal-sm', 275, '', [
+                onClosed: refreshme();
+        ]);
+        }
+
+        function refreshme() {
+            top.restoreSession();
+            location.reload();
+        }
     </script>
 </head>
 <body>
@@ -123,6 +137,8 @@ const TABLE_TD = "</td><td>";
                     <th scope="col"><?php echo xlt('Start Date'); ?></th>
                     <th scope="col"><?php echo xlt('End Date'); ?></th>
                     <th scope="col"><?php echo xlt('CPTs'); ?></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
                 <?php
                     if (!empty($authList)) {
@@ -142,7 +158,10 @@ const TABLE_TD = "</td><td>";
                             }
                             print TABLE_TD . $iter['cpt'];
                             print TABLE_TD . " <button class='btn btn-primary' onclick=getRowData(" . $iter['id'] . ")>" . xlt('Edit') . "</button>
-                            <input type='hidden' id='" . $iter['id'] . "' value='" . $editData . "' ></td></tr>";
+                            <input type='hidden' id='" . $iter['id'] . "' value='" . $editData . "' ></td>";
+                            print "<td><a class='btn btn-danger' href='#' onclick='deleteThis(" . $iter['id'] . ")'>" . xlt('Delete') . "</a></td>";
+
+                            print "</tr>";
                         }
                     }
                 ?>
