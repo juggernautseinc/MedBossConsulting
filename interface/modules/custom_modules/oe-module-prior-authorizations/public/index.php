@@ -176,9 +176,9 @@ const TABLE_TD = "</td><td>";
     function removeEntry(id) {
         alert('Still Building the process, stop rushing me.');
         let url = 'deleter.php?id=' + encodeURIComponent(id);
-        dlgopen(url, 'Delete Auth', 'modal-sm', 275, '', [
-            onClosed: refreshme();
-    ])
+        dlgopen(url, 'Delete Auth', 'modal-sm', 275, '', {
+            onClosed: 'refreshme'
+        })
     }
 </script>
 
