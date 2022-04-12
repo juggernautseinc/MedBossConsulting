@@ -178,7 +178,7 @@ const TABLE_TD = "</td><td>";
         let url = 'deleter.php?id=' + encodeURIComponent(id);
         dlgopen(url, 'Delete Auth', 'modal-sm', 275, '', [
             onClosed: refreshme();
-    ]);
+    ])
     }
 </script>
 
