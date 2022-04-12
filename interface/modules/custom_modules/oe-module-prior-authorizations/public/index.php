@@ -67,14 +67,6 @@ const TABLE_TD = "</td><td>";
             });
         })
 
-        function deleteThis(id) {
-            alert('Still Building the process, stop rushing me.');
-            let url = 'deleter.php?id=' + encodeURIComponent(id);
-            dlgopen(url, 'Delete Auth', 'modal-sm', 275, '', [
-                onClosed: refreshme();
-        ]);
-        }
-
         function refreshme() {
             top.restoreSession();
             location.reload();
@@ -179,6 +171,14 @@ const TABLE_TD = "</td><td>";
         document.getElementById('end_date').value = obj.end_date;
         document.getElementById('cpts').value = obj.cpt;
         document.getElementById('units').value = obj.init_units;
+    }
+
+    function deleteThis(id) {
+        alert('Still Building the process, stop rushing me.');
+        let url = 'deleter.php?id=' + encodeURIComponent(id);
+        dlgopen(url, 'Delete Auth', 'modal-sm', 275, '', [
+            onClosed: refreshme();
+    ]);
     }
 </script>
 
