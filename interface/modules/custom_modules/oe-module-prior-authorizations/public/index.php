@@ -176,7 +176,7 @@ const TABLE_TD = "</td><td>";
     function removeEntry(id) {
         alert('Still Building the process, stop rushing me.');
         let url = 'deleter.php?id=' + encodeURIComponent(id);
-        dlgopen(url, 'Delete Auth', 'modal-sm', 275, '',{
+        dlgopen(url, '_blank', 290, 275, '', 'Delete Entry', {
             buttons: [
                 {text: 'Done', style: 'danger btn-sm', close: true},
                 {text: 'Cancel', close: true, style: 'default btn-sm'}
