@@ -69,7 +69,6 @@ const TABLE_TD = "</td><td>";
 
         function deleteThis(id) {
             alert('Still Building the process, stop rushing me.');
-            e.preventDefault();
             let url = 'deleter.php?id=' + encodeURIComponent(id);
             dlgopen(url, 'Delete Auth', 'modal-sm', 275, '', [
                 onClosed: refreshme();
@@ -159,7 +158,7 @@ const TABLE_TD = "</td><td>";
                             print TABLE_TD . $iter['cpt'];
                             print TABLE_TD . " <button class='btn btn-primary' onclick=getRowData(" . $iter['id'] . ")>" . xlt('Edit') . "</button>
                             <input type='hidden' id='" . $iter['id'] . "' value='" . $editData . "' ></td>";
-                            print "<td><a class='btn btn-danger' href='#' onclick='deleteThis(" . $iter['id'] . ")'>" . xlt('Delete') . "</a></td>";
+                            print "<td><a class='btn btn-danger' href='#' onclick=deleteThis(" . $iter['id'] . ")>" . xlt('Delete') . "</a></td>";
 
                             print "</tr>";
                         }
