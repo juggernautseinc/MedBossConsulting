@@ -174,7 +174,6 @@ const TABLE_TD = "</td><td>";
     }
 
     function removeEntry(id) {
-        alert('Still Building the process, stop rushing me.');
         let url = 'deleter.php?id=' + encodeURIComponent(id);
         dlgopen(url, '_blank', 290, 290, '', 'Delete Entry', {
             buttons: [
