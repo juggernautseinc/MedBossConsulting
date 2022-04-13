@@ -22,7 +22,7 @@ sqlQuery("delete from `module_prior_authorizations` where `id` = ?", [$_GET['id'
     <title><?php echo xlt('Delete Record') ?></title>
 </head>
 <body>
-    <p><?php echo "<br> <br>" .  xlt("If you are seeing this message the record was deleted"); ?></p>
+    <p><?php echo "<br> <br>" .  xlt("If you are seeing this message the record was deleted. Click done, pls"); ?></p>
 </body>
 </html>
 
