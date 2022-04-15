@@ -16,7 +16,7 @@
  */
 
 use OpenEMR\Gacl\GaclApi;
-
+ 
 class Installer
 {
     public function __construct($cgi_variables)
@@ -119,6 +119,16 @@ class Installer
     {
         if (strpos($this->iuser, " ")) {
             $this->error_message = "Initial user is invalid: '$this->iuser'";
+            return false;
+        }
+
+        return true;
+    }
+
+    public function iuname_is_valid()
+    {
+        if ($this->iuname == "" || !isset($this->iuname)) {
+            $this->error_message = "Initial user last name is invalid: '$this->iuname'";
             return false;
         }
 
@@ -399,6 +409,7 @@ class Installer
         }
         return true;
     }
+
     public function on_care_coordination()
     {
         $resource = $this->execute_sql("SELECT `mod_id` FROM `modules` WHERE `mod_name` = 'Carecoordination' LIMIT 1");
@@ -432,6 +443,7 @@ class Installer
 
         return true;
     }
+
     /**
      * Generates the initial user's 2FA QR Code
      * @return bool|string|void
@@ -944,9 +956,9 @@ $config = 1; /////////////
         $gacl->add_acl(
             array(
                 'admin' => array('drugs'),
-                'encounters' => array('coding'),
+                'encounters' => array('auth', 'coding', 'notes'),
                 'patients' => array('appt'),
-                'groups' => array('gcalendar','glog')
+                'groups' => array('gcalendar', 'glog')
             ),
             null,
             array($clin),
@@ -963,7 +975,7 @@ $config = 1; /////////////
         //
         $gacl->add_acl(
             array(
-                'patients' => array('alert','pat_rep')
+                'patients' => array('alert')
             ),
             null,
             array($front),
@@ -1005,7 +1017,7 @@ $config = 1; /////////////
         // xl('Things that front office can read and partly modify')
         $gacl->add_acl(
             array(
-                'patients' => array('appt', 'demo', 'trans', 'notes'),
+                'patients' => array('appt', 'demo'),
                 'groups' => array('gcalendar')
             ),
             null,
@@ -1023,7 +1035,7 @@ $config = 1; /////////////
         //
         $gacl->add_acl(
             array(
-                'patients' => array('alert','pat_rep')
+                'patients' => array('alert')
             ),
             null,
             array($back),
@@ -1159,7 +1171,15 @@ $config = 1; /////////////
             $this->disconnect();
             // Using @ in below call to hide the php warning in cases where the
             //  below connection does not work, which is expected behavior.
-            if (! @$this->user_database_connection()) {
+            // Using try in below call to catch the mysqli exception when the
+            //  below connection does not work, which is expected behavior (needed to
+            //  add this try/catch clause for PHP 8.1).
+            try {
+                $checkUserDatabaseConnection = @$this->user_database_connection();
+            } catch (Exception $e) {
+                $checkUserDatabaseConnection = false;
+            }
+            if (! $checkUserDatabaseConnection) {
                 // Re-connect to mysql via root user
                 if (! $this->root_database_connection()) {
                     return false;
@@ -1222,6 +1242,10 @@ $config = 1; /////////////
             if (! $this->install_additional_users()) {
                 return false;
             }
+
+            if (! $this->on_care_coordination()) {
+                return false;
+            }
         }
 
         return true;
@@ -1273,10 +1297,10 @@ $config = 1; /////////////
     private function connect_to_database($server, $user, $password, $port, $dbname = '')
     {
         $pathToCerts = __DIR__ . "/../../sites/" . $this->site . "/documents/certificates/";
-        $clientFlag = null;
+        $mysqlSsl = false;
         $mysqli = mysqli_init();
         if (defined('MYSQLI_CLIENT_SSL') && file_exists($pathToCerts . "mysql-ca")) {
-            $clientFlag = MYSQLI_CLIENT_SSL;
+            $mysqlSsl = true;
             if (
                 file_exists($pathToCerts . "mysql-key") &&
                 file_exists($pathToCerts . "mysql-cert")
@@ -1302,7 +1326,12 @@ $config = 1; /////////////
                 );
             }
         }
-        if (! mysqli_real_connect($mysqli, $server, $user, $password, $dbname, (int)$port != 0 ? (int)$port : 3306, '', $clientFlag)) {
+        if ($mysqlSsl) {
+            $ok = mysqli_real_connect($mysqli, $server, $user, $password, $dbname, (int)$port != 0 ? (int)$port : 3306, '', MYSQLI_CLIENT_SSL);
+        } else {
+            $ok = mysqli_real_connect($mysqli, $server, $user, $password, $dbname, (int)$port != 0 ? (int)$port : 3306);
+        }
+        if (!$ok) {
             $this->error_message = 'unable to connect to sql server because of: (' . mysqli_connect_errno() . ') ' . mysqli_connect_error();
             return false;
         }
@@ -1412,24 +1441,16 @@ $config = 1; /////////////
         $cmd = "mysqldump -u " . escapeshellarg($login) .
         " -h " . $host .
         " -p" . escapeshellarg($pass) .
-        " --opt --skip-extended-insert --quote-names -r $backup_file " .
+        " --hex-blob --opt --skip-extended-insert --quote-names -r $backup_file " .
         escapeshellarg($dbase);
 
-        $tmp0 = exec($cmd, $tmp1 = array(), $tmp2);
+        $tmp1 = [];
+        $tmp0 = exec($cmd, $tmp1, $tmp2);
         if ($tmp2) {
             die("Error $tmp2 running \"$cmd\": $tmp0 " . implode(' ', $tmp1));
         }
 
         return $backup_file;
-    }
-
-    public function deleteKeys($site_id)
-    {
-        $dir = dirname(__DIR__, 2);
-        $location = $dir ."/sites/". $site_id . "/documents/logs_and_misc/methods/";
-        file_put_contents("/var/www/html/errors/dir.txt", $location."/sixa");
-        unlink($location . "sixa");
-        unlink($location . "sixb");
     }
 
   /**
@@ -1492,12 +1513,10 @@ $config = 1; /////////////
             $theme_file_path = $img_path . $theme_file_name;
             $div_start = "                      <div class='row'>";
             $div_end = "                      </div>";
-            $img_div = <<<FDIV
-                                        <div class="col-sm-2 checkboxgroup">
-                                            <label for="my_radio_button_id{$id}"><img height="160px" src="{$theme_file_path}" width="100%"></label>
-                                            <p class="m-0">{$theme_title}</p><input id="my_radio_button_id{$id}" name="stylesheet" type="radio" value="{$theme_value}">
-                                        </div>
-FDIV;
+            $img_div = "                <div class='col-sm-2 checkboxgroup'>
+                                            <label for='my_radio_button_id" . attr($id) . "'><img height='160px' src='" . attr($theme_file_path) . "' width='100%'></label>
+                                            <p class='m-0'>" . text($theme_title) . "</p><input id='my_radio_button_id" . attr($id) . "' name='stylesheet' type='radio' value='" . attr($theme_value) . "'>
+                                        </div>";
             $theme_img_number = $i % 6; //to ensure that last file in array will always generate 5 and will end the row
             switch ($theme_img_number) {
                 case 0: //start row
