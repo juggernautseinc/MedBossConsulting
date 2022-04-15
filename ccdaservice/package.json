@@ -1,24 +1,17 @@
 {
     "name": "ccdaservice",
-    "version": "5.0.1",
+    "version": "6.0.0",
     "description": "OpenEMR ccda templating generator service",
     "main": "serveccda.js",
     "scripts": {},
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/openemr/openemr/tree/master/ccdaservice"
-    },
-    "keywords": [
-        "node.js",
-        "OpenEMR",
-        "CCDA"
-    ],
     "author": "sjpadgett@gmail.com",
     "license": "GPL-3.0",
     "dependencies": {
-        "oe-blue-button-generate": "^1.5.10",
-        "net": "^1.0.2",
-        "xmljson": "^0.2.0"
-    },
-    "devDependencies": {}
+        "file": "./oe-blue-button-generate",
+        "libxmljs2": "0.29.0",
+        "lodash": "4.17.21",
+        "net": "1.0.2",
+        "uuid": "8.3.2",
+        "xmljson": "0.2.0"
+    }
 }
