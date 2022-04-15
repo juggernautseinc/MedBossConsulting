@@ -1254,7 +1254,7 @@ STP2TBLBOT;
                             echo "$ok<br />\n";
                             flush();
 
-                            echo "Configuring Care Coordination Module...\n";
+                           /* echo "Configuring Care Coordination Module...\n";
                             flush();
                             if (! $installer->on_care_coordination()) {
                                 echo "$error.\n";
@@ -1262,7 +1262,7 @@ STP2TBLBOT;
                                 break;
                             }
                             echo "$ok<br />\n";
-                            flush();
+                            flush();*/
                         }
 
                         // If user has selected to set MFA App Based 2FA, display QR code to scan
