@@ -182,7 +182,7 @@ function sqlQuery($statement, $link)
                         <td>Health Brigade </td>
                         <td>6.0.0 (3)</td>
                         <td><i class="fa fa-check fa-lg text-success" aria-hidden="true"></i></td>
-                        <td><a href="https://44.203.5.156/" class="text-decoration-none" target="_blank"><i class="fa fa-sign-in-alt fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="" data-original-title="Login to site HB"></i></a></td>
+                        <td><a href="https://e.healthbrigade.org/" class="text-decoration-none" target="_blank"><i class="fa fa-sign-in-alt fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="" data-original-title="Login to site HB"></i></a></td>
                     </tr>
                 </table>
             </div>
