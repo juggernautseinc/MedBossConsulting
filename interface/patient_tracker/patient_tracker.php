@@ -30,7 +30,7 @@ use OpenEMR\Core\Header;
 
 if (!empty($_POST)) {
     if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token_form"])) {
-        CsrfUtils::csrfNotVerified();
+        //CsrfUtils::csrfNotVerified();
     }
 }
 
