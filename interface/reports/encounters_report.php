@@ -491,7 +491,7 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
        $name = getPatientData($row['pid'], "fname, mname, lname, pubpid, billing_note, DATE_FORMAT(DOB,'%Y-%m-%d') as DOB_YMD");
        $raw_encounter_date = date("Y-m-d", strtotime($row['date']));
        echo "<a class='btn btn-sm btn-primary' role='button'" . "href='javascript:
-                                    window.toencounter(" . attr_js($row['pid']) . "," . attr_js($row['pubpid']) . "," . attr_js($ptname) . "," . attr_js($row['encounter']) . "," . attr_js(oeFormatShortDate($raw_encounter_date)) . "," . attr_js(" " . xl('DOB') . ": " . oeFormatShortDate($name['DOB_YMD']) . " " . xl('Age') . ": " . getPatientAge($name['DOB_YMD'])) . ");
+                                    window.toencounter(" . attr_js($row['pid']) . "," . attr_js($row['pid']) . "," . attr_js($ptname) . "," . attr_js($row['encounter']) . "," . attr_js(oeFormatShortDate($raw_encounter_date)) . "," . attr_js(" " . xl('DOB') . ": " . oeFormatShortDate($name['DOB_YMD']) . " " . xl('Age') . ": " . getPatientAge($name['DOB_YMD'])) . ");
                                     top.window.parent.left_nav.setPatientEncounter(EncounterIdArray[" . attr($row['pid']) . "],EncounterDateArray[" . attr($row['pid']) . "], CalendarCategoryArray[" . attr($row['pid']) . "]);
                                     top.setEncounter(" . attr_js($row['encounter']) . ");
                                     '>" . text($row['encounter']) . "</a>"; ?>
