@@ -184,6 +184,14 @@ function sqlQuery($statement, $link)
                         <td><i class="fa fa-check fa-lg text-success" aria-hidden="true"></i></td>
                         <td><a href="https://e.healthbrigade.org/" class="text-decoration-none" target="_blank"><i class="fa fa-sign-in-alt fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="" data-original-title="Login to site HB"></i></a></td>
                     </tr>
+                    <tr>
+                        <td>Well Spring Utah</td>
+                        <td></td>
+                        <td>Well Spring Utah </td>
+                        <td>6.1.0</td>
+                        <td><i class="fa fa-check fa-lg text-success" aria-hidden="true"></i></td>
+                        <td><a href="https://ehr.wellspringutah.com/" class="text-decoration-none" target="_blank"><i class="fa fa-sign-in-alt fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="" data-original-title="Login to site HB"></i></a></td>
+                    </tr>
                 </table>
             </div>
             <form method='post' action='setup.php'>
