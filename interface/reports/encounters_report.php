@@ -141,7 +141,7 @@ $res = sqlStatement($query, $sqlBindArray);
 <head>
     <title><?php echo xlt('Encounters Report'); ?></title>
 
-    <?php Header::setupHeader(['datetime-picker', 'report-helper']); ?>
+    <?php Header::setupHeader(['datetime-picker', 'report-helper','common']); ?>
 
     <style>
         /* specifically include & exclude from printing */
@@ -199,6 +199,11 @@ $res = sqlStatement($query, $sqlBindArray);
             parent.left_nav.setEncounter(datestr, enc, 'enc');
             parent.left_nav.loadFrame('enc2', 'enc', encurl);
         }
+
+        const EncounterDateArray = new Array;
+        const CalendarCategoryArray = new Array;
+        const EncounterIdArray = new Array;
+        const EncounterNoteArray = new Array;
 
         function refreshme() {
             document.forms[0].submit();
