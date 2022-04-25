@@ -205,6 +205,8 @@ $res = sqlStatement($query, $sqlBindArray);
         const EncounterIdArray = new Array;
         const EncounterNoteArray = new Array;
 
+
+
         function refreshme() {
             document.forms[0].submit();
         }
@@ -492,6 +494,12 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
                 <?php echo text($row['reason']); ?>
   </td>
    <td>
+       <script>
+           EncounterDateArray[<?php echo attr($row['pid']); ?>] = new Array;
+           CalendarCategoryArray[<?php echo attr($row['pid']); ?>] = new Array;
+           EncounterIdArray[<?php echo attr($row['pid']); ?>] = new Array;
+           EncounterNoteArray[<?php echo attr($row['pid']); ?>] = new Array;
+       </script>
        <?php  $ptname = $row['fname'] . ' ' . $row['lname'];
        $name = getPatientData($row['pid'], "fname, mname, lname, pubpid, billing_note, DATE_FORMAT(DOB,'%Y-%m-%d') as DOB_YMD");
        $raw_encounter_date = date("Y-m-d", strtotime($row['date']));
