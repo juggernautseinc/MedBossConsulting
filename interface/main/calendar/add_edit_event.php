@@ -1786,7 +1786,7 @@ if (empty($_GET['prov'])) { ?>
     <?php if (!($GLOBALS['select_multi_providers'])) { //multi providers appt is not supported by check slot avail window, so skip ?>
         <input class="col-sm mx-sm-2 my-2 my-sm-auto btn btn-secondary" type='button' id='find_available' value='<?php echo xla('Find Available{{Provider}}'); ?>' />
     <?php } ?>
-    <?php if (AclMain::aclCheckCore('admin', 'super')) { ?>
+    <?php if (AclMain::aclCheckCore('admin', 'super') || AclMain::aclCheckCore('patients', 'appt')) { ?>
     <input class="col-sm mx-sm-2 my-2 my-sm-auto btn btn-danger" type='button' name='form_delete' id='form_delete' value='<?php echo xla('Delete'); ?>'<?php echo (!$eid) ? " disabled" : ""; ?> />
     <?php } ?>
     <input class="col-sm mx-sm-2 my-2 my-sm-auto btn btn-secondary" type='button' id='cancel' onclick="dlgclose()" value='<?php echo xla('Cancel'); ?>' />
