@@ -557,9 +557,6 @@ foreach ($providers as $provider) {
             // skip events for other providers
             // yeah, we've got that sort of overhead here... it ain't perfect
             if ($providerid != $event['aid'] && $event['aid']!=0) { continue; }
-                    // skip cancelled appointments
-                    if ($event['apptstatus'] == "x") { continue; }
-                    if ($event['apptstatus'] == "xx") { continue; }  //practice cancelled
 
             // skip events without an ID (why they are in the loop, I have no idea)
             if ($event['eid'] == "") { continue; }

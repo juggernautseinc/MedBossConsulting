@@ -111,4 +111,15 @@ class ListAuthorizations
         return $auths_array;
     }
 
+    public function findTriwestClients()
+    {
+        $list = [];
+        $sql = "SELECT `pid`  FROM `insurance_data` WHERE `provider` LIKE '133' ORDER BY `id` ASC";
+        $load = sqlStatement($sql);
+        while ($row = sqlFetchArray($load)) {
+            $list[] = $row['pid'];
+        }
+        return $list;
+    }
+
 }
