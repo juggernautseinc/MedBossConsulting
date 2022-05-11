@@ -209,7 +209,7 @@ class SLEOB
         if ($payer_type < 1 || $payer_type > 3) {
             return 0;
         }
-
+file_put_contents("/var/www/html/errors/ins_date.txt", $date_of_service);
         $tmp = array(1 => 'primary', 2 => 'secondary', 3 => 'tertiary');
         $value = $tmp[$payer_type];
         $query = "SELECT provider FROM insurance_data WHERE " .
