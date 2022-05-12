@@ -1,4 +1,5 @@
 <?php
+
 /*
  *  package OpenEMR
  *  link    https://www.open-emr.org
@@ -6,6 +7,13 @@
  *  Copyright (c) 2022.
  *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  */
+
+
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 
 use OpenEMR\Billing\BillingProcessor\X12RemoteTracker;
 
