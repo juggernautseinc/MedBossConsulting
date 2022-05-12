@@ -122,6 +122,77 @@ class X12RemoteTracker extends BaseService
         }
     }
 
+    public static function sftpSendLoginErrorFiles()
+    {
+        $remoteTracker = new X12RemoteTracker();
+        $x12_remotes = $remoteTracker->fetchByStatus(self::STATUS_LOGIN_ERROR);
+        $x12_remote['messages'] = [];
+        $cryptoGen = new CryptoGen();
+        foreach ($x12_remotes as $x12_remote) {
+            // Make sure required parameters are filled in on the X12 partner form, otherwise, log a message
+            if (false === $remoteTracker->validateSFTPCredentials($x12_remote)) {
+                // there was a problem, get messages, log them and continue
+                $x12_remote['status'] = self::STATUS_PARAMETER_ERROR;
+                $x12_remote['messages'] = array_merge($x12_remote['messages'], $remoteTracker->validationMessages);
+                $remoteTracker->update($x12_remote);
+                continue;
+            }
+
+            // Make sure local claim file exists and can we have permission to read it
+            // We try both the SFTP directory and the edi root directry
+            $claim_file = $x12_remote['x12_sftp_local_dir'] . $x12_remote['x12_filename'];
+            if (!file_exists($claim_file)) {
+                $claim_file = $GLOBALS['OE_SITE_DIR'] . "/documents/edi/" . $x12_remote['x12_filename'];
+            }
+
+            $claim_file_contents = file_get_contents($claim_file);
+            if (false === $claim_file_contents) {
+                $x12_remote['status'] = self::STATUS_CLAIM_FILE_ERROR;
+                $x12_remote['messages'][] = "Could not open local claim file: `$claim_file`";
+                $remoteTracker->update($x12_remote);
+                continue;
+            }
+
+            // Attempt to login
+            $sftp = new SFTP($x12_remote['x12_sftp_host'], $x12_remote['x12_sftp_port']);
+            $decrypted_password = $cryptoGen->decryptStandard($x12_remote['x12_sftp_pass']);
+            if (false === $sftp->login($x12_remote['x12_sftp_login'], $decrypted_password)) {
+                $x12_remote['status'] = self::STATUS_LOGIN_ERROR;
+                $x12_remote['messages'][] = "Invalid Username or Password.";
+                $x12_remote['messages'] = array_merge($x12_remote['messages'], $sftp->getSFTPErrors());
+                $remoteTracker->update($x12_remote);
+                continue;
+            }
+
+            if (false === $sftp->chdir($x12_remote['x12_sftp_remote_dir'])) {
+                $x12_remote['status'] = self::STATUS_CHDIR_ERROR;
+                $x12_remote['messages'][] = "Could not change to SFTP remote DIR.";
+                $x12_remote['messages'] = array_merge($x12_remote['messages'], $sftp->getSFTPErrors());
+                $remoteTracker->update($x12_remote);
+                continue;
+            }
+
+            // Change status from waiting to in-progress
+            $x12_remote['status'] = self::STATUS_IN_PROGRESS;
+            $remoteTracker->update($x12_remote);
+
+            // Upload the file
+            if (false === $sftp->put($x12_remote['x12_filename'], $claim_file_contents)) {
+                $x12_remote['status'] = self::STATUS_UPLOAD_ERRROR;
+                $x12_remote['messages'][] = "Could not upload file.";
+                $x12_remote['messages'] = array_merge($x12_remote['messages'], $sftp->getSFTPErrors());
+                $remoteTracker->update($x12_remote);
+            }
+
+            // Change status from waiting to in-progress
+            $x12_remote['status'] = self::STATUS_SUCCESS;
+            $remoteTracker->update($x12_remote);
+
+            // Disconnect from the remote server
+            $sftp->disconnect();
+        }
+    }
+
     protected function validateSFTPCredentials($credentials)
     {
         $this->validationMessages = [];
@@ -199,7 +270,7 @@ class X12RemoteTracker extends BaseService
      * @param string $status
      * @return array
      */
-    public function fetchByStatus($status = self::STATUS_WAITING)
+    public function fetchByStatus(string $status = self::STATUS_WAITING)
     {
         $waiting = self::selectHelper(self::SELECT, [
             'join' => "JOIN x12_partners P ON P.id = R.x12_partner_id",
