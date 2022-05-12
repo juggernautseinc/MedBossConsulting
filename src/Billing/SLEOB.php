@@ -243,6 +243,9 @@ class SLEOB
 file_put_contents("/var/www/html/errors/ins_date.txt", $date_of_service);
         $tmp = array(1 => 'primary', 2 => 'secondary', 3 => 'tertiary');
         $value = $tmp[$payer_type];
+        if (empty($date_of_service)) {
+            $date_of_service = date('Y-m-d');
+        }
         $query = "SELECT provider FROM insurance_data WHERE " .
             "pid = ? AND type = ? AND (date <= ? OR date IS NULL) " .
             "ORDER BY date DESC LIMIT 1";
