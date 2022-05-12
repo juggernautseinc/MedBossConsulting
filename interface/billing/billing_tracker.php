@@ -186,6 +186,7 @@ use OpenEMR\OeUI\OemrUI;
         </div>
         <div class="w-100 p-4">
             <a class="btn btn-dark" href="https://ehr.medbossconsulting.com/library/billing_sftp_service.php" target="_blank"> Process Claims </a>
+            <a class="btn btn-dark" href="https://ehr.medbossconsulting.com/library/bill_login_error_reprocess.php" target="_blank"> Resend Login-Error Claims </a>
         </div>
     </div>
 </body>

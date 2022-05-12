@@ -23,7 +23,6 @@ function start_X12_SFTP()
 {
     if ($GLOBALS['auto_sftp_claims_to_x12_partner']) {
         X12RemoteTracker::sftpSendWaitingFiles();
-        X12RemoteTracker::sftpSendLoginErrorFiles();
     }
 }
 
