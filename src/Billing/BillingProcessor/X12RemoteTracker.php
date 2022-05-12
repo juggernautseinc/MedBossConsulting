@@ -126,7 +126,7 @@ class X12RemoteTracker extends BaseService
     public static function sftpSendLoginErrorFiles()
     {
         $remoteTracker = new X12RemoteTracker();
-        $x12_remotes = $remoteTracker->fetchByStatus($status = self::STATUS_LOGIN_ERROR);
+        $x12_remotes = $remoteTracker->fetchByStatus(self::STATUS_LOGIN_ERROR);
         $x12_remote['messages'] = [];
         $cryptoGen = new CryptoGen();
         foreach ($x12_remotes as $x12_remote) {
@@ -271,7 +271,7 @@ class X12RemoteTracker extends BaseService
      * @param string $status
      * @return array
      */
-    public function fetchByStatus($status = self::STATUS_WAITING)
+    public function fetchByStatus($status = self::STATUS_LOGIN_ERROR)
     {
         $waiting = self::selectHelper(self::SELECT, [
             'join' => "JOIN x12_partners P ON P.id = R.x12_partner_id",
