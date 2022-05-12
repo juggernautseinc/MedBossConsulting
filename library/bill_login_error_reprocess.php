@@ -18,6 +18,6 @@ require_once dirname(__FILE__, 2) . '/interface/globals.php';
 use OpenEMR\Billing\BillingProcessor\X12RemoteTracker;
 
 
-X12RemoteTracker::sftpSendWaitingFiles();
+X12RemoteTracker::sftpSendLoginErrorFiles();
 
 echo "Sent! Refresh the claim tracker page. ";
