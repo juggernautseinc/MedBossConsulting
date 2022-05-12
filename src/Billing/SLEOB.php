@@ -240,9 +240,10 @@ class SLEOB
         if ($payer_type < 1 || $payer_type > 3) {
             return 0;
         }
-file_put_contents("/var/www/html/errors/ins_date.txt", $date_of_service);
         $tmp = array(1 => 'primary', 2 => 'secondary', 3 => 'tertiary');
         $value = $tmp[$payer_type];
+        //this was to fix the issue with the date coming in blank. If date is blank set it to today.
+        //it fixed the error message 2022/05/12
         if (empty($date_of_service)) {
             $date_of_service = date('Y-m-d');
         }
