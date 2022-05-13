@@ -33,16 +33,19 @@ if (!empty($_POST['token'])) {
     //var_dump(isValid($postStartDate));
     if (isValid($postStartDate) === true) {
         echo $postStartDate . "is valid";
+    } else {
+        echo $_POST['start_date'] . "this is the posted date";
     }
     echo "<br>";
     $postEndDate = DateToYYYYMMDD($_POST['end_date']);
     if (isValid($postEndDate) === true) {
         echo $postEndDate . "is valid";
+    } else {
+        echo $_POST['end_date'] . "this is the posted date";
     }
 
     //var_dump(isValid($postEndDate));
     echo "<br>";
-//var_dump($_POST);
 die;
     $postData = new AuthorizationService();
     $postData->setId($_POST['id']);
