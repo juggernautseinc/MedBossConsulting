@@ -47,15 +47,13 @@ if (!empty($_POST['token'])) {
         echo $_POST['end_date'] . " this is the posted date";
         $endDate = $_POST['end_date'];
     }
-die;
+
     $postData = new AuthorizationService();
     $postData->setId($_POST['id']);
     $postData->setPid($pid);
     $postData->setAuthNum($_POST['authorization']);
     $postData->setInitUnits($_POST['units']);
-
     $postData->setStartDate($startDate);
-
     $postData->setEndDate($endDate);
     $postData->setCpt($_POST['cpts']);
     $postData->storeAuthorizationInfo();
