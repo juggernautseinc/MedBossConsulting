@@ -32,12 +32,12 @@ if (!empty($_POST['token'])) {
     echo $postStartDate = DateToYYYYMMDD($_POST['start_date']);
     //var_dump(isValid($postStartDate));
     if (isValid($postStartDate) === true) {
-        echo $postStartDate;
+        echo $postStartDate . "is valid";
     }
     echo "<br>";
     echo $postEndDate = DateToYYYYMMDD($_POST['end_date']);
     if (isValid($postEndDate) === true) {
-        echo $postEndDate;
+        echo $postEndDate . "is valid";
     }
 
     //var_dump(isValid($postEndDate));
