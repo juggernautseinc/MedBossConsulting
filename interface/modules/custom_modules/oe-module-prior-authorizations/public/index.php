@@ -23,7 +23,7 @@ if (!empty($_POST['token'])) {
     if (!CsrfUtils::verifyCsrfToken($_POST["token"])) {
         CsrfUtils::csrfNotVerified();
     }
-
+var_dump($_POST); die;
     $postData = new AuthorizationService();
     $postData->setId($_POST['id']);
     $postData->setPid($pid);
@@ -167,8 +167,8 @@ const TABLE_TD = "</td><td>";
 
         document.getElementById('id').value = obj.id;
         document.getElementById('authorization').value = obj.auth_num;
-        document.getElementById('start_date').value = obj.start_date;
-        document.getElementById('end_date').value = obj.end_date;
+        //document.getElementById('start_date').value = obj.start_date;
+        //document.getElementById('end_date').value = obj.end_date;
         document.getElementById('cpts').value = obj.cpt;
         document.getElementById('units').value = obj.init_units;
     }
