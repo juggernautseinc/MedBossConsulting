@@ -23,6 +23,8 @@ if (!empty($_POST['token'])) {
     if (!CsrfUtils::verifyCsrfToken($_POST["token"])) {
         CsrfUtils::csrfNotVerified();
     }
+    echo DateToYYYYMMDD($_POST['start_date']);
+    echo "<br>";
 var_dump($_POST); die;
     $postData = new AuthorizationService();
     $postData->setId($_POST['id']);
