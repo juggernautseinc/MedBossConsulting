@@ -25,6 +25,7 @@ if (!empty($_POST['token'])) {
     }
     echo DateToYYYYMMDD($_POST['start_date']);
     echo "<br>";
+    echo DateToYYYYMMDD($_POST['end_date']);
 var_dump($_POST); die;
     $postData = new AuthorizationService();
     $postData->setId($_POST['id']);
