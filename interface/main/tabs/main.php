@@ -23,6 +23,7 @@ use Esign\Api;
 use OpenEMR\Common\Acl\AclMain;
 use OpenEMR\Common\Csrf\CsrfUtils;
 use OpenEMR\Core\Header;
+use OpenEMR\Events\Main\Tabs\RenderEvent;
 
 // Ensure token_main matches so this script can not be run by itself
 //  If do not match, then destroy the session and go back to login screen
@@ -173,7 +174,9 @@ $esignApi = new Api();
             $.ajax({
                 type: 'POST',
                 url: url,
-                data: {encounterId: encounterId},
+                    data: {
+                        encounterId: encounterId
+                    },
                 success: function (data) {
                     encounter_locked = data;
                 },
@@ -188,7 +191,7 @@ $esignApi = new Api();
         }
     </script>
 
-    <?php Header::setupHeader(['knockout', 'tabs-theme', 'i18next']); ?>
+    <?php Header::setupHeader(['knockout', 'tabs-theme', 'i18next', 'hotkeys']); ?>
     <script>
         // set up global translations for js
         function setupI18n(lang_id) {
@@ -196,7 +199,13 @@ $esignApi = new Api();
             return fetch(<?php echo js_escape($GLOBALS['webroot'])?> +"/library/ajax/i18n_generator.php?lang_id=" + encodeURIComponent(lang_id) + "&csrf_token_form=" + encodeURIComponent(csrf_token_js), {
                 credentials: 'same-origin',
                 method: 'GET'
-            }).then(response => response.json())
+            }).then((response) => {
+                if (response.status !== 200) {
+                    console.log('I18n setup failed. Status Code: ' + response.status);
+                    return [];
+                }
+                return response.json();
+            })
         }
         setupI18n(<?php echo js_escape($_SESSION['language_choice']); ?>).then(translationsJson => {
             i18next.init({
@@ -236,6 +245,7 @@ $esignApi = new Api();
     <script src="js/application_view_model.js?v=<?php echo $v_js_includes; ?>"></script>
     <script src="js/frame_proxies.js?v=<?php echo $v_js_includes; ?>"></script>
     <script src="js/dialog_utils.js?v=<?php echo $v_js_includes; ?>"></script>
+    <script src="js/shortcuts.js?v=<?php echo $v_js_includes; ?>"></script>
 
     <?php
     // Below code block is to prepare certain elements for deciding what links to show on the menu
@@ -283,7 +293,8 @@ $esignApi = new Api();
 
     </script>
 <style>
-    html, body {
+        html,
+        body {
         width: max-content;
         min-height: 100% !important;
         height: 100% !important;
@@ -291,6 +302,16 @@ $esignApi = new Api();
 </style>
 </head>
 <body class="min-vw-100">
+<?php
+    // fire off an event here
+if (!empty($GLOBALS['kernel']->getEventDispatcher())) {
+    /**
+     * @var \Symfony\Component\EventDispatcher\EventDispatcher
+     */
+    $dispatcher = $GLOBALS['kernel']->getEventDispatcher();
+    $dispatcher->dispatch(new RenderEvent(), RenderEvent::EVENT_BODY_RENDER_PRE);
+}
+?>
     <!-- Below iframe is to support logout, which needs to be run in an inner iframe to work as intended -->
     <iframe name="logoutinnerframe" id="logoutinnerframe" style="visibility:hidden; position:absolute; left:0; top:0; height:0; width:0; border:none;" src="about:blank"></iframe>
     <?php // mdsupport - app settings
@@ -309,18 +330,26 @@ $esignApi = new Api();
     ?>
     <div id="mainBox" <?php echo $disp_mainBox ?> >
         <nav class="navbar navbar-expand-xl navbar-light bg-light py-0">
+            <?php if ($GLOBALS['display_main_menu_logo'] === '1') : ?>
             <a class="navbar-brand mt-2 mt-xl-0 mr-3 mr-xl-2" href="https://www.open-emr.org" title="OpenEMR <?php echo xla("Website"); ?>" rel="noopener" target="_blank">
                 <?php echo file_get_contents($GLOBALS['images_static_absolute'] . "/menu-logo.svg"); ?>
             </a>
+            <?php endif; ?>
             <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="mainMenu" data-bind="template: {name: 'menu-template', data: application_data}"></div>
+            <form name="frm_search_globals" class="form-inline">
+                <div class="input-group">
+                    <input type="text" id="anySearchBox" class="form-control-sm <?php echo $any_search_class ?> form-control" name="anySearchBox" placeholder="<?php echo xla("Search by any demographics") ?>" autocomplete="off">
+                    <div class="input-group-append">
+                        <button type="button" id="search_globals" class="btn btn-sm btn-secondary <?php echo $search_globals_class ?>" title='<?php echo xla("Search for patient by entering whole or part of any demographics field information"); ?>' data-bind="event: {mousedown: viewPtFinder.bind( $data, '<?php echo xla("The search field cannot be empty. Please enter a search term") ?>', '<?php echo attr($search_any_type); ?>')}"><i class="fa fa-search">&nbsp;</i></button>
+                    </div>
+                </div>
+            </form>
             <span id="userData" data-bind="template: {name: 'user-data-template', data: application_data}"></span>
         </nav>
-            <div id="attendantData" class="body_title acck" data-bind="template: {name: app_view_model.attendant_template_type, data: application_data}">
-            </div>
-
+        <div id="attendantData" class="body_title acck" data-bind="template: {name: app_view_model.attendant_template_type, data: application_data}"></div>
         <div class="body_title" id="tabs_div" data-bind="template: {name: 'tabs-controls', data: application_data}"></div>
 
         <div class="mainFrames d-flex flex-row" id="mainFrames_div">
@@ -357,5 +386,15 @@ $esignApi = new Api();
             goRepeaterServices();
         });
     </script>
+    <?php
+    // fire off an event here
+    if (!empty($GLOBALS['kernel']->getEventDispatcher())) {
+        /**
+         * @var \Symfony\Component\EventDispatcher\EventDispatcher
+         */
+        $dispatcher = $GLOBALS['kernel']->getEventDispatcher();
+        $dispatcher->dispatch(new RenderEvent(), RenderEvent::EVENT_BODY_RENDER_POST);
+    }
+    ?>
 </body>
 </html>
