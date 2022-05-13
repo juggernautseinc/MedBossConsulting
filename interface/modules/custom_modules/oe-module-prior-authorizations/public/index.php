@@ -29,20 +29,21 @@ if (!empty($_POST['token'])) {
     if (!CsrfUtils::verifyCsrfToken($_POST["token"])) {
         CsrfUtils::csrfNotVerified();
     }
-    echo $postStartDate = DateToYYYYMMDD($_POST['start_date']);
+    $postStartDate = DateToYYYYMMDD($_POST['start_date']);
     //var_dump(isValid($postStartDate));
     if (isValid($postStartDate) === true) {
         echo $postStartDate . "is valid";
     }
     echo "<br>";
-    echo $postEndDate = DateToYYYYMMDD($_POST['end_date']);
+    $postEndDate = DateToYYYYMMDD($_POST['end_date']);
     if (isValid($postEndDate) === true) {
         echo $postEndDate . "is valid";
     }
 
     //var_dump(isValid($postEndDate));
     echo "<br>";
-var_dump($_POST); die;
+//var_dump($_POST);
+die;
     $postData = new AuthorizationService();
     $postData->setId($_POST['id']);
     $postData->setPid($pid);
