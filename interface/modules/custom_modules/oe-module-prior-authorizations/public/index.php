@@ -18,14 +18,23 @@ use OpenEMR\Common\Csrf\CsrfUtils;
 
 $pid = $_SESSION['pid'];
 
+
+function isValid($date, $format = 'Y-m-d') {
+    $dt = DateTime::createFromFormat($format, $date);
+    return $dt && $dt->format($format) === $date;
+}
+
 if (!empty($_POST['token'])) {
 
     if (!CsrfUtils::verifyCsrfToken($_POST["token"])) {
         CsrfUtils::csrfNotVerified();
     }
-    echo DateToYYYYMMDD($_POST['start_date']);
+    echo $postStartDate = DateToYYYYMMDD($_POST['start_date']);
+    var_dump(isValid($postStartDate));
     echo "<br>";
-    echo DateToYYYYMMDD($_POST['end_date']);
+    echo $postEndDate = DateToYYYYMMDD($_POST['end_date']);
+    var_dump(isValid($postEndDate));
+    echo "<br>";
 var_dump($_POST); die;
     $postData = new AuthorizationService();
     $postData->setId($_POST['id']);
@@ -39,6 +48,8 @@ var_dump($_POST); die;
     $postData->setCpt($_POST['cpts']);
     $postData->storeAuthorizationInfo();
 }
+
+
 
 $listData = new ListAuthorizations();
 $listData->setPid($pid);
