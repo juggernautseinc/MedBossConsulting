@@ -120,10 +120,10 @@ const TABLE_TD = "</td><td>";
                         <input class="form-control" id="units" name="units" value="" placeholder="<?php echo xlt('Units') ?>">
                     </div>
                     <div class="col">
-                        <input class="form-control datepicker" id="start_date" name="start_date" value="" placeholder="<?php echo xlt('Start Date') ?>">
+                        <input class="form-control datepicker" id="start_date" name="start_date" value="" placeholder="<?php echo xlt('Start Date') ?>" readonly>
                     </div>
                     <div class="col">
-                        <input class="form-control datepicker" id="end_date" name="end_date" value="" placeholder="<?php echo xlt('End Date') ?>">
+                        <input class="form-control datepicker" id="end_date" name="end_date" value="" placeholder="<?php echo xlt('End Date') ?>" readonly>
                     </div>
                 </div>
                 <div class="form-row">
