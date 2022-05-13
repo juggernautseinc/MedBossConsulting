@@ -29,22 +29,18 @@ if (!empty($_POST['token'])) {
     if (!CsrfUtils::verifyCsrfToken($_POST["token"])) {
         CsrfUtils::csrfNotVerified();
     }
-    $postStartDate = DateToYYYYMMDD($_POST['start_date']);
 
+    $postStartDate = DateToYYYYMMDD($_POST['start_date']);
     if (isValid($postStartDate) === true) {
-        echo $postStartDate . " is valid";
         $startDate = $postStartDate ;
     } else {
-        echo $_POST['start_date'] . " this is the posted date";
         $startDate = $_POST['start_date'];
     }
-    echo "<br>";
+
     $postEndDate = DateToYYYYMMDD($_POST['end_date']);
     if (isValid($postEndDate) === true) {
-        echo $postEndDate . " is valid";
         $endDate = $postEndDate;
     } else {
-        echo $_POST['end_date'] . " this is the posted date";
         $endDate = $_POST['end_date'];
     }
 
