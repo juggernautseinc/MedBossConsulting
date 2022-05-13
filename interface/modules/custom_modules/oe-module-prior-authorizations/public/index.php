@@ -30,10 +30,17 @@ if (!empty($_POST['token'])) {
         CsrfUtils::csrfNotVerified();
     }
     echo $postStartDate = DateToYYYYMMDD($_POST['start_date']);
-    var_dump(isValid($postStartDate));
+    //var_dump(isValid($postStartDate));
+    if (isValid($postStartDate) === true) {
+        echo $postStartDate;
+    }
     echo "<br>";
     echo $postEndDate = DateToYYYYMMDD($_POST['end_date']);
-    var_dump(isValid($postEndDate));
+    if (isValid($postEndDate) === true) {
+        echo $postEndDate;
+    }
+
+    //var_dump(isValid($postEndDate));
     echo "<br>";
 var_dump($_POST); die;
     $postData = new AuthorizationService();
