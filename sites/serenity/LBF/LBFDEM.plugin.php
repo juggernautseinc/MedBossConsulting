@@ -8,7 +8,7 @@
  *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  */
 
-function LBFDEM_javascript_onload()
+function DEM_javascript_onload()
 {
     echo "
     document.getElementById('form_Notes2').addEventListener('click', addNoteEditor);
