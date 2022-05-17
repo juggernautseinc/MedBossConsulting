@@ -1040,6 +1040,12 @@ $use_validate_js = $GLOBALS['new_validate'];
             <?php require($GLOBALS['srcdir'] . '/js/xl/select2.js.php'); ?>
         });
     })
+
+    document.getElementById('form_Notes2').addEventListener('click', addNoteEditor);
+    function addNoteEditor() {
+        alert('Logging change');
+        document.getElementById('form_changehistory').innerHTML = 'Last updated by ' + Date();
+    }
 </script>
 
 </body>
