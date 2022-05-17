@@ -1948,6 +1948,12 @@ if ($track_is_registered) {
         }
     });
 
+    document.getElementById('form_Notes2').addEventListener('click', addNoteEditor);
+    function addNoteEditor() {
+        alert('Logging change');
+        document.getElementById('form_changehistory').innerHTML = 'Last updated by ' + Date();
+    }
+
 </script>
 
 </body>
