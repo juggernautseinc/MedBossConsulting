@@ -1048,7 +1048,7 @@ $use_validate_js = $GLOBALS['new_validate'];
         let cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
         let dateTime = cDate + ' ' + cTime;
         let user = '<?php echo $_SESSION['authUser']; ?>';
-        document.getElementById('form_changehistory').innerHTML = 'Billing Note last updated by ' + user + ' ' + dateTime + '\n\r';
+        document.getElementById('form_changehistory').innerHTML += 'Billing Note last updated by ' + user + ' ' + dateTime + '\n\r';
     }
 </script>
 
