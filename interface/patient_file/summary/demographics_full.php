@@ -1043,8 +1043,8 @@ $use_validate_js = $GLOBALS['new_validate'];
 
     document.getElementById('form_Notes2').addEventListener('click', addNoteEditor);
     function addNoteEditor() {
-        alert('Logging change');
-        document.getElementById('form_changehistory').innerHTML = 'Last updated by ' + Date();
+        let user = '<?php echo $_SESSION['authUser']; ?>';
+        document.getElementById('form_changehistory').innerHTML = 'Billing Note last updated by ' + user + Date() + '\n\r';
     }
 </script>
 
