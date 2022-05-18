@@ -934,7 +934,12 @@ function newPatientData(
       "list_id = 'pricelevel' AND activity = 1 ORDER BY is_default DESC, seq ASC LIMIT 1");
     $pricelevel = empty($lrow['option_id']) ? '' : $lrow['option_id'];
 
-    $query = ("replace into patient_data set
+    /**
+     * records are being over written and the only thing that can do that is a replace into statement
+     * I am changing this to a update rather than a replace into
+     * $query = ("replace into patient_data set
+     */
+    $query = ("update patient_data set
         id='" . add_escape_custom($db_id) . "',
         title='" . add_escape_custom($title) . "',
         fname='" . add_escape_custom($fname) . "',
