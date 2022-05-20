@@ -54,15 +54,20 @@ $triwest
                 $name = '';
                     while ($iter = sqlFetchArray($patients)) {
                         $sql = "SELECT count(*) AS count FROM `form_misc_billing_options` WHERE pid = ? AND `prior_auth_number` = ?";
-                        $numbers = sqlQuery($sql, [$iter['pid'], $iter['auth_num']]);
+                        if (!empty($iter['pid'])) {
+                            $pid = $iter['pid'];
+                        } else {
+                            $pid = $iter['mrn'];
+                        }
+                        $numbers = sqlQuery($sql, [$pid, $iter['auth_num']]);
 
                         $icname = "SELECT ic.name  FROM `insurance_data` id " .
                             "JOIN insurance_companies ic ON id.provider = ic.id " .
                             "WHERE `pid` = ? AND type = 'primary'";
-                        $insurance = sqlQuery($icname, [$iter['pid']]);
+                        $insurance = sqlQuery($icname, [$pid]);
 
                         if ($name !== $iter['fname'] . " " . $iter['lname'] ) {
-                            print "<tr><td><a href='#' onclick='openNewTopWindow(" . $iter['pid'] . ")'>" . $iter['pid'] . "</a></td>";
+                            print "<tr><td><a href='#' onclick='openNewTopWindow(" . $pid . ")'>" . $pid . "</a></td>";
                             print "<td><strong>" . $iter['lname'] . ", " . $iter['fname'] . "</strong></td>";
                             print "<td style='max-width:75px;'>" . $insurance['name'] . "</td>";
                         } else {
