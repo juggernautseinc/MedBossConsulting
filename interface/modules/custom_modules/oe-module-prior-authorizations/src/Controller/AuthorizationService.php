@@ -173,8 +173,11 @@ class AuthorizationService
 
     public function listPatientAuths()
     {
-        $sql = "SELECT pd.fname, pd.lname, mpa.pid, mpa.auth_num, mpa.start_date, mpa.end_date, mpa.cpt, mpa.init_units " .
-            "FROM `module_prior_authorizations` mpa JOIN `patient_data` pd ON pd.pid = mpa.pid ORDER BY pd.lname";
+        $sql = "SELECT pd.fname, pd.lname, mpa.pid, mpa.auth_num, mpa.start_date, mpa.end_date, mpa.cpt, mpa.init_units " . "
+            FROM `patient_data` pd " . "
+            LEFT JOIN  `module_prior_authorizations` mpa ON pd.pid = mpa.pid " . "
+            WHERE pd.Ref_Req = 'Yes' OR mpa.pid = pd.pid  " . "
+			ORDER BY pd.lname";
         return sqlStatement($sql);
     }
 
