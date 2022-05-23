@@ -47,7 +47,6 @@ class Router
                 $class = new $class();
 
                 if (method_exists($class, $method)) {
-                    echo "method exist";
                     return call_user_func_array([$class, $method], []);
                 }
             }

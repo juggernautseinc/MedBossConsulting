@@ -17,7 +17,7 @@ class Invoice
         return '<!doctype html><html lang="en"><title>Invoices page</title><body><h1>Invoices</h1></body></html>';
     }
 
-    public function create(): string
+    public static function create(): string
     {
         return 'Create Invoice';
     }
