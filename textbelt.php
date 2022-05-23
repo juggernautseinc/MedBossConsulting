@@ -10,6 +10,11 @@ function createMeetingId()
     return md5($newmeetingid['DOB'] . $_SESSION['pid']);
 }
 
+function getFacility()
+{
+    return sqlQuery("select `name` from `facility` where `id` = 3");
+}
+
 $link = '';
 $wherefrom = explode("/", $_SERVER['HTTP_REFERER']);
 if ($wherefrom[5] == 'tabs') {
@@ -20,13 +25,13 @@ if ($wherefrom[5] == 'tabs') {
 }
 
 $sendTo = $_GET['recipient'];
-function sendSMS($sendTo, $link, $consent)
+function sendSMS($sendTo, $link, $consent, $facility)
 {
     $key = new CryptoGen();
     $ch = curl_init('https://textbelt.com/text');
     $data = array(
       'phone' => $sendTo,
-      'message' => "$consent Serenity Telehealth $link",
+      'message' => "$consent $facility $link",
       'key' => $key->decryptStandard($GLOBALS['texting_enables']),
     );
 
@@ -38,8 +43,8 @@ function sendSMS($sendTo, $link, $consent)
     curl_close($ch);
     return $response;
 }
-
-$response = sendSMS($sendTo, $link, $consent);
+$facility = getFacility()['name'];
+$response = sendSMS($sendTo, $link, $consent, $facility);
 $message = json_decode($response, true);
 if ($message['success'] === true) {
     echo "Message send successfully. Remaining quota " . $message['quotaRemaining'];
