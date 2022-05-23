@@ -42,6 +42,7 @@ class Router
             [$class, $method] = $action;
 echo "is array";
 var_dump($class);
+var_dump($method);
             if (class_exists($class)) {
                 $class = new $class();
 echo "class_exist";
