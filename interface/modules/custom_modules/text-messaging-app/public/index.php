@@ -8,15 +8,16 @@
  *  All rights reserved
  */
 
-require_once __DIR__ . '/../vendor/autoload.php';
 require_once dirname(__DIR__, 4) . '/globals.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+
 
 $router = new Juggernaut\App\Router();
 
 $router
     ->register('/interface/modules/custom_modules/text-messaging-app/public/index.php/home', [Juggernaut\App\Controllers\Home::class, 'index'])
     ->register('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices', [Juggernaut\App\Controllers\Invoice::class, 'index'])
-    ->register('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices', [Juggernaut\App\Controllers\Invoice::class, 'create']);;
+    ->register('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices/create', [Juggernaut\App\Controllers\Invoice::class, 'create']);;
 
 
 
