@@ -2,7 +2,7 @@
 
 require_once "interface/globals.php";
 
-const API_KEY = '';
+use OpenEMR\Common\Crypto\CryptoGen;
 
 function createMeetingId()
 {
@@ -21,11 +21,12 @@ if ($wherefrom[5] == 'tabs') {
 $sendTo = $_GET['recipient'];
 function sendSMS($sendTo, $link)
 {
+    $key = new CryptoGen();
     $ch = curl_init('https://textbelt.com/text');
     $data = array(
       'phone' => $sendTo,
       'message' => "Serenity Telehealth $link",
-      'key' => API_KEY,
+      'key' => $key->decryptStandard($GLOBALS['texting_enables']),
     );
 
     curl_setopt($ch, CURLOPT_POST, 1);
