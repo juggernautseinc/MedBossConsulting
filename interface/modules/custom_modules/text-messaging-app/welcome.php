@@ -28,6 +28,8 @@ use OpenEMR\Core\Header;
         <h1><?php echo xlt('Texting Patients'); ?></h1>
         <a href="public/index.php/invoices?foo=bar" ><?php echo xlt('Invoices Page Go!'); ?></a>
         <a href="public/index.php/home" ><?php echo xlt('Home Page Go!'); ?></a>
+        <a href="public/index.php/create" ><?php echo xlt('Create Invoices Page Go!'); ?></a>
+
         <input type="text" name="pnumbers" value="" class="form-control" >
         <textarea name="message" class="form-control"></textarea>
         <input class="btn btn-primary" type="submit" value="Send Message">
