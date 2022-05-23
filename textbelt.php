@@ -43,8 +43,8 @@ function sendSMS($sendTo, $link, $consent, $facility)
     curl_close($ch);
     return $response;
 }
-$facility = getFacility()['name'];
-$response = sendSMS($sendTo, $link, $consent, $facility);
+$facility = getFacility();
+$response = sendSMS($sendTo, $link, $consent, $facility['name']);
 $message = json_decode($response, true);
 if ($message['success'] === true) {
     echo "Message send successfully. Remaining quota " . $message['quotaRemaining'];
