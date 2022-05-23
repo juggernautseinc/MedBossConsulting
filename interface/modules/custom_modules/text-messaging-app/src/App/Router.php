@@ -17,7 +17,8 @@ class Router
     private array $routes;
 // remember to return the type hint callable|array when updating to php 8
 // removing for right now to keep moving forward
-    public function register(string $route, $action): self
+// callable|array $action
+    public function register(string $route, callable|array $action): self
     {
         $this->routes[$route] = $action;
         return $this;
