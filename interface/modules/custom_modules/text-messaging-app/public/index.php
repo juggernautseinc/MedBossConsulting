@@ -22,6 +22,6 @@ $router
     ->register('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices', [Invoice::class, 'index'])
     ->register('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices/create', [Invoice::class, 'create']);
 
-
+echo "<pre>";
 var_dump($router);
 //echo $router->resolve($_SERVER['REQUEST_URI']);
