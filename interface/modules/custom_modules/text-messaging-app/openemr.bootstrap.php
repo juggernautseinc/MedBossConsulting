@@ -49,7 +49,7 @@ function oe_module_texting_add_menu_item(MenuEvent $event)
  * @global                       $module          @see ModulesApplication::loadCustomModule
  */
 
-function createFaxModuleGlobals(GlobalsInitializedEvent $event)
+function createTextMessageGlobals(GlobalsInitializedEvent $event)
 {
     $instruct = xl('Obtain API Key to send messages');
     $event->getGlobalsService()->createSection("Text Messaging", "Report");
