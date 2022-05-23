@@ -14,8 +14,9 @@ use Juggernaut\App\Exceptions\RouteNotFoundException;
 class Router
 {
     private array $routes;
-
-    public function register(string $route, callable|array $action): self
+// remember to return the type hint callable|array when updating to php 8
+// removing for right now to keep moving forward
+    public function register(string $route, $action): self
     {
         $this->routes[$route] = $action;
         return $this;
