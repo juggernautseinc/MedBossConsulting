@@ -23,7 +23,7 @@ $router->register(
 $router->register(
   '/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices',
   function () {
-      echo 'Invoices';
+      echo '<!doctype html><html><title>Invoices page</title><body><h1>Invoices</h1></body></html>';
   }
 );
 
