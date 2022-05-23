@@ -9,6 +9,7 @@
  */
 
 require_once __DIR__ . '/../vendor/autoload.php';
+require_once dirname(__DIR__, 4) . '/globals.php';
 
 $router = new Juggernaut\App\Router();
 
@@ -20,7 +21,7 @@ $router->register(
 );
 
 $router->register(
-  '/invoices',
+  '/interface/modules/custom_modules/text-messaging-app/invoices',
   function () {
       echo 'Invoices';
   }
