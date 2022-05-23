@@ -14,14 +14,14 @@ require_once dirname(__DIR__, 4) . '/globals.php';
 $router = new Juggernaut\App\Router();
 
 $router->register(
-    '/',
+    '/interface/modules/custom_modules/text-messaging-app/public/',
     function () {
         echo 'Home';
     }
 );
 
 $router->register(
-  '/interface/modules/custom_modules/text-messaging-app/invoices',
+  '/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices',
   function () {
       echo 'Invoices';
   }
