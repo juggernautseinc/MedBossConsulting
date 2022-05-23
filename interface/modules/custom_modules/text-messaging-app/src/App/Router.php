@@ -17,7 +17,7 @@ class Router
     private array $routes;
 // remember to return the type hint callable|array when updating to php 8
 // removing for right now to keep moving forward
-// callable|array $action
+// callable|array $action  <--- put this type hint back when we go to php8
     public function register(string $route, callable|array $action): self
     {
         $this->routes[$route] = $action;
@@ -42,19 +42,17 @@ class Router
 
         if (is_array($action)) {
             [$class, $method] = $action;
-echo "is array";
-var_dump($class);
-var_dump($method);
+
             if (class_exists($class)) {
                 $class = new $class();
-echo "class_exist";
+
                 if (method_exists($class, $method)) {
                     echo "method exist";
                     return call_user_func_array([$class, $method], []);
                 }
             }
         }
-        echo "what happened? ";
+
         throw new RouteNotFoundException();
     }
 }
