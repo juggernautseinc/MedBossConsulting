@@ -54,8 +54,8 @@ function createFaxModuleGlobals(GlobalsInitializedEvent $event)
     $instruct = xl('Obtain API Key to send messages');
     $event->getGlobalsService()->createSection("Text Messaging", "Report");
     $setting = new GlobalSetting(xl('TextBelt API Key'), 'encrypted', '', $instruct);
-    $event->getGlobalsService()->appendToSection("Text Messaging", "oedocumofax_enable", $setting);
+    $event->getGlobalsService()->appendToSection("Text Messaging", "texting_enables", $setting);
 }
 
-$eventDispatcher->addListener(GlobalsInitializedEvent::EVENT_HANDLE, 'createFaxModuleGlobals');
+$eventDispatcher->addListener(GlobalsInitializedEvent::EVENT_HANDLE, 'createTextMessageGlobals');
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_texting_add_menu_item');
