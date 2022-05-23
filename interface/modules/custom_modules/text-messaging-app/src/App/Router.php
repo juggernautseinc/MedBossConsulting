@@ -21,6 +21,9 @@ class Router
         return $this;
     }
 
+    /**
+     * @throws RouteNotFoundException
+     */
     public function resolve(string $requestUri)
     {
         $route = explode("?", $requestUri)[0];

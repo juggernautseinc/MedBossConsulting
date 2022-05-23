@@ -26,5 +26,6 @@ $router->register(
       echo 'Invoices';
   }
 );
+var_dump($_SERVER['REQUEST_URI']);
 
-echo $router->resolve($_SERVER['REQUEST_URI']);
+//echo $router->resolve($_SERVER['REQUEST_URI']);
