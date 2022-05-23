@@ -14,7 +14,8 @@ $link = '';
 $wherefrom = explode("/", $_SERVER['HTTP_REFERER']);
 if ($wherefrom[5] == 'tabs') {
     $meetingid = createMeetingId();
-    $consent = "By clicking the link below, you are consenting to the telehealth service that is being provided.";
+    $consent = "By clicking the link below, you are consenting to the telehealth service that is being provided." .
+    " Please text office at 808-468-2439. Serenity Telehealth \n ";
     $link = "https://" . $_SERVER['SERVER_NAME'] . "/interface/jitsi/jitsi.php?room=" . $meetingid . "&pid=" . $_SESSION['pid'];
 }
 
