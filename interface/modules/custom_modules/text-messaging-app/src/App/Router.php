@@ -40,15 +40,17 @@ class Router
 
         if (is_array($action)) {
             [$class, $method] = $action;
-
+echo "is array";
             if (class_exists($class)) {
                 $class = new $class();
-
+echo "class_exist";
                 if (method_exists($class, $method)) {
+                    echo "method exist";
                     return call_user_func_array([$class, $method], []);
                 }
             }
         }
+        echo "what happened? ";
         throw new RouteNotFoundException();
     }
 }
