@@ -14,7 +14,7 @@ require_once dirname(__DIR__, 4) . '/globals.php';
 $router = new Juggernaut\App\Router();
 
 $router->register(
-    '/interface/modules/custom_modules/text-messaging-app/public',
+    '/interface/modules/custom_modules/text-messaging-app/public/index.php/home',
     function () {
         echo 'Home';
     }
