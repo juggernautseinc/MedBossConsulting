@@ -11,7 +11,7 @@ namespace Juggernaut\App\Controllers;
 
 class Invoice
 {
-    public function index(): string
+    public static function index(): string
     {
         return '<!doctype html><html lang="en"><title>Invoices page</title><body><h1>Invoices</h1></body></html>';
     }
