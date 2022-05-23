@@ -10,8 +10,8 @@
 
 require_once dirname(__DIR__, 3 ) . '/globals.php';
 
-use Juggernaut\Controllers\SendMessage;
 use OpenEMR\Core\Header;
+
 ?>
 <!doctype html>
 <html lang="en">

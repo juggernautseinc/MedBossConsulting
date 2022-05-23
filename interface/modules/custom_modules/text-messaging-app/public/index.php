@@ -8,8 +8,8 @@
  *  All rights reserved
  */
 
-use Juggernaut\Controllers\Home;
-use Juggernaut\Controllers\Invoice;
+use Juggernaut\App\Controllers\Home;
+use Juggernaut\App\Controllers\Invoice;
 
 require_once dirname(__DIR__, 4) . '/globals.php';
 require_once __DIR__ . '/../vendor/autoload.php';

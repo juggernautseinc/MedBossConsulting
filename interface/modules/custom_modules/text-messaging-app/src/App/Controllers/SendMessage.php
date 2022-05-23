@@ -7,7 +7,7 @@
  *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  */
 
-namespace Juggernaut\Controllers;
+namespace Juggernaut\App\Controllers;
 
 use OpenEMR\Common\Crypto\CryptoGen;
 
