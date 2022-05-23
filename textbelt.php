@@ -10,7 +10,7 @@ function createMeetingId()
     return md5($newmeetingid['DOB'] . $_SESSION['pid']);
 }
 
-function getFacility()
+function getTextFacility()
 {
     return sqlQuery("select `name` from `facility` where `id` = 3");
 }
@@ -43,7 +43,7 @@ function sendSMS($sendTo, $link, $consent, $facility)
     curl_close($ch);
     return $response;
 }
-$facility = getFacility();
+$facility = getTextFacility();
 $response = sendSMS($sendTo, $link, $consent, $facility['name']);
 $message = json_decode($response, true);
 if ($message['success'] === true) {
