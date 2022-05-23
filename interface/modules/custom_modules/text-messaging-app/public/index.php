@@ -13,19 +13,11 @@ require_once dirname(__DIR__, 4) . '/globals.php';
 
 $router = new Juggernaut\App\Router();
 
-$router->register(
-    '/interface/modules/custom_modules/text-messaging-app/public/index.php/home',
-    function () {
-        echo 'Home';
-    }
-);
+$router
+    ->register('/interface/modules/custom_modules/text-messaging-app/public/index.php/home', [Juggernaut\App\Controllers\Home::class, 'index'])
+    ->register('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices', [Juggernaut\App\Controllers\Invoice::class, 'index'])
+    ->register('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices', [Juggernaut\App\Controllers\Invoice::class, 'create']);;
 
-$router->register(
-  '/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices',
-  function () {
-      echo '<!doctype html><html><title>Invoices page</title><body><h1>Invoices</h1></body></html>';
-  }
-);
 
 
 echo $router->resolve($_SERVER['REQUEST_URI']);
