@@ -8,6 +8,8 @@
  *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  */
 
+require_once dirname(__DIR__, 3 ) . '/globals.php';
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -20,7 +22,7 @@
 </head>
 <body>
 <h1><?php echo xlt('Texting Patients'); ?></h1>
-
+<a href="public/index.php/invoices?foo=bar" ><?php echo xlt('Send a message'); ?></a>
 </body>
 </html>
 
