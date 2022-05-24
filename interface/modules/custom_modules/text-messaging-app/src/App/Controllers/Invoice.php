@@ -31,6 +31,7 @@ class Invoice
     private static function formView()
     {
         return <<<EEB
+<title>Post Form</title>
 <form action="/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices/create" method="post">
 <label>Amount</label>
 <input type="text" name="amount">
