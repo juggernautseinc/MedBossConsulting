@@ -22,13 +22,13 @@ class Invoice
         return self::formView();
     }
 
-    public static function store(): string
+    public static function store(): void
     {
         $value = $_POST['amount'];
         var_dump($value);
     }
 
-    private function formView()
+    private static function formView()
     {
         return <<<EEB
 <form action="/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices/create" method="post">
