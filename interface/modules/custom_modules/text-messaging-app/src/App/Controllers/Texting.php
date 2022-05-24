@@ -14,6 +14,7 @@ class Texting extends SendMessage
 {
     public static function bulk(): void
     {
+        echo "<title>Texting Results</title>";
         $numbers = $_POST['pnumbers'];
         if (!str_contains($numbers, ",")) {
             die('Please use a comma separated list');
@@ -25,7 +26,11 @@ class Texting extends SendMessage
             $response = self::outBoundMessage($individual, $messagesbody);
             $results = json_decode($response, true);
             var_dump($results);
-            echo $individual;
+            if ($results['success'] === true) {
+                echo "Successful, message ID " . $results['textId'] . " patients number " . $individual;
+            } else {
+                echo "Unsuccessful, message ID " . $results['textId'] . " patients number " . $individual;
+            }
         }
 
     }
