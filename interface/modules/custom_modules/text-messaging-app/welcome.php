@@ -21,10 +21,10 @@ use OpenEMR\Core\Header;
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Texting with TextBelt Service</title>
-    <?php Header::setupHeader(['common']) ?>
+    <?php Header::setupHeader() ?>
 </head>
 <body>
-    <div class="container-fluid m-5">
+    <div class="container m-5">
         <h1><?php echo xlt('Bulk Texting'); ?></h1>
         <!--<a href="public/index.php/invoices?foo=bar" ><?php //echo xlt('Invoices Page Go!'); ?></a>
         <a href="public/index.php/home" ><?php //echo xlt('Home Page Go!'); ?></a>
