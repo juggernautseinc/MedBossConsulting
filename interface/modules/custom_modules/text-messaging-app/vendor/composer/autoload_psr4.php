@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Juggernaut\\App\\' => array($baseDir . '/src'),
+    'Juggernaut\\' => array($baseDir . '/src'),
 );

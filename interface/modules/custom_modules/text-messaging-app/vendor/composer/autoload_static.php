@@ -9,12 +9,12 @@ class ComposerStaticInitf800d73aa2f3185c39b75e163f013e99
     public static $prefixLengthsPsr4 = array (
         'J' => 
         array (
-            'Juggernaut\\App\\' => 15,
+            'Juggernaut\\' => 11,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Juggernaut\\App\\' => 
+        'Juggernaut\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
@@ -22,6 +22,11 @@ class ComposerStaticInitf800d73aa2f3185c39b75e163f013e99
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Juggernaut\\App\\Controllers\\Home' => __DIR__ . '/../..' . '/src/App/Controllers/Home.php',
+        'Juggernaut\\App\\Controllers\\Invoice' => __DIR__ . '/../..' . '/src/App/Controllers/Invoice.php',
+        'Juggernaut\\App\\Controllers\\SendMessage' => __DIR__ . '/../..' . '/src/App/Controllers/SendMessage.php',
+        'Juggernaut\\App\\Exceptions\\RouteNotFoundException' => __DIR__ . '/../..' . '/src/App/Exceptions/RouteNotFoundException.php',
+        'Juggernaut\\App\\Router' => __DIR__ . '/../..' . '/src/App/Router.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -19,7 +19,25 @@ class Invoice
 
     public static function create(): string
     {
-        return 'Create Invoice';
+        return self::formView();
+    }
+
+    public static function store(): string
+    {
+        $value = $_POST['amount'];
+        var_dump($value);
+    }
+
+    private function formView()
+    {
+        return <<<EEB
+<form action="/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices/create" method="post">
+<label>Amount</label>
+<input type="text" name="amount">
+<input type="submit" value="Submit">
+</form>
+EEB;
+
     }
 
 }
