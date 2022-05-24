@@ -32,7 +32,7 @@ class SendMessage
         return $response;
     }
 
-    private function getKey()
+    private static function getKey()
     {
         $key = new CryptoGen();
         return $key->decryptStandard($GLOBALS['texting_enables']);
