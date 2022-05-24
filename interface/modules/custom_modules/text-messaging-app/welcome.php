@@ -24,7 +24,7 @@ use OpenEMR\Core\Header;
     <?php Header::setupHeader(['common']) ?>
 </head>
 <body>
-    <div class="container m-5">
+    <div class="container-fluid m-5">
         <h1><?php echo xlt('Bulk Texting'); ?></h1>
         <!--<a href="public/index.php/invoices?foo=bar" ><?php //echo xlt('Invoices Page Go!'); ?></a>
         <a href="public/index.php/home" ><?php //echo xlt('Home Page Go!'); ?></a>
