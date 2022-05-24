@@ -10,6 +10,7 @@ return array(
     'Juggernaut\\App\\Controllers\\Home' => $baseDir . '/src/App/Controllers/Home.php',
     'Juggernaut\\App\\Controllers\\Invoice' => $baseDir . '/src/App/Controllers/Invoice.php',
     'Juggernaut\\App\\Controllers\\SendMessage' => $baseDir . '/src/App/Controllers/SendMessage.php',
+    'Juggernaut\\App\\Controllers\\Texting' => $baseDir . '/src/App/Controllers/Texting.php',
     'Juggernaut\\App\\Exceptions\\RouteNotFoundException' => $baseDir . '/src/App/Exceptions/RouteNotFoundException.php',
     'Juggernaut\\App\\Router' => $baseDir . '/src/App/Router.php',
 );
