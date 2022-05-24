@@ -32,7 +32,7 @@ use OpenEMR\Core\Header;
         <form method="post" action="public/index.php/texting/bulk" name="textcrude" >
             <input type="text" name="pnumbers" value="" class="form-control" placeholder="place commas between numbers">
             <textarea name="message" class="form-control" placeholder="Enter mass message here"></textarea>
-            <input class="btn btn-primary" type="submit" value="Send Message">
+            <input class="btn btn-primary mt-3" type="submit" value="Send Message">
         </form>
     </div>
 </body>
