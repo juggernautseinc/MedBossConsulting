@@ -21,7 +21,7 @@ if ($wherefrom[5] == 'tabs') {
     $phone = getTextFacility();
     $meetingid = createMeetingId();
     $consent = "By clicking the link below, you are consenting to the telehealth service that is being provided." .
-    " Please text office at " . $phone['phone'] . ". \n ";
+    " Please call office at " . $phone['phone'] . ". \n ";
     $link = "https://" . $_SERVER['SERVER_NAME'] . "/interface/jitsi/jitsi.php?room=" . $meetingid . "&pid=" . $_SESSION['pid'];
 }
 
