@@ -13,7 +13,7 @@ class Texting
 {
     public static function bulk(): void
     {
-        echo $numbers = $_POST['numbers'];
+        echo $numbers = $_POST['pnumbers'];
         echo $messagesbody = $_POST['message'];
 
     }
