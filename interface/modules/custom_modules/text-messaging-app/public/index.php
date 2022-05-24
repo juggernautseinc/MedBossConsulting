@@ -14,6 +14,7 @@ error_reporting(E_ALL);
 
 use Juggernaut\App\Controllers\Home;
 use Juggernaut\App\Controllers\Invoice;
+use Juggernaut\App\Controllers\Texting;
 
 require_once dirname(__DIR__, 4) . '/globals.php';
 require_once __DIR__ . '/../vendor/autoload.php';
