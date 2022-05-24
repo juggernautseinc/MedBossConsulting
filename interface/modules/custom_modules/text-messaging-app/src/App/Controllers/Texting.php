@@ -23,8 +23,9 @@ class Texting extends SendMessage
         foreach ($individuals as $individual) {
             $individual = str_replace("-", "", $individual);
             $response = self::outBoundMessage($individual, $messagesbody);
-            $results = json_decode($response);
+            $results = json_decode($response, true);
             var_dump($results);
+            echo $individual;
         }
 
     }
