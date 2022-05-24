@@ -25,9 +25,9 @@ class Texting extends SendMessage
             $individual = str_replace("-", "", $individual);
             $response = self::outBoundMessage($individual, $messagesbody);
             $results = json_decode($response, true);
-            var_dump($results);
+
             if ($results['success'] === true) {
-                echo "Successful, message ID " . $results['textId'] . " patients number " . $individual;
+                echo "Successful, message ID " . $results['textId'] . " patients number " . $individual . "<br><br>";
             } else {
                 echo "Unsuccessful, message ID " . $results['textId'] . " patients number " . $individual;
             }
