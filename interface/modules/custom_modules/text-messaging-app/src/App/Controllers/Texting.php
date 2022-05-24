@@ -22,8 +22,9 @@ class Texting extends SendMessage
         $individuals = explode(",", $numbers);
         foreach ($individuals as $individual) {
             $individual = str_replace("-", "", $individual);
-            echo self::outBoundMessage($individual, $messagesbody);
-
+            $response = self::outBoundMessage($individual, $messagesbody);
+            $results = json_decode($response);
+            var_dump($results);
         }
 
     }

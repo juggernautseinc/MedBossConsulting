@@ -14,7 +14,7 @@ use OpenEMR\Common\Crypto\CryptoGen;
 
 class SendMessage
 {
-    public function outBoundMessage(int $phone, string $message) : string
+    public static function outBoundMessage(int $phone, string $message) : string
     {
         $ch = curl_init('https://textbelt.com/text');
         $data = array(
@@ -32,6 +32,9 @@ class SendMessage
         return $response;
     }
 
+    /**
+     * @return false|string
+     */
     private static function getKey()
     {
         $key = new CryptoGen();
