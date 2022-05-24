@@ -25,7 +25,7 @@ if ($wherefrom[5] == 'tabs') {
     $link = "https://" . $_SERVER['SERVER_NAME'] . "/interface/jitsi/jitsi.php?room=" . $meetingid . "&pid=" . $_SESSION['pid'];
 }
 
-$sendTo = $_GET['recipient'];
+$sendTo = str_replace("-", '', $_GET['recipient']);
 
 function sendSMS(int $sendTo, string $link, string $consent, string $facility)
 {
