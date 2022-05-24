@@ -29,7 +29,7 @@ use OpenEMR\Core\Header;
         <a href="public/index.php/invoices?foo=bar" ><?php echo xlt('Invoices Page Go!'); ?></a>
         <a href="public/index.php/home" ><?php echo xlt('Home Page Go!'); ?></a>
         <a href="public/index.php/invoices/create" ><?php echo xlt('Create Invoices Page Go!'); ?></a>
-        <form method="post" action="public/index.php/texting/bulk" name="textcrude" >
+        <form method="post" action="/interface/modules/custom_modules/text-messaging-app/public/index.php/texting/bulk" name="textcrude" >
             <input type="text" name="pnumbers" value="" class="form-control" placeholder="place commas between numbers">
             <textarea name="message" class="form-control" placeholder="Enter mass message here"></textarea>
             <input class="btn btn-primary" type="submit" value="Send Message">
