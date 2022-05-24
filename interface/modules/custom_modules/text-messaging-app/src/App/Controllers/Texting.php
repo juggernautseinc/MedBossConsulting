@@ -16,9 +16,9 @@ class Texting
     {
         $numbers = $_POST['pnumbers'];
         $messagesbody = $_POST['message'];
-
-        foreach ($numbers as $number) {
-            echo $number;
+        $individuals = explode(",", $numbers);
+        foreach ($individuals as $individual) {
+            echo $individual;
         }
 
     }
