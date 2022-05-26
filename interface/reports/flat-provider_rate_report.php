@@ -100,7 +100,7 @@ function endDoctor(&$docrow)
     $fname = trim($nametoid[1]);
     $lname = trim($nametoid[0]);
     $thedoc = sqlQuery("SELECT `id` FROM `users` WHERE `lname` LIKE ? AND `fname` LIKE ?", [$lname, $fname]);
-    var_dump($thedoc);
+
     $rate = getRate($thedoc['id']);
     echo " <tr class='report_totals'>\n";
     echo "  <td colspan='5'>\n";
