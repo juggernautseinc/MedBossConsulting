@@ -54,6 +54,7 @@ $grand_total_copays     = 0;
 $grand_total_encounters = 0;
 $grand_total_provider_payouts = [];
 $userid = '';
+
 function identity() {
     $sql = "SELECT fname, lname  FROM users WHERE id = ?";
     $name = sqlQuery($sql, [$_SESSION['authUserID']]);
@@ -91,14 +92,14 @@ function bucks($amount)
 
 function endDoctor(&$docrow)
 {
-    global $grand_total_charges, $grand_total_copays, $grand_total_encounters, $userid, $grand_total_provider_payouts;
+    global $grand_total_charges, $grand_total_copays, $grand_total_encounters, $grand_total_provider_payouts;
     if (!$docrow['docname']) {
         return;
     }
     $rate = getRate($userid);
     echo " <tr class='report_totals'>\n";
     echo "  <td colspan='5'>\n";
-    echo "   &nbsp;" . $userid . xlt('Totals for') . ' ' . text($docrow['docname']) . "\n";
+    echo "   &nbsp;" . $userid . xlt(' Totals for') . ' ' . text($docrow['docname']) . "\n";
     echo "  </td>\n";
     echo "  <td>\n";
     echo "   &nbsp;" . text($docrow['encounters']) . "&nbsp;\n";
@@ -378,7 +379,7 @@ if (!empty($_POST['form_refresh'])) {
     if ($res) {
 
         $docrow = array('docname' => '', 'charges' => 0, 'copays' => 0, 'encounters' => 0);
-
+        global $userid;
         while ($row = sqlFetchArray($res)) {
             $userid = $row['id'];
 
