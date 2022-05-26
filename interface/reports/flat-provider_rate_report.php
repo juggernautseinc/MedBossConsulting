@@ -36,18 +36,14 @@ use OpenEMR\Billing\BillingUtilities;
 use OpenEMR\Common\Csrf\CsrfUtils;
 use OpenEMR\Core\Header;
 use OpenEMR\Services\FacilityService;
-use OpenEMR\Common\Acl\AclMain;
+
 
 if (!empty($_POST)) {
     if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token_form"])) {
         CsrfUtils::csrfNotVerified();
     }
 }
-/*
-if (AclMain::aclCheckCore('patient', 'report')) {
-    echo "<title>Payroll Report</title>";
-    die(xlt("Unauthorized access.1"));
-}*/
+
 
 $facilityService = new FacilityService();
 
@@ -111,7 +107,7 @@ function endDoctor(&$docrow)
     echo "   &nbsp;";
     $pay = bucks($rate['flat'] * text($docrow['encounters']));
     $mpay = $rate['flat'] * $docrow['encounters'];
-    echo   "$" . $pay;
+    echo   $rate['flat'] . " $" . $pay;
     echo text($docrow['encounters']);
     echo "&nbsp;\n";
     echo "  </td>\n";
