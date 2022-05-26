@@ -98,7 +98,7 @@ function endDoctor(&$docrow)
     $rate = getRate($userid);
     echo " <tr class='report_totals'>\n";
     echo "  <td colspan='5'>\n";
-    echo "   &nbsp;" . xlt('Totals for') . ' ' . text($docrow['docname']) . "\n";
+    echo "   &nbsp;" . $userid . xlt('Totals for') . ' ' . text($docrow['docname']) . "\n";
     echo "  </td>\n";
     echo "  <td>\n";
     echo "   &nbsp;" . text($docrow['encounters']) . "&nbsp;\n";
