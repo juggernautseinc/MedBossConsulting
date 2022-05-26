@@ -63,7 +63,7 @@ $providers = $providerdata->getProviders();
                     while ($row = sqlFetchArray($providers)) {
                         $rate = $providerdata->retreiveRates($row['id']);
                         print "<tr>";
-                        print "<td>" . $row['fname'] . " " . $row['lname'] . "<input type='hidden' name='userid' value='" .
+                        print "<td>" . $row['id'] . ' ' . $row['fname'] . " " . $row['lname'] . "<input type='hidden' name='userid' value='" .
                             $row['id'] . "'></td>";
                         print "<td><input type='text' id='percent_" . $row['id'] . "' value='"
                             . $rate['percentage'] .

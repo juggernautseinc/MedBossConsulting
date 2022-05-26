@@ -14,6 +14,7 @@ class ProviderRates
 {
     public function __construct()
     {
+        //do epic stuff here in the future
     }
 
     public function getProviders()
