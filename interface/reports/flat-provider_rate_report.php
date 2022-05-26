@@ -92,7 +92,7 @@ function bucks($amount)
 
 function endDoctor(&$docrow)
 {
-    global $grand_total_charges, $grand_total_copays, $grand_total_encounters, $grand_total_provider_payouts;
+    global $grand_total_charges, $grand_total_copays, $grand_total_encounters, $userid, $grand_total_provider_payouts;
     if (!$docrow['docname']) {
         return;
     }
