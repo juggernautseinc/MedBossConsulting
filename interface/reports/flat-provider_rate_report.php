@@ -90,9 +90,9 @@ function bucks($amount)
     }
 }
 
-function endDoctor(&$docrow)
+function endDoctor(&$docrow, &$userid)
 {
-    global $grand_total_charges, $grand_total_copays, $grand_total_encounters, $userid, $grand_total_provider_payouts;
+    global $grand_total_charges, $grand_total_copays, $grand_total_encounters, $grand_total_provider_payouts;
     if (!$docrow['docname']) {
         return;
     }
@@ -379,7 +379,7 @@ if (!empty($_POST['form_refresh'])) {
     if ($res) {
 
         $docrow = array('docname' => '', 'charges' => 0, 'copays' => 0, 'encounters' => 0);
-        global $userid;
+
         while ($row = sqlFetchArray($res)) {
             $userid = $row['id'];
 
@@ -388,7 +388,7 @@ if (!empty($_POST['form_refresh'])) {
             $docname    = $row['docname'] ? $row['docname'] : xl('Unknown');
 
             if ($docname != $docrow['docname']) {
-                endDoctor($docrow);
+                endDoctor($docrow, &$userid);
             }
 
             if ($docname === 'Unknown') {
