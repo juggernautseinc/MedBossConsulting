@@ -97,9 +97,7 @@ function endDoctor(&$docrow)
         return;
     }
     $nametoid = explode(",", $docrow['docname']);
-    $fname = $nametoid[0];
-    $lname = $nametoid[1];
-    $thedoc = sqlQuery("SELECT `id` FROM `users` WHERE `lname` = ? AND `fname` = ?", [$lname, $fname]);
+    $thedoc = sqlQuery("SELECT `id` FROM `users` WHERE `lname` = 'waters' AND `fname` = 'lori'");
     var_dump($thedoc);
     $rate = getRate($thedoc['id']);
     echo " <tr class='report_totals'>\n";
