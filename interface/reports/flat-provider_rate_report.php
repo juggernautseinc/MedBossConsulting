@@ -90,16 +90,18 @@ function bucks($amount)
     }
 }
 
-function endDoctor(&$docrow, &$userid)
+function endDoctor(&$docrow)
 {
     global $grand_total_charges, $grand_total_copays, $grand_total_encounters, $grand_total_provider_payouts;
     if (!$docrow['docname']) {
         return;
     }
-    $rate = getRate($userid);
+    $nametoid = explode(",", $docrow['docname']);
+    $thedoc = sqlQuery("SELECT id FROM users WHERE lname = ? AND fname = ?", [$nametoid[0], $nametoid[1]]);
+    $rate = getRate($thedoc['id']);
     echo " <tr class='report_totals'>\n";
     echo "  <td colspan='5'>\n";
-    echo "   &nbsp;" . $userid . xlt(' Totals for') . ' ' . text($docrow['docname']) . "\n";
+    echo "   &nbsp;" . $thedoc['id'] . xlt(' Totals for') . ' ' . text($docrow['docname']) . "\n";
     echo "  </td>\n";
     echo "  <td>\n";
     echo "   &nbsp;" . text($docrow['encounters']) . "&nbsp;\n";
@@ -388,7 +390,7 @@ if (!empty($_POST['form_refresh'])) {
             $docname    = $row['docname'] ? $row['docname'] : xl('Unknown');
 
             if ($docname != $docrow['docname']) {
-                endDoctor($docrow,$userid);
+                endDoctor($docrow);
             }
 
             if ($docname === 'Unknown') {
@@ -581,7 +583,7 @@ if (!empty($_POST['form_refresh'])) {
             $docrow['docname'] = $docname;
         } // end of row
 
-        endDoctor($docrow, $userid);
+        endDoctor($docrow);
 
         echo " <tr class='report_totals'>\n";
         echo "  <td colspan='5'>\n";
