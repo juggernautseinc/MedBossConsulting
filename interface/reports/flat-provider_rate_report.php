@@ -388,7 +388,7 @@ if (!empty($_POST['form_refresh'])) {
             $docname    = $row['docname'] ? $row['docname'] : xl('Unknown');
 
             if ($docname != $docrow['docname']) {
-                endDoctor($docrow, &$userid);
+                endDoctor($docrow,$userid);
             }
 
             if ($docname === 'Unknown') {
@@ -581,7 +581,7 @@ if (!empty($_POST['form_refresh'])) {
             $docrow['docname'] = $docname;
         } // end of row
 
-        endDoctor($docrow);
+        endDoctor($docrow, $userid);
 
         echo " <tr class='report_totals'>\n";
         echo "  <td colspan='5'>\n";
