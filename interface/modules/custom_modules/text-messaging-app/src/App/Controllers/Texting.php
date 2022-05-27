@@ -49,7 +49,8 @@ class Texting extends SendMessage
 
             $response = self::outBoundMessage((int)$patientNumber, $outboundMessage);
             $results = json_decode($response, true);
-            echo self::messageResultsDisplay($results);
+
+            echo self::messageResultsDisplay($results) . ' ' . $patientNumber;
         }
     }
 
