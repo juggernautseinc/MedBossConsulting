@@ -64,7 +64,7 @@ class Texting extends SendMessage
         return "https://" .
             $_SERVER['SERVER_NAME'] .
             "/interface/jitsi/jitsi.php?room=" .
-            $this->createMeetingId() . "&pid=" . $_SESSION['pid'];
+            self::createMeetingId() . "&pid=" . $_SESSION['pid'];
     }
 
     private function createMeetingId()
