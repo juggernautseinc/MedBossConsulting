@@ -12,23 +12,23 @@ namespace Juggernaut\App\Controllers;
 
 class Invoice
 {
-    public static function index(): string
+    public function index(): string
     {
         return '<!doctype html><html lang="en"><title>Invoices page</title><body><h1>Invoices</h1></body></html>';
     }
 
-    public static function create(): string
+    public function create(): string
     {
         return self::formView();
     }
 
-    public static function store(): void
+    public function store(): void
     {
         $value = $_POST['amount'];
         var_dump($value);
     }
 
-    private static function formView()
+    private function formView()
     {
         return <<<EEB
 <title>Post Form</title>
