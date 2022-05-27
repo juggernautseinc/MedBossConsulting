@@ -23,18 +23,73 @@ class Texting extends SendMessage
         $individuals = explode(",", $numbers);
         foreach ($individuals as $individual) {
             if(empty($individual)) {
-                continue;
+                continue; //The plan on using it for single messages to patients
             }
             $individual = str_replace("-", "", $individual);
             $response = self::outBoundMessage($individual, $messagesbody);
             $results = json_decode($response, true);
 
             if ($results['success'] === true) {
-                echo "Successful, message ID " . $results['textId'] . " patients number " . $individual . "<br><br>";
+                echo "<br> <br>Successful, message ID " . $results['textId'] . " patients number " . $individual . "<br><br>";
             } else {
                 echo "Unsuccessful, message ID " . $results['textId'] . " patients number " . $individual;
             }
         }
 
+    }
+
+    public function sendTelehealthMessage()
+    {
+        $patientNumber = $this->getPatientCell();
+        if (!empty($patientNumber)) {
+            $patientNumber = preg_replace('/\d+/', '', $patientNumber);
+            $outboundMessage = $this->telehealthMessageBody() .
+                $this->getTextFacilityInfo()['name'] .
+                $this->meetingLink();
+
+            $response = self::outBoundMessage($patientNumber, $outboundMessage);
+            $results = json_decode($response, true);
+            echo $this->messageResultsDisplay($results);
+        }
+    }
+
+    private function telehealthMessageBody()
+    {
+        return "By clicking the link below, you are consenting to the telehealth service that is being provided." .
+            " Please call office at " . $this->getTextFacilityInfo()['phone'] . ". \n ";
+    }
+
+    private function meetingLink()
+    {
+        return "https://" .
+            $_SERVER['SERVER_NAME'] .
+            "/interface/jitsi/jitsi.php?room=" .
+            $this->createMeetingId() . "&pid=" . $_SESSION['pid'];
+    }
+
+    private function createMeetingId()
+    {
+        $newmeetingid = sqlQuery("select DOB from patient_data where pid = ?", [$_SESSION['pid']]);
+        return md5($newmeetingid['DOB'] . $_SESSION['pid']);
+    }
+
+    private function getTextFacilityInfo()
+    {
+        return sqlQuery("select `name`, `phone` from `facility` where `id` = 3");
+    }
+
+    private function getPatientCell()
+    {
+        return sqlQuery("select phone_cell from patient_data where pid = ?", [$_SESSION['pid']]);
+    }
+
+    private function messageResultsDisplay($results)
+    {
+        if ($results['success'] === true) {
+            return "<br> <br>Successful, message ID " . $results['textId'] .
+                " Remaining message " . $results['quotaRemaining'] . " Alert support when this get to 20";
+        } else {
+            return " Message failed " . $results['error'];
+        }
     }
 }

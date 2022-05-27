@@ -27,6 +27,7 @@ $router
     ->get('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices', [Invoice::class, 'index'])
     ->get('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices/create', [Invoice::class, 'create'])
     ->post('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices/create', [Invoice::class, 'store'])
-    ->post('/interface/modules/custom_modules/text-messaging-app/public/index.php/texting/bulk', [Texting::class, 'bulk']);
+    ->post('/interface/modules/custom_modules/text-messaging-app/public/index.php/texting/bulk', [Texting::class, 'bulk'])
+    ->get('/interface/modules/custom_modules/text-messaging-app/public/index.php/texting/sendTelehealthMessage', [Texting::class, 'sendTelehealthMessage']);
 
 echo $router->resolve($_SERVER['REQUEST_URI'], strtolower($_SERVER['REQUEST_METHOD']));
