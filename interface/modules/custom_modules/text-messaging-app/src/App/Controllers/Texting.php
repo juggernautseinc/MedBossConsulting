@@ -47,7 +47,7 @@ class Texting extends SendMessage
                 self::getTextFacilityInfo()['name'] .
                 self::meetingLink();
 
-            $response = self::outBoundMessage($patientNumber, $outboundMessage);
+            $response = self::outBoundMessage((int)$patientNumber, $outboundMessage);
             $results = json_decode($response, true);
             echo self::messageResultsDisplay($results);
         }
