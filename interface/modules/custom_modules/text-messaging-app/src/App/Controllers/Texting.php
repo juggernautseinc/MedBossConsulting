@@ -38,7 +38,7 @@ class Texting extends SendMessage
 
     }
 
-    public function sendTelehealthMessage()
+    public static function sendTelehealthMessage()
     {
         $patientNumber = self::getPatientCell();
         if (!empty($patientNumber)) {
