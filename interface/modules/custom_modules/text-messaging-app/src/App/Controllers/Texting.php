@@ -42,7 +42,7 @@ class Texting extends SendMessage
     {
         $patientNumber = self::getPatientCell();
         if (!empty($patientNumber)) {
-            $patientNumber = preg_replace('/\d+/', '', $patientNumber);
+            $patientNumber = preg_replace('/\d+/', '', $patientNumber['phone_cell']);
             $outboundMessage = self::telehealthMessageBody() .
                 self::getTextFacilityInfo()['name'] .
                 self::meetingLink();
