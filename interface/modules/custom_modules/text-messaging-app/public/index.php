@@ -1,5 +1,9 @@
 <?php
 
+use Juggernaut\App\Controllers\Home;
+use Juggernaut\App\Controllers\Invoice;
+use Juggernaut\App\Controllers\Texting;
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -11,6 +15,7 @@ error_reporting(E_ALL);
  *  Copyright (c) 2022.
  *  All rights reserved
  */
+
 
 require_once dirname(__DIR__, 4) . '/globals.php';
 require_once __DIR__ . '/../vendor/autoload.php';
