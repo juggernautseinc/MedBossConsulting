@@ -44,7 +44,7 @@ class Texting extends SendMessage
         if (!empty($patientNumber)) {
             $patientNumber = str_replace('-', '', $patientNumber['phone_cell']);
             $outboundMessage = self::telehealthMessageBody() .
-                self::getTextFacilityInfo()['name'] .
+                self::getTextFacilityInfo()['name'] . ' ' .
                 self::meetingLink();
 
             $response = self::outBoundMessage((int)$patientNumber, $outboundMessage);
@@ -88,7 +88,7 @@ class Texting extends SendMessage
     {
         if ($results['success'] === true) {
             return "<br> <br>Successful, message ID " . $results['textId'] .
-                " Remaining message " . $results['quotaRemaining'] . " Alert support when this get to 20";
+                " <br>Remaining message " . $results['quotaRemaining'] . " <br>Alert support when this get to 20";
         } else {
             return " Message failed " . $results['error'];
         }
