@@ -56,7 +56,7 @@ class Texting extends SendMessage
     private function telehealthMessageBody()
     {
         return "By clicking the link below, you are consenting to the telehealth service that is being provided." .
-            " Please call office at " . $this->getTextFacilityInfo()['phone'] . ". \n ";
+            " Please call office at " . self::getTextFacilityInfo()['phone'] . ". \n ";
     }
 
     private function meetingLink()
