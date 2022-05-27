@@ -38,18 +38,18 @@ class Texting extends SendMessage
 
     }
 
-    public static function sendTelehealthMessage()
+    public function sendTelehealthMessage()
     {
-        $patientNumber = self::getPatientCell();
+        $patientNumber = $this->getPatientCell();
         if (!empty($patientNumber)) {
             $patientNumber = preg_replace('/\d+/', '', $patientNumber);
-            $outboundMessage = self::telehealthMessageBody() .
-                self::getTextFacilityInfo()['name'] .
-                self::meetingLink();
+            $outboundMessage = $this->telehealthMessageBody() .
+                $this->getTextFacilityInfo()['name'] .
+                $this->meetingLink();
 
             $response = self::outBoundMessage($patientNumber, $outboundMessage);
             $results = json_decode($response, true);
-            echo self::messageResultsDisplay($results);
+            echo $this->messageResultsDisplay($results);
         }
     }
 
