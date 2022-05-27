@@ -44,7 +44,6 @@ class Router
     public function resolve(string $requestUri, string $requestMethod)
     {
         $route = explode("?", $requestUri)[0];
-        var_dump($route); die;
         $action = $this->routes[$requestMethod][$route] ?? null;
 
         if (! $action) {
