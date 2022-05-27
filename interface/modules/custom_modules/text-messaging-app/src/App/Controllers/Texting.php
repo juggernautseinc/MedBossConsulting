@@ -50,13 +50,13 @@ class Texting extends SendMessage
             $response = self::outBoundMessage((int)$patientNumber, $outboundMessage);
             $results = json_decode($response, true);
 
-            echo self::messageResultsDisplay($results) . ' ' . $patientNumber;
+            echo self::messageResultsDisplay($results) . ' <br>' . $patientNumber;
         }
     }
 
     private function telehealthMessageBody()
     {
-        return "By clicking the link below, you are consenting to the telehealth service that is being provided." .
+        return "By clicking the link below, you are consenting to the telehealth service that is being provided. " .
             " Please call office at " . self::getTextFacilityInfo()['phone'] . ". \n ";
     }
 
