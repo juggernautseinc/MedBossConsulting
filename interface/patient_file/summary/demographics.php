@@ -42,6 +42,7 @@ use OpenEMR\Events\Messaging\SendSmsEvent;
 
 
 
+
 $oefax = !empty($GLOBALS['oefax_enable']) ? $GLOBALS['oefax_enable'] : 0;
 
 // Set session for pid (via setpid). Also set session for encounter (if applicable)
@@ -212,8 +213,8 @@ require_once("$srcdir/options.js.php");
         let btnClose = <?php echo xlj("Close"); ?>;
         let title = <?php echo xlj("Tele-Health Meeting Alert"); ?>;
         //let url = top.webroot_url + '/interface/modules/custom_modules/oe-module-faxsms/contact.php?isSMS=1&recipient=' +
-        let url = top.webroot_url + '/textbelt.php?recipient=' +
-            encodeURIComponent(phone);
+        //let url = top.webroot_url + '/textbelt.php?recipient=' + encodeURIComponent(phone);
+        let url = top.webroot_url + '/interface/modules/custom_modules/text-messaging-app/public/index.php/texting/sendTelehealthMessage';
         // leave dialog name param empty so send dialogs can cascade.
         dlgopen(url, '', 'modal-md', 300, '', title, {
             buttons: [
