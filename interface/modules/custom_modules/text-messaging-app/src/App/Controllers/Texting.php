@@ -40,16 +40,16 @@ class Texting extends SendMessage
 
     public function sendTelehealthMessage()
     {
-        $patientNumber = $this->getPatientCell();
+        $patientNumber = self::getPatientCell();
         if (!empty($patientNumber)) {
             $patientNumber = preg_replace('/\d+/', '', $patientNumber);
-            $outboundMessage = $this->telehealthMessageBody() .
-                $this->getTextFacilityInfo()['name'] .
-                $this->meetingLink();
+            $outboundMessage = self::telehealthMessageBody() .
+                self::getTextFacilityInfo()['name'] .
+                self::meetingLink();
 
             $response = self::outBoundMessage($patientNumber, $outboundMessage);
             $results = json_decode($response, true);
-            echo $this->messageResultsDisplay($results);
+            echo self::messageResultsDisplay($results);
         }
     }
 
