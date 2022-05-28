@@ -45,7 +45,6 @@ function oe_module_priorauth_add_menu_item(MenuEvent $event)
 function oe_module_priorauth_patient_menu_item(PatientMenuEvent $menuEvent)
 {
     $menu = file_get_contents(__DIR__ . '/public/patient_menu/custom_patient_menu.json');
-    file_put_contents("/var/www/html/errors/menu.txt", $menu);
     $menu_parsed = json_decode($menu);
     $menuEvent->setMenu($menu_parsed);
     return $menuEvent;
