@@ -33,14 +33,18 @@ $key = $GLOBALS['texting_enables'];
             }
         ?>
         <h1><?php echo xlt('Bulk Texting'); ?></h1>
-        <a href="public/index.php/invoices?foo=bar" ><?php echo xlt('Invoices Page'); ?></a>
-        <a href="public/index.php/home" ><?php echo xlt('Home Page Go!'); ?></a>
-        <a href="public/index.php/invoices/create" ><?php echo xlt('Create Invoices Form '); ?>
         <form method="post" action="public/index.php/texting/bulk" name="textcrude" >
             <input type="text" name="pnumbers" value="" class="form-control m-2" placeholder="place commas between numbers">
             <textarea name="message" class="form-control m-2" placeholder="Enter mass message here"></textarea>
             <input class="btn btn-primary mt-3" type="submit" value="Send Message">
         </form>
+
+        <div class="m-5">
+            <span>Testing purposes only: Not for use. After build is completed, these will be removed</span>
+            <a href="public/index.php/invoices?foo=bar" ><?php echo xlt('Invoices Page'); ?></a>
+            <a href="public/index.php/home" ><?php echo xlt('Home Page Go!'); ?></a>
+            <a href="public/index.php/invoices/create" ><?php echo xlt('Create Invoices Form '); ?>
+        </div>
     </div>
 </body>
 </html>
