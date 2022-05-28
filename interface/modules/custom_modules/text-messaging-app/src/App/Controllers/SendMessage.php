@@ -16,11 +16,15 @@ class SendMessage
 {
     public static function outBoundMessage(int $phone, string $message) : string
     {
+        $key = self::getKey();
+        if (empty($key)) {
+            return 'Please enter a valid key in the globals';
+        }
         $ch = curl_init('https://textbelt.com/text');
         $data = array(
             'phone' => $phone,
             'message' => $message,
-            'key' => self::getKey(),
+            'key' => $key,
         );
 
         curl_setopt($ch, CURLOPT_POST, 1);

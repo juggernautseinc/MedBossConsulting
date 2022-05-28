@@ -12,6 +12,8 @@ require_once dirname(__DIR__, 3 ) . '/globals.php';
 
 use OpenEMR\Core\Header;
 
+$key = $GLOBALS['texting_enables'];
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -25,6 +27,11 @@ use OpenEMR\Core\Header;
 </head>
 <body>
     <div class="container m-5">
+        <?php
+            if (empty($key)) {
+                die(xlt('You have to enter a key in the globals to use this module'));
+            }
+        ?>
         <h1><?php echo xlt('Bulk Texting'); ?></h1>
         <a href="public/index.php/invoices?foo=bar" ><?php echo xlt('Invoices Page'); ?></a>
         <a href="public/index.php/home" ><?php echo xlt('Home Page Go!'); ?></a>
