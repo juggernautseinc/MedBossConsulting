@@ -13,6 +13,9 @@ header('Access-Control-Allow-Methods: GET, POST');
 header('Access-Control-Max-Age: 1000');
 header('Access-Control-Allow-Headers: Origin, Content-Type, Access-Control-Allow-Headers, Authorizations, X-Requested-With');
 
+$ignoreAuth = true;
+// Set $sessionAllowWrite to true to prevent session concurrency issues during authorization related code
+$sessionAllowWrite = true;
 
 
 require_once __DIR__ . "/../../../../../globals.php";
