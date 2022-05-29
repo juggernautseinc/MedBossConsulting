@@ -16,7 +16,7 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Access-Control-Allow
 
 
 require_once dirname(__DIR__, 5) . "/globals.php";
-require_once __DIR__ . '/../../vendor/autoload.php';
+//require_once __DIR__ . '/../../vendor/autoload.php';
 http_response_code(200);
 die('here');
 use OpenEMR\Common\Crypto\CryptoGen;
