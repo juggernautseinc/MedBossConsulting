@@ -55,6 +55,9 @@ function createTextMessageGlobals(GlobalsInitializedEvent $event)
     $event->getGlobalsService()->createSection("Text Messaging", "Report");
     $setting = new GlobalSetting(xl('TextBelt API Key'), 'encrypted', '', $instruct);
     $event->getGlobalsService()->appendToSection("Text Messaging", "texting_enables", $setting);
+    $api_key = xl('Obtain API Key');
+    $event->getGlobalsService()->appendToSection("Text API Key", "response_key", $api_key);
+
 }
 
 $eventDispatcher->addListener(GlobalsInitializedEvent::EVENT_HANDLE, 'createTextMessageGlobals');
