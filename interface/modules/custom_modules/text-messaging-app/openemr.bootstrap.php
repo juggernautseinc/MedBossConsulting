@@ -57,7 +57,7 @@ function createTextMessageGlobals(GlobalsInitializedEvent $event)
     $event->getGlobalsService()->appendToSection("Text Messaging", "texting_enables", $setting);
     $api_key = xl('Obtain API Key');
     $key_settings = new GlobalSetting(xl('Reply API Key'), 'encrypted', '', $api_key);
-    $event->getGlobalsService()->appendToSection("Text API Key", "response_key", $key_settings);
+    $event->getGlobalsService()->appendToSection("Text Messaging", "response_key", $key_settings);
 
 }
 
