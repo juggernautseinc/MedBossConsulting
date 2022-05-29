@@ -17,11 +17,9 @@ $ignoreAuth = true;
 // Set $sessionAllowWrite to true to prevent session concurrency issues during authorization related code
 $sessionAllowWrite = true;
 
-
 require_once __DIR__ . "/../../../../../globals.php";
 require_once __DIR__ . '/../../vendor/autoload.php';
-http_response_code(200);
-die('{here: json}');
+
 use OpenEMR\Common\Crypto\CryptoGen;
 use OpenEMR\Common\Logging\EventAuditLogger;
 
