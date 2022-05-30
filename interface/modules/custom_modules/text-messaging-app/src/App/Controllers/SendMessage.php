@@ -45,4 +45,5 @@ class SendMessage
         return $key->decryptStandard($GLOBALS['texting_enables']);
     }
 
+
 }
