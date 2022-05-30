@@ -51,7 +51,7 @@ class Texting extends SendMessage
             $response = self::outBoundMessage((int)$patientNumber, $outboundMessage);
             $results = json_decode($response, true);
 
-            echo self::messageResultsDisplay($results) . ' <br>' . $patientNumber;
+            echo self::messageResultsDisplay($results) . ' <br>' . $patientNumber  . ' <br>' . self::replyForm() ;
         }
     }
 
@@ -93,5 +93,10 @@ class Texting extends SendMessage
         } else {
             return " Message failed " . $results['error'];
         }
+    }
+
+    private function replyForm(): sting
+    {
+        return "<form name='reply'><input class='form-control' type='text' onclick='sendText()'></form><button class='btn btn-primary'>Send</button> ";
     }
 }
