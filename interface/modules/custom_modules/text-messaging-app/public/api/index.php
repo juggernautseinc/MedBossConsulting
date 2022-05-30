@@ -30,8 +30,7 @@ if (!defined('CONST_INCLUDE_KEY')) {define('CONST_INCLUDE_KEY', $key->decryptSta
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 $uri = explode('/', $uri);
-$post = json_decode($_POST);
-file_put_contents("/var/www/html/errors/uriFile.txt", print_r($post, true));
+file_put_contents("/var/www/html/errors/uriFile.txt", print_r($_POST, true));
 
 if ($uri[7] === 'reply') {
     $res = apiResponse::getResponse('200');
