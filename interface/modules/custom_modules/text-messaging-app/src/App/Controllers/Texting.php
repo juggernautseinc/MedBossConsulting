@@ -95,7 +95,7 @@ class Texting extends SendMessage
         }
     }
 
-    private function replyForm(): sting
+    private function replyForm()
     {
         return "<form name='reply'><input class='form-control' type='text' onclick='sendText()'></form><button class='btn btn-primary'>Send</button> ";
     }
