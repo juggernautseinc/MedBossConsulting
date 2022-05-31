@@ -62,7 +62,7 @@ class SendMessage
     public static function outBoundwResponse(int $phone, string $message): Client
     {
         $twoWayMessaging = new Client();
-
+return 'client test complete';
         $request = $twoWayMessaging->request('POST', 'https://textbelt.com/text', [
             'phone' => $phone,
             'message' => $message,
@@ -72,7 +72,7 @@ class SendMessage
         $response = $twoWayMessaging->send($request);
         $b = $response->getBody();
         var_dump($b);
-        return $b;
+        //return $b;
     }
 
 
