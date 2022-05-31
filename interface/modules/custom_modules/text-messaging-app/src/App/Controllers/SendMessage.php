@@ -27,6 +27,7 @@ class SendMessage
         $data = array(
             'phone' => $phone,
             'message' => $message,
+            'replyWebhookUrl' => self::buildWebHookUrl(),
             'key' => self::getKey(),
         );
 
@@ -58,22 +59,5 @@ class SendMessage
         return $http . $_SERVER['HTTP_HOST'] . $GLOBALS['webroot'] .
             '/interface/modules/custom_modules/text-message-app/public/api/reply';
     }
-
-    public static function outBoundwResponse(int $phone, string $message): Client
-    {
-        $twoWayMessaging = new Client();
-return 'client test complete';
-       /* $request = $twoWayMessaging->request('POST', 'https://textbelt.com/text', [
-            'phone' => $phone,
-            'message' => $message,
-            'replyWebhookUlr' => self::buildWebHookUrl(),
-            'key' => self::getKey()
-        ]);
-        $response = $twoWayMessaging->send($request);
-        $b = $response->getBody();
-        var_dump($b);
-        //return $b;*/
-    }
-
 
 }
