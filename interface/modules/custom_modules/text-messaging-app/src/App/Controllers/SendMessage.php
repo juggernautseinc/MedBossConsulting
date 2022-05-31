@@ -10,9 +10,7 @@
 
 namespace Juggernaut\App\Controllers;
 
-use GuzzleHttp\Psr7\Request;
 use OpenEMR\Common\Crypto\CryptoGen;
-use GuzzleHttp\Client;
 
 class SendMessage
 {
