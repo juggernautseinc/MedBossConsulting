@@ -66,7 +66,7 @@ class SendMessage
             $http = "http://";
         }
         return $http . $_SERVER['HTTP_HOST'] . $GLOBALS['webroot'] .
-            '/interface/modules/custom_modules/text-message-app/public/api/reply';
+            '/interface/modules/custom_modules/text-messaging-app/public/api/reply';
     }
 
     public static function outBoundwResponse(int $phone, string $message)
