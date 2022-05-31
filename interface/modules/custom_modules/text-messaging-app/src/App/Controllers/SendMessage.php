@@ -70,7 +70,9 @@ class SendMessage
             'key' => self::getKey()
         ]);
         $response = $twoWayMessaging->send($request);
-        return $response->getBody()->getContents;
+        $b = $response->getBody();
+        var_dump($b);
+        return $b;
     }
 
 
