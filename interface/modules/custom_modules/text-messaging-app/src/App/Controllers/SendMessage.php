@@ -26,7 +26,8 @@ class SendMessage
 
     public static function outBoundMessage(int $phone, string $message) : string
     {
-        if (empty($key)) {
+
+        if (empty(self::getKey())) {
             return 'Please enter a valid key in the globals';
         }
         $ch = curl_init('https://textbelt.com/text');
@@ -67,12 +68,13 @@ class SendMessage
 
     public static function outBoundwResponse(int $phone, string $message)
     {
-        $twoWayMessage = new Request('POST', 'https://textbelt.com/text', [
+        return new Request('POST', 'https://textbelt.com/text', [
             'phone' => $phone,
             'message' => $message,
             'replyWebhookUlr' => self::buildWebHookUrl(),
             'key' => self::getKey()
         ]);
+
     }
 
 
