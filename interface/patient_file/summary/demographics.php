@@ -215,7 +215,7 @@ require_once("$srcdir/options.js.php");
         //let url = top.webroot_url + '/interface/modules/custom_modules/oe-module-faxsms/contact.php?isSMS=1&recipient=' +
         let url = top.webroot_url + '/interface/modules/custom_modules/text-messaging-app/public/index.php/texting/sendTelehealthMessage';
         // leave dialog name param empty so send dialogs can cascade.
-        dlgopen(url, '', 'modal-md', 300, '', title, {
+        dlgopen(url, '', 'modal-md', 700, '', title, {
             buttons: [
                 {text: btnClose, close: true, style: 'secondary btn-sm'}
             ]
