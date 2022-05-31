@@ -28,6 +28,7 @@ class SendMessage
     {
         $key = self::getKey();
         $webhook = self::buildWebHookUrl();
+        file_put_contents('/var/www/html/error/webhook.txt', $webhook);
         if (empty($key)) {
             return 'Please enter a valid key in the globals';
         }
