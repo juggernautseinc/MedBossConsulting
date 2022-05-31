@@ -10,15 +10,23 @@
 
 namespace Juggernaut\App\Controllers;
 
+use GuzzleHttp\Psr7\Request;
 use OpenEMR\Common\Crypto\CryptoGen;
+use GuzzleHttp\Client;
 
 class SendMessage
 {
 
+    private $key;
+
+    public function __construct()
+    {
+        $this->key = self::getKey();
+    }
+
     public static function outBoundMessage(int $phone, string $message) : string
     {
         $key = self::getKey();
-        $webhook = self::buildWebHookUrl();
         if (empty($key)) {
             return 'Please enter a valid key in the globals';
         }
@@ -41,13 +49,13 @@ class SendMessage
     /**
      * @return false|string
      */
-    private static function getKey(): bool|string
+    private static function getKey()
     {
         $key = new CryptoGen();
         return $key->decryptStandard($GLOBALS['texting_enables']);
     }
 
-    private static function buildWebHookUrl(): string
+    private static function buildWebHookUrl()
     {
         if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
             $http = "https://";
@@ -57,5 +65,17 @@ class SendMessage
         return $http . $_SERVER['HTTP_HOST'] . $GLOBALS['webroot'] .
             '/interface/modules/custom_modules/text-message-app/public/api/reply';
     }
+
+    public static function outBoundwResponse(int $phone, string $message)
+    {
+        return new Request('POST', 'https://textbelt.com/text', [
+            'phone' => $phone,
+            'message' => $message,
+            'replyWebhookUlr' => self::buildWebHookUrl(),
+            'key' => self::getKey()
+        ]);
+
+    }
+
 
 }
