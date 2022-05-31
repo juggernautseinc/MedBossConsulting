@@ -63,7 +63,7 @@ class SendMessage
     {
         $twoWayMessaging = new Client();
 return 'client test complete';
-        $request = $twoWayMessaging->request('POST', 'https://textbelt.com/text', [
+       /* $request = $twoWayMessaging->request('POST', 'https://textbelt.com/text', [
             'phone' => $phone,
             'message' => $message,
             'replyWebhookUlr' => self::buildWebHookUrl(),
@@ -72,7 +72,7 @@ return 'client test complete';
         $response = $twoWayMessaging->send($request);
         $b = $response->getBody();
         var_dump($b);
-        //return $b;
+        //return $b;*/
     }
 
 
