@@ -26,7 +26,6 @@ class SendMessage
         $data = array(
             'phone' => $phone,
             'message' => $message,
-            //'replyWebhookUrl' => self::buildWebHookUrl(),
             'key' => $key,
         );
 
