@@ -31,7 +31,7 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 $uri = explode('/', $uri);
 
-file_put_contents("/var/www/html/errors/uriFile.txt", print_r($_POST, true));
+file_put_contents("/var/www/html/errors/uriFile.txt", $_POST);
 
 if ($uri[7] === 'reply') {
     $res = apiResponse::getResponse('200');
