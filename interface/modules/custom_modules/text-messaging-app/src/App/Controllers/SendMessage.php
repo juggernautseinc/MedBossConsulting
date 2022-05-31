@@ -17,13 +17,6 @@ use GuzzleHttp\Client;
 class SendMessage
 {
 
-    private $key;
-
-    public function __construct()
-    {
-        $this->key = self::getKey();
-    }
-
     public static function outBoundMessage(int $phone, string $message) : string
     {
 
@@ -49,13 +42,13 @@ class SendMessage
     /**
      * @return false|string
      */
-    private static function getKey()
+    private static function getKey(): bool|string
     {
         $key = new CryptoGen();
         return $key->decryptStandard($GLOBALS['texting_enables']);
     }
 
-    private static function buildWebHookUrl()
+    private static function buildWebHookUrl(): string
     {
         if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
             $http = "https://";
@@ -66,9 +59,9 @@ class SendMessage
             '/interface/modules/custom_modules/text-message-app/public/api/reply';
     }
 
-    public static function outBoundwResponse(int $phone, string $message)
+    public static function outBoundwResponse(int $phone, string $message): Client
     {
-        return new Request('POST', 'https://textbelt.com/text', [
+        return new Client('POST', 'https://textbelt.com/text', [
             'phone' => $phone,
             'message' => $message,
             'replyWebhookUlr' => self::buildWebHookUrl(),
