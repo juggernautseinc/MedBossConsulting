@@ -7,9 +7,8 @@
  *  Copyright (c) 2022.
  *  All Rights Reserved
  */
-
-header('Access-Control-Allow-Origin: *');
 header("Content-Type: application/json; charset=UTF-8");
+header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 header('Access-Control-Max-Age: 1000');
 header('Access-Control-Allow-Headers: Origin, Content-Type, Access-Control-Allow-Headers, Authorizations, X-Requested-With');
