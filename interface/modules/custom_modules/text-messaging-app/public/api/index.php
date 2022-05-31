@@ -7,11 +7,12 @@
  *  Copyright (c) 2022.
  *  All Rights Reserved
  */
-//header("Content-Type: application/json; charset=UTF-8");
-//header('Access-Control-Allow-Origin: *');
-//header('Access-Control-Allow-Methods: GET, POST');
-//header('Access-Control-Max-Age: 1000');
-//header('Access-Control-Allow-Headers: Origin, Content-Type, Access-Control-Allow-Headers, Authorizations, X-Requested-With');
+
+header("Content-Type: application/json; charset=UTF-8");
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+header('Access-Control-Max-Age: 1000');
+header('Access-Control-Allow-Headers: Origin, Content-Type, Access-Control-Allow-Headers, Authorizations, X-Requested-With');
 
 $ignoreAuth = true;
 // Set $sessionAllowWrite to true to prevent session concurrency issues during authorization related code
@@ -32,7 +33,7 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode('/', $uri);
 $json = file_get_contents('php://input');
 $data = json_decode($json);
-file_put_contents("/var/www/html/errors/uriFile.txt", $data);
+file_put_contents("/var/www/html/errors/uriFile.txt", $json);
 
 if ($uri[7] === 'reply') {
     $res = apiResponse::getResponse('200');
