@@ -91,7 +91,8 @@ class Texting extends SendMessage
             return " Successful, message ID " . $results['textId'] .
                 " <br>Remaining message " . $results['quotaRemaining'] . " <br>Alert support when this get to 20";
         } else {
-            return " Message failed " . $results['error'];
+            $error = print_r($results);
+            return " Message failed " . $error;
         }
     }
 
