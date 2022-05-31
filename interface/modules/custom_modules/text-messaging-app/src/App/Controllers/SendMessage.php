@@ -61,13 +61,16 @@ class SendMessage
 
     public static function outBoundwResponse(int $phone, string $message): Client
     {
-        $twoWayMessaging = new Client('POST', 'https://textbelt.com/text', [
+        $twoWayMessaging = new Client();
+
+        $request = $twoWayMessaging->request('POST', 'https://textbelt.com/text', [
             'phone' => $phone,
             'message' => $message,
             'replyWebhookUlr' => self::buildWebHookUrl(),
             'key' => self::getKey()
         ]);
-        return $twoWayMessaging;
+        $response = $twoWayMessaging->send($request);
+        return $response->getBody()->getContents;
     }
 
 
