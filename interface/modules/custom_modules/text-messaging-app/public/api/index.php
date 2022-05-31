@@ -23,7 +23,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 use OpenEMR\Common\Crypto\CryptoGen;
 use OpenEMR\Common\Logging\EventAuditLogger;
 use Juggernaut\App\Controllers\apiResponse;
-
+die('here');
 $key = new CryptoGen();
 if (!defined('CONST_INCLUDE_KEY')) {define('CONST_INCLUDE_KEY', $key->decryptStandard($GLOBALS['response_key']));}
 
