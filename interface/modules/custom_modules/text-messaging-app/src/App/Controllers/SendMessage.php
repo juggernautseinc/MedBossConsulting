@@ -10,19 +10,11 @@
 
 namespace Juggernaut\App\Controllers;
 
-use GuzzleHttp\Psr7\Request;
 use OpenEMR\Common\Crypto\CryptoGen;
-use GuzzleHttp\Client;
+
 
 class SendMessage
 {
-
-    private $key;
-
-    public function __construct()
-    {
-        $this->key = self::getKey();
-    }
 
     public static function outBoundMessage(int $phone, string $message) : string
     {

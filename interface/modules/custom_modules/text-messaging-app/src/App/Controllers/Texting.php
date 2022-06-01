@@ -17,7 +17,7 @@ class Texting extends SendMessage
         echo "<title>Texting Results</title>";
         $numbers = $_POST['pnumbers'];
         if (!str_contains($numbers, ",")) {
-            die('Please use a comma separated list');
+            die(xlt('Please use a comma separated list'));
         }
         $messagesbody = $_POST['message'];
         $individuals = explode(",", $numbers);
@@ -29,11 +29,7 @@ class Texting extends SendMessage
             $response = self::outBoundMessage($individual, $messagesbody);
             $results = json_decode($response, true);
 
-            if ($results['success'] === true) {
-                echo "<br> <br>Successful, message ID " . $results['textId'] . " patients number " . $individual . "<br><br>";
-            } else {
-                echo "Unsuccessful, message ID " . $results['textId'] . " patients number " . $individual;
-            }
+            echo self::messageResultsDisplay($results);
         }
 
     }
