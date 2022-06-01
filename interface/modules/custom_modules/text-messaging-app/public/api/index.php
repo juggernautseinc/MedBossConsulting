@@ -38,9 +38,11 @@ file_put_contents("/var/www/html/errors/uriFile.txt", $json . PHP_EOL, FILE_APPE
 if ($uri[7] === 'reply') {
     $res = apiResponse::getResponse('200');
     $messageData = json_decode($json, true);
+    file_put_contents('/var/www/html/errors/message.txt', print_r($messageData, true), FILE_APPEND);
+    file_put_contents('/var/www/html/uri8.txt', $uri[8], FILE_APPEND);
     $saveDate = new StoreTexts();
     $saveDate->saveText($messageData, $uri[8]);
-    file_put_contents('/var/www/html/errors/message.txt', print_r($messageData, true), FILE_APPEND);
+
     echo json_encode($res);
 } else {
     $res = apiResponse::getResponse('400');
