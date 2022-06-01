@@ -66,19 +66,7 @@ class SendMessage
             $http = "http://";
         }
         return $http . $_SERVER['HTTP_HOST'] . $GLOBALS['webroot'] .
-            '/interface/modules/custom_modules/text-messaging-app/public/api/reply';
+            '/interface/modules/custom_modules/text-messaging-app/public/api/reply/' . $_SESSION['site_id'];
     }
-
-    public static function outBoundwResponse(int $phone, string $message)
-    {
-        return new Request('POST', 'https://textbelt.com/text', [
-            'phone' => $phone,
-            'message' => $message,
-            'replyWebhookUlr' => self::buildWebHookUrl(),
-            'key' => self::getKey()
-        ]);
-
-    }
-
 
 }
