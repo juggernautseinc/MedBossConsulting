@@ -32,7 +32,7 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 $uri = explode('/', $uri);
 $json = file_get_contents('php://input');
-file_put_contents("/var/www/html/errors/uriFile.txt", $json);
+file_put_contents("/var/www/html/errors/uriFile.txt", $json, FILE_APPEND);
 
 if ($uri[7] === 'reply') {
     $res = apiResponse::getResponse('200');
