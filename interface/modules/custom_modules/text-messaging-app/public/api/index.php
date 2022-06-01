@@ -21,6 +21,7 @@ $sessionAllowWrite = true;
 require_once __DIR__ . "/../../../../../globals.php";
 require_once __DIR__ . '/../../vendor/autoload.php';
 
+use Juggernaut\App\Controllers\StoreTexts;
 use OpenEMR\Common\Crypto\CryptoGen;
 use OpenEMR\Common\Logging\EventAuditLogger;
 use Juggernaut\App\Controllers\apiResponse;
@@ -36,8 +37,10 @@ file_put_contents("/var/www/html/errors/uriFile.txt", $json . PHP_EOL, FILE_APPE
 
 if ($uri[7] === 'reply') {
     $res = apiResponse::getResponse('200');
-    $messageData = json_decode($json);
-    file_put_contents('/var/www/html/errors/message.txt', print_r($messageData, true));
+    $messageData = json_decode($json, true);
+    $saveDate = new StoreTexts();
+    $saveDate->saveText($messageData, $uri[8]);
+    file_put_contents('/var/www/html/errors/message.txt', print_r($messageData, true), FILE_APPEND);
     echo json_encode($res);
 } else {
     $res = apiResponse::getResponse('400');
