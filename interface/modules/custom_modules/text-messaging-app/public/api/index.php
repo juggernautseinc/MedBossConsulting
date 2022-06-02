@@ -33,13 +33,10 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 $uri = explode('/', $uri);
 $json = file_get_contents('php://input');
-file_put_contents("/var/www/html/errors/uriFile.txt", $json . PHP_EOL, FILE_APPEND);
 
 if ($uri[7] === 'reply') {
     $res = apiResponse::getResponse('200');
     $messageData = json_decode($json, true);
-    file_put_contents('/var/www/html/errors/message.txt', print_r($messageData, true), FILE_APPEND);
-    file_put_contents('/var/www/html/errors/uri8.txt', $uri[8], FILE_APPEND);
     $saveDate = new StoreTexts();
     $saveDate->saveText($messageData, $uri[8]);
 
@@ -48,7 +45,6 @@ if ($uri[7] === 'reply') {
     $res = apiResponse::getResponse('400');
     echo json_encode($res);
 }
-
 
 EventAuditLogger::instance()->newEvent('text', '', '', 1, "Inbound Text received");
 
