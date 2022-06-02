@@ -17,6 +17,8 @@ class StoreTexts
     {
         $date = date('Y-m-d H:s:i');
         $statement = "INSERT `fromnumber`, `text`, `date` INTO " . $db . ".text_message_module VALUES (?, ?, ?)";
-        QueryUtils::sqlInsert($statement, [$response['fromNumber'], 'static text to insert', $date]);
+
+        $binding = [$response['fromNumber'], $response['text'], $date];
+        QueryUtils::sqlInsert($statement, $binding);
     }
 }
