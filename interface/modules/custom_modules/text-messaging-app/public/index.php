@@ -32,3 +32,4 @@ $router
     ->get('/interface/modules/custom_modules/text-messaging-app/public/index.php/texting/sendTelehealthMessage', [Texting::class, 'sendTelehealthMessage']);
 
 echo $router->resolve($_SERVER['REQUEST_URI'], strtolower($_SERVER['REQUEST_METHOD']));
+

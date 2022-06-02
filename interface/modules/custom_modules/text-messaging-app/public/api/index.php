@@ -38,7 +38,12 @@ if ($uri[7] === 'reply') {
     $res = apiResponse::getResponse('200');
     $messageData = json_decode($json, true);
     $saveDate = new StoreTexts();
-    $saveDate->saveText($messageData, $uri[8]);
+    if ($uri[8] !== 'default') {
+        $db = '';
+    } else {
+        $db = $uri[8];
+    }
+    $saveDate->saveText($messageData, $db);
 
     echo json_encode($res);
 } else {

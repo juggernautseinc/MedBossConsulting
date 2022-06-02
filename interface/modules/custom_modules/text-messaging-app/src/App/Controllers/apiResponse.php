@@ -24,7 +24,7 @@ class apiResponse
             case '400':
                 $success = FALSE;
                 $response = '400';
-                $responseDescription = 'There was an internal error';
+                $responseDescription = 'The URI is in correct';
                 break;
             default:
                 $success = TRUE;

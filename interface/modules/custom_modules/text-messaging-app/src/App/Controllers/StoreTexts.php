@@ -13,7 +13,12 @@ use OpenEMR\Common\Database\QueryUtils;
 
 class StoreTexts
 {
-    public function saveText(array $response, string $db)
+    /**
+     * @param array $response
+     * @param string|null $db
+     * @return void
+     */
+    public function saveText(array $response, ?string $db)
     {
         $statement = "INSERT INTO " . $db . ".text_message_module (`id`, `fromnumber`, `text`, `date`) VALUES (NULL, ?, ?, NOW())";
 
