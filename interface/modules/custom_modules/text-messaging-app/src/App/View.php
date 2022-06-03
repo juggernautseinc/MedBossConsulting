@@ -13,8 +13,9 @@ use Juggernaut\App\Exceptions\ViewNotFoundException;
 
 class View
 {
+
     public function __construct(
-        //protected string $view,
+        protected string $view,
         //protected array $params = []
     )
     {
@@ -26,7 +27,7 @@ class View
      */
     public function render(): string
     {
-        return 'here from view';
+        return 'here from view ' . $this->view;
         /*$viewFile = VIEW_PATH . '/' . $this->view . '.php';
         if (! file_exists($viewFile)) {
             throw new ViewNotFoundException();
