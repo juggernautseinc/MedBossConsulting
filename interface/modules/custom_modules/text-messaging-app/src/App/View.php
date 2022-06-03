@@ -26,11 +26,6 @@ class View
         $this->params = $params;
     }
 
-    public static function make(string $view, array $params = []) :static
-    {
-        return new static($view, $params);
-    }
-
     /**
      * @return string
      * @throws ViewNotFoundException
