@@ -19,9 +19,8 @@ class Home
      */
     public function index(): string
     {
-        //$aView = new View('index');
-        //var_dump($aView);
-        //return $aView->render();
-        return "Here with no view";
+        $aView = new View();
+        return $aView->render();
+        //return "Here with no view";
     }
 }
