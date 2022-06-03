@@ -10,6 +10,6 @@
 ?>
 
 <div>
-    <a href="./welcome.php" class="btn btn\">Home</a>
+    <a href="../welcome.php" class="btn btn\">Home</a>
 </div>
 
