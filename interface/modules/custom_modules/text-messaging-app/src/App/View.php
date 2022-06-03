@@ -21,6 +21,7 @@ class View
         //protected array $params = []
     )
     {
+        $this->view = $view;
     }
 
     /**
