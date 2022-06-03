@@ -21,18 +21,18 @@ class View
     }
 
     /**
-     * @return bool|string
+     * @return string
      * @throws ViewNotFoundException
      */
-    public function render(): bool|string
+    public function render(): string
     {
         return 'here from view';
-        $viewFile = VIEW_PATH . '/' . $this->view . '.php';
+        /*$viewFile = VIEW_PATH . '/' . $this->view . '.php';
         if (! file_exists($viewFile)) {
             throw new ViewNotFoundException();
         }
         ob_start();
         include $viewFile;
-        return ob_get_clean();
+        return ob_get_clean();*/
     }
 }
