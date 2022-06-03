@@ -19,6 +19,6 @@ class Notification
      */
     public function index(): string
     {
-        return (new View('notification/index'))->render();
+        return (new View('notifications/index'))->render();
     }
 }
