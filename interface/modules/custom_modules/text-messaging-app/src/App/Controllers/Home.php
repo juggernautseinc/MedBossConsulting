@@ -10,6 +10,8 @@
 
 namespace Juggernaut\App\Controllers;
 
+use Juggernaut\App\View;
+
 class Home
 {
     /**
