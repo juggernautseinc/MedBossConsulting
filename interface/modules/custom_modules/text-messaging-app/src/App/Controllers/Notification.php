@@ -19,7 +19,7 @@ class Notification
      */
     public function index(): string
     {
-        $aView = new View('index');
+        $aView = new View('notification/index');
         return $aView->render();
     }
 }
