@@ -8,7 +8,7 @@
  *  All Rights Reserved
  */
 
-namespace Juggernaut\App\Controllers;
+namespace Juggernaut\App;
 
 class Home
 {
