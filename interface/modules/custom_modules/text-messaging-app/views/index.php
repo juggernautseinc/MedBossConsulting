@@ -12,6 +12,7 @@
 <!doctype html>
 <html>
 <title>Home page</title>
+<?php \OpenEMR\Core\Header::setupHeader(['common']) ?>
 <head>
 
 </head>
