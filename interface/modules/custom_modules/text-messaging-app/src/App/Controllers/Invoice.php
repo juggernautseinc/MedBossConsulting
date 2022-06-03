@@ -19,7 +19,7 @@ class Invoice
      */
     public function index(): string
     {
-        $invoiceView = new View('invoice/index');
+        $invoiceView = new View('invoices/index');
         return $invoiceView->render();
     }
 
