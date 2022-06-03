@@ -19,7 +19,6 @@ class Home
      */
     public function index(): string
     {
-        $aView = new View('index');
-        return $aView->render();
+        return View::make('index')->render();
     }
 }

@@ -26,6 +26,11 @@ class View
         $this->params = $params;
     }
 
+    public static function make(string $view, array $params = []) :static
+    {
+        return new static($view, $params);
+    }
+
     /**
      * @return string
      * @throws ViewNotFoundException
@@ -38,6 +43,6 @@ class View
         }
         ob_start();
         include $viewFile;
-        return ob_get_clean();
+        return (string) ob_get_clean();
     }
 }
