@@ -44,7 +44,7 @@ $key = $GLOBALS['texting_enables'];
             <a class="btn btn-secondary" href="public/index.php/invoices?foo=bar" ><?php echo xlt('Invoices Page'); ?></a>
             <a class="btn btn-secondary" href="public/index.php/home" ><?php echo xlt('Home Page Go!'); ?></a>
             <a class="btn btn-secondary" href="public/index.php/invoices/create" ><?php echo xlt('Create Invoices Form '); ?></a>
-            <a class="btn btn-secondary" href="public/index.php/notification" ><?php echo xlt('View Text Messages'); ?></a>
+            <a class="btn btn-secondary" href="public/index.php/notifications" ><?php echo xlt('View Text Messages'); ?></a>
         </div>
     </div>
 </body>
