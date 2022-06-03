@@ -17,5 +17,6 @@
 </head>
 <body>
 <h1>Home View!</h1>
+<?php include_once "nav.php" ?>
 </body>
 </html>
