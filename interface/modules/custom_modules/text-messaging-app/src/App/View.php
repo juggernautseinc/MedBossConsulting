@@ -15,13 +15,15 @@ class View
 {
 
     protected string $view;
+    protected array $params;
 
     public function __construct(
-        $view
-        //protected array $params = []
+        $view,
+        $params = []
     )
     {
         $this->view = $view;
+        $this->params = $params;
     }
 
     /**
@@ -30,7 +32,6 @@ class View
      */
     public function render(): string
     {
-        //return 'here from view ' . $this->view;
         $viewFile = VIEW_PATH . '/' . $this->view . '.php';
         if (! file_exists($viewFile)) {
             throw new ViewNotFoundException();
