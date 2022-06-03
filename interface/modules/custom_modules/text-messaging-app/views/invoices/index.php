@@ -21,16 +21,18 @@ $dir = '/interface/modules/custom_modules/text-messaging-app';
     <?php \OpenEMR\Core\Header::setupHeader(['common']); ?>
 </head>
 <body>
-<div class="container" >
-    <h1><?php echo xlt('Index view'); ?></h1>
-    <form action="/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices/create" method="post">
-        <label>Amount</label>
-        <input type="text" name="amount">
-        <input type="submit" value="Submit">
-    </form>
-</div>
-<div class="mt-5">
-    <?php include_once __DIR__ . "/../nav.php"; ?>
+<div class="container m-5" >
+    <div class="mt-5">
+        <h1><?php echo xlt('Index view'); ?></h1>
+        <form action="/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices/create" method="post">
+            <label for="amount">Amount</label>
+            <input class="form-control" type="text" name="amount">
+            <input class="form-control" type="submit" value="Submit">
+        </form>
+    </div>
+    <div class="mt-5">
+        <?php include_once __DIR__ . "/../nav.php"; ?>
+    </div>
 </div>
 </body>
 </html>
