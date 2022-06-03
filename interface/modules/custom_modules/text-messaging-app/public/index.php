@@ -16,10 +16,10 @@ error_reporting(E_ERROR);
  *  All rights reserved
  */
 
-
 require_once dirname(__DIR__, 4) . '/globals.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
+const VIEW_PATH = __DIR__ . '/../views';
 
 $router = new Juggernaut\App\Router();
 

@@ -14,6 +14,6 @@ class Home
 {
     public function index(): string
     {
-        return '<!doctype html><html><title>Home page</title><body><h1>Home</h1></body></html>';
+        return (new View('invoices/index'))->render();
     }
 }
