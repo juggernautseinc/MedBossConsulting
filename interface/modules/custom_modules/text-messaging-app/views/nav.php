@@ -11,6 +11,6 @@
 ?>
 
 <div>
-    <a href="<?php echo $GLOBALS['webroot'] . $dir ?>/welcome.php" class="btn btn\"><?php echo xlt('Home'); ?></a>
+    <a href="<?php echo $GLOBALS['webroot'] . $dir ?>/welcome.php" class="btn btn-primary"><?php echo xlt('Home'); ?></a>
 </div>
 
