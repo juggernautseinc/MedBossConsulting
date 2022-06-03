@@ -16,6 +16,6 @@
 
 </head>
 <body>
-<h1>Home Start</h1>
+<h1>Home View!</h1>
 </body>
 </html>
