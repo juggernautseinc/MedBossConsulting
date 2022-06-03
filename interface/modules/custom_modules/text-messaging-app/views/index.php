@@ -11,13 +11,15 @@
 ?>
 <!doctype html>
 <html>
-<title>Home page</title>
+<title><?php echo xlt('Home page'); ?></title>
 <?php \OpenEMR\Core\Header::setupHeader(['common']) ?>
 <head>
 
 </head>
 <body>
-<h1>Home View!</h1>
-<?php include_once "nav.php" ?>
+<div class="container m-5">
+    <h1>Home View!</h1>
+    <?php include_once "nav.php" ?>
+</div>
 </body>
 </html>
