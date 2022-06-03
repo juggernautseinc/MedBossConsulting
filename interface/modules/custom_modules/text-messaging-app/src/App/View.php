@@ -14,7 +14,7 @@ use Juggernaut\App\Exceptions\ViewNotFoundException;
 class View
 {
     public function __construct(
-        protected string $view,
+        public string $view,
         //protected array $params = []
     )
     {
