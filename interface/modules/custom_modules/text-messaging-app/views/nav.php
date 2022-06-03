@@ -10,6 +10,6 @@
 ?>
 
 <div>
-    <a href="../../welcome.php" class="btn btn\">Home</a>
+    <a href="<?php echo $GLOBALS['webroot'] ?>/welcome.php" class="btn btn\"><?php echo xlt('Home'); ?></a>
 </div>
 
