@@ -19,7 +19,7 @@ class Home
      */
     public function index(): string
     {
-        $aView = new View('index');
+        $aView = new View();
         return $aView->render();
     }
 }
