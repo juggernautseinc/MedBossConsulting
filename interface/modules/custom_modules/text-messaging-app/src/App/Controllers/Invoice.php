@@ -23,9 +23,12 @@ class Invoice
         return $invoiceView->render();
     }
 
+    /**
+     * @throws \Juggernaut\App\Exceptions\ViewNotFoundException
+     */
     public function create(): string
     {
-        return self::formView();
+        return (new View('invoices/create'))->render() ;
     }
 
     public function store(): void

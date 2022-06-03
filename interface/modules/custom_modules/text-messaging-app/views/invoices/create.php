@@ -20,6 +20,7 @@
     <title>Post Form</title>
 </head>
 <body>
+<h1>Create Invoice View!</h1>
 <form action="/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices/create" method="post">
     <label>Amount</label>
     <input type="text" name="amount">
