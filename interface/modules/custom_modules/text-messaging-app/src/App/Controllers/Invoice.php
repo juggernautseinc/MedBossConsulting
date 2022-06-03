@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  *  package OpenEMR
  *  link    https://www.open-emr.org
  *  author  Sherwin Gaddis <sherwingaddis@gmail.com>
@@ -10,12 +10,13 @@
 
 namespace Juggernaut\App\Controllers;
 
+use Juggernaut\App\Exceptions\ViewNotFoundException;
 use Juggernaut\App\View;
 
 class Invoice
 {
     /**
-     * @throws \Juggernaut\App\Exceptions\ViewNotFoundException
+     * @throws ViewNotFoundException
      */
     public function index(): string
     {
@@ -23,7 +24,7 @@ class Invoice
     }
 
     /**
-     * @throws \Juggernaut\App\Exceptions\ViewNotFoundException
+     * @throws ViewNotFoundException
      */
     public function create(): string
     {
