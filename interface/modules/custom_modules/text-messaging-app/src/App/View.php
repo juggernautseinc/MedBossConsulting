@@ -13,14 +13,13 @@ use Juggernaut\App\Exceptions\ViewNotFoundException;
 
 class View
 {
-    protected string $view;
+
 
     public function __construct(
-
+        protected string $view
         //protected array $params = []
     )
     {
-        //not sure yet
     }
 
     /**
