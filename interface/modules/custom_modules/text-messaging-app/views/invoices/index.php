@@ -15,9 +15,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Invoices</title>
+    <title>Invoices View!</title>
 </head>
 <body>
-
+<h1>Index view</h1>
+<form action="/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices/create" method="post">
+    <label>Amount</label>
+    <input type="text" name="amount">
+    <input type="submit" value="Submit">
+</form>
 </body>
 </html>
