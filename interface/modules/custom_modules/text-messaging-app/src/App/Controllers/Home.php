@@ -8,10 +8,13 @@
  *  All Rights Reserved
  */
 
-namespace Juggernaut\App;
+namespace Juggernaut\App\Controllers;
 
 class Home
 {
+    /**
+     * @throws Exceptions\ViewNotFoundException
+     */
     public function index(): string
     {
         return (new View('invoices/index'))->render();
