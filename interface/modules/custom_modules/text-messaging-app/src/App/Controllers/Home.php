@@ -19,6 +19,7 @@ class Home
      */
     public function index(): string
     {
-        return (new View('index'))->render();
+        //return (new View('index'))->render();
+        return "Here with no view";
     }
 }
