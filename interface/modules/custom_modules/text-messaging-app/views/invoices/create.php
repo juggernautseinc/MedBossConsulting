@@ -31,7 +31,7 @@ $dir = '/interface/modules/custom_modules/text-messaging-app';
         </form>
     </div>
     <div class="mt-5">
-        <?php include_once "../nav.php" ?>
+        <?php include_once __DIR__ . "/../nav.php"; ?>
     </div>
 </div>
 </body>

@@ -21,7 +21,7 @@ $dir = '/interface/modules/custom_modules/text-messaging-app';
 <body>
 <div class="container m-5">
     <h1>Home View!</h1>
-    <?php include_once "nav.php" ?>
+    <?php include_once "nav.php"; ?>
 </div>
 </body>
 </html>
