@@ -8,6 +8,8 @@
  *  All rights reserved
  */
 
+$dir = '/interface/modules/custom_modules/text-messaging-app';
+
 ?>
 <!doctype html>
 <html>
