@@ -8,6 +8,8 @@
  *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  */
 
+use OpenEMR\Core\Header;
+
 
 ?>
 <!doctype html>
@@ -18,18 +20,19 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo xlt('Notifications'); ?></title>
+    <?php Header::setupHeader(['common']) ?>
 </head>
 <body>
-    <div>
+    <div class="container m-5">
         <h1><?php echo xlt('Notifications'); ?></h1>
-        <table>
+        <table class="table table-striped">
             <tr>
-                <th><?php echo xlt('Date'); ?></th>
-                <th><?php echo xlt('From'); ?></th>
-                <th><?php echo xlt('To'); ?></th>
-                <th><?php echo xlt('Result'); ?></th>
-                <th><?php echo xlt('Message'); ?></th>
-                <th><?php echo xlt('View'); ?></th>
+                <th scope="col"><?php echo xlt('Date'); ?></th>
+                <th scope="col"><?php echo xlt('From'); ?></th>
+                <th scope="col"><?php echo xlt('To'); ?></th>
+                <th scope="col"><?php echo xlt('Result'); ?></th>
+                <th scope="col"><?php echo xlt('Message'); ?></th>
+                <th scope="col"><?php echo xlt('View'); ?></th>
             </tr>
         </table>
     </div>
