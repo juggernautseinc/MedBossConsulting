@@ -7,9 +7,10 @@
  *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  */
 
+$dir = '/interface/modules/custom_modules/text-messaging-app'
 ?>
 
 <div>
-    <a href="<?php echo $GLOBALS['webroot'] . dirname(__DIR__, 2) ?>/welcome.php" class="btn btn\"><?php echo xlt('Home'); ?></a>
+    <a href="<?php echo $GLOBALS['webroot'] . $dir ?>/welcome.php" class="btn btn\"><?php echo xlt('Home'); ?></a>
 </div>
 
