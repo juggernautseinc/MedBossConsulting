@@ -19,6 +19,6 @@ class Home
      */
     public function index(): string
     {
-        return (new View('invoices/index'))->render();
+        return (new View('index'))->render();
     }
 }
