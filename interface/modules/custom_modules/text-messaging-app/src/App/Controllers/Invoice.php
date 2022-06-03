@@ -19,8 +19,7 @@ class Invoice
      */
     public function index(): string
     {
-        $invoiceView = new View('invoices/index');
-        return $invoiceView->render();
+        return (new View('invoices/index'))->render();
     }
 
     /**
@@ -28,7 +27,7 @@ class Invoice
      */
     public function create(): string
     {
-        return (new View('invoices/create'))->render() ;
+        return (new View('invoices/create'))->render();
     }
 
     public function store(): void
