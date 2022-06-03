@@ -26,6 +26,7 @@ class View
      */
     public function render(): bool|string
     {
+        return 'here from view';
         $viewFile = VIEW_PATH . '/' . $this->view . '.php';
         if (! file_exists($viewFile)) {
             throw new ViewNotFoundException();

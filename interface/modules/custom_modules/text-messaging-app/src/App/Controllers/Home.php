@@ -19,7 +19,6 @@ class Home
      */
     public function index(): string
     {
-        echo "here";
         return (new View('index'))->render();
     }
 }
