@@ -15,7 +15,7 @@ use Juggernaut\App\View;
 class Home
 {
     /**
-     * @throws Exceptions\ViewNotFoundException
+     * @throws \Juggernaut\App\Exceptions\ViewNotFoundException
      */
     public function index(): string
     {
