@@ -41,9 +41,10 @@ $key = $GLOBALS['texting_enables'];
 
         <div class="m-5">
             <span>Testing purposes only: Not for use. After build is completed, these will be removed</span>
-            <a href="public/index.php/invoices?foo=bar" ><?php echo xlt('Invoices Page'); ?></a>
-            <a href="public/index.php/home" ><?php echo xlt('Home Page Go!'); ?></a>
-            <a href="public/index.php/invoices/create" ><?php echo xlt('Create Invoices Form '); ?>
+            <a class="btn btn-secondary" href="public/index.php/invoices?foo=bar" ><?php echo xlt('Invoices Page'); ?></a>
+            <a class="btn btn-secondary" href="public/index.php/home" ><?php echo xlt('Home Page Go!'); ?></a>
+            <a class="btn btn-secondary" href="public/index.php/invoices/create" ><?php echo xlt('Create Invoices Form '); ?></a>
+            <a class="btn btn-secondary" href="public/index.php/notification" ><?php echo xlt('View Text Messages'); ?></a>
         </div>
     </div>
 </body>

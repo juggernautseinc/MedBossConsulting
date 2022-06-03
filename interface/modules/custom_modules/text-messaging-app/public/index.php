@@ -2,6 +2,7 @@
 
 use Juggernaut\App\Controllers\Home;
 use Juggernaut\App\Controllers\Invoice;
+use Juggernaut\App\Controllers\Notification;
 use Juggernaut\App\Controllers\Texting;
 
 ini_set('display_errors', 1);
@@ -25,6 +26,7 @@ $router = new Juggernaut\App\Router();
 
 $router
     ->get('/interface/modules/custom_modules/text-messaging-app/public/index.php/home', [Home::class, 'index'])
+    ->get('/interface/modules/custom_modules/text-messaging-app/public/index.php/home', [Notification::class, 'index'])
     ->get('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices', [Invoice::class, 'index'])
     ->get('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices/create', [Invoice::class, 'create'])
     ->post('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices/create', [Invoice::class, 'store'])
