@@ -34,7 +34,7 @@ class NotificationModel
     private function getPatientCell(): array
     {
         $sql = "SELECT `phone_cell` FROM `patient_data` WHERE `pid` = ? ";
-        return QueryUtils::fetchRecords($sql, [$this->pid]);
+        return sqlQuery($sql, [$this->pid]);
     }
 
 }
