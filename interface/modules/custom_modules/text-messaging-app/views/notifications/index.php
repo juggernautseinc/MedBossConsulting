@@ -40,6 +40,21 @@ use OpenEMR\Core\Header;
                         print "<td>";
                         print $item['date'];
                         print "</td>";
+                        print "<td>";
+                        print $item['fromnumber'];
+                        print "</td>";
+                        print "<td>";
+                        print $item['to'];
+                        print "</td>";
+                        print "<td>";
+                        print "results?";
+                        print "</td>";
+                        print "<td>";
+                        print $item['text'];
+                        print "</td>";
+                        print "<td>";
+                        print "view";
+                        print "</td>";
                         print "</tr>";
                     }
 
