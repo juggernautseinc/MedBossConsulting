@@ -12,6 +12,7 @@ namespace Juggernaut\App\Controllers;
 
 use Juggernaut\App\Exceptions\ViewNotFoundException;
 use Juggernaut\App\View;
+use Juggernaut\App\Model\NotificationModel;
 
 class Notification
 {
@@ -20,7 +21,8 @@ class Notification
      */
     public function index(): string
     {
-        return (new View('notifications/index', getPatientNotifications()))->render();
+        $data = new NotificationModel();
+        return (new View('notifications/index', $data->getPatientTextMessages()))->render();
     }
 
 }

@@ -13,14 +13,14 @@ use OpenEMR\Common\Database\QueryUtils;
 
 class NotificationModel
 {
-    protected $pid;
+    protected mixed $pid;
 
     public function __construct()
     {
         $this->pid = $_SESSION['pid'];
     }
 
-    public function getPatientNotifications()
+    public function getPatientTextMessages(): array
     {
         $sql = "SELECT * FROM `text_message_module` ";
         if (!empty($this->pid)) {
@@ -29,7 +29,7 @@ class NotificationModel
         return QueryUtils::fetchRecords($sql);
     }
 
-    private function getPatientCell()
+    private function getPatientCell(): array
     {
         $sql = "SELECT `phone_cell` FROM `patient_data` WHERE `pid` = ? ";
         return QueryUtils::fetchRecords($sql, [$this->pid]);
