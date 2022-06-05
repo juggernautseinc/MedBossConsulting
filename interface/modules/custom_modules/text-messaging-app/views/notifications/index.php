@@ -13,7 +13,7 @@ require_once __DIR__. "/../../../../../globals.php";
 echo "<pre>";
 var_dump($this->params);
 while ($row = sqlFetchArray($this->params)) {
-    var_dump($row);
+    //var_dump($row);
 }
 echo "</pre>";
 ?>
