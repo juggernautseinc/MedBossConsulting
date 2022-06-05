@@ -23,7 +23,7 @@ use OpenEMR\Core\Header;
     <?php Header::setupHeader(['common']) ?>
 </head>
 <body>
-    <div class="container-fluid m-5">
+    <div class="container m-5">
         <div class="d.flex justify-content-center">
             <h1><?php echo xlt('Notifications'); ?></h1>
             <table class="table table-striped">
