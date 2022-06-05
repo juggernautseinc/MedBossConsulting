@@ -9,7 +9,6 @@
 
 namespace Juggernaut\App\Model;
 
-use OpenEMR\Common\Database\QueryUtils;
 
 class NotificationModel
 {
@@ -29,8 +28,8 @@ class NotificationModel
             $sql .= "ORDER BY `id` DESC LIMIT 25";
         }
 
-        $data = sqlStatement($sql);
-        var_dump($data, $this->getPatientCell()['phone_cell']); die;
+        return sqlStatement($sql);
+
     }
 
     private function getPatientCell()
