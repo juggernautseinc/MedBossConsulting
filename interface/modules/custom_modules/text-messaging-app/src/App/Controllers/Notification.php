@@ -22,4 +22,9 @@ class Notification
     {
         return (new View('notifications/index'))->render();
     }
+
+    private function getNotification()
+    {
+
+    }
 }
