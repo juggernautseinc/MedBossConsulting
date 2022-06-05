@@ -33,8 +33,6 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 $uri = explode('/', $uri);
 $json = file_get_contents('php://input');
-//$messageData = [];
-//$messageData['provider_id'] = null;//this is temporary until we need to pass the provider id
 
 if ($uri[7] === 'reply') {
     $res = apiResponse::getResponse('200');
@@ -45,13 +43,13 @@ if ($uri[7] === 'reply') {
     } else {
         $db = $uri[8];
     }
-
     $saveDate->saveText($messageData, $db);
 
+    echo json_encode($res);
 } else {
     $res = apiResponse::getResponse('400');
+    echo json_encode($res);
 }
-echo json_encode($res);
 
 EventAuditLogger::instance()->newEvent('text', '', '', 1, "Inbound Text received");
 

@@ -20,8 +20,8 @@ class StoreTexts
      */
     public function saveText(array $response, ?string $db)
     {
-        $statement = "INSERT INTO " . $db . ".text_message_module (`id`, `provider_id`, `fromnumber`, `text`, `date`) VALUES (NULL, ?, ?, ?, NOW())";
-        $response['provider_id'] = NULL;
+        $statement = "INSERT INTO " . $db . ".text_message_module (`id`, `provider_id`, `fromnumber`, `text`, `date`) VALUES (NULL, NULL, ?, ?, NOW())";
+
         $binding = [$response['provider_id'], $response['fromNumber'], $response['text']];
         QueryUtils::sqlInsert($statement, $binding);
     }
