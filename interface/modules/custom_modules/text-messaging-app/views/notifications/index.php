@@ -38,7 +38,7 @@ use OpenEMR\Core\Header;
                     foreach ($this->params as $item) {
                         print "<tr>";
                         print "<td>";
-                        print $item['date'];
+                        print substr($item['date'], 0,-7);
                         print "</td>";
                         print "<td>";
                         print $item['fromnumber'];
