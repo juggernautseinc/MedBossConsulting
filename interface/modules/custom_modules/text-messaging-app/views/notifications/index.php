@@ -11,6 +11,7 @@
 use OpenEMR\Core\Header;
 require_once __DIR__. "/../../../../../globals.php";
 
+var_dump($this->params);
 while ($row = sqlFetchArray($this->params)) {
     var_dump($row);
 }
