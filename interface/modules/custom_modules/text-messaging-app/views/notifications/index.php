@@ -9,7 +9,7 @@
  */
 
 use OpenEMR\Core\Header;
-require_once __DIR__. "/../../../../../globals.php";
+//require_once __DIR__. "/../../../../../globals.php";
 echo "<pre>";
 var_dump($this->params);
 while ($row = sqlFetchArray($this->params)) {

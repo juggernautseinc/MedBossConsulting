@@ -28,7 +28,12 @@ class NotificationModel
             $sql .= "ORDER BY `id` DESC LIMIT 25";
         }
 
-        return sqlStatement($sql);
+        $dataArray = [];
+        while($row = sqlFetchArray($sql)) {
+            $dataArray[] = $row;
+        }
+
+        return $dataArray;
 
     }
 
