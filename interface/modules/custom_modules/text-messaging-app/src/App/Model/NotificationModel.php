@@ -26,8 +26,9 @@ class NotificationModel
         if (!empty($this->pid)) {
             $sql .= "WHERE `fromnumber` = '+1'" . $this->getPatientCell()['phone_cell'];
         }
-        var_dump($sql); die;
-        return QueryUtils::fetchRecords($sql);
+
+        $data = QueryUtils::fetchRecords($sql);
+        var_dump($data, $this->getPatientCell()['phone_cell']); die;
     }
 
     private function getPatientCell(): array
