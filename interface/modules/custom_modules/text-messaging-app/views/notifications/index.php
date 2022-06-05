@@ -59,7 +59,6 @@ use OpenEMR\Core\Header;
                     }
 
                 ?>
-
             </table>
         </div>
     </div>

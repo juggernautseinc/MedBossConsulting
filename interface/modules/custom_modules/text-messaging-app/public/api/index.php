@@ -43,13 +43,13 @@ if ($uri[7] === 'reply') {
     } else {
         $db = $uri[8];
     }
+    $messageData['provider_id'] = null; //this is temporary until we need to pass the provider id
     $saveDate->saveText($messageData, $db);
 
-    echo json_encode($res);
 } else {
     $res = apiResponse::getResponse('400');
-    echo json_encode($res);
 }
+echo json_encode($res);
 
 EventAuditLogger::instance()->newEvent('text', '', '', 1, "Inbound Text received");
 
