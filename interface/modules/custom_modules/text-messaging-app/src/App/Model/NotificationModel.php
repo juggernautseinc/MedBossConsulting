@@ -9,16 +9,30 @@
 
 namespace Juggernaut\App\Model;
 
+use OpenEMR\Common\Database\QueryUtils;
+
 class NotificationModel
 {
-    public function getNotificationsPatient()
+    protected $pid;
+
+    public function __construct()
     {
-        $sql = "";
+        $this->pid = $_SESSION['pid'];
     }
 
-    public function getNotificationsAll()
+    public function getPatientNotifications()
     {
+        $sql = "SELECT * FROM `text_message_module` ";
+        if (!empty($this->pid)) {
+            $sql .= "WHERE `fromnumber` = '+1'" . $this->getPatientCell();
+        }
+        return QueryUtils::fetchRecords($sql);
+    }
 
+    private function getPatientCell()
+    {
+        $sql = "SELECT `phone_cell` FROM `patient_data` WHERE `pid` = ? ";
+        return QueryUtils::fetchRecords($sql, [$this->pid]);
     }
 
 }

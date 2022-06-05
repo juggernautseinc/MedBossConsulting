@@ -20,7 +20,7 @@ class Notification
      */
     public function index(): string
     {
-        return (new View('notifications/index'))->render();
+        return (new View('notifications/index', getPatientNotifications()))->render();
     }
 
 }
