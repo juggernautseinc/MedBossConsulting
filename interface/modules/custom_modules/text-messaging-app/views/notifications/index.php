@@ -38,7 +38,10 @@ while ($row = sqlFetchArray($this->params)) {
                     <th scope="col"><?php echo xlt('Message'); ?></th>
                     <th scope="col"><?php echo xlt('View'); ?></th>
                 </tr>
-                <?php echo 'this list'; ?>
+                <tr>
+                    <?php echo 'this list'; ?>
+                </tr>
+
             </table>
         </div>
     </div>
