@@ -33,12 +33,12 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 $uri = explode('/', $uri);
 $json = file_get_contents('php://input');
-$messageData = [];
-$messageData['provider_id'] = null;//this is temporary until we need to pass the provider id
+//$messageData = [];
+//$messageData['provider_id'] = null;//this is temporary until we need to pass the provider id
 
 if ($uri[7] === 'reply') {
     $res = apiResponse::getResponse('200');
-    $messageData[] = json_decode($json, true);
+    $messageData = json_decode($json, true);
     $saveDate = new StoreTexts();
     if ($uri[8] !== 'default') {
         $db = '';
