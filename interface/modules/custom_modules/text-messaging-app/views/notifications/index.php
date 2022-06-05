@@ -37,9 +37,16 @@ echo "</pre>";
                     <th scope="col"><?php echo xlt('Message'); ?></th>
                     <th scope="col"><?php echo xlt('View'); ?></th>
                 </tr>
-                <tr>
-                    <?php echo 'this list'; ?>
-                </tr>
+                <?php
+                    foreach ($this->params as $item) {
+                        print "<tr>";
+                        print "<td>";
+                        print $item['date'];
+                        print "</td>";
+                        print "</tr>";
+                    }
+
+                ?>
 
             </table>
         </div>
