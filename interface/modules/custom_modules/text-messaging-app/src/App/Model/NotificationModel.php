@@ -13,7 +13,7 @@ use OpenEMR\Common\Database\QueryUtils;
 
 class NotificationModel
 {
-    protected mixed $pid;
+    protected $pid;
 
     public function __construct()
     {
