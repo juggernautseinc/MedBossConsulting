@@ -20,18 +20,18 @@ class NotificationModel
         $this->pid = $_SESSION['pid'];
     }
 
-    public function getPatientTextMessages(): array
+    public function getPatientTextMessages()
     {
         $sql = "SELECT * FROM `text_message_module` ";
         if (!empty($this->pid)) {
             $sql .= "WHERE `fromnumber` = '+1'" . $this->getPatientCell()['phone_cell'];
         }
 
-        $data = QueryUtils::fetchRecords($sql);
+        $data = sqlStatement($sql);
         var_dump($data, $this->getPatientCell()['phone_cell']); die;
     }
 
-    private function getPatientCell(): array
+    private function getPatientCell()
     {
         $sql = "SELECT `phone_cell` FROM `patient_data` WHERE `pid` = ? ";
         return sqlQuery($sql, [$_SESSION['pid']]);
