@@ -22,8 +22,6 @@ class Notification
     public function index(): string
     {
         $data = new NotificationModel();
-        var_dump($data->getPatientTextMessages());
-        die;
         return (new View('notifications/index', $data->getPatientTextMessages()))->render();
     }
 
