@@ -10,8 +10,6 @@
 
 use OpenEMR\Core\Header;
 
-var_dump($this->params);
-
 while ($row = sqlFetchArray($this->params)) {
     var_dump($row);
 }
