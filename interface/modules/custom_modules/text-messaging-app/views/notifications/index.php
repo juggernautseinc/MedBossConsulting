@@ -24,17 +24,19 @@ use OpenEMR\Core\Header;
 </head>
 <body>
     <div class="container-fluid m-5">
-        <h1><?php echo xlt('Notifications'); ?></h1>
-        <table class="table table-striped">
-            <tr>
-                <th scope="col"><?php echo xlt('Date'); ?></th>
-                <th scope="col"><?php echo xlt('From'); ?></th>
-                <th scope="col"><?php echo xlt('To'); ?></th>
-                <th scope="col"><?php echo xlt('Result'); ?></th>
-                <th scope="col"><?php echo xlt('Message'); ?></th>
-                <th scope="col"><?php echo xlt('View'); ?></th>
-            </tr>
-        </table>
+        <div class="d.flex justify-content-center">
+            <h1><?php echo xlt('Notifications'); ?></h1>
+            <table class="table table-striped">
+                <tr>
+                    <th scope="col"><?php echo xlt('Date'); ?></th>
+                    <th scope="col"><?php echo xlt('From'); ?></th>
+                    <th scope="col"><?php echo xlt('To'); ?></th>
+                    <th scope="col"><?php echo xlt('Result'); ?></th>
+                    <th scope="col"><?php echo xlt('Message'); ?></th>
+                    <th scope="col"><?php echo xlt('View'); ?></th>
+                </tr>
+            </table>
+        </div>
     </div>
 </body>
 </html>
