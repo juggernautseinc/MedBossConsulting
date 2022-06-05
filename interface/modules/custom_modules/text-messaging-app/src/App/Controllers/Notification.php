@@ -22,7 +22,7 @@ class Notification
     public function index(): string
     {
         $data = new NotificationModel();
-        return (new View('notifications/index', $data->getPatientTextMessages()))->render();
+        return (new View('notifications/index', (array)$data->getPatientTextMessages()))->render();
     }
 
 }
