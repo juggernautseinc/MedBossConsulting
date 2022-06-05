@@ -24,7 +24,7 @@ class NotificationModel
     {
         $sql = "SELECT * FROM `text_message_module` ";
         if (!empty($this->pid)) {
-            $sql .= "WHERE `fromnumber` = '+1'" . $this->getPatientCell()['phone_cell'];
+            $sql .= "WHERE `fromnumber` = '+1" . $this->getPatientCell()['phone_cell'] . "'";
         }
 
         $data = sqlStatement($sql);
