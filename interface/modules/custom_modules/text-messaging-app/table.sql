@@ -7,3 +7,4 @@ CREATE TABLE IF NOT EXISTS `text_message_module` (
 );
 ALTER TABLE `text_message_module` ADD PRIMARY KEY(`id`);
 ALTER TABLE `text_message_module` CHANGE `id` `id` INT NOT NULL AUTO_INCREMENT;
+ALTER TABLE `text_message_module` ADD `provider_id` INT(5) NULL AFTER `id`;

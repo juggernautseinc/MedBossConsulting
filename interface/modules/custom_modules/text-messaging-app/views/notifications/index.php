@@ -23,8 +23,8 @@ use OpenEMR\Core\Header;
     <?php Header::setupHeader(['common']) ?>
 </head>
 <body>
-    <div class="container-fluid m-5 w-auto">
-
+    <div class="container-fluid main-container m-5 w-auto">
+        <div class="row">
             <h1><?php echo xlt('Notifications'); ?></h1>
             <table class="table table-striped">
                 <tr>
@@ -36,7 +36,7 @@ use OpenEMR\Core\Header;
                     <th scope="col"><?php echo xlt('View'); ?></th>
                 </tr>
             </table>
-
+        </div>
     </div>
 </body>
 </html>
