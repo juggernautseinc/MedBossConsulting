@@ -10,9 +10,6 @@
 
 use OpenEMR\Core\Header;
 
-echo "<pre>";
-var_dump($this->params);
-echo "</pre>";
 ?>
 <!doctype html>
 <html lang="en">
