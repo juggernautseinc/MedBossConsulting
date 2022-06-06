@@ -22,6 +22,23 @@ formHeader("Form: assessment_intake");
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <?php Header::setupHeader(); ?>
+    <script>
+        let dcn_field = '';
+
+        // This invokes the find-code popup.
+        function sel_diagnosis(dcn) {
+            dcn_field = dcn;
+            dlgopen('../../patient_file/encounter/find_code_popup.php?codetype=ICD10', '_blank', 1024, 825);
+        }
+        // handles the call back from the popup
+        function set_related(codetype, code, selector, codedesc) {
+            if (code) {
+                if (codetype == 'ICD10') {
+                    document.getElementById(dcn_field).value += code + " - " + codedesc + " ,, \r\n";
+                }
+            }
+        }
+    </script>
     <title><?php echo xlt("Assessment Intake Form"); ?></title>
 </head>
 <body class='body_top'>
@@ -489,14 +506,8 @@ formHeader("Form: assessment_intake");
                 <input type="text" class="form-control" name='parent' />
             </div>
             <div class="form-group">
-                <label class="font-weight-bold" for="dcn"><?php echo xlt('Diagnosis 1') ?>:</label>
+                <label class="font-weight-bold" for="dcn"><?php echo xlt('Diagnosis') ?>:</label>
                 <input type="text" class="form-control" name="dcn1" id="dcn1" onclick="sel_diagnosis('dcn1')" value="<?php echo xlt($obj['dcn1']); ?>" readonly/>
-                <label class="font-weight-bold" for="dcn"><?php echo xlt('Diagnosis 2') ?>:</label>
-                <input type="text" class="form-control" name="dcn2" id="dcn2" onclick="sel_diagnosis('dcn2')" value="<?php echo xlt($obj['dcn2']); ?>" readonly/>
-                <label class="font-weight-bold" for="dcn"><?php echo xlt('Diagnosis 3') ?>:</label>
-                <input type="text" class="form-control" name="dcn3" id="dcn3" onclick="sel_diagnosis('dcn3')" value="<?php echo xlt($obj['dcn3']); ?>" readonly/>
-                <label class="font-weight-bold" for="dcn"><?php echo xlt('Diagnosis 4') ?>:</label>
-                <input type="text" class="form-control" name="dcn4" id="dcn4" onclick="sel_diagnosis('dcn4')" value="<?php echo xlt($obj['dcn4']); ?>" readonly/>
             </div>
             <div class="form-row">
                 <div class="col-7 mb-3">
