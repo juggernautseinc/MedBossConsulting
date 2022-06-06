@@ -20,7 +20,7 @@ class StoreTexts
      */
     public function saveText(array $response, ?string $db)
     {
-        if (!is_set($db)) {
+        if (!isset($db)) {
             require_once dirname(__FILE__, 8) . "/sites/default/sqlconf.php";
             $db = escapeshellarg($sqlconf["dbase"]);
         }
