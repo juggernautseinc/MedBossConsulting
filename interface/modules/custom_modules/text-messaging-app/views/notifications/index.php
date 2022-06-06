@@ -57,7 +57,7 @@ $sec = "10";
                         print $item['text'];
                         print "</td>";
                         print "<td>";
-                        print "<button  class='fas fa-share-square'>" . xlt('Reply') . " <i class='fas fa-share-square'></i></button>";
+                        print "<button  class='fas fa-share-square' style='font-size:36px color:blue'>" . xlt('Reply') . "</button>";
                         print "</td>";
                         print "</tr>";
                     }
