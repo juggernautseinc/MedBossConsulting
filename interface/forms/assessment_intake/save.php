@@ -16,6 +16,7 @@ require_once("$srcdir/sql.inc");
 require_once("$srcdir/forms.inc");
 
 use OpenEMR\Common\Csrf\CsrfUtils;
+use OpenEMR\Billing\AutoBilling;
 
 if (!empty($_POST)) {
     if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token_form"])) {
@@ -54,7 +55,10 @@ if ($_GET["mode"] == "new") {
         array($data, $id)
     );
 }
-//die('What happen captn?');
+
+$billing = new AutoBilling();
+$billing->billingEntries($_POST['dcn1'], $_POST['cpt4']);
+
 formHeader("Redirecting....");
 formJump();
 formFooter();
