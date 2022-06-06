@@ -488,6 +488,22 @@ formHeader("Form: assessment_intake");
                 <label class="font-weight-bold">Parent/Guardian:</label>
                 <input type="text" class="form-control" name='parent' />
             </div>
+            <div class="form-group">
+                <label class="font-weight-bold" for="dcn"><?php echo xlt('Diagnosis 1') ?>:</label>
+                <input type="text" class="form-control" name="dcn1" id="dcn1" onclick="sel_diagnosis('dcn1')" value="<?php echo xlt($obj['dcn1']); ?>" readonly/>
+                <label class="font-weight-bold" for="dcn"><?php echo xlt('Diagnosis 2') ?>:</label>
+                <input type="text" class="form-control" name="dcn2" id="dcn2" onclick="sel_diagnosis('dcn2')" value="<?php echo xlt($obj['dcn2']); ?>" readonly/>
+                <label class="font-weight-bold" for="dcn"><?php echo xlt('Diagnosis 3') ?>:</label>
+                <input type="text" class="form-control" name="dcn3" id="dcn3" onclick="sel_diagnosis('dcn3')" value="<?php echo xlt($obj['dcn3']); ?>" readonly/>
+                <label class="font-weight-bold" for="dcn"><?php echo xlt('Diagnosis 4') ?>:</label>
+                <input type="text" class="form-control" name="dcn4" id="dcn4" onclick="sel_diagnosis('dcn4')" value="<?php echo xlt($obj['dcn4']); ?>" readonly/>
+            </div>
+            <div class="form-row">
+                <div class="col-7 mb-3">
+                    <label class="font-weight-bold" for="cpt4"><?php echo xlt('CPT4') ?>:</label>
+                    <input type="text" class="form-control" name="cpt4" placeholder="CPT4" value="90791 - Mental Healthy Diagnostic Evaluation by Mental Health Therapist (15 min increments),," />
+                </div>
+            </div>
         </div>
     </form>
     <?php
