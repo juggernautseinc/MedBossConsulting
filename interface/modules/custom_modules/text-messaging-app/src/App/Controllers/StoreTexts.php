@@ -20,6 +20,10 @@ class StoreTexts
      */
     public function saveText(array $response, ?string $db)
     {
+        if (!is_set($db)) {
+            require_once dirname(__FILE__, 8) . "/sites/default/sqlconf.php";
+            $db = escapeshellarg($sqlconf["dbase"]);
+        }
         $statement = "INSERT INTO " . $db . ".text_message_module (`id`, `provider_id`, `fromnumber`, `text`, `date`) VALUES (NULL, NULL, ?, ?, NOW())";
 
         $binding = [$response['fromNumber'], $response['text']];
