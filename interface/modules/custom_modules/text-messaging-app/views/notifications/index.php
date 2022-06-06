@@ -36,7 +36,7 @@ $sec = "10";
                     <th scope="col"><?php echo xlt('To'); ?></th>
                     <th scope="col"><?php echo xlt('Result'); ?></th>
                     <th scope="col"><?php echo xlt('Message'); ?></th>
-                    <th scope="col"><?php echo xlt('View'); ?></th>
+                    <th scope="col"><?php echo xlt('Reply'); ?></th>
                 </tr>
                 <?php
                     foreach ($this->params as $item) {
@@ -57,7 +57,7 @@ $sec = "10";
                         print $item['text'];
                         print "</td>";
                         print "<td>";
-                        print "view";
+                        print "<button  class='fas fa-share-square'>" . xlt('Reply') . " <i class='fas fa-share-square'></i></button>";
                         print "</td>";
                         print "</tr>";
                     }
