@@ -10,6 +10,9 @@
 
 use OpenEMR\Core\Header;
 
+$page = $_SERVER['PHP_SELF'];
+$sec = "10";
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -18,6 +21,7 @@ use OpenEMR\Core\Header;
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="refresh" content="<?php echo $sec?>;URL='<?php echo $page?>'">
     <title><?php echo xlt('Notifications'); ?></title>
     <?php Header::setupHeader(['common']) ?>
 </head>
