@@ -43,7 +43,10 @@ class Texting extends SendMessage
             $outboundMessage = self::telehealthMessageBody() .
                 self::getTextFacilityInfo()['name'] . ' ' .
                 self::meetingLink();
-
+            $balance = self::balanceDue();
+        if ($balance > 0) {
+            $outboundMessage .= self::balanceMessage();
+        }
             $response = self::outBoundMessage((int)$patientNumber, $outboundMessage);
             $results = json_decode($response, true);
 
@@ -94,5 +97,16 @@ class Texting extends SendMessage
     private function replyForm()
     {
         return "<form name='reply'><input class='form-control' type='text' onclick='sendText()' placeholder='not working yet!'></form><button class='btn btn-primary'>Send</button> ";
+    }
+
+    private function balanceDue()
+    {
+        require_once dirname(__FILE__, 8) . "/library/patient.inc";
+        return get_patient_balance_excluding($_SESSION['pid']);
+    }
+
+    private function balanceMessage(): string
+    {
+        return xlt(" There is a balance due on your account. Please log into the patient portal and remit payment");
     }
 }
