@@ -17,7 +17,7 @@ class NotificationModel
     public function getPatientTextMessages()
     {
         $sql = "SELECT * FROM `text_message_module` ";
-        if (!empty($this->pid)) {
+        if (!empty($_SESSION['pid'])) {
             $sql .= "WHERE `fromnumber` = '+1" . $this->getPatientCell()['phone_cell'] . "' ORDER BY `id` DESC LIMIT 25";
         } else {
             $sql .= "ORDER BY `id` DESC LIMIT 25";
