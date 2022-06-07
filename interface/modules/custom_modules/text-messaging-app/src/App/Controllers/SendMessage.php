@@ -16,12 +16,6 @@ use OpenEMR\Common\Crypto\CryptoGen;
 
 class SendMessage
 {
-    public $data;
-
-    public function __construct()
-    {
-        $this->data = new NotificationModel();
-    }
 
     public static function outBoundMessage(int $phone, string $message) : string
     {

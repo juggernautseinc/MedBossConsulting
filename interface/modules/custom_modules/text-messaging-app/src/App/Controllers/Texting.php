@@ -11,12 +11,15 @@
 namespace Juggernaut\App\Controllers;
 
 
+use Juggernaut\App\Model\NotificationModel;
+
 class Texting extends SendMessage
 {
-
+    protected NotificationModel $info;
     public function __construct()
     {
-        //do epic stuff here
+        $data = new NotificationModel();
+        $this->info = $data;
     }
 
     public static function bulk(): void
@@ -44,7 +47,7 @@ class Texting extends SendMessage
     //one way message
     public function sendTelehealthMessage()
     {
-        $patientNumber = $this->data->getPatientCell();
+        $patientNumber = $this->info->getPatientCell();
         if (!empty($patientNumber)) {
             $patientNumber = str_replace('-', '', $patientNumber['phone_cell']);
             $outboundMessage = self::telehealthMessageBody() .
