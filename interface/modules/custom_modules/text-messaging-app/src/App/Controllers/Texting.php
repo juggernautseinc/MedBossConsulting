@@ -15,12 +15,6 @@ use Juggernaut\App\Model\NotificationModel;
 
 class Texting extends SendMessage
 {
-    protected NotificationModel $info;
-    public function __construct()
-    {
-        $data = new NotificationModel();
-        $this->info = $data;
-    }
 
     public static function bulk(): void
     {
@@ -41,13 +35,13 @@ class Texting extends SendMessage
 
             echo self::messageResultsDisplay($results);
         }
-
     }
 
     //one way message
     public function sendTelehealthMessage()
     {
-        $patientNumber = $this->info->getPatientCell();
+        $data = new NotificationModel();
+        $patientNumber = $data->getPatientCell();
         if (!empty($patientNumber)) {
             $patientNumber = str_replace('-', '', $patientNumber['phone_cell']);
             $outboundMessage = self::telehealthMessageBody() .
