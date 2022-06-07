@@ -10,8 +10,18 @@
 
 namespace Juggernaut\App\Controllers;
 
+use Juggernaut\App\Model\NotificationModel;
+
 class Texting extends SendMessage
 {
+    private NotificationModel $data;
+    private $obj;
+    public function __construct()
+    {
+        $this->data = new NotificationModel();
+        $this->obj = $this->data->getPatientCell();
+    }
+
     public static function bulk(): void
     {
         echo "<title>Texting Results</title>";
