@@ -49,7 +49,7 @@ class Texting extends SendMessage
                 self::meetingLink();
             $balance = self::balanceDue();
         if ($balance > 0) {
-            $outboundMessage .= self::balanceMessage();
+            $outboundMessage .= self::balanceMessage() . " $" . $balance;
         }
             $response = parent::outBoundMessage((int)$patientNumber, $outboundMessage);
             $results = json_decode($response, true);
@@ -60,8 +60,8 @@ class Texting extends SendMessage
 
     private function telehealthMessageBody()
     {
-        return "By clicking the link below, you are consenting to the telehealth service that is being provided. " .
-            " Please call office at " . self::getTextFacilityInfo()['phone'] . ". \n ";
+        return xlt("By clicking the link below, you are consenting to the telehealth service that is being provided. ") .
+            xlt(" Please call office at ") . self::getTextFacilityInfo()['phone'] . ". \n ";
     }
 
     private function meetingLink()

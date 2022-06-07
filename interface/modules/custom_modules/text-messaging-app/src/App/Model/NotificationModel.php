@@ -30,7 +30,6 @@ class NotificationModel
         }
 
         return $dataArray;
-
     }
 
     /**
