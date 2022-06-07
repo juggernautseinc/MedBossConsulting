@@ -13,12 +13,6 @@ namespace Juggernaut\App\Model;
 
 class NotificationModel
 {
-    protected $pid;
-
-    public function __construct()
-    {
-        $this->pid = $_SESSION['pid'];
-    }
 
     public function getPatientTextMessages()
     {
@@ -38,7 +32,10 @@ class NotificationModel
 
     }
 
-    private function getPatientCell()
+    /**
+     * @return array|false|null
+     */
+    public function getPatientCell()
     {
         $sql = "SELECT `phone_cell` FROM `patient_data` WHERE `pid` = ? ";
         return sqlQuery($sql, [$_SESSION['pid']]);
