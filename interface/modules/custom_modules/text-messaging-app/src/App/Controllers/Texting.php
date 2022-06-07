@@ -15,7 +15,7 @@ use Juggernaut\App\Exceptions\NumberNotFoundException;
 
 class Texting extends SendMessage
 {
-    private NotificationModel $data;
+    protected NotificationModel $data;
 
     public function __construct()
     {
