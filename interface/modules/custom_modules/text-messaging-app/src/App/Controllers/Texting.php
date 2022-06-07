@@ -10,8 +10,18 @@
 
 namespace Juggernaut\App\Controllers;
 
+use Juggernaut\App\Model\NotificationModel;
+use Juggernaut\App\Exceptions\NumberNotFoundException;
+
 class Texting extends SendMessage
 {
+    private NotificationModel $data;
+
+    public function __construct()
+    {
+        $this->data = new NotificationModel();
+    }
+
     public static function bulk(): void
     {
         echo "<title>Texting Results</title>";
@@ -31,57 +41,62 @@ class Texting extends SendMessage
 
             echo self::messageResultsDisplay($results);
         }
-
     }
 
-    //one way message
+    /**
+     * @throws NumberNotFoundException
+     */
     public function sendTelehealthMessage()
     {
-        $patientNumber = self::getPatientCell();
-        if (!empty($patientNumber)) {
-            $patientNumber = str_replace('-', '', $patientNumber['phone_cell']);
+        require_once dirname(__FILE__, 8) . "/library/patient.inc";
+        $balance = get_patient_balance_excluding($_SESSION['pid']);
+        $number = $this->data->getPatientCell();
+        if (!empty($number)) {
+            $patientNumber = str_replace('-', '', $number);
             $outboundMessage = self::telehealthMessageBody() .
-                self::getTextFacilityInfo()['name'] . ' ' .
+                $this->data->getTextFacilityInfo()['name'] . ' ' .
                 self::meetingLink();
-
+        if ($balance > 0) {
+            $outboundMessage .= self::balanceMessage();
+        }
             $response = self::outBoundMessage((int)$patientNumber, $outboundMessage);
             $results = json_decode($response, true);
 
-            echo self::messageResultsDisplay($results) . ' <br>' . $patientNumber  . ' <br><br>' . self::replyForm() ;
+            echo self::messageResultsDisplay($results) . ' <br>' . $patientNumber;
+        } else {
+            throw new NumberNotFoundException();
         }
     }
 
-    private function telehealthMessageBody()
+    public function individualPatient()
     {
-        return "By clicking the link below, you are consenting to the telehealth service that is being provided. " .
-            " Please call office at " . self::getTextFacilityInfo()['phone'] . ". \n ";
+        $patientNumber = self::getPatientCell();
+        $message = $_POST['message'];
+        $response = self::outBoundMessage((int)$patientNumber, $message);
+        return json_decode($response, true);
+
     }
 
-    private function meetingLink()
+    private function telehealthMessageBody(): string
+    {
+        return "By clicking the link below, you are consenting to the telehealth service that is being provided. " .
+            " Please call office at " . $this->data->getTextFacilityInfo()['phone'] . ". \n ";
+    }
+
+    private function balanceMessage(): string
+    {
+        return xlt(" There is a balance due on your account. Please log into the patient portal and remit payment");
+    }
+
+    private function meetingLink(): string
     {
         return "https://" .
             $_SERVER['SERVER_NAME'] .
             "/interface/jitsi/jitsi.php?room=" .
-            self::createMeetingId() . "&pid=" . $_SESSION['pid'];
+            $this->data->createMeetingId() . "&pid=" . $_SESSION['pid'];
     }
 
-    private function createMeetingId()
-    {
-        $newmeetingid = sqlQuery("select DOB from patient_data where pid = ?", [$_SESSION['pid']]);
-        return md5($newmeetingid['DOB'] . $_SESSION['pid']);
-    }
-
-    private function getTextFacilityInfo()
-    {
-        return sqlQuery("select `name`, `phone` from `facility` where `id` = 3");
-    }
-
-    private function getPatientCell()
-    {
-        return sqlQuery("select phone_cell from patient_data where pid = ?", [$_SESSION['pid']]);
-    }
-
-    private function messageResultsDisplay($results)
+    private function messageResultsDisplay($results): string
     {
         if ($results['success'] === true) {
             return " Successful, message ID " . $results['textId'] .
@@ -89,10 +104,5 @@ class Texting extends SendMessage
         } else {
             return " Message failed " . $results['error'];
         }
-    }
-
-    private function replyForm()
-    {
-        return "<form name='reply'><input class='form-control' type='text' onclick='sendText()' placeholder='not working yet!'></form><button class='btn btn-primary'>Send</button> ";
     }
 }

@@ -4,6 +4,7 @@ use Juggernaut\App\Controllers\Home;
 use Juggernaut\App\Controllers\Invoice;
 use Juggernaut\App\Controllers\Notification;
 use Juggernaut\App\Controllers\Texting;
+use Juggernaut\App\Exceptions\RouteNotFoundException;
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -31,7 +32,10 @@ $router
     ->get('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices/create', [Invoice::class, 'create'])
     ->post('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices/create', [Invoice::class, 'store'])
     ->post('/interface/modules/custom_modules/text-messaging-app/public/index.php/texting/bulk', [Texting::class, 'bulk'])
+    ->post('/interface/modules/custom_modules/text-messaging-app/public/index.php/texting/individualPatient', [Texting::class, 'individualPatient'])
     ->get('/interface/modules/custom_modules/text-messaging-app/public/index.php/texting/sendTelehealthMessage', [Texting::class, 'sendTelehealthMessage']);
 
-echo $router->resolve($_SERVER['REQUEST_URI'], strtolower($_SERVER['REQUEST_METHOD']));
-
+try {
+    echo $router->resolve($_SERVER['REQUEST_URI'], strtolower($_SERVER['REQUEST_METHOD']));
+} catch (RouteNotFoundException $e) {
+}

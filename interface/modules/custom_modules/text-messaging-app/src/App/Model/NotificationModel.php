@@ -1,10 +1,11 @@
 <?php
+
 /*
  *  package OpenEMR
  *  link    https://www.open-emr.org
  *  author  Sherwin Gaddis <sherwingaddis@gmail.com>
  *  Copyright (c) 2022.
- *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
+ *  All Rights reserved
  */
 
 namespace Juggernaut\App\Model;
@@ -19,7 +20,7 @@ class NotificationModel
         $this->pid = $_SESSION['pid'];
     }
 
-    public function getPatientTextMessages()
+    public function getPatientTextMessages(): array
     {
         $sql = "SELECT * FROM `text_message_module` ";
         if (!empty($this->pid)) {
@@ -34,13 +35,24 @@ class NotificationModel
         }
 
         return $dataArray;
-
     }
 
-    private function getPatientCell()
+    public function getPatientCell(): mixed
     {
         $sql = "SELECT `phone_cell` FROM `patient_data` WHERE `pid` = ? ";
-        return sqlQuery($sql, [$_SESSION['pid']]);
+        $number = sqlQuery($sql, [$_SESSION['pid']]);
+        return $number['phone_cell'];
+    }
+
+    public function createMeetingId(): string
+    {
+        $newmeetingid = sqlQuery("select DOB from patient_data where pid = ?", [$_SESSION['pid']]);
+        return md5($newmeetingid['DOB'] . $_SESSION['pid']);
+    }
+
+    public function getTextFacilityInfo(): bool|array|null
+    {
+        return sqlQuery("select `name`, `phone` from `facility` where `id` = 3");
     }
 
 }
