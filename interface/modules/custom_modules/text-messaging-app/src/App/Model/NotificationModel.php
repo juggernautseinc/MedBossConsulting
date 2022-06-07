@@ -43,4 +43,5 @@ class NotificationModel
         $sql = "SELECT `phone_cell` FROM `patient_data` WHERE `pid` = ? ";
         return sqlQuery($sql, [$_SESSION['pid']]);
     }
+
 }
