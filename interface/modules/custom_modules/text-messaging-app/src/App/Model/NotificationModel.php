@@ -42,4 +42,10 @@ class NotificationModel
         return sqlQuery($sql, [$_SESSION['pid']]);
     }
 
+    public function createMeetingId()
+    {
+        $newmeetingid = sqlQuery("select DOB from patient_data where pid = ?", [$_SESSION['pid']]);
+        return md5($newmeetingid['DOB'] . $_SESSION['pid']);
+    }
+
 }

@@ -54,7 +54,7 @@ class Texting extends SendMessage
             $response = parent::outBoundMessage((int)$patientNumber, $outboundMessage);
             $results = json_decode($response, true);
 
-            echo self::messageResultsDisplay($results) . ' <br>' . $patientNumber  . ' <br><br>' . self::replyForm() ;
+            echo self::messageResultsDisplay($results) . ' <br>' . $patientNumber ;
         }
     }
 
@@ -66,26 +66,16 @@ class Texting extends SendMessage
 
     private function meetingLink()
     {
+        $data = new NotificationModel();
         return "https://" .
             $_SERVER['SERVER_NAME'] .
             "/interface/jitsi/jitsi.php?room=" .
-            self::createMeetingId() . "&pid=" . $_SESSION['pid'];
-    }
-
-    private function createMeetingId()
-    {
-        $newmeetingid = sqlQuery("select DOB from patient_data where pid = ?", [$_SESSION['pid']]);
-        return md5($newmeetingid['DOB'] . $_SESSION['pid']);
+            $data->createMeetingId() . "&pid=" . $_SESSION['pid'];
     }
 
     private function getTextFacilityInfo()
     {
         return sqlQuery("select `name`, `phone` from `facility` where `id` = 3");
-    }
-
-    private function getPatientCell()
-    {
-        return sqlQuery("select phone_cell from patient_data where pid = ?", [$_SESSION['pid']]);
     }
 
     private function messageResultsDisplay($results)
@@ -96,11 +86,6 @@ class Texting extends SendMessage
         } else {
             return " Message failed " . $results['error'];
         }
-    }
-
-    private function replyForm()
-    {
-        return "<form name='reply'><input class='form-control' type='text' onclick='sendText()' placeholder='not working yet!'></form><button class='btn btn-primary'>Send</button> ";
     }
 
     private function balanceDue()
