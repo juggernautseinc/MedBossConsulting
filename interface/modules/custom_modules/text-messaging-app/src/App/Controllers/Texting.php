@@ -44,7 +44,7 @@ class Texting extends SendMessage
     //one way message
     public function sendTelehealthMessage()
     {
-        $patientNumber = self::getPatientCell();
+        $patientNumber = $this->data->getPatientCell();
         if (!empty($patientNumber)) {
             $patientNumber = str_replace('-', '', $patientNumber['phone_cell']);
             $outboundMessage = self::telehealthMessageBody() .

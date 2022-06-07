@@ -38,7 +38,7 @@ class NotificationModel
 
     }
 
-    private function getPatientCell()
+    public function getPatientCell(): bool|array|null
     {
         $sql = "SELECT `phone_cell` FROM `patient_data` WHERE `pid` = ? ";
         return sqlQuery($sql, [$_SESSION['pid']]);
