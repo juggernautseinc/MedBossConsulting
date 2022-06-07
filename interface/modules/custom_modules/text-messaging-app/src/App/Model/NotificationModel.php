@@ -20,7 +20,7 @@ class NotificationModel
         $this->pid = $_SESSION['pid'];
     }
 
-    public function getPatientTextMessages(): array
+    public function getPatientTextMessages()
     {
         $sql = "SELECT * FROM `text_message_module` ";
         if (!empty($this->pid)) {
@@ -35,24 +35,12 @@ class NotificationModel
         }
 
         return $dataArray;
+
     }
 
-    public function getPatientCell(): mixed
+    private function getPatientCell()
     {
         $sql = "SELECT `phone_cell` FROM `patient_data` WHERE `pid` = ? ";
-        $number = sqlQuery($sql, [$_SESSION['pid']]);
-        return $number['phone_cell'];
+        return sqlQuery($sql, [$_SESSION['pid']]);
     }
-
-    public function createMeetingId(): string
-    {
-        $newmeetingid = sqlQuery("select DOB from patient_data where pid = ?", [$_SESSION['pid']]);
-        return md5($newmeetingid['DOB'] . $_SESSION['pid']);
-    }
-
-    public function getTextFacilityInfo(): bool|array|null
-    {
-        return sqlQuery("select `name`, `phone` from `facility` where `id` = 3");
-    }
-
 }
