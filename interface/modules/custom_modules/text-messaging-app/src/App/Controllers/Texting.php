@@ -10,16 +10,13 @@
 
 namespace Juggernaut\App\Controllers;
 
-use Juggernaut\App\Model\NotificationModel;
 
 class Texting extends SendMessage
 {
-    private NotificationModel $data;
-    private $obj;
+
     public function __construct()
     {
-        $this->data = new NotificationModel();
-        $this->obj = $this->data->getPatientCell();
+        //do epic stuff here
     }
 
     public static function bulk(): void
@@ -36,7 +33,7 @@ class Texting extends SendMessage
                 continue; //The plan on using it for single messages to patients
             }
             $individual = str_replace("-", "", $individual);
-            $response = self::outBoundMessage($individual, $messagesbody);
+            $response = parent::outBoundMessage($individual, $messagesbody);
             $results = json_decode($response, true);
 
             echo self::messageResultsDisplay($results);
@@ -57,7 +54,7 @@ class Texting extends SendMessage
         if ($balance > 0) {
             $outboundMessage .= self::balanceMessage();
         }
-            $response = self::outBoundMessage((int)$patientNumber, $outboundMessage);
+            $response = parent::outBoundMessage((int)$patientNumber, $outboundMessage);
             $results = json_decode($response, true);
 
             echo self::messageResultsDisplay($results) . ' <br>' . $patientNumber  . ' <br><br>' . self::replyForm() ;

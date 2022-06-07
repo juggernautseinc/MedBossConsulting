@@ -10,17 +10,23 @@
 
 namespace Juggernaut\App\Controllers;
 
+use Juggernaut\App\Model\NotificationModel;
 use OpenEMR\Common\Crypto\CryptoGen;
 
 
 class SendMessage
 {
+    public $data;
+
+    public function __construct()
+    {
+        $this->data = new NotificationModel();
+    }
 
     public static function outBoundMessage(int $phone, string $message) : string
     {
         $key = self::getKey();
         $webhook = self::buildWebHookUrl();
-file_put_contents('/var/www/html/errors/webhook.txt', $webhook . PHP_EOL, FILE_APPEND);
 
         if (empty($key)) {
             return 'Please enter a valid key in the globals';
