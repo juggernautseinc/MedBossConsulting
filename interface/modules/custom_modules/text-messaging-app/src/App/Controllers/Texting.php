@@ -15,11 +15,12 @@ use Juggernaut\App\Exceptions\NumberNotFoundException;
 
 class Texting extends SendMessage
 {
-    protected NotificationModel $data;
+
+    private NotificationModel $data;
 
     public function __construct()
     {
-        $this->data = new NotificationModel();
+        //do epic stuff here
     }
 
     public static function bulk(): void
@@ -49,6 +50,7 @@ class Texting extends SendMessage
     public function sendTelehealthMessage()
     {
         require_once dirname(__FILE__, 8) . "/library/patient.inc";
+        $this->data = new NotificationModel();
         $balance = get_patient_balance_excluding($_SESSION['pid']);
         $number = $this->data->getPatientCell();
         if (!empty($number)) {
@@ -79,6 +81,7 @@ class Texting extends SendMessage
 
     private function telehealthMessageBody(): string
     {
+        $this->data = new NotificationModel();
         return "By clicking the link below, you are consenting to the telehealth service that is being provided. " .
             " Please call office at " . $this->data->getTextFacilityInfo()['phone'] . ". \n ";
     }
@@ -90,6 +93,7 @@ class Texting extends SendMessage
 
     private function meetingLink(): string
     {
+        $this->data = new NotificationModel();
         return "https://" .
             $_SERVER['SERVER_NAME'] .
             "/interface/jitsi/jitsi.php?room=" .

@@ -13,7 +13,7 @@ namespace Juggernaut\App\Model;
 
 class NotificationModel
 {
-    protected $pid;
+    protected mixed $pid;
 
     public function __construct()
     {
