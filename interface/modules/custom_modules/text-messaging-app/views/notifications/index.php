@@ -71,11 +71,7 @@ $sec = "10";
     function sendReply(phone) {
         let title = <?php echo xlj("Message Reply"); ?>;
         let url = '../../public/index.php/individuals?phone=' + phone;
-        dlgopen(url, '_blank', 300, 600, '', title, {
-            buttons: [
-                {text: btnClose, close: true, style: 'secondary btn-sm'}
-            ]
-        });
+        dlgopen(url, '_blank', 300, 600, '', title);
         return false;
     }
 </script>
