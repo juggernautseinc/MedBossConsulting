@@ -25,8 +25,8 @@ $action = __DIR__. '../../public/index.php/individuals';
 <div class="container m-5 main_container">
     <h1>Send Text</h1>
     <form action='../../public/index.php/individuals' method="post">
-        <textarea class="form-control col-2" ></textarea>
-        <input type="submit" value="Send">
+        <textarea class="form-control col-3" ></textarea>
+        <input class="form-control" type="submit" value="Send">
     </form>
 </div>
 
