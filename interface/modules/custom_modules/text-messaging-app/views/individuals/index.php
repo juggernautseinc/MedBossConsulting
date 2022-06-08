@@ -8,6 +8,8 @@
  *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  */
 
+use OpenEMR\Core\Header;
+$action = __DIR__. '../../public/index.php/individuals';
 ?>
 <!doctype html>
 <html lang="en">
@@ -17,9 +19,17 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Send Text</title>
+    <?php Header::setupHeader(['common']); ?>
 </head>
 <body>
-<h1>Send Text</h1>
+<div class="container m-5 main_container">
+    <h1>Send Text</h1>
+    <form action='../../public/index.php/individuals' method="post">
+        <textarea class="form-control col-2" ></textarea>
+        <input type="submit" value="Send">
+    </form>
+</div>
+
 
 </body>
 </html>
