@@ -26,7 +26,7 @@ $action = __DIR__. '../../public/index.php/individuals';
     <h1>Send Text</h1>
     <form action='../../public/index.php/individuals' method="post">
         <textarea class="form-control col-3" ></textarea>
-        <input class="form-control" type="submit" value="Send">
+        <input class="form-control col-1" type="submit" value="Send">
     </form>
 </div>
 
