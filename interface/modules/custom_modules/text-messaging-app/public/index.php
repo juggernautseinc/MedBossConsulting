@@ -3,6 +3,7 @@
 use Juggernaut\App\Controllers\Home;
 use Juggernaut\App\Controllers\Invoice;
 use Juggernaut\App\Controllers\Notification;
+use Juggernaut\App\Controllers\TextIndividuals;
 use Juggernaut\App\Controllers\Texting;
 use Juggernaut\App\Exceptions\RouteNotFoundException;
 
@@ -33,6 +34,7 @@ $router
     ->post('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices/create', [Invoice::class, 'store'])
     ->post('/interface/modules/custom_modules/text-messaging-app/public/index.php/texting/bulk', [Texting::class, 'bulk'])
     ->post('/interface/modules/custom_modules/text-messaging-app/public/index.php/texting/individualPatient', [Texting::class, 'individualPatient'])
+    ->get('/interface/modules/custom_modules/text-messaging-app/public/index.php/individuals', [TextIndividuals::class, 'index'])
     ->get('/interface/modules/custom_modules/text-messaging-app/public/index.php/texting/sendTelehealthMessage', [Texting::class, 'sendTelehealthMessage']);
 
 try {
