@@ -58,6 +58,11 @@ class Texting extends SendMessage
         }
     }
 
+    public function individualPatient(): string
+    {
+        return "Message sent!";
+    }
+
     private function telehealthMessageBody()
     {
         return xlt("By clicking the link below, you are consenting to the telehealth service that is being provided. ") .

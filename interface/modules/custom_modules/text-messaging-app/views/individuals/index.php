@@ -9,7 +9,7 @@
  */
 
 use OpenEMR\Core\Header;
-$action = __DIR__. '../../public/index.php/individuals';
+
 ?>
 <!doctype html>
 <html lang="en">
