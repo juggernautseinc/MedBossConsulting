@@ -60,7 +60,7 @@ class Texting extends SendMessage
 
     public function individualPatient(): string
     {
-        return "Message sent!";
+        return "Message sent! " . $_POST['phone'];
     }
 
     private function telehealthMessageBody()

@@ -57,7 +57,8 @@ $sec = "10";
                         print $item['text'];
                         print "</td>";
                         print "<td>";
-                        print "<button  class='fas fa-share-square' style='font-size:36px color:blue'> " . xlt('Reply') . "</button>";
+                        $phone = substr($item['fromnumber'], 2);
+                        print "<button  class='fas fa-share-square' style='font-size:46px color:blue' onclick='sendReply($phone)'> " . xlt('Reply') . "</button>";
                         print "</td>";
                         print "</tr>";
                     }
@@ -66,6 +67,18 @@ $sec = "10";
             </table>
         </div>
     </div>
+<script>
+    function sendReply(phone) {
+        let title = <?php echo xlj("Message Reply"); ?>;
+        let url = '../../public/index.php/individuals?phone=' + phone;
+        dlgopen(url, '_blank', 300, 600, '', title, {
+            buttons: [
+                {text: btnClose, close: true, style: 'secondary btn-sm'}
+            ]
+        });
+        return false;
+    }
+</script>
 </body>
 </html>
 
