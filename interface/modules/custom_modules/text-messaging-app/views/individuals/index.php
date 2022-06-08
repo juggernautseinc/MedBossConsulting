@@ -22,10 +22,10 @@ use OpenEMR\Core\Header;
     <?php Header::setupHeader(['common']); ?>
 </head>
 <body>
-<div class="container m-5 main_container">
+<div class="container-fluid m-2 main_container">
     <h1>Send Text</h1>
     <form action='../../public/index.php/texting/individualPatient' method="post">
-        <input type="hidden" name="phone" value="<?php echo filter_input('GET', 'phone', FILTER_VALIDATE_INT); ?>">
+        <input type="hidden" name="phone" value="<?php echo filter_input('GET', 'phone', FILTER_SANITIZE_SPECIAL_CHARS); ?>">
         <textarea class="form-control col-3" name="messageoutbound"></textarea>
         <input class="form-control col-1" type="submit" value="Send">
     </form>
