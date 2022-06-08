@@ -24,7 +24,7 @@ use OpenEMR\Core\Header;
 <body>
 <div class="container m-5 main_container">
     <h1>Send Text</h1>
-    <form action='../../public/index.php/individuals' method="post">
+    <form action='../../public/index.php/texting/individualPatient' method="post">
         <textarea class="form-control col-3" ></textarea>
         <input class="form-control col-1" type="submit" value="Send">
     </form>
