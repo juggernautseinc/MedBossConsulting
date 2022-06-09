@@ -47,6 +47,7 @@ use OpenEMR\Core\Header;
             if (response.ok) {
                 status.innerHTML = "Thanks for your submission!";
                 console.log(response.text());
+                status.innerHTML = text;
                 form.reset()
             } else {
                 response.json().then(data => {
