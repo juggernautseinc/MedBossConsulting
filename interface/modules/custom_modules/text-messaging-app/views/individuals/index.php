@@ -24,7 +24,7 @@ use OpenEMR\Core\Header;
 <body>
 <div class="container-fluid m-2 main_container">
     <h1>Send Text</h1>
-    <form name="text_form" action='../../public/index.php/texting/individualPatient' method="post">
+    <form id="text_form" action='../../public/index.php/texting/individualPatient' method="post">
         <input type="hidden" name="phone" value="<?php echo $_GET['phone']; ?>">
         <textarea class="form-control col-6 mb-2" name="messageoutbound"></textarea>
         <button id="my-form-button" class="form-control col-2"><?php echo xlt('Send'); ?></button>
@@ -34,7 +34,7 @@ use OpenEMR\Core\Header;
 <script>
     const form = document.getElementById("text_form");
 
-    async function handleSubmit(event) {event.preventDefault();
+    async function handleSubmit(event) { event.preventDefault();
         const status = document.getElementById("my-form-status");
         const data = new FormData(event.target);
         fetch(event.target.action, {
