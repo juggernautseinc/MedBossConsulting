@@ -43,11 +43,13 @@ use OpenEMR\Core\Header;
             headers: {
                 'Accept': 'application/json'
             }
-        }).then(response => {
+        }).then(function(response)  {
             if (response.ok) {
-                status.innerHTML = "Thanks for your submission!";
+                return response.text().then(function(text)) {
+                    status.innerHTML = text;
+                }
+                //status.innerHTML = "Thanks for your submission!";
                 console.log(response.text());
-                status.innerHTML = text;
                 form.reset()
             } else {
                 response.json().then(data => {
