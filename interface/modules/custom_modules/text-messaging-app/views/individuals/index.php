@@ -27,7 +27,7 @@ use OpenEMR\Core\Header;
     <form name="text_form" action='../../public/index.php/texting/individualPatient' method="post">
         <input type="hidden" name="phone" value="<?php echo $_GET['phone']; ?>">
         <textarea class="form-control col-6 mb-2" name="messageoutbound"></textarea>
-        <input id="my-form-button" class="form-control col-2" type="submit" value="Send">
+        <button id="my-form-button" class="form-control col-2"><?php echo xlt('Send'); ?></button>
     </form>
     <p id="my-form-status"></p>
 </div>
