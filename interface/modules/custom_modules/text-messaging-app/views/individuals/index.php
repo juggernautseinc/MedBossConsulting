@@ -24,13 +24,43 @@ use OpenEMR\Core\Header;
 <body>
 <div class="container-fluid m-2 main_container">
     <h1>Send Text</h1>
-    <form action='../../public/index.php/texting/individualPatient' method="post">
+    <form name="text_form" action='../../public/index.php/texting/individualPatient' method="post">
         <input type="hidden" name="phone" value="<?php echo $_GET['phone']; ?>">
-        <textarea class="form-control col-4" name="messageoutbound"></textarea>
-        <input class="form-control col-2" type="submit" value="Send">
+        <textarea class="form-control col-6 mb-2" name="messageoutbound"></textarea>
+        <input id="my-form-button" class="form-control col-2" type="submit" value="Send">
     </form>
+    <p id="my-form-status"></p>
 </div>
+<script>
+    const form = document.getElementById("text_form");
 
+    async function handleSubmit(event) {event.preventDefault();
+        const status = document.getElementById("my-form-status");
+        const data = new FormData(event.target);
+        fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                status.innerHTML = "Thanks for your submission!" + response.json();
+                form.reset()
+            } else {
+                response.json().then(data => {
+                    if (Object.hasOwn(data, 'errors')) {
+                        status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                    } else {
+                        status.innerHTML = "Oops! There was a problem submitting your form"
+                    }
+                })
+            }
+        }).catch(error => {
+            status.innerHTML = "Oops! There was a problem submitting your form"});
+    }
+    form.addEventListener("submit", handleSubmit)
+</script>
 
 </body>
 </html>
