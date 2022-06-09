@@ -45,11 +45,8 @@ use OpenEMR\Core\Header;
             }
         }).then(function(response)  {
             if (response.ok) {
-                let reply;
-                response.text().then(function(text)) {
-                    reply = text;
-                }
-                status.innerHTML = "Thanks for your submission!";
+                let reply = response.text();
+                status.innerHTML = "Thanks for your submission! " + reply.text;
                 console.log(response.text());
                 form.reset()
             } else {
