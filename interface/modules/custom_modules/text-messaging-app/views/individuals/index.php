@@ -47,7 +47,6 @@ use OpenEMR\Core\Header;
             if (response.ok) {
                 let reply = function (response) {
                     response.text().then(function(text)) {
-                        return text;
                     }
                 };
                 status.innerHTML = "Thanks for your submission! " + reply;
