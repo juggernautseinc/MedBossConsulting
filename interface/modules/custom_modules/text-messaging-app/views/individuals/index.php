@@ -27,7 +27,7 @@ use OpenEMR\Core\Header;
     <form id="text_form" action='../../public/index.php/texting/individualPatient' method="post">
         <input type="hidden" name="phone" value="<?php echo $_GET['phone']; ?>">
         <textarea class="form-control col-6 mb-2" name="messageoutbound"></textarea>
-        <button id="my-form-button" class="form-control col-2 mb-5"><?php echo xlt('Send'); ?></button>
+        <button id="my-form-button" class="form-control col-2 mb-2"><?php echo xlt('Send'); ?></button>
     </form>
     <p id="my-form-status"></p>
 </div>
@@ -46,7 +46,7 @@ use OpenEMR\Core\Header;
         }).then(response => {
             if (response.ok) {
                 status.innerHTML = "Thanks for your submission!";
-                console.log(response);
+                console.log(response.text());
                 form.reset()
             } else {
                 response.json().then(data => {
