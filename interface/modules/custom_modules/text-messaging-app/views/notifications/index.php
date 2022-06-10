@@ -95,7 +95,9 @@ $number = $phone->getPatientCell();
         dlgopen(url, '_blank', 600, 400, '', title);
         return false;
     }
+    <?php if (!empty($number['phone_cell'] && empty($this->params)) ) { ?>
     document.getElementById('initiate').addEventListener('click', textActivePatient);
+    <?php } ?>
 </script>
 </body>
 </html>
