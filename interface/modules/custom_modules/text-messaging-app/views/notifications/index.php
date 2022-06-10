@@ -28,7 +28,7 @@ $sec = "10";
 <body>
     <div class="container-fluid main-container m-5 w-auto">
         <div class="row">
-            <div class="">
+            <div class="" style="float: left">
                 <h1><?php echo xlt('Notifications'); ?></h1>
             </div>
             <div id="contactpatient" style="float: right">
