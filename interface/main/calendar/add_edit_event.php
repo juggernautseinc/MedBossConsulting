@@ -52,6 +52,8 @@ require_once($GLOBALS['srcdir'] . '/group.inc');
 
 use OpenEMR\Common\Acl\AclMain;
 use OpenEMR\Core\Header;
+use OpenEMR\Events\Appointments\AppointmentSetEvent;
+use OpenEMR\Events\Appointments\AppointmentRenderEvent;
 
  //Check access control
 if (!AclMain::aclCheckCore('patients', 'appt', '', array('write','wsome'))) {
@@ -1086,6 +1088,11 @@ function sel_patient() {
     dlgopen('find_patient_popup.php', 'findPatient', 650, 300, '', title);
 }
 
+// This invokes javascript listener.
+<?php
+$eventDispatcher->dispatch(AppointmentRenderEvent::RENDER_JAVASCRIPT, new AppointmentRenderEvent($row), 10);
+?>
+
 // This is for callback by the find-group popup.
 function setgroup(gid, name, end_date) {
     var f = document.forms[0];
@@ -1491,6 +1498,10 @@ if (empty($_GET['prov']) && empty($_GET['group'])) { ?>
         ?>
         </span>
             </div>
+            <?php
+            // This invokes render below patient listener.
+            $eventDispatcher->dispatch(AppointmentRenderEvent::RENDER_BELOW_PATIENT, new AppointmentRenderEvent($row), 10);
+            ?>
         </div>
     </div> <!-- End Jumbotron !-->
     <?php
