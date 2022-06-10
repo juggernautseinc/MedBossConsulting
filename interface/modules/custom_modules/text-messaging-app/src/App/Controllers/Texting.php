@@ -60,7 +60,8 @@ class Texting extends SendMessage
 
     public function individualPatient(): string
     {
-        return "{ 'status' => 'Message sent!', 'number' => '" . $_POST['phone'] ."', 'message' => '". $_POST['messageoutbound'] . "'}";
+        $response = parent::outBoundMessage((int)$_POST['phone'], $_POST['messageoutbound']);
+        return $response;
     }
 
     private function telehealthMessageBody()
