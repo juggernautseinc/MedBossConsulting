@@ -85,7 +85,7 @@ $phone = new NotificationModel();
         return false;
     }
     function textActivePatient() {
-        let phone = <?php $phone->getPatientCell() ?>;
+        let phone = <?php $phone->getPatientCell(); ?>;
         let title = <?php echo xlj("Initiate Conversation"); ?>;
         let url = '../../public/index.php/individuals?phone=' + phone;
 
