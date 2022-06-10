@@ -83,7 +83,7 @@ $sec = "10";
     }
     function textActivePatient() {
         let title = <?php echo xlj("Message Reply"); ?>;
-        let url = '../../public/index.php/individuals?phone=' + phone;
+        let url = '../../public/index.php/individuals?phone=';
         dlgopen(url, '_blank', 600, 400, '', title);
         return false;
     }
