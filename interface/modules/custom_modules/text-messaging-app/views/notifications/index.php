@@ -28,7 +28,12 @@ $sec = "10";
 <body>
     <div class="container-fluid main-container m-5 w-auto">
         <div class="row">
-            <h1><?php echo xlt('Notifications'); ?></h1>
+            <div class="">
+                <h1><?php echo xlt('Notifications'); ?></h1>
+            </div>
+            <div id="contactpatient" style="float: right">
+                <button id="sendMessage"><?php echo xlt(); ?></button>
+            </div>
             <table class="table table-striped">
                 <tr>
                     <th scope="col"><?php echo xlt('Date'); ?></th>
