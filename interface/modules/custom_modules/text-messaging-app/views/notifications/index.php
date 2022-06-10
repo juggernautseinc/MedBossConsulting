@@ -36,7 +36,7 @@ $number = $phone->getPatientCell();
                 <div style="float: left">
                     <h1><?php echo xlt('Notifications'); ?></h1>
                 </div>
-                <?php if (!empty($number['phone_cell'])) { ?>
+                <?php if (!empty($number['phone_cell'] && empty($this->params)) ) { ?>
                 <div id="contactpatient" style="float: right">
                     <button id="initiate" class="btn btn-primary" id="sendMessage"><?php echo xlt('Text Patient'); ?></button>
                 </div>
