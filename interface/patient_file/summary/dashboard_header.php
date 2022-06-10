@@ -116,6 +116,13 @@ if ($days_deceased) { ?>
                         <button id='telehealth' class='btn btn-primary'>Telehealth</button>
                     </p>
                 <?php }
+                   $textModule = !empty($GLOBALS['texting_enables']) ? $GLOBALS[''] : 0;
+                if ($textModule) {
+                    ?>
+                <p style="padding-left: 30px"> <button id="individualtext" class="btn btn-primary">Text Patient</button></p>
+
+                    <?php
+                    }
             //Patient Portal
             if ($GLOBALS['erx_enable']) { ?>
                 <div id='accountstatus'></div>
