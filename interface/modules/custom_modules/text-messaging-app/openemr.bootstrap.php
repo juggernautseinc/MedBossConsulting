@@ -26,6 +26,40 @@ function oe_module_texting_add_menu_item(MenuEvent $event)
     $menuItem->menu_id = 'tex0';
     $menuItem->label = xlt("Text Messaging Service");
     $menuItem->url = "/interface/modules/custom_modules/text-messaging-app/public/index.php/notifications";
+    $menuItem->children = ['{
+            "label" : "Bulk Texting",
+            "menu_id" : "bul0",
+            "target" : "mod",
+            "url" : "/interface/modules/custom_modules/text-messaging-app/welcome.php",
+            "children" : [ ],
+            "requirement" : 0,
+            "acl_req" : [ "patients", "appt" ],
+            "global_req_strict" : []
+        }'];
+    $menuItem->acl_req = ["patients", "docs"];
+    $menuItem->global_req = [];
+
+    foreach ($menu as $item) {
+        if ($item->menu_id == 'modimg') {
+            $item->children[] = $menuItem;
+            break;
+        }
+    }
+
+    $event->setMenu($menu);
+
+    return $event;
+}
+function oe_module_bulktexting_add_menu_item(MenuEvent $event)
+{
+    $menu = $event->getMenu();
+
+    $menuItem = new stdClass();
+    $menuItem->requirement = 0;
+    $menuItem->target = 'mod';
+    $menuItem->menu_id = 'tex0';
+    $menuItem->label = xlt("Send Bulk Text");
+    $menuItem->url = "/interface/modules/custom_modules/text-messaging-app/welcome.php";
     $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
     $menuItem->global_req = [];
