@@ -32,7 +32,7 @@ $sec = "10";
                 <h1><?php echo xlt('Notifications'); ?></h1>
             </div>
             <div id="contactpatient" style="float: right">
-                <button id="sendMessage"><?php echo xlt(); ?></button>
+                <button id="sendMessage"><?php echo xlt('Text Patient'); ?></button>
             </div>
             <table class="table table-striped">
                 <tr>
