@@ -26,16 +26,7 @@ function oe_module_texting_add_menu_item(MenuEvent $event)
     $menuItem->menu_id = 'tex0';
     $menuItem->label = xlt("Text Messaging Service");
     $menuItem->url = "/interface/modules/custom_modules/text-messaging-app/public/index.php/notifications";
-    $menuItem->children = ['{
-            "label" : "Bulk Texting",
-            "menu_id" : "bul0",
-            "target" : "mod",
-            "url" : "/interface/modules/custom_modules/text-messaging-app/welcome.php",
-            "children" : [ ],
-            "requirement" : 0,
-            "acl_req" : [ "patients", "appt" ],
-            "global_req_strict" : []
-        }'];
+    $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
     $menuItem->global_req = [];
 
@@ -57,9 +48,9 @@ function oe_module_bulktexting_add_menu_item(MenuEvent $event)
     $menuItem = new stdClass();
     $menuItem->requirement = 0;
     $menuItem->target = 'mod';
-    $menuItem->menu_id = 'tex0';
+    $menuItem->menu_id = 'tex2';
     $menuItem->label = xlt("Send Bulk Text");
-    $menuItem->url = "/interface/modules/custom_modules/text-messaging-app/welcome.php";
+    $menuItem->url = "/interface/modules/custom_modules/text-messaging-app/bulk.php";
     $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
     $menuItem->global_req = [];
@@ -98,3 +89,4 @@ function createTextMessageGlobals(GlobalsInitializedEvent $event)
 
 $eventDispatcher->addListener(GlobalsInitializedEvent::EVENT_HANDLE, 'createTextMessageGlobals');
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_texting_add_menu_item');
+$eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_bulktexting_add_menu_item');
