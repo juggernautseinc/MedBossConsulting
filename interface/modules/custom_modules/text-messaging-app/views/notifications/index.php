@@ -86,7 +86,7 @@ $number = $phone->getPatientCell();
         return false;
     }
     function textActivePatient() {
-        let phone = '<?php echo $number; ?>';
+        let phone = '<?php echo $number['phone_cell']; ?>';
         let title = <?php echo xlj("Initiate Conversation"); ?>;
         let url = '../../public/index.php/individuals?phone=' + phone;
 
