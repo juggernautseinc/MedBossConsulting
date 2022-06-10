@@ -10,7 +10,6 @@
 
 namespace Juggernaut\App\Controllers;
 
-use Juggernaut\App\Model\NotificationModel;
 use OpenEMR\Common\Crypto\CryptoGen;
 
 
