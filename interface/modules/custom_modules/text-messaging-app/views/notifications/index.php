@@ -9,9 +9,12 @@
  */
 
 use OpenEMR\Core\Header;
-
+use Juggernaut\App\Model\NotificationModel;
 $page = $_SERVER['PHP_SELF'];
 $sec = "10";
+
+
+$phone = new NotificationModel();
 
 ?>
 <!doctype html>
@@ -82,8 +85,10 @@ $sec = "10";
         return false;
     }
     function textActivePatient() {
-        let title = <?php echo xlj("Message Reply"); ?>;
-        let url = '../../public/index.php/individuals?phone=';
+        let phone = <?php $phone->getPatientCell() ?>;
+        let title = <?php echo xlj("Initiate Conversation"); ?>;
+        let url = '../../public/index.php/individuals?phone=' + phone;
+
         dlgopen(url, '_blank', 600, 400, '', title);
         return false;
     }
