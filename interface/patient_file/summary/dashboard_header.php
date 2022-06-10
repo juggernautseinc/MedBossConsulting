@@ -115,12 +115,6 @@ if ($days_deceased) { ?>
                     <p style="padding-left: 30px">
                         <button id='telehealth' class='btn btn-primary'>Telehealth</button>
                     </p>
-                <?php }
-                   $textModule = !empty($GLOBALS['texting_enables']) ? $GLOBALS['texting_enables'] : 0;
-                if ($textModule) {
-                    ?>
-                <p style="padding-left: 30px"> <button id="individualtext" class="btn btn-primary">Text Patient</button></p>
-
                     <?php
                     }
             //Patient Portal
