@@ -25,13 +25,13 @@ function oe_module_texting_add_menu_item(MenuEvent $event)
     $menuItem->target = 'mod';
     $menuItem->menu_id = 'mod0';
     $menuItem->label = xlt("Text Messaging Service");
-    $menuItem->url = "/interface/modules/custom_modules/text-messaging-app/welcome.php";
+    $menuItem->url = "/interface/modules/custom_modules/text-messaging-app/public/index.php/notifications";
     $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
     $menuItem->global_req = [];
 
     foreach ($menu as $item) {
-        if ($item->menu_id == 'modimg') {
+        if ($item->menu_id == 'teximg') {
             $item->children[] = $menuItem;
             break;
         }
@@ -41,6 +41,7 @@ function oe_module_texting_add_menu_item(MenuEvent $event)
 
     return $event;
 }
+
 
 /**
  * @var EventDispatcherInterface $eventDispatcher
