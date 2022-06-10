@@ -21,14 +21,14 @@ $sec = "10";
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!--<meta http-equiv="refresh" content="<?php echo $sec?>;URL='<?php echo $page?>'">-->
+    <meta http-equiv="refresh" content="<?php echo $sec?>;URL='<?php echo $page?>'">
     <title><?php echo xlt('Notifications'); ?></title>
     <?php Header::setupHeader(['common']) ?>
 </head>
 <body>
     <div class="container-fluid main-container m-5 w-auto">
         <div class="row">
-            <div>
+            <div class="w-100">
                 <div style="float: left">
                     <h1><?php echo xlt('Notifications'); ?></h1>
                 </div>
