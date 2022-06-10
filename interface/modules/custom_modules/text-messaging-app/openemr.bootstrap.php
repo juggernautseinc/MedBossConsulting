@@ -10,6 +10,8 @@
 
 use OpenEMR\Menu\MenuEvent;
 use Symfony\Component\EventDispatcher\Event;
+use OpenEMR\Events\PatientReport\PatientReportEvent;
+use OpenEMR\Events\PatientDocuments\PatientDocumentEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use OpenEMR\Events\Globals\GlobalsInitializedEvent;
 use OpenEMR\Services\Globals\GlobalSetting;
@@ -21,7 +23,7 @@ function oe_module_texting_add_menu_item(MenuEvent $event)
     $menuItem = new stdClass();
     $menuItem->requirement = 0;
     $menuItem->target = 'mod';
-    $menuItem->menu_id = 'mod0';
+    $menuItem->menu_id = 'tex0';
     $menuItem->label = xlt("Text Messaging Service");
     $menuItem->url = "/interface/modules/custom_modules/text-messaging-app/public/index.php/notifications";
     $menuItem->children = [];
@@ -29,7 +31,7 @@ function oe_module_texting_add_menu_item(MenuEvent $event)
     $menuItem->global_req = [];
 
     foreach ($menu as $item) {
-        if ($item->menu_id == 'teximg') {
+        if ($item->menu_id == 'modimg') {
             $item->children[] = $menuItem;
             break;
         }
