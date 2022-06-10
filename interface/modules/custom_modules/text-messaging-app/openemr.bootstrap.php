@@ -10,8 +10,6 @@
 
 use OpenEMR\Menu\MenuEvent;
 use Symfony\Component\EventDispatcher\Event;
-use OpenEMR\Events\PatientReport\PatientReportEvent;
-use OpenEMR\Events\PatientDocuments\PatientDocumentEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use OpenEMR\Events\Globals\GlobalsInitializedEvent;
 use OpenEMR\Services\Globals\GlobalSetting;
