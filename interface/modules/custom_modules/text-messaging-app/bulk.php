@@ -38,15 +38,6 @@ $key = $GLOBALS['texting_enables'];
             <textarea name="message" class="form-control m-2" placeholder="Enter mass message here"></textarea>
             <input class="btn btn-primary mt-3" type="submit" value="Send Message">
         </form>
-
-        <div class="m-5">
-            <span>Testing purposes only: Not for use. After build is completed, these will be removed</span>
-            <!--<a class="btn btn-secondary" href="public/index.php/invoices?foo=bar" ><?php //echo xlt('Invoices Page'); ?></a>
-            <a class="btn btn-secondary" href="public/index.php/home" ><?php //echo xlt('Home Page Go!'); ?></a>
-            <a class="btn btn-secondary" href="public/index.php/invoices/create" ><?php //echo xlt('Create Invoices Form '); ?></a>-->
-            <a class="btn btn-secondary" href="public/index.php/notifications" ><?php echo xlt('View Text Message Replies'); ?></a>
-            <a class="btn btn-secondary" href="public/index.php/individuals" ><?php echo xlt('Send Individual Text'); ?></a>
-        </div>
     </div>
 </body>
 </html>

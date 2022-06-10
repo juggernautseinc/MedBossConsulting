@@ -100,6 +100,12 @@ $startampm = '';
 $info_msg = "";
 $g_edit = AclMain::aclCheckCore("groups", "gcalendar", false, 'write');
 $g_view = AclMain::aclCheckCore("groups", "gcalendar", false, 'view');
+
+/**
+ * @var EventDispatcherInterface $eventDispatcher
+ */
+$eventDispatcher = $GLOBALS['kernel']->getEventDispatcher();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -727,12 +733,20 @@ if (!empty($_POST['form_action']) && ($_POST['form_action'] == "save")) {
 
         // EVENTS TO FACILITIES
         $e2f = (int)$eid;
+        //Tell subscribers that a new multi appointment has been set
+        $patientAppointmentSetEvent = new AppointmentSetEvent($_POST);
+        $patientAppointmentSetEvent->eid = $e2f;  //setting the appointment id to an object
+        $eventDispatcher->dispatch(AppointmentSetEvent::EVENT_HANDLE, $patientAppointmentSetEvent, 10);
     } else {
         /* =======================================================
      *                    INSERT NEW EVENT(S)
      * ======================================================*/
 
         $eid = InsertEventFull();
+        //Tell subscribers that a new single appointment has been set
+        $patientAppointmentSetEvent = new AppointmentSetEvent($_POST);
+        $patientAppointmentSetEvent->eid = $eid;  //setting the appointment id to an object
+        $eventDispatcher->dispatch(AppointmentSetEvent::EVENT_HANDLE, $patientAppointmentSetEvent, 10);
     }
 
         // done with EVENT insert/update statements
