@@ -33,7 +33,7 @@ $sec = "10";
                     <h1><?php echo xlt('Notifications'); ?></h1>
                 </div>
                 <div id="contactpatient" style="float: right">
-                    <button class="btn btn-primary" id="sendMessage"><?php echo xlt('Text Patient'); ?></button>
+                    <button id="initiate" class="btn btn-primary" id="sendMessage"><?php echo xlt('Text Patient'); ?></button>
                 </div>
             </div>
             <table class="table table-striped">
@@ -81,6 +81,13 @@ $sec = "10";
         dlgopen(url, '_blank', 600, 400, '', title);
         return false;
     }
+    function textActivePatient() {
+        let title = <?php echo xlj("Message Reply"); ?>;
+        let url = '../../public/index.php/individuals?phone=' + phone;
+        dlgopen(url, '_blank', 600, 400, '', title);
+        return false;
+    }
+    document.getElementById('initiate').addEventListener('click', textActivePatient);
 </script>
 </body>
 </html>
