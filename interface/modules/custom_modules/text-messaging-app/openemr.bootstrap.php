@@ -10,8 +10,6 @@
 
 use OpenEMR\Menu\MenuEvent;
 use Symfony\Component\EventDispatcher\Event;
-use OpenEMR\Events\PatientReport\PatientReportEvent;
-use OpenEMR\Events\PatientDocuments\PatientDocumentEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use OpenEMR\Events\Globals\GlobalsInitializedEvent;
 use OpenEMR\Services\Globals\GlobalSetting;
@@ -19,10 +17,9 @@ use OpenEMR\Services\Globals\GlobalSetting;
 function oe_module_texting_add_menu_item(MenuEvent $event)
 {
     $menu = $event->getMenu();
-
     $menuItem = new stdClass();
     $menuItem->requirement = 0;
-    $menuItem->target = 'mod';
+    $menuItem->target = 'tex';
     $menuItem->menu_id = 'tex0';
     $menuItem->label = xlt("Text Messaging Service");
     $menuItem->url = "/interface/modules/custom_modules/text-messaging-app/public/index.php/notifications";
@@ -41,13 +38,13 @@ function oe_module_texting_add_menu_item(MenuEvent $event)
 
     return $event;
 }
+
 function oe_module_bulktexting_add_menu_item(MenuEvent $event)
 {
     $menu = $event->getMenu();
-
     $menuItem = new stdClass();
     $menuItem->requirement = 0;
-    $menuItem->target = 'mod';
+    $menuItem->target = 'tex';
     $menuItem->menu_id = 'tex2';
     $menuItem->label = xlt("Send Bulk Text");
     $menuItem->url = "/interface/modules/custom_modules/text-messaging-app/bulk.php";
@@ -57,6 +54,30 @@ function oe_module_bulktexting_add_menu_item(MenuEvent $event)
 
     foreach ($menu as $item) {
         if ($item->menu_id == 'modimg') {
+            $item->children[] = $menuItem;
+            break;
+        }
+    }
+
+    $event->setMenu($menu);
+
+    return $event;
+}
+function oe_module_settings_add_menu_item(MenuEvent $event)
+{
+    $menu = $event->getMenu();
+    $menuItem = new stdClass();
+    $menuItem->requirement = 0;
+    $menuItem->target = 'tex';
+    $menuItem->menu_id = 'tex3';
+    $menuItem->label = xlt("Send Bulk Text");
+    $menuItem->url = "/interface/modules/custom_modules/text-messaging-app/settings.php";
+    $menuItem->children = [];
+    $menuItem->acl_req = ["patients", "docs"];
+    $menuItem->global_req = [];
+
+    foreach ($menu as $item) {
+        if ($item->menu_id == 'tex2') {
             $item->children[] = $menuItem;
             break;
         }
@@ -90,3 +111,5 @@ function createTextMessageGlobals(GlobalsInitializedEvent $event)
 $eventDispatcher->addListener(GlobalsInitializedEvent::EVENT_HANDLE, 'createTextMessageGlobals');
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_texting_add_menu_item');
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_bulktexting_add_menu_item');
+$eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_settings_add_menu_item');
+
