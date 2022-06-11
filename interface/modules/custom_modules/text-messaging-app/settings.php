@@ -18,12 +18,12 @@ use OpenEMR\Core\Header;
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo xls('Settings'); ?></title>
+    <title><?php echo xlt('Settings'); ?></title>
     <?php Header::setupHeader(['common']); ?>
 </head>
 <body>
     <div class="container-fluid main_container mt-3">
-        <?php echo $GLOBALS['SMS_NOTIFICATION_HOUR'] . " " . xls(' Hours in advanced to send notification - in Globals') ?> <br>
+        <?php echo $GLOBALS['SMS_NOTIFICATION_HOUR'] . " " . xlt(' Hours in advanced to send notification - in Globals') ?> <br>
 
     </div>
 </body>

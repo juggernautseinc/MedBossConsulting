@@ -70,7 +70,7 @@ function oe_module_settings_add_menu_item(MenuEvent $event)
     $menuItem->requirement = 0;
     $menuItem->target = 'tex';
     $menuItem->menu_id = 'tex3';
-    $menuItem->label = xlt("Send Bulk Text");
+    $menuItem->label = xlt("Text Setting");
     $menuItem->url = "/interface/modules/custom_modules/text-messaging-app/settings.php";
     $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
