@@ -77,7 +77,7 @@ function oe_module_settings_add_menu_item(MenuEvent $event)
     $menuItem->global_req = [];
 
     foreach ($menu as $item) {
-        if ($item->menu_id == 'tex2') {
+        if ($item->menu_id == 'modimg') {
             $item->children[] = $menuItem;
             break;
         }

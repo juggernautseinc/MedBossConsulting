@@ -19,7 +19,7 @@ class SendMessage
     public static function outBoundMessage(int $phone, string $message) : string
     {
         $key = self::getKey();
-        $webhook = self::buildWebHookUrl();
+        $webhook = self::buildWebHookUrl();  //return path for inbound messages
 
         if (empty($key)) {
             return 'Please enter a valid key in the globals';
