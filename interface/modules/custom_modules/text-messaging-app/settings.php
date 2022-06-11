@@ -10,6 +10,8 @@
 
 use OpenEMR\Core\Header;
 
+require_once dirname(__DIR__, 3) . '/globals.php';
+
 ?>
 <!doctype html>
 <html lang="en">
