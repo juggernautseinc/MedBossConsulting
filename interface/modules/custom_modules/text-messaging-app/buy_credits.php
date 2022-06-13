@@ -27,7 +27,7 @@ require_once dirname(__DIR__, 3) . '/globals.php';
 <body>
     <div class="container-fluid main_container mt-3">
         <div class="row">
-            <div class="">
+            <div class="w-80">
                 <h3><?php echo xlt('Buy Texting Credits'); ?></h3>
                 <?php require_once dirname(__FILE__) . "/views/nav_top.php"; ?>
                 <div class="m3">
