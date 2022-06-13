@@ -50,7 +50,7 @@ class SendMessage
         return $key->decryptStandard($GLOBALS['texting_enables']);
     }
 
-    private static function buildWebHookUrl()
+    public static function buildWebHookUrl()
     {
         if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
             $http = "https://";
@@ -59,6 +59,11 @@ class SendMessage
         }
         return $http . $_SERVER['HTTP_HOST'] . $GLOBALS['webroot'] .
             '/interface/modules/custom_modules/text-messaging-app/public/api/reply/' . $_SESSION['site_id'];
+    }
+
+    public static function IsValidFQDN($FQDN)
+    {
+        return (!empty($FQDN) && preg_match('/(?=^.{1,254}$)(^(?:(?!\d|-)[a-z0-9\-]{1,63}(?<!-)\.)+(?:[a-z]{2,})$)/i', $FQDN) > 0);
     }
 
 }
