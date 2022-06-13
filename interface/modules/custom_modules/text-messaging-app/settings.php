@@ -27,7 +27,7 @@ require_once dirname(__DIR__, 3) . '/globals.php';
 <body>
     <div class="container-fluid main_container mt-3">
         <div class="row">
-            <div class="mx-auto">
+            <div class="mx-auto" style="width: 80%">
                 <div class="m-2">
                     <strong><?php echo $GLOBALS['SMS_NOTIFICATION_HOUR'] . " " . xlt(' Hours in advanced to send notification - in Globals') ?></strong>
                 </div>
