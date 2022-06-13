@@ -33,7 +33,7 @@ function IsValidFQDN($FQDN): bool
         <div class="row">
             <div class="mx-auto" style="width: 80%">
                 <div class="m-2">
-                    <strong><?php echo $GLOBALS['SMS_NOTIFICATION_HOUR'] . " " . xlt(' Hours in advanced to send notification - in Globals') ?></strong>
+                    <strong><?php echo $GLOBALS['SMS_NOTIFICATION_HOUR'] . " " . xlt(' Hours in advanced of appointment, send notification - This setting is in Globals') ?></strong>
                 </div>
 
                 <?php require_once dirname(__FILE__) . "/views/nav_top.php"; ?>
