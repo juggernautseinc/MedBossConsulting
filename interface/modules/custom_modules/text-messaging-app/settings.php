@@ -35,7 +35,6 @@ require_once dirname(__DIR__, 3) . '/globals.php';
                 <?php require_once dirname(__FILE__) . "/views/nav_top.php"; ?>
                 <div>
                     <?php
-                       var_dump($_SERVER['HTTP_HOST']);
                         $FQDN = $_SERVER['HTTP_HOST'];
                         $hasSubDomain = substr_count($FQDN, ".") . "<br>";
                         $domainNameRoot = '';
