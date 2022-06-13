@@ -48,7 +48,7 @@ function IsValidFQDN($FQDN): bool
                         } else {
                             $domainNameRoot = $_SERVER['HTTP_HOST'];
                         }
-
+                        echo IsValidFQDN($domainNameRoot);
                     if (IsValidFQDN($domainNameRoot) > 0) {
                         echo xlt('You have to have a fully qualified domain name to use this module to receive inbound text') . "<br>";
                     }
