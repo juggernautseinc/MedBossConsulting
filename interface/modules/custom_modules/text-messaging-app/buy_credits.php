@@ -30,14 +30,11 @@ require_once dirname(__DIR__, 3) . '/globals.php';
             <div class="mx-auto">
                 <h3><?php echo xlt('Buy Texting Credits'); ?></h3>
                 <?php require_once dirname(__FILE__) . "/views/nav_top.php"; ?>
-                <div >
-                $6   50     https://link.waveapps.com/jtju7p-3c36rt
-
-                $10 200   https://link.waveapps.com/36cwxd-asctrd
-
-                $20 1000  https://link.waveapps.com/br7cuw-7kqadq
-
-                $43 2400  https://link.waveapps.com/5dnfza-v87jw8
+                <div class="m3">
+                    <a   class="btn btn-secondary m-2"  href="https://link.waveapps.com/jtju7p-3c36rt"> $6   50 <?php echo xlt('Texts'); ?></a><br>
+                    <a   class="btn btn-secondary m-2"  href="https://link.waveapps.com/36cwxd-asctrd"> $10 200 <?php echo xlt('Texts'); ?></a><br>
+                    <a   class="btn btn-secondary m-2"  href="https://link.waveapps.com/br7cuw-7kqadq"> $20 1000 <?php echo xlt('Texts'); ?></a><br>
+                    <a   class="btn btn-secondary m-2"  href="https://link.waveapps.com/5dnfza-v87jw8"> $43 2400 <?php echo xlt('Texts'); ?></a><br>
                 </div>
             </div>
         </div>
