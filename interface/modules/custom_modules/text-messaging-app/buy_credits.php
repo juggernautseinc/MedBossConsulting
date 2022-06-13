@@ -31,6 +31,10 @@ require_once dirname(__DIR__, 3) . '/globals.php';
                 <h3><?php echo xlt('Buy Texting Credits'); ?></h3>
                 <?php require_once dirname(__FILE__) . "/views/nav_top.php"; ?>
                 <div class="m-3">
+                    <p><?php echo xlt('Below are the options for purchasing credits to use this module. <br> This is a one time purchase <br>'); ?></p>
+                    <p><?php echo xlt('Your card will not be automatically billed. <br> Once you run out of credits you can purchase more when you are ready. '); ?></p>
+                </div>
+                <div class="m-3">
 
                     <a   class="btn btn-secondary m-2"  href="https://link.waveapps.com/jtju7p-3c36rt"> $6   50 <?php echo xlt('Texts'); ?></a><br>
                     <a   class="btn btn-secondary m-2"  href="https://link.waveapps.com/36cwxd-asctrd"> $10 200 <?php echo xlt('Texts'); ?></a><br>
