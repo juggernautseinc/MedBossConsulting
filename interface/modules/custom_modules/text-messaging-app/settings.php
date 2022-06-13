@@ -44,8 +44,8 @@ use Juggernaut\App\Controllers\SendMessage;
                         } else {
                             $domainNameRoot = $_SERVER['HTTP_HOST'];
                         }
-
-                    if (SendMessage::IsValidFQDN($domainNameRoot) > 0) {
+                        $testIsDomainValid = SendMessage::IsValidFQDN($domainNameRoot);
+                    if ($testIsDomainValid > 0) {
                         echo xlt('You have to have a fully qualified domain name to use this module to receive inbound text') . "<br>";
                     }
                     ?>
