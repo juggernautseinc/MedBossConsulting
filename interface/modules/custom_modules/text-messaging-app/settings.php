@@ -37,12 +37,13 @@ require_once dirname(__DIR__, 3) . '/globals.php';
                     <?php
                        var_dump($_SERVER['HTTP_HOST']);
                         $FQDN = $_SERVER['HTTP_HOST'];
-                        echo $subdomain = substr_count($FQDN, ".") . "<br>";
-                        if ($subdomain > 1) {
-                        echo $cutlocation = strpos($FQDN, ".")  . "<br>";
+                        echo $hasSubDomain = substr_count($FQDN, ".") . "<br>";
+                        if ($hasSubDomain > 1) {
+                        echo $cutLocation = strpos($FQDN, ".") + 1 . "<br>";
+                        echo $domainNameRoot = substr($FQDN, $cutLocation);
                         }
 
-                    var_dump(SendMessage::IsValidFQDN($FQDN));
+                    var_dump(SendMessage::IsValidFQDN($domainNameRoot));
                     ?>
                 </div>
 
