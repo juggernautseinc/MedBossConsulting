@@ -66,10 +66,10 @@ function messageCreate($uname, $luname, $pass)
         $sub .= "<br /><br />";
     }
     //requested removal of the account name to remove confusion 2021.06.15 sherwin
-    $message .= /*xlt("Portal Account Name") . ": " . text($uname) . "<br /><br /><strong>" .*/
+    $message .= xlt("YouTube How to login") . ": https://youtu.be/oyE1PnyGg8U <br /><br /><strong>" .
         xlt("Login User Name") . ":</strong> " . text($luname) . "<br /><strong>" .
         xlt("Password") . ":</strong> " .
-        text($pass) . "<br /><br />" . $sub;
+        text($pass) . "<br />Please send screenshots when reporting an issue<br />" . $sub;
     return $message;
 }
 
