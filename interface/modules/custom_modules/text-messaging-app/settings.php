@@ -8,10 +8,10 @@
  *  All rights reserved
  */
 
+require_once dirname(__DIR__, 3) . '/globals.php';
+
 use OpenEMR\Core\Header;
 use Juggernaut\App\Controllers\SendMessage;
-
-require_once dirname(__DIR__, 3) . '/globals.php';
 
 ?>
 <!doctype html>
