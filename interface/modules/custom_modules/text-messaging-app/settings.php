@@ -30,7 +30,7 @@ require_once dirname(__DIR__, 3) . '/globals.php';
             <div class="mx-auto">
                 <strong><?php echo $GLOBALS['SMS_NOTIFICATION_HOUR'] . " " . xlt(' Hours in advanced to send notification - in Globals') ?></strong>
                 <?php require_once dirname(__FILE__) . "/views/nav_top.php"; ?>
-                <?php echo SendMessage::IsValidFQDN($_SERVER['HTTP_HOST']); ?>
+                <?php echo $_SERVER['HTTP_HOST'] . " " . SendMessage::IsValidFQDN($_SERVER['HTTP_HOST']); ?>
             </div>
         </div>
 
