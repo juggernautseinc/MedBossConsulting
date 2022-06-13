@@ -11,7 +11,11 @@
 require_once dirname(__DIR__, 3) . '/globals.php';
 
 use OpenEMR\Core\Header;
-use Juggernaut\App\Controllers\SendMessage;
+
+function IsValidFQDN($FQDN): bool
+{
+        return (!empty($FQDN) && preg_match('/(?=^.{1,254}$)(^(?:(?!\d|-)[a-z0-9\-]{1,63}(?<!-)\.)+(?:[a-z]{2,})$)/i', $FQDN) > 0);
+    }
 
 ?>
 <!doctype html>
@@ -44,8 +48,8 @@ use Juggernaut\App\Controllers\SendMessage;
                         } else {
                             $domainNameRoot = $_SERVER['HTTP_HOST'];
                         }
-                        $testIsDomainValid = SendMessage::IsValidFQDN($domainNameRoot);
-                    if ($testIsDomainValid > 0) {
+
+                    if (IsValidFQDN($domainNameRoot) > 0) {
                         echo xlt('You have to have a fully qualified domain name to use this module to receive inbound text') . "<br>";
                     }
                     ?>

@@ -61,9 +61,4 @@ class SendMessage
             '/interface/modules/custom_modules/text-messaging-app/public/api/reply/' . $_SESSION['site_id'];
     }
 
-    public static function IsValidFQDN($FQDN)
-    {
-        return (!empty($FQDN) && preg_match('/(?=^.{1,254}$)(^(?:(?!\d|-)[a-z0-9\-]{1,63}(?<!-)\.)+(?:[a-z]{2,})$)/i', $FQDN) > 0);
-    }
-
 }
