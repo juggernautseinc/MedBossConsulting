@@ -37,13 +37,18 @@ require_once dirname(__DIR__, 3) . '/globals.php';
                     <?php
                        var_dump($_SERVER['HTTP_HOST']);
                         $FQDN = $_SERVER['HTTP_HOST'];
-                        echo $hasSubDomain = substr_count($FQDN, ".") . "<br>";
+                        $hasSubDomain = substr_count($FQDN, ".") . "<br>";
+                        $domainNameRoot = '';
                         if ($hasSubDomain > 1) {
-                        echo $cutLocation = strpos($FQDN, ".") + 1 . "<br>";
-                        echo $domainNameRoot = substr($FQDN, $cutLocation);
+                            $cutLocation = strpos($FQDN, ".") + 1 . "<br>";
+                            $domainNameRoot = substr($FQDN, $cutLocation);
+                        } else {
+                            $domainNameRoot = $_SERVER['HTTP_HOST'];
                         }
 
-                    var_dump(SendMessage::IsValidFQDN($domainNameRoot));
+                    if (SendMessage::IsValidFQDN($domainNameRoot) > 0) {
+                        echo xlt('You have to have a fully qualified domain name to use this module to receive inbound text') . "<br>";
+                    }
                     ?>
                 </div>
 
