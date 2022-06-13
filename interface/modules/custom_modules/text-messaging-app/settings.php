@@ -36,8 +36,8 @@ require_once dirname(__DIR__, 3) . '/globals.php';
                 <div>
                     <?php
                        var_dump($_SERVER['HTTP_HOST']);
-
-                    var_dump(SendMessage::IsValidFQDN($_SERVER['HTTP_HOST']));
+                        $FQDN = $_SERVER['HTTP_HOST'];
+                    var_dump(SendMessage::IsValidFQDN($FQDN));
                     ?>
                 </div>
 
