@@ -1042,7 +1042,7 @@ if (empty($is_core)) {
                         // If group name is blank, no checkbox or div.
                         if (strlen($gname)) {
                         echo "<br /><span><label class='mb-1' role='button'><input class='mr-1' type='checkbox' name='form_cb_" . attr($group_seq) . "' value='1' " . "onclick='return divclick(this," . attr_js('div_' . $group_seq) . ");'";
-                            if ($display_style != 'block') {
+                            if ($display_style == 'block') {
                                 echo " checked";
                             }
                             echo " /><strong>" . text(xl_layout_label($group_name)) . "</strong></label></span>\n";
@@ -1058,7 +1058,7 @@ if (empty($is_core)) {
                             echo "<tr><td class='font-weight-bold border-top-0' style='height:0.3125rem;' colspan='" . attr($CPR) . "'></td></tr>\n";
                         }
 
-                    $display_style = 'none';
+                    $display_style = 'block';
 
                         // Initialize historical data array and write date headers.
                         $historical_ids = array();
