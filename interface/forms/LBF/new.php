@@ -1246,6 +1246,7 @@ if (empty($is_core)) {
                         echo " checked";
                     }
                 echo " /><strong>" . xlt('Services') . "</strong></span>\n";
+                    $display_style = 'block';
                     echo "<div id='div_fs_services' class='section' style='display:" . attr($display_style) . ";'>\n";
                     echo "<center>\n";
                 $display_style = 'none';
@@ -1296,7 +1297,7 @@ if (empty($is_core)) {
                     if (sqlNumRows($fscres)) {
                         $last_category = '';
                         echo "<select class='form-control' onchange='fs_package_selected(this)'>\n";
-                        echo " <option value=''>" . xlt('Add Package') . "</option>\n";
+                        echo " <option value=''>" . xlt('Add Services') . "</option>\n";
                         while ($row = sqlFetchArray($fscres)) {
                             $fs_category = $row['fs_category'];
                             $fs_option = $row['fs_option'];
