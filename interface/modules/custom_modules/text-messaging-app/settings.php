@@ -15,8 +15,8 @@ use OpenEMR\Core\Header;
 function IsValidFQDN($FQDN): bool
 {
         return (!empty($FQDN) && preg_match('/(?=^.{1,254}$)(^(?:(?!\d|-)[a-z0-9\-]{1,63}(?<!-)\.)+(?:[a-z]{2,})$)/i', $FQDN) > 0);
-    }
-
+}
+$active = '<span class="sr-only">(current)</span>';
 ?>
 <!doctype html>
 <html lang="en">
@@ -27,6 +27,7 @@ function IsValidFQDN($FQDN): bool
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo xlt('Settings'); ?></title>
     <?php Header::setupHeader(['common']); ?>
+    <script src="lib/js/nav.js"></script>
 </head>
 <body>
     <div class="container-fluid main_container mt-3">

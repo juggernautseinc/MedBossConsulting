@@ -24,6 +24,7 @@ $key = $GLOBALS['texting_enables'];
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Texting with TextBelt Service</title>
     <?php Header::setupHeader() ?>
+    <script src="lib/js/nav.js"></script>
 </head>
 <body>
     <div class="container m-5">
@@ -31,6 +32,7 @@ $key = $GLOBALS['texting_enables'];
             if (empty($key)) {
                 die(xlt('You have to enter a key in the globals to use this module'));
             }
+            require_once dirname(__FILE__) . "/views/nav_top.php";
         ?>
         <h1><?php echo xlt('Bulk Texting'); ?></h1>
         <form method="post" action="public/index.php/texting/bulk" name="textcrude" >

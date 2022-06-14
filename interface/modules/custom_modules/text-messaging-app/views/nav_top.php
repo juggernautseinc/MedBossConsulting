@@ -18,17 +18,17 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="settings.php">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link" href="settings.php">Home </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="buy_credits.php">Purchase Credits</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="#">Help</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Disabled</a>
+        <a class="nav-link" href="#"></a>
       </li>
     </ul>
   </div>
