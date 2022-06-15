@@ -21,7 +21,7 @@ function oe_module_texting_add_menu_item(MenuEvent $event)
     $menuItem->requirement = 0;
     $menuItem->target = 'tex';
     $menuItem->menu_id = 'tex0';
-    $menuItem->label = xlt("Text Messaging Service");
+    $menuItem->label = xlt("Text Message Center");
     $menuItem->url = "/interface/modules/custom_modules/text-messaging-app/public/index.php/notifications";
     $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
