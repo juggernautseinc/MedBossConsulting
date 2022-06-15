@@ -46,7 +46,7 @@ $number = $phone->getPatientCell();
                 <tr>
                     <th scope="col"><?php echo xlt('Date'); ?></th>
                     <th scope="col"><?php echo xlt('From'); ?></th>
-                    <th scope="col"><?php echo xlt('To'); ?></th>
+                    <th scope="col"><?php echo xlt('Name'); ?></th>
                     <th scope="col"><?php echo xlt('Result'); ?></th>
                     <th scope="col"><?php echo xlt('Message'); ?></th>
                     <th scope="col"><?php echo xlt('Reply'); ?></th>
@@ -61,7 +61,7 @@ $number = $phone->getPatientCell();
                         print $item['fromnumber'];
                         print "</td>";
                         print "<td>";
-                        print $item['to'];
+                        print $item['name'];
                         print "</td>";
                         print "<td>";
                         print "results?";

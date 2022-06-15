@@ -14,13 +14,15 @@ namespace Juggernaut\App\Model;
 class NotificationModel
 {
 
-    public function getPatientTextMessages()
+    public function getPatientTextMessages(): array
     {
-        $sql = "SELECT * FROM `text_message_module` ";
+        $sql = "SELECT `tmm`.`fromnumber`, `tmm`.`text`, CONCAT(pd.fname, ', ', pd.lname) AS name " .
+        " FROM `text_message_module` tmm ";
         if (!empty($_SESSION['pid'])) {
-            $sql .= "WHERE `fromnumber` = '+1" . str_replace("-", "", $this->getPatientCell()['phone_cell'])
+            $sql .= " WHERE `fromnumber` = '+1" . str_replace("-", "", $this->getPatientCell()['phone_cell'])
                 . "' ORDER BY `id` DESC LIMIT 25";
         } else {
+            $sql .= " JOIN `patient_data` pd ON CONCAT('+1', REPLACE(`pd`.`phone_cell`, '-', '')) = `tmm`.`fromnumber`";
             $sql .= "ORDER BY `id` DESC LIMIT 25";
         }
         $source = sqlStatement($sql);
