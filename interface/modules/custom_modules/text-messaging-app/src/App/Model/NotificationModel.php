@@ -16,7 +16,7 @@ class NotificationModel
 
     public function getPatientTextMessages(): array
     {
-        $sql = "SELECT `tmm`.`date`, ```tmm`.`fromnumber`, `tmm`.`text`, CONCAT(pd.fname, ', ', pd.lname) AS name " .
+        $sql = "SELECT `tmm`.`date`, `tmm`.`fromnumber`, `tmm`.`text`, CONCAT(pd.fname, ', ', pd.lname) AS name " .
         " FROM `text_message_module` tmm ";
         if (!empty($_SESSION['pid'])) {
             $sql .= " WHERE `fromnumber` = '+1" . str_replace("-", "", $this->getPatientCell()['phone_cell'])
