@@ -625,7 +625,7 @@ if (function_exists($form_id . '_javascript_onload')) {
 ?>
 
 
-document.getElementByID('form_Date_V').value = 'happy'
+document.getElementByID('form_Date_V').value = 'happy';
 
 </script>
 

@@ -16,6 +16,6 @@ function LBT_authorizations_javascript_onload()
 
     $today = date('Y-m-d H:s:i');
     echo "
-     document.getElementByID('form_Date_V').value = 'happy'
+     document.getElementByID('form_Date_V').value = 'happy';
     ";
 }
