@@ -743,6 +743,7 @@ foreach ($providers as $provider) {
                     $divTitle .= "\r\n[" . $catname . ' ' . $comment . "]" . $groupname;
                 else
                     $divTitle .= "\r\n[" . $catname . ' ' . $comment . "]" . $fname . " " . $lname;
+                    $content .= "<span>i</span><br>";
                 $content .= "<span class='appointment'>";
                 $content .= create_event_time_anchor($dispstarth.":".$startm);
                 if ($event['recurrtype'] > 0) $content .= "<img src='{$this->_tpl_vars['TPL_IMAGE_PATH']}/repeating8.png' border='0' style='margin:0px 2px 0px 2px;' title='" . xla("Repeating event") . "' alt='" . xla("Repeating event") . "'>";
