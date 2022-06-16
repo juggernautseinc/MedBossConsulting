@@ -55,4 +55,9 @@ external_changed();
 var f = document.forms[0];
 f.form_refer_external.onchange = function () { external_changed(); };
 ";
+
+    $today = date('Y-m-d H:s:i');
+    echo "
+     document.getElementByID('form_Date_V').value = $today
+    ";
 }
