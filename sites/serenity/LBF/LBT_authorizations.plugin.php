@@ -11,7 +11,7 @@
 // The purpose of this function is to create JavaScript that is run
 // once when the page is loaded.
 //
-function LBTref_javascript_onload()
+function LBT_authorizations_javascript_onload()
 {
 
     $today = date('Y-m-d H:s:i');
