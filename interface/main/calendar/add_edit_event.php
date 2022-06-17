@@ -1361,7 +1361,7 @@ function find_available(extra) {
     <?php
           //if ($patientBalance >= '300.00') {
               print "<div>";
-              print "<span style='font-color: red; font-size: larger'>";
+              print "<span style='color: red; font-size:3em;'>";
               print "Patient has a balance of " . $patientBalance . ".";
               print "</span>";
               print "<p>";
