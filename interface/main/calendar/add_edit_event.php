@@ -1364,7 +1364,7 @@ function find_available(extra) {
               print "<span style='color: red; font-size:3em;'>";
               print xlt("Patient has a balance of ") . $patientBalance . ".";
               print "</span>";
-              print "<p>";
+              print "<p style='color: blue; font-size:2em;'>";
               print xlt("Please collect enough funds to bring balance below $300");
               print "</p>";
               print "</div>";
