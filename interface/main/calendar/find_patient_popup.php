@@ -212,7 +212,7 @@ if (isset($_GET["res"])) {
         echo "  <td class='srSS'>" . htmlspecialchars($iter['ss'], ENT_NOQUOTES) . "</td>\n";
         echo "  <td class='srDOB'>" . htmlspecialchars($iter['DOB'], ENT_NOQUOTES) . "</td>\n";
         echo "  <td class='srID'>" . htmlspecialchars($iter['pubpid'], ENT_NOQUOTES) . "</td>\n";
-        echo " <td class=''> $" . get_patient_balance($iterpid) . "</td>\n";
+        echo " <td class='' style='color: red; '><strong> $" . get_patient_balance($iterpid) . "</strong></td>\n";
         echo " </tr>";
     }
     ?>
