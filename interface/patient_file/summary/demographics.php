@@ -1948,6 +1948,10 @@ if ($track_is_registered) {
         }
     });
 
+    function markPatient(pid) {
+        alert('Nothing happened. Still building the guts of this function. So back off!' + pid)
+    }
+
 </script>
 
 </body>
