@@ -225,7 +225,7 @@ EOT;
                 </ul>
             </div>
             <div>
-               active?
+               <button class="btn btn-danger">Mark Inactive</button>
             </div>
         </nav>
 EOB;
