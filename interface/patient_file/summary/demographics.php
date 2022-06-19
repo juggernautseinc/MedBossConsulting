@@ -1948,9 +1948,15 @@ if ($track_is_registered) {
         }
     });
 
-    function markPatient(pid) {
-        alert('Nothing happened. Still building the guts of this function. So back off! Patient ID is ' + pid)
-    }
+    document
+        .getElementById('changePatientStatus')
+        .addEventListener("click", function (e){
+            if( ! confirm('Do you really want to do this?')){
+                e.preventDefault();
+            } else {
+                alert('Ok, lets do this!');
+            }
+        });
 
 </script>
 

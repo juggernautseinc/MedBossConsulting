@@ -225,7 +225,7 @@ EOT;
                 </ul>
             </div>
             <div>
-               <button class="btn btn-danger" onclick="markPatient($pid)">Mark Inactive</button>
+               <button class="btn btn-danger" id="changePatientStatus">Mark Inactive</button>
             </div>
         </nav>
 EOB;
