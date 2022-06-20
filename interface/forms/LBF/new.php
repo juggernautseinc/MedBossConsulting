@@ -663,7 +663,7 @@ if (empty($is_core)) {
         function fs_append_diag(code_type, code, desc) {
             var telem = document.getElementById('fs_diags_table');
             // Adding 1000 because form_fs_bill[] is shared with services and we want to avoid collisions.
-            var lino = telem.rows.length - 1;
+            var lino = telem.rows.length - 1 + 1000;
             var trelem = telem.insertRow(telem.rows.length);
             trelem.innerHTML =
                 "<td class='text border-top-0'>" + code + "&nbsp;</td>" +
@@ -1316,7 +1316,7 @@ if (empty($is_core)) {
                         }
                         echo "</select>&nbsp;&nbsp;\n";
                     }
-                    echo xlt('Diagnosis') . ": ";
+
                     echo xlt('Main Provider') . ": ";
                 echo $fs->genProviderSelect("form_fs_provid", ' ', $fs->provider_id);
                     echo "\n";
@@ -1460,7 +1460,7 @@ if (empty($is_core)) {
                 echo " /><b>" . xlt('Diagnoses') . "</b></span>\n";
                     echo "<div id='div_fs_diags' class='section' style='display:" . attr($display_style) . ";'>\n";
                     echo "<center>\n";
-                $display_style = 'none';
+                $display_style = 'block';
 
                     // If there are associated codes, generate a checkbox for each one.
                     if ($LBF_DIAGS_SECTION) {
