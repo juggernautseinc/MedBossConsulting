@@ -663,7 +663,7 @@ if (empty($is_core)) {
         function fs_append_diag(code_type, code, desc) {
             var telem = document.getElementById('fs_diags_table');
             // Adding 1000 because form_fs_bill[] is shared with services and we want to avoid collisions.
-            var lino = telem.rows.length - 1 + 1000;
+            var lino = telem.rows.length;
             var trelem = telem.insertRow(telem.rows.length);
             trelem.innerHTML =
                 "<td class='text border-top-0'>" + code + "&nbsp;</td>" +
@@ -1297,7 +1297,7 @@ if (empty($is_core)) {
                     if (sqlNumRows($fscres)) {
                         $last_category = '';
                         echo "<select class='form-control' onchange='fs_package_selected(this)'>\n";
-                        echo " <option value=''>" . xlt('Add Services') . "</option>\n";
+                        echo " <option value=''>" . xlt('Add CPT4 Services') . "</option>\n";
                         while ($row = sqlFetchArray($fscres)) {
                             $fs_category = $row['fs_category'];
                             $fs_option = $row['fs_option'];
@@ -1316,6 +1316,7 @@ if (empty($is_core)) {
                         }
                         echo "</select>&nbsp;&nbsp;\n";
                     }
+                    echo xlt('Diagnosis') . ": ";
                     echo xlt('Main Provider') . ": ";
                 echo $fs->genProviderSelect("form_fs_provid", ' ', $fs->provider_id);
                     echo "\n";
