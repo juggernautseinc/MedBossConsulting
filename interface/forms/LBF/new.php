@@ -1292,7 +1292,7 @@ if (empty($is_core)) {
                     // A row for Search, Add Package, Main Provider.
                     $ctype = $GLOBALS['ippf_specific'] ? 'MA' : '';
                     echo "<p class='font-weight-bold'>";
-                    echo "<input type='button' value='" . xla('Search Services') . "' onclick='sel_related(null," . attr_js($ctype) . ")' />&nbsp;&nbsp;\n";
+                    echo "<input class='btn btn-primary' type='button' value='" . xla('Search Services') . "' onclick='sel_related(null," . attr_js($ctype) . ")' />&nbsp;&nbsp;\n";
                     $fscres = sqlStatement("SELECT * FROM fee_sheet_options ORDER BY fs_category, fs_option");
                     if (sqlNumRows($fscres)) {
                         $last_category = '';
@@ -1451,6 +1451,7 @@ if (empty($is_core)) {
                 } // End Products Section
 
                 if (isset($LBF_DIAGS_SECTION)) {
+                    $display_style = 'block';
                     // Create the checkbox and div for the Diagnoses Section.
                     echo "<br /><span class='font-weight-bold'><input type='checkbox' name='form_cb_fs_diags' value='1' " .
                         "onclick='return divclick(this, \"div_fs_diags\");'";
@@ -1460,7 +1461,7 @@ if (empty($is_core)) {
                 echo " /><b>" . xlt('Diagnoses') . "</b></span>\n";
                     echo "<div id='div_fs_diags' class='section' style='display:" . attr($display_style) . ";'>\n";
                     echo "<center>\n";
-                $display_style = 'block';
+                //$display_style = '';
 
                     // If there are associated codes, generate a checkbox for each one.
                     if ($LBF_DIAGS_SECTION) {
