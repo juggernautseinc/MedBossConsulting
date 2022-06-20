@@ -663,7 +663,7 @@ if (empty($is_core)) {
         function fs_append_diag(code_type, code, desc) {
             var telem = document.getElementById('fs_diags_table');
             // Adding 1000 because form_fs_bill[] is shared with services and we want to avoid collisions.
-            var lino = telem.rows.length;
+            var lino = telem.rows.length - 1;
             var trelem = telem.insertRow(telem.rows.length);
             trelem.innerHTML =
                 "<td class='text border-top-0'>" + code + "&nbsp;</td>" +
