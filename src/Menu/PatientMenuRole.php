@@ -229,9 +229,9 @@ EOT;
             <div>
                <button class="btn btn-danger" id="changePatientStatus">Mark Inactive</button>
             </div>
-
+        </nav>
 EOB;
-        echo "</nav>";
+
         echo $str_bot . "\r\n";
 
         return;
