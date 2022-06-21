@@ -10,9 +10,9 @@
 
 namespace OpenEMR\Events\Patient;
 
-use Symfony\Component\EventDispatcher\Events;
+use Symfony\Component\EventDispatcher\Event;
 
-class PatientMenuLoadEvent extends Events
+class PatientMenuLoadEvent extends Event
 {
     const EVENT_PATIENT_MENU_LOAD = "dashboard.menu.render.onload";
 }
