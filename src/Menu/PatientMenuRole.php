@@ -221,6 +221,7 @@ EOT;
             echo $list . "\r\n";
             $li_id++;
         }
+        echo "here";
         $str_bot = <<<EOB
                 </ul>
             </div>
@@ -230,7 +231,7 @@ EOT;
         </nav>
 EOB;
         echo $str_bot . "\r\n";
-        echo "here";
+
         return;
     }
 
