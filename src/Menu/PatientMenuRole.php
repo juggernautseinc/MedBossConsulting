@@ -230,6 +230,7 @@ EOT;
         </nav>
 EOB;
         echo $str_bot . "\r\n";
+        echo "here";
         return;
     }
 
