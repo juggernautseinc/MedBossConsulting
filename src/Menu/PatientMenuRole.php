@@ -233,7 +233,7 @@ EOT;
                 </ul>
             </div>
 EOB;
-        $dispatcher->dispatch(new PatientMenuLoadEvent(), PatientMenuLoadEvent::EVENT_PATIENT_MENU_LOAD);
+        //$dispatcher->dispatch(new PatientMenuLoadEvent(), PatientMenuLoadEvent::EVENT_PATIENT_MENU_LOAD);
         $str_bot .= <<<EOB
             <div>
                <button class="btn btn-danger" id="changePatientStatus">Mark Inactive</button>
