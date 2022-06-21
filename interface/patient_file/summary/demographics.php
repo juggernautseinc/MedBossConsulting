@@ -1960,8 +1960,8 @@ if ($track_is_registered) {
                 $.ajax({
                     type: "POST",
                     url: libUrl,
-                    data: {patientid: pid, status: inactive},
-                    error: function (qXHR, textStatus, errorThrow) {
+                    data: {patientid: pid},
+                    error: function (qXHR) {
                         console.log("There was an error");
                         alert(<?php echo xlj("File Error") ?> +"\n" + id)
                     },
