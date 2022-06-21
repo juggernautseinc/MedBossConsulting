@@ -226,10 +226,14 @@ EOT;
         $str_bot = <<<EOB
                 </ul>
             </div>
+EOB;
+        $str_bot .= <<<EOB
             <div>
                <button class="btn btn-danger" id="changePatientStatus">Mark Inactive</button>
             </div>
-        </nav>
+EOB;
+        $str_bot .= <<<EOB
+            </nav>
 EOB;
 
         echo $str_bot . "\r\n";
