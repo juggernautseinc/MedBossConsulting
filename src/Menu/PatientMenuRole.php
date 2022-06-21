@@ -187,6 +187,12 @@ class PatientMenuRole extends MenuRole
 
     public function displayHorizNavBarMenu()
     {
+        if (!empty($GLOBALS['kernel']->getEventDispatcher())) {
+            /**
+             * @var \Symfony\Component\EventDispatcher\EventDispatcher
+             */
+            $dispatcher = $GLOBALS['kernel']->getEventDispatcher();
+        }
         $pid = $_SESSION['pid'];
         $menu_restrictions = $this->getMenu();
         $li_id = 1;
@@ -227,7 +233,7 @@ EOT;
                 </ul>
             </div>
 EOB;
-
+        $dispatcher->dispatch(new RenderEvent(), RenderEvent::EVENT_BODY_RENDER_PRE);
         $str_bot .= <<<EOB
             <div>
                <button class="btn btn-danger" id="changePatientStatus">Mark Inactive</button>
