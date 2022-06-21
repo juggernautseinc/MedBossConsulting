@@ -187,12 +187,12 @@ class PatientMenuRole extends MenuRole
 
     public function displayHorizNavBarMenu()
     {
-        if (!empty($GLOBALS['kernel']->getEventDispatcher())) {
+
             /**
              * @var \Symfony\Component\EventDispatcher\EventDispatcher
              */
             $dispatcher = $GLOBALS['kernel']->getEventDispatcher();
-        }
+
         $pid = $_SESSION['pid'];
         $menu_restrictions = $this->getMenu();
         $li_id = 1;
