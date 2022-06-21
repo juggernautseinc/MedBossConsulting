@@ -18,6 +18,7 @@ use OpenEMR\Common\Acl\AclMain;
 use OpenEMR\Services\UserService;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use OpenEMR\Menu\PatientMenuEvent;
+use OpenEMR\Events\Patient\PatientMenuLoadEvent;
 
 class PatientMenuRole extends MenuRole
 {
@@ -221,7 +222,11 @@ EOT;
             echo $list . "\r\n";
             $li_id++;
         }
-        echo "here";
+        /**
+         * @var \Symfony\Component\EventDispatcher\EventDispatcher
+         */
+        $dispatcher = $GLOBALS['kernel']->getEventDispatcher();
+        $dispatcher->dispatch(new PatientMenuLoadEvent(), PatientMenuLoadEvent::EVENT_PATIENT_MENU_LOAD);
         $str_bot = <<<EOB
                 </ul>
             </div>
