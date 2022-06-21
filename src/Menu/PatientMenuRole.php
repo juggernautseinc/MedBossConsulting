@@ -227,10 +227,7 @@ EOT;
                 </ul>
             </div>
 EOB;
-        if (!empty($GLOBALS['kernel']->getEventDispatcher())) {
-            $dispatcher = $GLOBALS['kernel']->getEventDispatcher();
-            $dispatcher->dispatch(new RenderEvent(), RenderEvent::EVENT_BODY_RENDER_PRE);
-        }
+
         $str_bot .= <<<EOB
             <div>
                <button class="btn btn-danger" id="changePatientStatus">Mark Inactive</button>
