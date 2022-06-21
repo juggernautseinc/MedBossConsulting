@@ -16,7 +16,7 @@ if (!empty($_POST)) {
     if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token"])) {
         CsrfUtils::csrfNotVerified();
     }
-$mark = "INSERT INTO `patient_status` (`statusid`, `status`, `pid`, `userId`, `date`) VALUES ('', 'inactive', ?, ?, '')";
-    sqlStatement($mark, [$_POST['patientid'], $_SESSION['authUser']]);
+$mark = "INSERT INTO `patient_status` (`statusid`, `status`, `pid`, `userId`, `date`) VALUES ('', 'inactive', ?, ?, NOW())";
+    sqlStatement($mark, [$_POST['patientid'], $_SESSION['authUserId']]);
 echo 'Patient ID ' . $_POST['patientid']  . ' has been marked inactive';
 }
