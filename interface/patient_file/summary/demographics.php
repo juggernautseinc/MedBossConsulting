@@ -1956,8 +1956,8 @@ if ($track_is_registered) {
             } else {
                 alert('Ok, lets do this! Click ok to really mark inactive.');
                 let libUrl = 'patient_status.php';
-                let pid = '<?php echo $_SESSION['pid']; ?>';
-                let csrf = '<?php echo js_url(CsrfUtils::collectCsrfToken()); ?>';
+                let pid = <?php echo $_SESSION['pid']; ?>;
+                let csrf = <?php echo js_url(CsrfUtils::collectCsrfToken()); ?>;
                 $.ajax({
                     type: "POST",
                     url: libUrl,
