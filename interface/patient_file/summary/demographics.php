@@ -1954,7 +1954,7 @@ if ($track_is_registered) {
             if( ! confirm('Do you really want to do this?')){
                 e.preventDefault();
             } else {
-                alert('Ok, lets do this!');
+                alert('Ok, lets do this! Click ok to really mark inactive.');
                 let libUrl = 'patient_status.php';
                 let pid = '<?php echo $_SESSION['pid']; ?>';
                 $.ajax({
