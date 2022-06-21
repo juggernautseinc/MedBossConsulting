@@ -10,6 +10,12 @@
 
 require_once dirname(__DIR__, 2) . "/globals.php";
 
+use OpenEMR\Common\Csrf\CsrfUtils;
+
 if (!empty($_POST)) {
+    if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token"])) {
+        CsrfUtils::csrfNotVerified();
+    }
+
 echo 'Patient ID ' . $_POST['patientid']  . ' has been marked inactive';
 }
