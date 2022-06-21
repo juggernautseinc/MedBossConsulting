@@ -228,9 +228,6 @@ EOT;
             </div>
 EOB;
         if (!empty($GLOBALS['kernel']->getEventDispatcher())) {
-            /**
-             * @var \Symfony\Component\EventDispatcher\EventDispatcher
-             */
             $dispatcher = $GLOBALS['kernel']->getEventDispatcher();
             $dispatcher->dispatch(new RenderEvent(), RenderEvent::EVENT_BODY_RENDER_PRE);
         }
