@@ -17,7 +17,7 @@ namespace OpenEMR\Menu;
 use OpenEMR\Common\Acl\AclMain;
 use OpenEMR\Services\UserService;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use OpenEMR\Menu\PatientMenuEvent;
+use Symfony\Component\EventDispatcher\Events;
 use OpenEMR\Events\Patient\PatientMenuLoadEvent;
 
 class PatientMenuRole extends MenuRole
@@ -233,7 +233,7 @@ EOT;
                 </ul>
             </div>
 EOB;
-        //$dispatcher->dispatch(new PatientMenuLoadEvent(), PatientMenuLoadEvent::EVENT_PATIENT_MENU_LOAD);
+        $dispatcher->dispatch(new PatientMenuLoadEvent(), PatientMenuLoadEvent::EVENT_PATIENT_MENU_LOAD);
         $str_bot .= <<<EOB
             <div>
                <button class="btn btn-danger" id="changePatientStatus">Mark Inactive</button>
