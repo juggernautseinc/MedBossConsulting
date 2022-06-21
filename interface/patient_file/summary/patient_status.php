@@ -11,5 +11,5 @@
 require_once dirname(__DIR__, 2) . "/globals.php";
 
 if (!empty($_POST)) {
-echo 'safe!';
+echo 'safe! ' . $_POST['pid'] ;
 }
