@@ -222,11 +222,7 @@ EOT;
             echo $list . "\r\n";
             $li_id++;
         }
-        /**
-         * @var \Symfony\Component\EventDispatcher\EventDispatcher
-         */
-        $dispatcher = $GLOBALS['kernel']->getEventDispatcher();
-        $dispatcher->dispatch(new PatientMenuLoadEvent(), PatientMenuLoadEvent::EVENT_PATIENT_MENU_LOAD);
+
         $str_bot = <<<EOB
                 </ul>
             </div>
