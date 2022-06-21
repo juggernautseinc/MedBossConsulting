@@ -1955,6 +1955,20 @@ if ($track_is_registered) {
                 e.preventDefault();
             } else {
                 alert('Ok, lets do this!');
+                let libUrl = 'patient_status.php';
+                let pid = '<?php echo $_SESSION['pid']; ?>';
+                $.ajax({
+                    type: "POST",
+                    url: libUrl,
+                    data: {patientid: pid, status: inactive},
+                    error: function (qXHR, textStatus, errorThrow) {
+                        console.log("There was an error");
+                        alert(<?php echo xlj("File Error") ?> +"\n" + id)
+                    },
+                    success: function (result) {
+                        alert(result);
+                    }
+                });
             }
         });
 
