@@ -1947,7 +1947,7 @@ if ($track_is_registered) {
             $("#eligibility").get(0).scrollIntoView();
         }
     });
-
+    document.getElementById('patientstatuschange').innerHTML = '<button class="btn btn-danger" id="changePatientStatus">Mark Inactive</button>';
     document
         .getElementById('changePatientStatus')
         .addEventListener("click", function (e){
