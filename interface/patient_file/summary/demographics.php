@@ -1947,7 +1947,13 @@ if ($track_is_registered) {
             $("#eligibility").get(0).scrollIntoView();
         }
     });
-    document.getElementById('patientstatuschange').innerHTML = '<button class="btn btn-danger" id="changePatientStatus">Mark Inactive</button>';
+    $patient_status = sqlQuery("SELECT status FROM patient_status WHERE pid = ?", [$_SESSION['pid']]);
+    if ($patient_status['status'] != 'inactive') {
+        document.getElementById('patientstatuschange').innerHTML = '<button class="btn btn-danger" id="changePatientStatus">Mark Inactive</button>';
+    } else {
+        document.getElementById('patientstatuschange').innerHTML = '<button class="btn btn-success" id="changePatientStatus">Mark Active</button>';
+    }
+
     document
         .getElementById('changePatientStatus')
         .addEventListener("click", function (e){
