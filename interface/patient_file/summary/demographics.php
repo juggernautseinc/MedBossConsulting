@@ -1948,7 +1948,7 @@ if ($track_is_registered) {
         }
     });
     <?php
-    $patient_status = sqlQuery("SELECT `status` FROM `patient_status` WHERE `pid` = ?", [$_SESSION['pid']]);
+    $patient_status = sqlQuery("SELECT `status` FROM `patient_status` WHERE `pid` = ? ORDER BY `statusId` DESC LIMIT 1", [$_SESSION['pid']]);
     if ($patient_status['status'] != 'inactive') {
         ?>
         document.getElementById('patientstatuschange').innerHTML = '<button class="btn btn-danger" id="changePatientStatus">Mark Inactive</button>';
