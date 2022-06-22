@@ -1,8 +1,8 @@
 
 CREATE TABLE IF NOT EXISTS `text_message_module` (
 `id` int NOT NULL,
-`fromnumber` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
-`text` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+`fromnumber` varchar(15) DEFAULT NULL,
+`text` varchar(255) NOT NULL,
 `date` datetime(6) NOT NULL
 );
 ALTER TABLE `text_message_module` ADD PRIMARY KEY(`id`);
@@ -13,13 +13,13 @@ CREATE TABLE IF NOT EXISTS `text_notification_log` (
 `iLogId` int(11) NOT NULL,
 `pid` bigint(20) NOT NULL,
 `pc_eid` int(11) UNSIGNED DEFAULT NULL,
-`sms_gateway_type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-`smsgateway_info` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-`message` text COLLATE utf8mb4_unicode_ci,
-`email_sender` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-`email_subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-`type` enum('SMS','Email') COLLATE utf8mb4_unicode_ci NOT NULL,
-`patient_info` text COLLATE utf8mb4_unicode_ci,
+`sms_gateway_type` varchar(50)  NOT NULL,
+`smsgateway_info` varchar(255)  NOT NULL,
+`message` text NOT NULL,
+`email_sender` varchar(255) NOT NULL,
+`email_subject` varchar(255) NOT NULL,
+`type` enum('SMS','Email') NOT NULL,
+`patient_info` text NOT NULL,
 `pc_eventDate` date NOT NULL,
 `pc_endDate` date NOT NULL,
 `pc_startTime` time NOT NULL,
