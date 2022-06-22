@@ -8,6 +8,6 @@ CREATE TABLE IF NOT EXISTS `patient_status` (
 
 -- Indexes for table `patient_status`
 --
-ALTER TABLE `patient_status`
-ADD PRIMARY KEY (`statusId`),
-ADD KEY `pid` (`pid`);
+--ALTER TABLE `patient_status`
+--ADD PRIMARY KEY (`statusId`),
+--ADD KEY `pid` (`pid`);
