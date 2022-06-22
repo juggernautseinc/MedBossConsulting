@@ -20,9 +20,11 @@ if (!empty($_POST)) {
     if (empty($getcurrentstatus['status'])) {
         $mark = "INSERT INTO `patient_status` (`statusid`, `status`, `pid`, `userId`, `date`) VALUES ('', 'inactive', ?, ?, NOW())";
         sqlStatement($mark, [$_POST['patientid'], $_SESSION['authUser']]);
+        $s = 'inactive';
     } else {
         $umark = "INSERT INTO `patient_status` (`statusid`, `status`, `pid`, `userId`, `date`) VALUES ('', 'active', ?, ?, NOW())";
         sqlStatement($umark, [$_POST['patientid'], $_SESSION['authUser']]);
+        $s = 'active';
     }
-echo 'Patient ID ' . $_POST['patientid']  . ' has been marked inactive';
+echo 'Patient ID ' . $_POST['patientid']  . ' has been marked ' . $s;
 }
