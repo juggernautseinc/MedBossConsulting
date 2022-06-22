@@ -174,8 +174,8 @@ class RCFaxClient extends AppDispatch
         // sendFax, will do an auth check first using this
         // token data array. Session storage token is very
         // unreliable and hardly ever accepted. Still, we try...
-        $session_token = $this->getSession('sessionAccessToken');
-        error_log("This token eq ", $session_token . " data is");
+        //$session_token = $this->getSession('sessionAccessToken');
+        //error_log("This token eq ", $session_token . " data is");
         if (!empty($cachedAuth["refresh_token"])) {
             // probably new openemr session or user!
             $this->platform->auth()->setData($cachedAuth);
