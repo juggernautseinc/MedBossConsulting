@@ -1947,13 +1947,18 @@ if ($track_is_registered) {
             $("#eligibility").get(0).scrollIntoView();
         }
     });
-    $patient_status = sqlQuery("SELECT status FROM patient_status WHERE pid = ?", [$_SESSION['pid']]);
+    <?php
+    $patient_status = sqlQuery("SELECT `status` FROM `patient_status` WHERE `pid` = ?", [$_SESSION['pid']]);
     if ($patient_status['status'] != 'inactive') {
+        ?>
         document.getElementById('patientstatuschange').innerHTML = '<button class="btn btn-danger" id="changePatientStatus">Mark Inactive</button>';
+        <?php
     } else {
+        ?>
         document.getElementById('patientstatuschange').innerHTML = '<button class="btn btn-success" id="changePatientStatus">Mark Active</button>';
+        <?php
     }
-
+        ?>
     document
         .getElementById('changePatientStatus')
         .addEventListener("click", function (e){
