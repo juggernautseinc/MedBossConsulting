@@ -14,5 +14,5 @@ use Symfony\Component\EventDispatcher\Event;
 
 class PatientMenuLoadEvent extends Event
 {
-    const EVENT_PATIENT_MENU_LOAD = "dashboard.menu.render.onload";
+    const EVENT_PATIENT_MENU_LOAD = "dashboard.menu.render.button.onload";
 }
