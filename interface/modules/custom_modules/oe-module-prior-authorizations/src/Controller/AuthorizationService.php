@@ -177,7 +177,7 @@ class AuthorizationService
             FROM `patient_data` pd " . "
             LEFT JOIN  `module_prior_authorizations` mpa ON pd.pid = mpa.pid " . "
             WHERE pd.Ref_Req = 'Yes' OR mpa.pid = pd.pid  AND " . "
-            `pd`.`pid` NOT IN ( SELECT pid FROM patient_status WHERE status != 'inactive') " . "
+            `pd`.`pid` NOT IN ( SELECT `ps`.`pid` FROM `patient_status` ps WHERE `ps`.`status` = 'inactive') " . "
 			ORDER BY pd.lname";
         return sqlStatement($sql);
     }
