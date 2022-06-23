@@ -221,4 +221,10 @@ class AuthorizationService
             WHERE `pid` = ? AND type = 'primary'", [$pid]);
     }
 
+    public static function countUsageOfAuthNumber($pid, $authnum)
+    {
+        return sqlQuery("SELECT count(*) AS count FROM `form_misc_billing_options`
+                         WHERE pid = ? AND `prior_auth_number` = ?", [$pid, $authnum]);
+    }
+
 }
