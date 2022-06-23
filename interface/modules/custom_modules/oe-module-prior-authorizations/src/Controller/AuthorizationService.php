@@ -173,10 +173,16 @@ class AuthorizationService
 
     public function listPatientAuths()
     {
+        if ($_SESSION['site_id'] == 'serenity') {
+            $where = "(pd.Ref_Req = 'Yes' OR mpa.pid = pd.pid)";
+        } else {
+           $where = "mpa.pid = pd.pid";
+        }
+
         $sql = "SELECT pd.pid AS mrn, pd.fname, pd.lname, mpa.pid, mpa.auth_num, mpa.start_date, mpa.end_date, mpa.cpt, mpa.init_units " . "
             FROM `patient_data` pd " . "
             LEFT JOIN  `module_prior_authorizations` mpa ON pd.pid = mpa.pid " . "
-            WHERE (pd.Ref_Req = 'Yes' OR mpa.pid = pd.pid)  AND " . "
+            WHERE " . $where . "  AND " . "
             `pd`.`pid` NOT IN ( SELECT `ps`.`pid` FROM `patient_status` ps WHERE `ps`.`status` = 'inactive') " . "
 			ORDER BY pd.lname";
         return sqlStatement($sql);
