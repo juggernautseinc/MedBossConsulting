@@ -214,4 +214,11 @@ class AuthorizationService
         return $response;
     }
 
+    public static function insuranceName($pid)
+    {
+        return sqlQuery("SELECT ic.name  FROM `insurance_data` id
+            JOIN insurance_companies ic ON id.provider = ic.id
+            WHERE `pid` = ? AND type = 'primary'", [$pid]);
+    }
+
 }

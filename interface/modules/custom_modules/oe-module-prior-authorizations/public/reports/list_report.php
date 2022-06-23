@@ -61,10 +61,11 @@ $patients = $data->listPatientAuths();
                         }
                         $numbers = sqlQuery($sql, [$pid, $iter['auth_num']]);
 
-                        $icname = "SELECT ic.name  FROM `insurance_data` id " .
+                        /*$icname = "SELECT ic.name  FROM `insurance_data` id " .
                             "JOIN insurance_companies ic ON id.provider = ic.id " .
-                            "WHERE `pid` = ? AND type = 'primary'";
-                        $insurance = sqlQuery($icname, [$pid]);
+                            "WHERE `pid` = ? AND type = 'primary'";*/
+                        //$insurance = sqlQuery($icname, [$pid]);
+                        $insurance = AuthorizationService::insurancName($pid);
 
                         if ($name !== $iter['fname'] . " " . $iter['lname'] ) {
                             print "<tr><td><a href='#' onclick='openNewTopWindow(" . $pid . ")'>" . $pid . "</a></td>";
