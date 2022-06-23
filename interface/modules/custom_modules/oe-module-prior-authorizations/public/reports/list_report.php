@@ -65,7 +65,7 @@ $patients = $data->listPatientAuths();
                             "JOIN insurance_companies ic ON id.provider = ic.id " .
                             "WHERE `pid` = ? AND type = 'primary'";*/
                         //$insurance = sqlQuery($icname, [$pid]);
-                        $insurance = AuthorizationService::insurancName($pid);
+                        $insurance = AuthorizationService::insuranceName($pid);
 
                         if ($name !== $iter['fname'] . " " . $iter['lname'] ) {
                             print "<tr><td><a href='#' onclick='openNewTopWindow(" . $pid . ")'>" . $pid . "</a></td>";
