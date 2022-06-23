@@ -16,7 +16,7 @@ if (!empty($_POST)) {
     if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token"])) {
         CsrfUtils::csrfNotVerified();
     }
-    $getcurrentstatus = sqlQuery("SELECT status FROM patient_status WHERE pid = ?", [$_POST['patientid']]);
+    $getcurrentstatus = sqlQuery("SELECT status FROM patient_status WHERE pid = ? ORDER BY statusId DESC LIMIT 1", [$_POST['patientid']]);
     if (empty($getcurrentstatus['status'])) {
         $mark = "INSERT INTO `patient_status` (`statusid`, `status`, `pid`, `userId`, `date`) VALUES ('', 'inactive', ?, ?, NOW())";
         sqlStatement($mark, [$_POST['patientid'], $_SESSION['authUser']]);
