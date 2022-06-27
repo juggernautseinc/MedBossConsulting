@@ -54,7 +54,7 @@ class NotificationModel
     {
         $nDays = self::numberOfDays();
         $date = date("Y-m-d",strtotime($nDays));
-        $sql = "SELECT `pe`.`pc_pid`, `pe`.`pc_eid`, `pe`.`pc_aid`, `pe`.`pc_catid`, `pd`.`phone_cell` FROM `openemr_postcalendar_events` pe
+        $sql = "SELECT `pe`.`pc_pid`, `pe`.`pc_eid`, `pe`.`pc_aid`, `pe`.`pc_catid`, `pd`.`phone_cell`, `pd`.`fname` FROM `openemr_postcalendar_events` pe
                                                 LEFT JOIN `patient_data` pd ON `pd`.`pid` = `pe`.`pc_pid`
                                                 WHERE `pe`.`pc_eventDate` BETWEEN ? AND ?";
         $genListOfAppointment = sqlStatement($sql, [$date, $date]);
