@@ -56,7 +56,7 @@ class NotificationModel
 
         $nDays = self::numberOfDays();
         $date = date("Y-m-d",strtotime($nDays));
-
+        var_dump($date);
         $where_params = " AND (e.pc_title != 'Out Of Office' ) OR ( e.pc_title != 'In Office')
         AND p.phone_cell != '' AND p.hipaa_allowsms = 'YES'";
         return fetchEvents($date, $date, $where_params);
