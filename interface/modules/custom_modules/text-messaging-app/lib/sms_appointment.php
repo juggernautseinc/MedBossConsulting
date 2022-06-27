@@ -17,10 +17,7 @@ use Juggernaut\App\Model\NotificationModel;
 use Juggernaut\App\Controllers\SendMessage;
 $process = new NotificationModel();
 
-
 $personsToBeContacted = $process->getAppointments();
-
-echo "<pre>";
 
 foreach ($personsToBeContacted as $person) {
      if ($person['phone_cell'] == '') {
@@ -32,7 +29,7 @@ foreach ($personsToBeContacted as $person) {
      $message = message($person);
     $cellNumber = $process->stripDashesFromNumber($person['phone_cell']);
     $response = SendMessage::outBoundMessage($cellNumber, $message);
-
+    var_dump($response); print "<br>";
     $patient_info = $person['title'] . " " . $person['fname'] . " " . $person['mname'] . " " . $person['lname'] . "|||" . $person['phone_cell'] . "|||" . $person['email'];
     $data_info = $person['pc_eventDate'] . "|||" . $person['pc_endDate'] . "|||" . $person['pc_startTime'] . "|||" . $person['pc_endTime'];
     $sdate = date("Y-m-d H:i:s");
