@@ -35,11 +35,13 @@ $active = '<span class="sr-only">(current)</span>';
             <div class="mx-auto" style="width: 80%">
                 <div class="m-2">
                     <strong><?php echo $GLOBALS['SMS_NOTIFICATION_HOUR'] . " " . xlt(' Hours in advanced of appointment, send notification - This setting is in Globals') ?></strong><br>
+                    <span style="color: red;">
                     <?php
-                        if(!$GLOBALS['gbl_time_zone']) {
+                        if($GLOBALS['gbl_time_zone'] == '') {
                             echo xlt('The time zone needs to be set for messages to go out at the right time');
                         }
                     ?>
+                    </span>
                 </div>
 
                 <?php require_once dirname(__FILE__) . "/views/nav_top.php"; ?>
