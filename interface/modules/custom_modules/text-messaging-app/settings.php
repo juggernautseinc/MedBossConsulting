@@ -9,8 +9,11 @@
  */
 
 require_once dirname(__DIR__, 3) . '/globals.php';
+require_once dirname(__FILE__) . "vendor/autoload.php";
 
 use OpenEMR\Core\Header;
+use Juggernaut\App\Model\NotificationModel;
+$data = new NotificationModel();
 
 function IsValidFQDN($FQDN): bool
 {
@@ -37,7 +40,8 @@ $active = '<span class="sr-only">(current)</span>';
                     <strong><?php echo $GLOBALS['SMS_NOTIFICATION_HOUR'] . " " . xlt(' Hours in advanced of appointment, send notification - This setting is in Globals') ?></strong><br>
                     <span style="color: red;">
                     <?php
-                        if($GLOBALS['gbl_time_zone'] == '') {
+                        $timezone = $data->getTimeZoneInfo();
+                        if($timezone['gl_value'] == '') {
                             echo $GLOBALS['gbl_time_zone'] . xlt('The time zone needs to be set for messages to go out at the right time');
                         }
                     ?>

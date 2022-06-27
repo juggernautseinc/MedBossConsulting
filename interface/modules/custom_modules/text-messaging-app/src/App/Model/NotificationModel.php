@@ -87,4 +87,9 @@ class NotificationModel
         return $numDays;
     }
 
+    public function getTimeZoneInfo()
+    {
+        return sqlQuery("SELECT gl_value FROM globals WHERE gl_name = 'gbl_time_zone'");
+    }
+
 }
