@@ -17,4 +17,5 @@ $process = new NotificationModel();
 
 $peopleToBeContacted = $process->getAppointments();
 
+echo "<pre>";
 var_dump($peopleToBeContacted);
