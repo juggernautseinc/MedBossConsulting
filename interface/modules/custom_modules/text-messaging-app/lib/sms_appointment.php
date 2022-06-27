@@ -19,10 +19,12 @@ $sending = new SendMessage();
 $personsToBeContacted = $process->getAppointments();
 
 echo "<pre>";
-var_dump($personsToBeContacted);
 
 foreach ($personsToBeContacted as $person) {
-
+     if ($person['phone_cell'] == '') {
+         continue;
+     }
+     var_dump($person);
 }
 
 function message() {
