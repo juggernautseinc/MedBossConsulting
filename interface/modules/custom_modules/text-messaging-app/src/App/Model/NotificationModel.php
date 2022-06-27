@@ -57,7 +57,8 @@ class NotificationModel
         $nDays = self::numberOfDays();
         $date = date("Y-m-d",strtotime($nDays));
         var_dump($date); print "<br>";
-        $appts = fetchEvents($date, $date);
+        $where_params = "(pc_title != 'Out Of Office') OR (pc_title != 'In Office')";
+        $appts = fetchEvents($date, $date, $where_params);
         print "<pre>";
         var_dump($appts);
         return $appts;
