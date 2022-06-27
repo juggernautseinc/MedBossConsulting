@@ -68,7 +68,7 @@ class NotificationModel
     {
         $days = round($GLOBALS['SMS_NOTIFICATION_HOUR']/24);
         //the idea is to be flexible up to 5 days
-var_dump($days);
+var_dump($GLOBALS['SMS_NOTIFICATION_HOUR']);
         switch ($days) {
             case 1:
                 $numDays = '+1 days';
