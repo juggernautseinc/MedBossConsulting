@@ -44,16 +44,17 @@ class NotificationModel
         return sqlQuery($sql, [$_SESSION['pid']]);
     }
 
-    public function createMeetingId()
+    public function createMeetingId(): string
     {
         $newmeetingid = sqlQuery("select DOB from patient_data where pid = ?", [$_SESSION['pid']]);
         return md5($newmeetingid['DOB'] . $_SESSION['pid']);
     }
 
-    public function getAppointments()
+    public function getAppointments(): array
     {
         $nDays = self::numberOfDays();
         $date = date("Y-m-d",strtotime($nDays));
+        var_dump($nDays); var_dump($date); die;
         $sql = "SELECT * FROM openemr_postcalendar_events WHERE pc_eventDate BETWEEN ? AND ?";
         $genListOfAppointment = sqlStatement($sql, [$date, $date]);
         $listOfAppointments = [];
@@ -80,6 +81,10 @@ class NotificationModel
 
             case 3:
                 $numDays = '+3 days';
+                break;
+
+            default:
+                $numDays = '+4 days';
         }
         return $numDays;
     }
