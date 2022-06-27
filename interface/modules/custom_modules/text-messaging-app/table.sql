@@ -30,7 +30,7 @@ ALTER TABLE `text_notification_log` ADD PRIMARY KEY(`iLogId`);
 ALTER TABLE `text_notification_log` CHANGE `iLogId` `iLogId` INT NOT NULL AUTO_INCREMENT;
 
 INSERT INTO `background_services` (`name`, `title`, `active`, `running`, `next_run`, `execute_interval`, `function`, `require_once`, `sort_order`) VALUES
-    ('SMS_REMINDERS', 'SMS Appointment Reminders', 0, 0, '2022-01-18 11:25:10', 1440, 'start_sms_reminders', '/interface/modules/custom_modules/text-messaging-app/lib/sms_appointment_service.php', 100);
+    ('SMS_REMINDERS', 'SMS Appointment Reminders', 0, 0, '2022-01-18 11:25:10', 1440, 'start_sms_reminders', '/interface/modules/custom_modules/text-messaging-app/lib/sms_appointment.php', 100);
 
 CREATE TABLE IF NOT EXISTS `text_notification_messages` (
     `id` int(5) NOT NULL,

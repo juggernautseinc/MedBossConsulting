@@ -50,4 +50,38 @@ class NotificationModel
         return md5($newmeetingid['DOB'] . $_SESSION['pid']);
     }
 
+    public function getAppointments()
+    {
+        $nDays = self::numberOfDays();
+        $date = date("Y-m-d",strtotime($nDays));
+        $sql = "SELECT * FROM openemr_postcalendar_events WHERE pc_eventDate BETWEEN ? AND ?";
+        $genListOfAppointment = sqlStatement($sql, [$date, $date]);
+        $listOfAppointments = [];
+        while($row = sqlFetchArray($genListOfAppointment)) {
+            $listOfAppointments[] = $row;
+        }
+        return $listOfAppointments;
+    }
+
+    private function numberOfDays(): string
+    {
+        global $EMAIL_NOTIFICATION_HOUR;
+        $days = round($EMAIL_NOTIFICATION_HOUR/24);
+        //the idea is to be flexible up to 5 days
+
+        switch ($days) {
+            case 1:
+                $numDays = '+1 days';
+                break;
+
+            case 2:
+                $numDays = '+2 days';
+                break;
+
+            case 3:
+                $numDays = '+3 days';
+        }
+        return $numDays;
+    }
+
 }
