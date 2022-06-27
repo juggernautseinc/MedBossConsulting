@@ -69,7 +69,7 @@ class NotificationModel
         global $EMAIL_NOTIFICATION_HOUR;
         $days = round($EMAIL_NOTIFICATION_HOUR/24);
         //the idea is to be flexible up to 5 days
-
+var_dump($days);
         switch ($days) {
             case 1:
                 $numDays = '+1 days';
