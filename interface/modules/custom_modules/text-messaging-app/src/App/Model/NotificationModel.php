@@ -52,7 +52,6 @@ class NotificationModel
 
     public function getAppointments(): array
     {
-        return [1, 2, 3];
         $nDays = self::numberOfDays();
         $date = date("Y-m-d",strtotime($nDays));
         var_dump($nDays); var_dump($date); die;
