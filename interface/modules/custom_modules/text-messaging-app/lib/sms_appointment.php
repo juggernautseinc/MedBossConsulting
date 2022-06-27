@@ -9,6 +9,7 @@
  */
 
     //require_once dirname(__DIR__, 3) . "/../globals.php";
+    require_once dirname(__DIR__) . "/vendor/autoload.php";
 
 use Juggernaut\App\Model\NotificationModel;
 
