@@ -12,10 +12,15 @@
     require_once dirname(__DIR__) . "/vendor/autoload.php";
 
 use Juggernaut\App\Model\NotificationModel;
-
+use Juggernaut\App\Controllers\SendMessage;
 $process = new NotificationModel();
+$sending = new SendMessage();
 
-$peopleToBeContacted = $process->getAppointments();
+$personsToBeContacted = $process->getAppointments();
 
 echo "<pre>";
-var_dump($peopleToBeContacted);
+var_dump($personsToBeContacted);
+die;
+foreach ($personsToBeContacted as $person) {
+
+}
