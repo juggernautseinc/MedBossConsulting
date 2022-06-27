@@ -66,7 +66,7 @@ class NotificationModel
 
     private function numberOfDays(): string
     {
-        $days = round($GLOBALS['EMAIL_NOTIFICATION_HOUR']/24);
+        $days = round($GLOBALS['SMS_NOTIFICATION_HOUR']/24);
         //the idea is to be flexible up to 5 days
 var_dump($days);
         switch ($days) {
