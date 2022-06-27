@@ -54,6 +54,7 @@ class NotificationModel
     {
         $nDays = self::numberOfDays();
         $date = date("Y-m-d",strtotime($nDays));
+        var_dump($date);
         $sql = "SELECT `pe`.`pc_pid`, `pe`.`pc_eid`,  `pe`.`pc_eventDate`, `pe`.`pc_aid`, `pe`.`pc_catid`,
                         `pe`.`pc_startTime`, `pd`.`phone_cell`, `pd`.`fname`, `f`.`name`
                         FROM `openemr_postcalendar_events` pe
