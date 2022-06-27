@@ -14,7 +14,7 @@
 use Juggernaut\App\Model\NotificationModel;
 use Juggernaut\App\Controllers\SendMessage;
 $process = new NotificationModel();
-$sending = new SendMessage();
+
 
 $personsToBeContacted = $process->getAppointments();
 
@@ -27,9 +27,21 @@ foreach ($personsToBeContacted as $person) {
     if ($person['hipaa_allowsms'] != 'YES') {
         continue;
     }
-     var_dump($person);
+     $message = message($person);
+    $cellNumber = $process->stripDashesFromNumber($person['phone_cell']);
+    $response = SendMessage::outBoundMessage($cellNumber, $message);
+
+    $patient_info = $person['title'] . " " . $person['fname'] . " " . $person['mname'] . " " . $person['lname'] . "|||" . $person['phone_cell'] . "|||" . $person['email'];
+    $data_info = $person['pc_eventDate'] . "|||" . $person['pc_endDate'] . "|||" . $person['pc_startTime'] . "|||" . $person['pc_endTime'];
+    $sdate = date("Y-m-d H:i:s");
+    $sql_loginsert = "INSERT INTO `notification_log` ( `iLogId` , `pid` , `pc_eid` , `sms_gateway_type` , `message` , `type` , `patient_info` , `smsgateway_info` , `pc_eventDate` , `pc_endDate` , `pc_startTime` , `pc_endTime` , `dSentDateTime` ) VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+    $safe = array($person[pid], $person[pc_eid], $db_sms_msg[sms_gateway_type], $db_sms_msg[message], $db_sms_msg[type] || '', $patient_info, $smsgateway_info, $person[pc_eventDate], $person[pc_endDate], $person[pc_startTime], $person[pc_endTime], $sdate);
+
+    $db_loginsert = sqlStatement($sql_loginsert, $safe);
 }
 
-function message() {
-        return "You have an appointment on " . $date . " at ";
-         }
+function message($person): string
+{
+        return "You have an appointment on " . $person['pc_eventDate'] . " at " . $person['pc_startTime'] . ". " . $person['name'];
+}

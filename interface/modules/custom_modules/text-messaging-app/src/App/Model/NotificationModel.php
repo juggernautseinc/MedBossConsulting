@@ -89,4 +89,9 @@ class NotificationModel
         return sqlQuery("SELECT gl_value FROM globals WHERE gl_name = 'gbl_time_zone'");
     }
 
+    public function stripDashesFromNumber($number)
+    {
+        return str_replace('-', '', $number);
+    }
+
 }
