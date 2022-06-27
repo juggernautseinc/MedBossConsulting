@@ -9,7 +9,7 @@
  */
 
 require_once dirname(__DIR__, 3) . '/globals.php';
-require_once dirname(__FILE__) . "vendor/autoload.php";
+require_once dirname(__FILE__) . "/vendor/autoload.php";
 
 use OpenEMR\Core\Header;
 use Juggernaut\App\Model\NotificationModel;
