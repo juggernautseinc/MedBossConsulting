@@ -20,7 +20,11 @@ $personsToBeContacted = $process->getAppointments();
 
 echo "<pre>";
 var_dump($personsToBeContacted);
-die;
+
 foreach ($personsToBeContacted as $person) {
 
 }
+
+function message() {
+        return "You have an appointment on " . $date . " at ";
+         }
