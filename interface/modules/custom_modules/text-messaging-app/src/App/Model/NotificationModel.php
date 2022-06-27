@@ -58,7 +58,7 @@ class NotificationModel
         $date = date("Y-m-d",strtotime($nDays));
         var_dump($date); print "<br>";
         $where_params = " AND (e.pc_title != 'Out Of Office' ) OR ( e.pc_title != 'In Office')
-        AND e.phone_cell != ''";
+        AND p.phone_cell != ''";
         $appts = fetchEvents($date, $date, $where_params);
         print "<pre>";
         var_dump($appts);
