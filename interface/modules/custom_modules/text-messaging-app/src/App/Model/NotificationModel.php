@@ -54,7 +54,6 @@ class NotificationModel
     {
         $nDays = self::numberOfDays();
         $date = date("Y-m-d",strtotime($nDays));
-        var_dump($nDays); var_dump($date); die;
         $sql = "SELECT * FROM openemr_postcalendar_events WHERE pc_eventDate BETWEEN ? AND ?";
         $genListOfAppointment = sqlStatement($sql, [$date, $date]);
         $listOfAppointments = [];
@@ -68,7 +67,7 @@ class NotificationModel
     {
         $days = round($GLOBALS['SMS_NOTIFICATION_HOUR']/24);
         //the idea is to be flexible up to 5 days
-var_dump($GLOBALS['SMS_NOTIFICATION_HOUR']);
+
         switch ($days) {
             case 1:
                 $numDays = '+1 days';
