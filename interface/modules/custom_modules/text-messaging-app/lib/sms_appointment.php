@@ -24,6 +24,9 @@ foreach ($personsToBeContacted as $person) {
      if ($person['phone_cell'] == '') {
          continue;
      }
+    if ($person['hipaa_allowsms'] != 'YES') {
+        continue;
+    }
      var_dump($person);
 }
 
