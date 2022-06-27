@@ -52,9 +52,13 @@ class NotificationModel
 
     public function getAppointments(): array
     {
+        require_once dirname(__DIR__, 6) . '/../library/appointments.inc.php';
+
         $nDays = self::numberOfDays();
         $date = date("Y-m-d",strtotime($nDays));
-        var_dump($date);
+        var_dump($date); print "<br>";
+        $appts = fetchEvents($date, $date);
+        var_dump($appts);
         $sql = "SELECT `pe`.`pc_pid`, `pe`.`pc_eid`,  `pe`.`pc_eventDate`, `pe`.`pc_aid`, `pe`.`pc_catid`,
                         `pe`.`pc_startTime`, `pd`.`phone_cell`, `pd`.`fname`, `f`.`name`
                         FROM `openemr_postcalendar_events` pe
