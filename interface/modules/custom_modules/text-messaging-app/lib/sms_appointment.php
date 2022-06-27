@@ -19,7 +19,7 @@ $sending = new SendMessage();
 $personsToBeContacted = $process->getAppointments();
 
 echo "<pre>";
-var_dump($GLOBALS);
+var_dump($personsToBeContacted);
 
 foreach ($personsToBeContacted as $person) {
 
