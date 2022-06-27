@@ -38,7 +38,7 @@ $active = '<span class="sr-only">(current)</span>';
                     <span style="color: red;">
                     <?php
                         if($GLOBALS['gbl_time_zone'] == '') {
-                            echo xlt('The time zone needs to be set for messages to go out at the right time');
+                            echo $GLOBALS['gbl_time_zone'] . xlt('The time zone needs to be set for messages to go out at the right time');
                         }
                     ?>
                     </span>
