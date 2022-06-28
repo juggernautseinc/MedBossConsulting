@@ -29,7 +29,7 @@ namespace Juggernaut\App\Controllers;
         public function appointmentChanged(AppointmentSetEvent $event)
         {
             $appointmentdata = $event->givenAppointmentData();
-            file_put_contents("/var/www/html/errors/apptStatus1.txt", print_r($appointmentdata, true));
+            file_put_contents("/var/www/html/errors/apptStatus1.txt", print_r($appointmentdata, true), FILE_APPEND);
         }
 
     }
