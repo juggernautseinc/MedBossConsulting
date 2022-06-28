@@ -22,11 +22,11 @@ namespace Juggernaut\App\Controllers;
         public static function getSubscribedEvents(): array
         {
             return [
-              AppointmentSetEvent::EVENT_HANDLE => 'appointment.set'
+              AppointmentSetEvent::EVENT_HANDLE => 'appointmentChanged'
             ];
         }
 
-        public function appointmentset(AppointmentSetEvent $event)
+        public function appointmentChanged(AppointmentSetEvent $event)
         {
             $appointmentdata = $event->givenAppointmentData();
             file_put_contents("/var/www/html/errors/apptStatus1.txt", print_r($appointmentdata, true, PHP_EOL));
