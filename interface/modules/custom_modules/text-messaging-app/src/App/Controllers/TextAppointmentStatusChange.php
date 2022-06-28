@@ -16,6 +16,7 @@ use Juggernaut\App\Controllers\AppointmentsSubscriber;
         public function __construct()
         {
             $event = AppointmentsSubscriber::getSubscribedEvents();
-            file_put_contents("/var/www/html/errors/appointment_changes.txt", print_r($event, true, PHP_EOL));
+            var_dump($event); die;
+            //file_put_contents("/var/www/html/errors/appointment_changes.txt", print_r($event, true, PHP_EOL));
         }
     }
