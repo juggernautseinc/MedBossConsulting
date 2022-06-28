@@ -1,5 +1,7 @@
 <?php
 
+    require_once "vendor/autoload.php";
+
 /**
  *  package OpenEMR
  *  link    https://www.open-emr.org
