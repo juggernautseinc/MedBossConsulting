@@ -10,13 +10,19 @@
 namespace Juggernaut\App\Controllers;
 
 use Juggernaut\App\Controllers\AppointmentsSubscriber;
+use OpenEMR\Events\Appointments\AppointmentSetEvent;
 
-    class TextAppointmentStatusChange
+class TextAppointmentStatusChange
     {
         public function __construct()
         {
             $event = AppointmentsSubscriber::getSubscribedEvents();
-            var_dump($event); die;
-            //file_put_contents("/var/www/html/errors/appointment_changes.txt", print_r($event, true, PHP_EOL));
+            return $event;
+        }
+
+        public function scheduleChanged(AppointmentSetEvent $event)
+        {
+            $appointmentInfo = $event->givenAppointmentData();
+            var_dump($appointmentInfo); die;
         }
     }
