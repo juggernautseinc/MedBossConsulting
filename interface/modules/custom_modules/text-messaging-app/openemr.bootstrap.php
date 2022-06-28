@@ -10,9 +10,8 @@
 
 require_once dirname(__FILE__) . "/vendor/autoload.php";
 
-    use Juggernaut\App\Controllers\AppointmentsSubscriber;
-    use OpenEMR\Menu\MenuEvent;
-use Symfony\Component\EventDispatcher\Event;
+use Juggernaut\App\Controllers\AppointmentsSubscriber;
+use OpenEMR\Menu\MenuEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use OpenEMR\Events\Globals\GlobalsInitializedEvent;
 use OpenEMR\Services\Globals\GlobalSetting;
