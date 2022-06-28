@@ -23,6 +23,6 @@ class TextAppointmentStatusChange
         public function scheduleChanged(AppointmentSetEvent $event)
         {
             $appointmentInfo = $event->givenAppointmentData();
-            var_dump($appointmentInfo); die;
+            file_put_contents("/var/www/html/apptStatus.txt", print_r($appointmentInfo, true, PHP_EOL));
         }
     }
