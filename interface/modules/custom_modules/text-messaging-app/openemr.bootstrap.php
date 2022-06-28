@@ -21,7 +21,7 @@ use OpenEMR\Services\Globals\GlobalSetting;
      * @var EventDispatcherInterface $eventDispatcher
      * register subscriber to the appointment event
      */
-$subscriber = new AppointmentsSubscriber();
+//$subscriber = new AppointmentsSubscriber();
 //$eventDispatcher->addSubscriber($subscriber);
 
 function oe_module_texting_add_menu_item(MenuEvent $event)
