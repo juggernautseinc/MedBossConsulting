@@ -11,8 +11,14 @@ namespace Juggernaut\App\Model;
 
     class SettingModel
     {
-        public function getApptStatuses()
+        public function getApptStatuses(): array
         {
-            return sqlStatement("SELECT option_id, title FROM list_options WHERE list_id LIKE ? AND activity = 1", ['apptstat']);
+            $list = sqlStatement("SELECT option_id, title FROM list_options WHERE list_id LIKE ? AND activity = 1", ['apptstat']);
+            $listArray = [];
+            while ($row = sqlFetchArray($list))
+            {
+                $listArray[] = $row;
+            }
+            return $listArray;
         }
     }
