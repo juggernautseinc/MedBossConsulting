@@ -11,8 +11,10 @@
 require_once dirname(__DIR__, 3) . '/globals.php';
 require_once dirname(__FILE__) . "/vendor/autoload.php";
 
-use OpenEMR\Core\Header;
-use Juggernaut\App\Model\NotificationModel;
+    use Juggernaut\App\Model\SettingModel;
+    use OpenEMR\Core\Header,
+    Juggernaut\App\Model\NotificationModel;
+
 $data = new NotificationModel();
 
 function IsValidFQDN($FQDN): bool
@@ -49,6 +51,15 @@ $active = '<span class="sr-only">(current)</span>';
                 </div>
 
                 <?php require_once dirname(__FILE__) . "/views/nav_top.php"; ?>
+                <div >
+                    <form name="theform" id="theform" action="settings.php" method="post">
+                        <?php
+                            $apptstatuses = new SettingModel();
+                            $showStatuses = $apptstatuses->getApptStatuses();
+                            var_dump($showStatuses);
+                        ?>
+                    </form>
+                </div>
                 <div>
                     <?php
                         $FQDN = $_SERVER['HTTP_HOST'];
@@ -62,7 +73,7 @@ $active = '<span class="sr-only">(current)</span>';
                         }
 
                     if (IsValidFQDN($domainNameRoot) != 1) {
-                        echo "<span style='font: bold; color: red'>" . xlt('You have to have a fully qualified domain name to use this module to receive inbound text') . "</span><br>";
+                        echo "<span style='font-weight: bold; color: red'>" . xlt('You have to have a fully qualified domain name to use this module to receive inbound text') . "</span><br>";
                     }
                     ?>
                 </div>

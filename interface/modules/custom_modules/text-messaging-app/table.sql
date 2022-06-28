@@ -40,3 +40,11 @@ CREATE TABLE IF NOT EXISTS `text_notification_messages` (
 );
 ALTER TABLE `text_notification_messages` ADD PRIMARY KEY(`id`);
 ALTER TABLE `text_notification_messages` CHANGE `id` `id` INT NOT NULL AUTO_INCREMENT;
+
+CREATE TABLE IF NOT EXISTS `text_settings` (
+    `settingId` int(3) NOT NULL,
+    `settings_type` varchar(45) NOT NULL,
+    `settings` text NULL
+);
+ALTER TABLE `text_settings` ADD PRIMARY KEY(`settingId`);
+ALTER TABLE `text_settings` CHANGE `settingId` `settingId` INT NOT NULL AUTO_INCREMENT;
