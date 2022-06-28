@@ -13,6 +13,6 @@ namespace Juggernaut\App\Model;
     {
         public function getApptStatuses()
         {
-            return sqlStatement("SELECT optionid, title FROM list_options WHERE list_id LIKE ? AND activity = 1", ['apptstat']);
+            return sqlStatement("SELECT option_id, title FROM list_options WHERE list_id LIKE ? AND activity = 1", ['apptstat']);
         }
     }
