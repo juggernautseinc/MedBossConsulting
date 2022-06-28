@@ -55,8 +55,11 @@ $active = '<span class="sr-only">(current)</span>';
                     <form name="theform" id="theform" action="settings.php" method="post">
                         <?php
                             $apptstatuses = new SettingModel();
-                            $showStatuses = $apptstatuses->getApptStatuses();
-                            var_dump($showStatuses);
+                            $statuses = $apptstatuses->getApptStatuses();
+                            foreach($statuses as $status) {
+                                print "<input type='checkbox' name='" . $status['title'] . "' value='" . $status['option_id'] . "'>";
+                                print "<label for='" . $status['title'] . "'>" . $status['title'] . "</label>";
+                            }
                         ?>
                     </form>
                 </div>
