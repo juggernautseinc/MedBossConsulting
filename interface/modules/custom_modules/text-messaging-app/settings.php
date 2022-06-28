@@ -51,7 +51,9 @@ $active = '<span class="sr-only">(current)</span>';
                 </div>
 
                 <?php require_once dirname(__FILE__) . "/views/nav_top.php"; ?>
-                <p class="mt-2" style="font-weight: bolder"><?php echo xlt('When the patients status changes to one of statuses below. What message do you want to send the patient? '); ?></p>
+                <p class="mt-2" style="font-weight: bolder"><?php
+                        echo xlt('When the patients status changes on the calendar to one of statuses below.
+                        What message do you want to send the patient? '); ?></p>
                 <div class="ml-5 mt-2">
                     <form name="theform" id="theform" action="settings.php" method="post">
                         <div class="form-group">
