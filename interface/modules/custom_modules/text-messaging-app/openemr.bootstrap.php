@@ -125,5 +125,5 @@ $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_settings_add_me
      * @var EventDispatcherInterface $eventDispatcher
      * register subscriber to the appointment event
      */
-    $subscriber = new AppointmentsSubscriber();
+    //$subscriber = new AppointmentsSubscriber();
     //$eventDispatcher->addSubscriber($subscriber);
