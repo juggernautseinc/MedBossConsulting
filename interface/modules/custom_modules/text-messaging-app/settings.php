@@ -58,10 +58,10 @@ $active = '<span class="sr-only">(current)</span>';
                             $apptstatuses = new SettingModel();
                             $statuses = $apptstatuses->getApptStatuses();
                             foreach($statuses as $status) {
-                                print "<div class='col-3'>";
+                                print "<div class='col-6'>";
                                 print "<input class='form-check-input' type='checkbox' name='" . $status['title'] . "' value='" . $status['option_id'] . "'>";
                                 print "<label for='" . $status['title'] . "'>" . $status['title'] . "</label>";
-                                print "<div>";
+                                print "</div>";
                             }
                         ?>
                         </div>
