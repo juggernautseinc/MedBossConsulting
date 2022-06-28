@@ -13,9 +13,5 @@ use OpenEMR\Events\Appointments\AppointmentSetEvent;
 
 class TextAppointmentStatusChange
     {
-        public function scheduleChanged(AppointmentSetEvent $event): void
-        {
-            $appointmentInfo = $event->givenAppointmentData();
-            file_put_contents("/var/www/html/errors/apptStatus1.txt", print_r($appointmentInfo, true, PHP_EOL));
-        }
+        //do epic stuff here
     }

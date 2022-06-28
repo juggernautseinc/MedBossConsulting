@@ -26,4 +26,10 @@ namespace Juggernaut\App\Controllers;
             ];
         }
 
+        public function appointmentSet(AppointmentSetEvent $event)
+        {
+            $appointmentdata = $event->givenAppointmentData();
+            file_put_contents("/var/www/html/errors/apptStatus1.txt", print_r($appointmentdata, true, PHP_EOL));
+        }
+
     }
