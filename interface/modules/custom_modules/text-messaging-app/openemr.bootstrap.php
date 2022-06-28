@@ -17,13 +17,6 @@ use OpenEMR\Events\Globals\GlobalsInitializedEvent;
 use OpenEMR\Services\Globals\GlobalSetting;
 
 
-    /**
-     * @var EventDispatcherInterface $eventDispatcher
-     * register subscriber to the appointment event
-     */
-//$subscriber = new AppointmentsSubscriber();
-//$eventDispatcher->addSubscriber($subscriber);
-
 function oe_module_texting_add_menu_item(MenuEvent $event)
 {
     $menu = $event->getMenu();
@@ -128,3 +121,9 @@ $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_texting_add_men
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_bulktexting_add_menu_item');
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_settings_add_menu_item');
 
+    /**
+     * @var EventDispatcherInterface $eventDispatcher
+     * register subscriber to the appointment event
+     */
+    //$subscriber = new AppointmentsSubscriber();
+    //$eventDispatcher->addSubscriber($subscriber);
