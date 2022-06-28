@@ -51,14 +51,16 @@ $active = '<span class="sr-only">(current)</span>';
                 </div>
 
                 <?php require_once dirname(__FILE__) . "/views/nav_top.php"; ?>
-                <div >
+                <div class="ml-5">
                     <form name="theform" id="theform" action="settings.php" method="post">
                         <?php
                             $apptstatuses = new SettingModel();
                             $statuses = $apptstatuses->getApptStatuses();
                             foreach($statuses as $status) {
-                                print "<input type='checkbox' name='" . $status['title'] . "' value='" . $status['option_id'] . "'>";
+                                print "<div class='col-1'>";
+                                print "<input class='form-check-input' type='checkbox' name='" . $status['title'] . "' value='" . $status['option_id'] . "'>";
                                 print "<label for='" . $status['title'] . "'>" . $status['title'] . "</label>";
+                                print "<div>";
                             }
                         ?>
                     </form>
