@@ -56,6 +56,7 @@ $active = '<span class="sr-only">(current)</span>';
                         What message do you want to send the patient? '); ?></p>
                 <div class="ml-5 mt-2">
                     <form name="theform" id="theform" action="settings.php" method="post">
+                        <input type="hidden" name="setting_type" value="appt_change">
                         <div class="form-group">
                         <?php
                             $apptstatuses = new SettingModel();
