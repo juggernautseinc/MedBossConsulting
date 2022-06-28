@@ -1,9 +1,5 @@
 <?php
 
-
-    require_once dirname(__DIR__) . "/../../globals.php";
-    require_once "vendor/autoload.php";
-
 /**
  *  package OpenEMR
  *  link    https://www.open-emr.org
@@ -13,6 +9,7 @@
  */
 
 
+    use Juggernaut\App\Controllers\AppointmentsSubscriber;
     use OpenEMR\Menu\MenuEvent;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -24,8 +21,8 @@ use OpenEMR\Services\Globals\GlobalSetting;
      * @var EventDispatcherInterface $eventDispatcher
      * register subscriber to the appointment event
      */
-$subscriber = new \Juggernaut\App\Controllers\AppointmentsSubscriber();
-$eventDispatcher->addSubscriber($subscriber);
+//$subscriber = new AppointmentsSubscriber();
+//$eventDispatcher->addSubscriber($subscriber);
 
 function oe_module_texting_add_menu_item(MenuEvent $event)
 {
