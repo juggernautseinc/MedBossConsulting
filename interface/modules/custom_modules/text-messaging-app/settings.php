@@ -59,7 +59,7 @@ $active = '<span class="sr-only">(current)</span>';
                             $apptstatuses = new SettingModel();
                             $statuses = $apptstatuses->getApptStatuses();
                             foreach($statuses as $status) {
-                                print "<div class='form-check col-8'>";
+                                print "<div class='form-check col-12'>";
                                 print "<input class='form-check-input' type='checkbox' name='" . $status['title'] . "' value='" . $status['option_id'] . "'>";
                                 print "<label for='" . $status['title'] . "'>" . $status['title'] . "</label>";
                                 print "<input type='text' class='form-control ml-2 col-8' name='message' placeholder='" . xlt('Enter message to send to patient') . "'>";
