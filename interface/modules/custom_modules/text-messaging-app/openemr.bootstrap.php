@@ -1,5 +1,7 @@
 <?php
 
+
+    require_once dirname(__DIR__) . "../../globals.php";
     require_once "vendor/autoload.php";
 
 /**
@@ -10,12 +12,13 @@
  *  All Rights Reserved
  */
 
-    use Juggernaut\App\Controllers\AppointmentsSubscriber;
+
     use OpenEMR\Menu\MenuEvent;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use OpenEMR\Events\Globals\GlobalsInitializedEvent;
 use OpenEMR\Services\Globals\GlobalSetting;
+use Juggernaut\App\Controllers\AppointmentsSubscriber;
 
     /**
      * @var EventDispatcherInterface $eventDispatcher
