@@ -51,16 +51,18 @@ $active = '<span class="sr-only">(current)</span>';
                 </div>
 
                 <?php require_once dirname(__FILE__) . "/views/nav_top.php"; ?>
-                <div class="ml-5">
+                <p><?php echo xlt('Select the status to send a message to patient '); ?></p>
+                <div class="ml-5 mt-5">
                     <form name="theform" id="theform" action="settings.php" method="post">
                         <div class="form-control">
                         <?php
                             $apptstatuses = new SettingModel();
                             $statuses = $apptstatuses->getApptStatuses();
                             foreach($statuses as $status) {
-                                print "<div class='col-6'>";
+                                print "<div class='col-2'>";
                                 print "<input class='form-check-input' type='checkbox' name='" . $status['title'] . "' value='" . $status['option_id'] . "'>";
                                 print "<label for='" . $status['title'] . "'>" . $status['title'] . "</label>";
+                                print "<input type='text' class='col-8' name='message'>";
                                 print "</div>";
                             }
                         ?>
