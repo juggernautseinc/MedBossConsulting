@@ -8,6 +8,7 @@
  *  All Rights Reserved
  */
 
+require_once dirname(__FILE__) . "vendor/autoload.php";
 
     use Juggernaut\App\Controllers\AppointmentsSubscriber;
     use OpenEMR\Menu\MenuEvent;
