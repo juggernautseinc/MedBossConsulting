@@ -15,9 +15,7 @@ class TextAppointmentStatusChange
     {
         public function scheduleChanged(AppointmentSetEvent $event): void
         {
-            $events = AppointmentsSubscriber::getSubscribedEvents();
             $appointmentInfo = $event->givenAppointmentData();
-            file_put_contents("/var/www/html/errors/apptStatus.txt", print_r($appointmentInfo, true, PHP_EOL));
-            file_put_contents("/var/www/html/errors/apptStatus.txt", print_r($events, true, PHP_EOL));
+            file_put_contents("/var/www/html/errors/apptStatus1.txt", print_r($appointmentInfo, true, PHP_EOL));
         }
     }
