@@ -54,7 +54,7 @@ $active = '<span class="sr-only">(current)</span>';
                 <p class="mt-2"><?php echo xlt('Select the status to send a message to patient '); ?></p>
                 <div class="ml-5 mt-2">
                     <form name="theform" id="theform" action="settings.php" method="post">
-                        <div class="row">
+                        <div class="form-group">
                         <?php
                             $apptstatuses = new SettingModel();
                             $statuses = $apptstatuses->getApptStatuses();
