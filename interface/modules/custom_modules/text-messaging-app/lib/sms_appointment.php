@@ -18,7 +18,7 @@ use Juggernaut\App\Controllers\SendMessage;
 $process = new NotificationModel();
 
 $personsToBeContacted = $process->getAppointments();
-
+var_dump($personsToBeContacted); die;
 foreach ($personsToBeContacted as $person) {
      if ($person['phone_cell'] == '') {
          continue;
