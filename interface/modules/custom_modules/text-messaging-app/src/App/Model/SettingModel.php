@@ -24,6 +24,6 @@ namespace Juggernaut\App\Model;
 
         public function statusOfSmsService()
         {
-            return sqlQuery("SELECT `active` FROM `background_service` WHERE `name` = ?", ['SMS_REMINDERS']);
+            return sqlQuery("SELECT `active` FROM `background_services` WHERE `name` = ?", ['SMS_REMINDERS']);
         }
     }
