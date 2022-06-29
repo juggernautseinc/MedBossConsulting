@@ -30,6 +30,7 @@ if ($_POST['enableSms'] || $_POST['disableSms']) {
         die('here');
         $apptstatuses->enableSmsServices();
     } else {
+        die('here2');
         $apptstatuses->disableSmsServices();
     }
 }
