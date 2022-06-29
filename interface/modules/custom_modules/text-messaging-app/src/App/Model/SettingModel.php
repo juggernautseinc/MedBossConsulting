@@ -26,4 +26,14 @@ namespace Juggernaut\App\Model;
         {
             return sqlQuery("SELECT `active` FROM `background_services` WHERE `name` = ?", ['SMS_REMINDERS']);
         }
+
+        public function enableSmsServices(): void
+        {
+            sqlStatement("UPDATE background_services SET active = 1 WHERE name = ?", ['SMS_REMINDERS']);
+        }
+
+        public function disableSmsServices(): void
+        {
+            sqlStatement("UPDATE background_services SET active = 0 WHERE name = ?", ['SMS_REMINDERS']);
+        }
     }

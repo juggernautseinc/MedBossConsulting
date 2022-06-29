@@ -12,11 +12,26 @@ require_once dirname(__DIR__, 3) . '/globals.php';
 require_once dirname(__FILE__) . "/vendor/autoload.php";
 
     use Juggernaut\App\Model\SettingModel;
-    use OpenEMR\Core\Header,
-    Juggernaut\App\Model\NotificationModel;
+    use OpenEMR\Core\Header;
+    use Juggernaut\App\Model\NotificationModel;
+    use OpenEMR\Common\Csrf\CsrfUtils;
 
 $data = new NotificationModel();
 $apptstatuses = new SettingModel();
+
+    if (!empty($_POST['token'])) {
+        if (!CsrfUtils::verifyCsrfToken($_POST["token"])) {
+            CsrfUtils::csrfNotVerified();
+        }
+    }
+
+if ($_POST['enableSms'] || $_POST['disableSms']) {
+    if ($_POST['enableSms']) {
+        $apptstatuses->enableSmsServices();
+    } else {
+        $apptstatuses->disableSmsServices();
+    }
+}
 
 $activeStatus =  $apptstatuses->statusOfSmsService();
 echo $activeStatus['active'] . " is it active?";
@@ -57,13 +72,15 @@ $active = '<span class="sr-only">(current)</span>';
                 <div class="m-3">
                     <?php if(!$activeStatus) { ?>
                     <form class="" method="post" action="settings.php" name="enableSMSService">
-                        <input type="hidden" name="enable" value="1">
-                        <input type="submit" class="btn btn-success" value="Enable">
+                        <input type="hidden" name="enableSms" value="1">
+                        <input type="hidden" name="token" value="<?php echo attr(CsrfUtils::collectCsrfToken()); ?>">
+                        <input type="submit" class="btn btn-success" value="Enable" title="This will enable the sending SMS messages">
                     </form>
                     <?php } else { ?>
                         <form class="" method="post" action="settings.php" name="enableSMSService">
-                            <input type="hidden" name="enable" value="0">
-                            <input type="submit" class="btn btn-danger" value="Disable">
+                            <input type="hidden" name="disableSms" value="0">
+                            <input type="hidden" name="token" value="<?php echo attr(CsrfUtils::collectCsrfToken()); ?>">
+                            <input type="submit" class="btn btn-danger" value="Disable" title="This will stop the sending of SMS messages">
                         </form>
                     <?php } ?>
                 </div>
