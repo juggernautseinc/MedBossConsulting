@@ -25,12 +25,12 @@ $apptstatuses = new SettingModel();
         }
     }
 
-if ($_POST['enableSms'] == 1) {
-    $apptstatuses->enableSmsServices();
+if ((int)$_POST['enableSms'] == 1) {
+    echo $apptstatuses->enableSmsServices();
 }
-    if ($_POST['disableSms'] == 0) {
-        $apptstatuses->disableSmsServices();
-    }
+if ((int)$_POST['disableSms'] == 0) {
+    $apptstatuses->disableSmsServices();
+}
 
 
 $activeStatus =  $apptstatuses->statusOfSmsService();
