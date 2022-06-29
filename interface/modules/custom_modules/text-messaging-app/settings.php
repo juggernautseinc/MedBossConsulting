@@ -27,6 +27,7 @@ $apptstatuses = new SettingModel();
 
 if ($_POST['enableSms'] || $_POST['disableSms']) {
     if ($_POST['enableSms']) {
+        die('here');
         $apptstatuses->enableSmsServices();
     } else {
         $apptstatuses->disableSmsServices();
