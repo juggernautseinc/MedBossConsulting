@@ -23,14 +23,17 @@ $apptstatuses = new SettingModel();
         if (!CsrfUtils::verifyCsrfToken($_POST["token"])) {
             CsrfUtils::csrfNotVerified();
         }
+
+        if ((int)$_POST['enableSms'] == 1) {
+            echo 'POST 1';//$apptstatuses->enableSmsServices();
+        }
+        if ((int)$_POST['disableSms'] == 0) {
+            echo 'POST 2';//$apptstatuses->disableSmsServices();
+        }
+
     }
 
-if ((int)$_POST['enableSms'] == 1) {
-    echo 'POST 1';//$apptstatuses->enableSmsServices();
-}
-if ((int)$_POST['disableSms'] == 0) {
-    echo 'POST 2';//$apptstatuses->disableSmsServices();
-}
+
 
 
 $activeStatus =  $apptstatuses->statusOfSmsService();

@@ -22,6 +22,9 @@ namespace Juggernaut\App\Model;
             return $listArray;
         }
 
+        /**
+         * @return array|false|null
+         */
         public function statusOfSmsService()
         {
             return sqlQuery("SELECT `active` FROM `background_services` WHERE `name` = ?", ['SMS_REMINDERS']);
@@ -29,13 +32,13 @@ namespace Juggernaut\App\Model;
 
         public function enableSmsServices(): string
         {
-            sqlStatement("UPDATE `background_services` SET `active` = '1' WHERE `name` = ?", ['SMS_REMINDERS']);
+            sqlStatement("UPDATE `background_services` SET `active` = 1 WHERE `name` = ?", ['SMS_REMINDERS']);
             return "Success";
         }
 
         public function disableSmsServices(): string
         {
-            sqlStatement("UPDATE `background_services` SET `active` = '0' WHERE name = ?", ['SMS_REMINDERS']);
+            sqlStatement("UPDATE `background_services` SET `active` = 0 WHERE name = ?", ['SMS_REMINDERS']);
             return "Success";
         }
     }
