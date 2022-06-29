@@ -55,10 +55,17 @@ $active = '<span class="sr-only">(current)</span>';
 
                 <?php require_once dirname(__FILE__) . "/views/nav_top.php"; ?>
                 <div class="m-3">
+                    <?php if(!$activeStatus) { ?>
                     <form class="" method="post" action="settings.php" name="enableSMSService">
                         <input type="hidden" name="enable" value="1">
-                        <input type="submit" value="Enable">
+                        <input type="submit" class="btn btn-success" value="Enable">
                     </form>
+                    <?php } else { ?>
+                        <form class="" method="post" action="settings.php" name="enableSMSService">
+                            <input type="hidden" name="enable" value="0">
+                            <input type="submit" class="btn btn-danger" value="Disable">
+                        </form>
+                    <?php } ?>
                 </div>
 
                 <p class="mt-2" style="font-weight: bolder"><?php
