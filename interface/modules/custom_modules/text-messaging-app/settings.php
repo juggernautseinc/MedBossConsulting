@@ -18,8 +18,8 @@ require_once dirname(__FILE__) . "/vendor/autoload.php";
 $data = new NotificationModel();
 $apptstatuses = new SettingModel();
 
-echo $apptstatuses->statusOfSmsService()['active'];
-
+$activeStatus =  $apptstatuses->statusOfSmsService();
+echo $activeStatus['active'] . " is it active?";
 function IsValidFQDN($FQDN): bool
 {
         return (!empty($FQDN) && preg_match('/(?=^.{1,254}$)(^(?:(?!\d|-)[a-z0-9\-]{1,63}(?<!-)\.)+(?:[a-z]{2,})$)/i', $FQDN) > 0);
