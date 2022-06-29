@@ -70,7 +70,7 @@ $active = '<span class="sr-only">(current)</span>';
 
                 <?php require_once dirname(__FILE__) . "/views/nav_top.php"; ?>
                 <div class="m-3">
-                    <?php if ($activeStatus['active'] === 0) { ?>
+                    <?php if ($activeStatus['active'] == 0) { ?>
                     <form class="" method="post" action="settings.php" name="enableSMSService">
                         <input type="hidden" name="enableSms" value="1">
                         <input type="hidden" name="token" value="<?php echo attr(CsrfUtils::collectCsrfToken()); ?>">
