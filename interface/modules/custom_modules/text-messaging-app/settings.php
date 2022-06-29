@@ -25,7 +25,7 @@ $apptstatuses = new SettingModel();
         }
 
         if ((int)$_POST['enableSms'] == 1) {
-            echo 'POST 1 ' . (int)$_POST['enableSms'];//$apptstatuses->enableSmsServices();
+            echo $apptstatuses->enableSmsServices();
         }
 
     }
