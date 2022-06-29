@@ -16,6 +16,9 @@ require_once dirname(__FILE__) . "/vendor/autoload.php";
     Juggernaut\App\Model\NotificationModel;
 
 $data = new NotificationModel();
+$apptstatuses = new SettingModel();
+
+echo $apptstatuses->statusOfSmsService()['active'];
 
 function IsValidFQDN($FQDN): bool
 {
@@ -51,6 +54,13 @@ $active = '<span class="sr-only">(current)</span>';
                 </div>
 
                 <?php require_once dirname(__FILE__) . "/views/nav_top.php"; ?>
+                <div class="m-3">
+                    <form class="" method="post" action="settings.php" name="enableSMSService">
+                        <input type="hidden" name="enable" value="1">
+                        <input type="submit" value="Enable">
+                    </form>
+                </div>
+
                 <p class="mt-2" style="font-weight: bolder"><?php
                         echo xlt('When the patients status changes on the calendar to one of statuses below.
                         What message do you want to send the patient? '); ?></p>
@@ -59,7 +69,7 @@ $active = '<span class="sr-only">(current)</span>';
                         <input type="hidden" name="setting_type" value="appt_change">
                         <div class="form-group">
                         <?php
-                            $apptstatuses = new SettingModel();
+
                             $statuses = $apptstatuses->getApptStatuses();
                             foreach($statuses as $status) {
                                 print "<div class='form-check col-12'>";
