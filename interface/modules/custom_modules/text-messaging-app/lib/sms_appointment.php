@@ -18,7 +18,6 @@ use Juggernaut\App\Controllers\SendMessage;
 $process = new NotificationModel();
 
 $personsToBeContacted = $process->getAppointments();
-echo "<pre>"; var_dump($personsToBeContacted); die;
 foreach ($personsToBeContacted as $person) {
      if ($person['phone_cell'] == '') {
          continue;
@@ -36,7 +35,7 @@ foreach ($personsToBeContacted as $person) {
     $sdate = date("Y-m-d H:i:s");
     $sql_loginsert = "INSERT INTO `notification_log` ( `iLogId` , `pid` , `pc_eid` , `sms_gateway_type` , `message` , `type` , `patient_info` , `smsgateway_info` , `pc_eventDate` , `pc_endDate` , `pc_startTime` , `pc_endTime` , `dSentDateTime` ) VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-    $safe = array($person['pc_pid'], $person['pc_eid'], 'TEXTBELT', $message, 'SMS' || '', $patient_info, $response, $person['pc_eventDate'], $person['pc_endDate'], $person['pc_startTime'], $person['pc_endTime'], $sdate);
+    $safe = array($person['pid'], $person['pc_eid'], 'TEXTBELT', $message, 'SMS' || '', $patient_info, $response, $person['pc_eventDate'], $person['pc_endDate'], $person['pc_startTime'], $person['pc_endTime'], $sdate);
 
     $db_loginsert = sqlStatement($sql_loginsert, $safe);
 }
