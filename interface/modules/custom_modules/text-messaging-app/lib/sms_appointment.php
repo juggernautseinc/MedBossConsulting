@@ -30,6 +30,7 @@ foreach ($personsToBeContacted as $person) {
     $response = SendMessage::outBoundMessage($cellNumber, $message);
 
     $sdate = date("Y-m-d H:i:s");
+    $patient_info = '';
     $patient_info = $person['title'] . " " . $person['fname'] . " " . $person['mname'] . " " . $person['lname'] . "|||" . $person['phone_cell'] . "|||" . $person['email'];
     $data_info = $person['pc_eventDate'] . "|||" . $person['pc_endDate'] . "|||" . $person['pc_startTime'] . "|||" . $person['pc_endTime'];
     $sdate = date("Y-m-d H:i:s");
