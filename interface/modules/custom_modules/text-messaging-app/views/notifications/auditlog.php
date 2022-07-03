@@ -24,12 +24,12 @@ use OpenEMR\Core\Header;
     <?php Header::setupHeader(['common']) ?>
 </head>
 <body>
-<div class="container container-main m-5">
+<div class="container-main m-5">
     <div class="mt-3">
         <h1><?php echo xlt('Audit Log'); ?></h1>
     </div>
     <div class="mt-3">
-        <table class="table table-striped">
+        <table class="table table-striped" id="auditTrail">
             <caption><?php echo xlt('SMS notifications to patients'); ?></caption>
             <th scope="col"><?php echo xlt("iLogId"); ?></th>
             <th scope="col"><?php echo xlt("Status"); ?></th>
@@ -48,4 +48,9 @@ use OpenEMR\Core\Header;
     </div>
 </div>
 </body>
+<script>
+    $(document).ready(function () {
+        $('#auditTrail').DataTable();
+    });
+</script>
 </html>
