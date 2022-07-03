@@ -68,7 +68,6 @@ use OpenEMR\Core\Header;
                 'scrollCollapse': true,
                 'scrollX': true,
                 'paging': true,
-                <?php require($GLOBALS['srcdir'] . '/js/xl/datatables-net.js.php'); ?>
             });
         });
     </script>
