@@ -25,4 +25,13 @@ class Notification
         return (new View('notifications/index', $data->getPatientTextMessages()))->render();
     }
 
+    /**
+     * @throws ViewNotFoundException
+     */
+    public function auditlog(): string
+    {
+        $data = new NotificationModel();
+        return (new View('notifications/auditlog', $data->getPatientTextMessages()))->render();
+    }
+
 }

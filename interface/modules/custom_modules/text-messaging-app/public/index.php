@@ -29,6 +29,7 @@ $router = new Juggernaut\App\Router();
 $router
     ->get('/interface/modules/custom_modules/text-messaging-app/public/index.php/home', [Home::class, 'index'])
     ->get('/interface/modules/custom_modules/text-messaging-app/public/index.php/notifications', [Notification::class, 'index'])
+    ->get('/interface/modules/custom_modules/text-messaging-app/public/index.php/auditlog', [Notification::class, 'auditlog'])
     ->get('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices', [Invoice::class, 'index'])
     ->get('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices/create', [Invoice::class, 'create'])
     ->post('/interface/modules/custom_modules/text-messaging-app/public/index.php/invoices/create', [Invoice::class, 'store'])
