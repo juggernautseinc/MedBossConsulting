@@ -38,13 +38,14 @@ use OpenEMR\Core\Header;
     <div class="mt-3">
         <table class="table table-striped auditTrail" id="auditTrail">
             <caption><?php echo xlt('SMS notifications to patients'); ?></caption>
-            <tr>
+            <thead>
                 <th scope="col"><?php echo xlt("iLogId"); ?></th>
                 <th scope="col"><?php echo xlt("Status"); ?></th>
                 <th scope="col"><?php echo xlt("Patient"); ?></th>
                 <th scope="col"><?php echo xlt("Date Time Sent"); ?></th>
                 <th scope="col"><?php echo xlt("Appointment Date"); ?></th>
-            </tr>
+            </thead>
+            <tbody>
             <?php
                 foreach ($this->params as $param) {
                     print "<tr>";
@@ -62,7 +63,7 @@ use OpenEMR\Core\Header;
                     print "</tr>";
                 }
             ?>
-
+            </tbody>
         </table>
     </div>
 </div>
