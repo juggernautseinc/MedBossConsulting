@@ -42,7 +42,11 @@ use OpenEMR\Core\Header;
             <?php
                 foreach ($this->params as $param) {
                     print "<tr>";
-                    print "<td>" . $param['iLogId'] . "</td>" ;
+                    print "<td>" . $param['iLogId'] . "</td>";
+                    print "<td>" . $param['smsgateway_info'] . "</td>";
+                    print "<td>" . $param['patient_info'] . "</td>";
+                    print "<td>" . $param['dSentDateTime'] . "</td>";
+                    print "<td>" . $param['pc_eventDate'] . " " . $param['pc_eventDate'] . "</td>" ;
                     print "</tr>";
                 }
             ?>
