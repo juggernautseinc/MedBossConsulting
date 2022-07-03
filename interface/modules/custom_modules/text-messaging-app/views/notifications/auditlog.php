@@ -43,7 +43,7 @@ use OpenEMR\Core\Header;
                 foreach ($this->params as $param) {
                     print "<tr>";
                     print "<td>" . $param['iLogId'] . "</td>";
-                    $delivered = json_decode($param['smsgateway_info']);
+                    $delivered = json_decode($param['smsgateway_info'], true);
                     if ($delivered['success'] == 'true') {
                         print "<td>" . xlt('Delivered') . "</td>";
                     } else {
