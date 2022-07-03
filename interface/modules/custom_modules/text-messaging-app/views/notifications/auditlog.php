@@ -30,6 +30,7 @@ use OpenEMR\Core\Header;
     </div>
     <div class="mt-3">
         <table class="table table-striped">
+            <caption><?php echo xlt('SMS notifications to patients'); ?></caption>
             <th scope="col"><?php echo xlt("iLogId"); ?></th>
             <th scope="col"><?php echo xlt("Status"); ?></th>
             <th scope="col"><?php echo xlt("Patient"); ?></th>
