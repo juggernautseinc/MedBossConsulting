@@ -22,11 +22,7 @@ use OpenEMR\Core\Header;
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo xlt('Audit Log'); ?></title>
     <?php Header::setupHeader(['common',  'datatables', 'datatables-dt', 'datatables-bs', 'datatables-scroller']) ?>
-    <script>
-        $(document).ready(function () {
-            $('#auditTrail').DataTable();
-        });
-    </script>
+
 </head>
 <body>
 <div class="container-fluid m-5">
@@ -36,11 +32,13 @@ use OpenEMR\Core\Header;
     <div class="mt-3">
         <table class="table table-striped" id="auditTrail">
             <caption><?php echo xlt('SMS notifications to patients'); ?></caption>
-            <th scope="col"><?php echo xlt("iLogId"); ?></th>
-            <th scope="col"><?php echo xlt("Status"); ?></th>
-            <th scope="col"><?php echo xlt("Patient"); ?></th>
-            <th scope="col"><?php echo xlt("Date Time Sent"); ?></th>
-            <th scope="col"><?php echo xlt("Appointment Date"); ?></th>
+            <tr>
+                <th scope="col"><?php echo xlt("iLogId"); ?></th>
+                <th scope="col"><?php echo xlt("Status"); ?></th>
+                <th scope="col"><?php echo xlt("Patient"); ?></th>
+                <th scope="col"><?php echo xlt("Date Time Sent"); ?></th>
+                <th scope="col"><?php echo xlt("Appointment Date"); ?></th>
+            </tr>
             <?php
                 foreach ($this->params as $param) {
                     print "<tr>";
@@ -51,6 +49,11 @@ use OpenEMR\Core\Header;
 
         </table>
     </div>
+    <script>
+        $(document).ready(function () {
+            $('#auditTrail').DataTable();
+        });
+    </script>
 </div>
 </body>
 </html>
