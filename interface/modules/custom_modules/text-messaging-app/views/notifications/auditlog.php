@@ -50,7 +50,7 @@ use OpenEMR\Core\Header;
                         print "<td>" . xlt('Unsuccessful') . "</td>";
                     }
                     $patientInfo = explode("|||", $param['patient_info']);
-                    print "<td>" . text($patientInfo[0]) . " " . text($patientInfo[1]) . " " . $patientInfo[3] . "</td>";
+                    print "<td>" . text($patientInfo[0]) . " " . text($patientInfo[1]) . " " . text($patientInfo[2]) . "</td>";
                     print "<td>" . $param['dSentDateTime'] . "</td>";
                     print "<td>" . $param['pc_eventDate'] . " " . $param['pc_startTime'] . "</td>" ;
                     print "</tr>";
