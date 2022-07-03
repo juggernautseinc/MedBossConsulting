@@ -22,8 +22,13 @@ use OpenEMR\Core\Header;
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo xlt('Audit Log'); ?></title>
     <?php Header::setupHeader(['common',  'datatables', 'datatables-dt', 'datatables-bs', 'datatables-scroller']) ?>
-
-
+    <script>
+        $(function () {
+            $('#auditTrail').DataTable({
+                stripeClasses:['stripe1','stripe2']
+            });
+        });
+    </script>
 </head>
 <body>
 <div class="container-fluid m-5">
@@ -60,17 +65,6 @@ use OpenEMR\Core\Header;
 
         </table>
     </div>
-    <script>
-        $(document).ready(function () {
-            $('#auditTrail').DataTable({
-                'processing': true,
-                'scrollY': '300px',
-                'scrollCollapse': true,
-                'scrollX': true,
-                'paging': true,
-            });
-        });
-    </script>
 </div>
 </body>
 </html>
