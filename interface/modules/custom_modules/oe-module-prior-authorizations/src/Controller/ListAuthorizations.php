@@ -61,7 +61,10 @@ class ListAuthorizations
         $array_merger = array_push($formsAuths, $formMiscBilling);
         $moduleAuths = self::getAuthsFromModulePriorAuth();
 
-        if (!empty($moduleAuths) &&  !empty($array_merger)) {
+        if (isset($moduleAuths)) {
+            if (!isset($array_merger)) {
+                return;
+            }
             $insertArray = array_diff($moduleAuths, $array_merger);
             foreach ($insertArray as $auth) {
                 $isinstalled = sqlQuery("SELECT 1 FROM `form_prior_auth` LIMIT 1");
