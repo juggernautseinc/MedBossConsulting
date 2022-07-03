@@ -31,7 +31,7 @@ class Notification
     public function auditlog(): string
     {
         $data = new NotificationModel();
-        return (new View('notifications/auditlog', $data->getPatientTextMessages()))->render();
+        return (new View('notifications/auditlog', $data->getLogEntries()))->render();
     }
 
 }

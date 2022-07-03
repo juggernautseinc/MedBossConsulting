@@ -94,4 +94,9 @@ class NotificationModel
         return str_replace('-', '', $number);
     }
 
+    public function getLogEntries()
+    {
+        return sqlStatement("SELECT * FROM `notification_log` WHERE sms_gateway_type = 'TEXTBELT'");
+    }
+
 }

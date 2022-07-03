@@ -10,6 +10,7 @@
 
 use OpenEMR\Core\Header;
 
+var_dump($data);
 ?>
 
 <!doctype html>
@@ -25,6 +26,7 @@ use OpenEMR\Core\Header;
 <body>
 <div class="container-fluid container-main m-5">
     <h1><?php echo xlt('Audit Log'); ?></h1>
+
 </div>
 </body>
 </html>
