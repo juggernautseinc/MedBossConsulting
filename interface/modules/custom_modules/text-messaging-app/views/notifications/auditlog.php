@@ -23,6 +23,7 @@ use OpenEMR\Core\Header;
     <title><?php echo xlt('Audit Log'); ?></title>
     <?php Header::setupHeader(['common',  'datatables', 'datatables-dt', 'datatables-bs', 'datatables-scroller']) ?>
 
+
 </head>
 <body>
 <div class="container-fluid m-5">
@@ -62,6 +63,7 @@ use OpenEMR\Core\Header;
     <script>
         $(document).ready(function () {
             $('#auditTrail').DataTable();
+            <?php require($GLOBALS['srcdir'] . '/js/xl/datatables-net.js.php'); ?>
         });
     </script>
 </div>
