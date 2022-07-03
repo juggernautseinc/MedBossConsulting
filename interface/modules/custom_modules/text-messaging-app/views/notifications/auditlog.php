@@ -30,11 +30,13 @@ use OpenEMR\Core\Header;
     </div>
     <div class="mt-3">
         <table class="table table-striped">
+            <pre>
             <?php
                 foreach ($this->params as $param) {
                     var_dump($param);
                 }
             ?>
+                </pre>
         </table>
     </div>
 </div>
