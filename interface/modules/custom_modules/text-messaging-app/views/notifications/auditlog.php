@@ -31,7 +31,7 @@ use OpenEMR\Core\Header;
     </script>
 </head>
 <body>
-<div class="container m-5">
+<div class="container-main m-5">
     <div class="mt-3">
         <h1><?php echo xlt('Audit Log'); ?></h1>
     </div>
@@ -41,7 +41,7 @@ use OpenEMR\Core\Header;
             <tr>
                 <th scope="col"><?php echo xlt("iLogId"); ?></th>
                 <th scope="col"><?php echo xlt("Status"); ?></th>
-                <th scope="col" style='width: 600px'><?php echo xlt("Patient"); ?></th>
+                <th scope="col"><?php echo xlt("Patient"); ?></th>
                 <th scope="col"><?php echo xlt("Date Time Sent"); ?></th>
                 <th scope="col"><?php echo xlt("Appointment Date"); ?></th>
             </tr>
