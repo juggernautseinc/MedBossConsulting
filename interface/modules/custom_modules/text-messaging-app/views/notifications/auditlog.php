@@ -21,7 +21,7 @@ use OpenEMR\Core\Header;
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo xlt('Audit Log'); ?></title>
-    <?php Header::setupHeader(['common',  'datatables', 'datatables-dt', 'datatables-bs', 'datatables-scroller']) ?>
+    <?php Header::setupHeader(['common',  'datatables', 'datatables-dt', 'datatables-bs']) ?>
     <script>
         $(function () {
             $('#auditTrail').DataTable({
@@ -41,7 +41,7 @@ use OpenEMR\Core\Header;
             <tr>
                 <th scope="col"><?php echo xlt("iLogId"); ?></th>
                 <th scope="col"><?php echo xlt("Status"); ?></th>
-                <th scope="col"><?php echo xlt("Patient"); ?></th>
+                <th scope="col" style='width=600px'><?php echo xlt("Patient"); ?></th>
                 <th scope="col"><?php echo xlt("Date Time Sent"); ?></th>
                 <th scope="col"><?php echo xlt("Appointment Date"); ?></th>
             </tr>
