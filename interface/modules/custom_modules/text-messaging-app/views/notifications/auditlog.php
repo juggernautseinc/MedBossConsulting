@@ -10,7 +10,7 @@
 
 use OpenEMR\Core\Header;
 
-var_dump($data);
+var_dump($this->params);
 ?>
 
 <!doctype html>
