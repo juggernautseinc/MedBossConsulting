@@ -46,7 +46,7 @@ use OpenEMR\Core\Header;
                     print "<td>" . $param['smsgateway_info'] . "</td>";
                     print "<td>" . $param['patient_info'] . "</td>";
                     print "<td>" . $param['dSentDateTime'] . "</td>";
-                    print "<td>" . $param['pc_eventDate'] . " " . $param['pc_eventDate'] . "</td>" ;
+                    print "<td>" . $param['pc_eventDate'] . " " . $param['pc_startTime'] . "</td>" ;
                     print "</tr>";
                 }
             ?>
