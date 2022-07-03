@@ -98,8 +98,8 @@ function oe_module_logs_add_menu_item(MenuEvent $event)
     $menuItem->requirement = 0;
     $menuItem->target = 'tex';
     $menuItem->menu_id = 'tex0';
-    $menuItem->label = xlt("Text Message Center");
-    $menuItem->url = "/interface/modules/custom_modules/text-messaging-app/public/index.php/logs";
+    $menuItem->label = xlt("Audit Log");
+    $menuItem->url = "/interface/modules/custom_modules/text-messaging-app/public/index.php/auditlog";
     $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
     $menuItem->global_req = [];
