@@ -10,7 +10,7 @@
 
 use OpenEMR\Core\Header;
 
-var_dump($this->params);
+
 ?>
 
 <!doctype html>
@@ -24,9 +24,19 @@ var_dump($this->params);
     <?php Header::setupHeader(['common']) ?>
 </head>
 <body>
-<div class="container-fluid container-main m-5">
-    <h1><?php echo xlt('Audit Log'); ?></h1>
-
+<div class="container container-main m-5">
+    <div class="mt-3">
+        <h1><?php echo xlt('Audit Log'); ?></h1>
+    </div>
+    <div class="mt-3">
+        <table class="table table-striped">
+            <?php
+                foreach ($this->params as $param) {
+                    var_dump($param);
+                }
+            ?>
+        </table>
+    </div>
 </div>
 </body>
 </html>
