@@ -36,7 +36,7 @@ use OpenEMR\Core\Header;
         <h1><?php echo xlt('Audit Log'); ?></h1>
     </div>
     <div class="mt-3">
-        <table class="table table-striped stripe" id="auditTrail">
+        <table class="table stripe" id="auditTrail">
             <caption><?php echo xlt('SMS notifications to patients'); ?></caption>
             <thead>
                 <th scope="col"><?php echo xlt("iLogId"); ?></th>
