@@ -22,9 +22,14 @@ use OpenEMR\Core\Header;
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo xlt('Audit Log'); ?></title>
     <?php Header::setupHeader(['common',  'datatables', 'datatables-dt', 'datatables-bs', 'datatables-scroller']) ?>
+    <script>
+        $(document).ready(function () {
+            $('#auditTrail').DataTable();
+        });
+    </script>
 </head>
 <body>
-<div class="container-main m-5">
+<div class="container-fluid m-5">
     <div class="mt-3">
         <h1><?php echo xlt('Audit Log'); ?></h1>
     </div>
@@ -48,9 +53,4 @@ use OpenEMR\Core\Header;
     </div>
 </div>
 </body>
-<script>
-    $(document).ready(function () {
-        $('#auditTrail').DataTable();
-    });
-</script>
 </html>
