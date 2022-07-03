@@ -301,7 +301,7 @@
         "url" : "/interface/modules/zend_modules/public/Installer",
         "children" : [ ],
         "requirement" : 0,
-        "acl_req" : [ "patient", "manage_modules" ]
+        "acl_req" : [ "admin", "manage_modules" ]
     } ],
     "requirement" : 0,
     "acl_req" : [ "menus", "modle" ]
