@@ -43,8 +43,14 @@ use OpenEMR\Core\Header;
                 foreach ($this->params as $param) {
                     print "<tr>";
                     print "<td>" . $param['iLogId'] . "</td>";
-                    print "<td>" . $param['smsgateway_info'] . "</td>";
-                    print "<td>" . $param['patient_info'] . "</td>";
+                    $delivered = json_decode($param['smsgateway_info']);
+                    if ($delivered['success'] == 'true') {
+                        print "<td>" . xlt('Delivered') . "</td>";
+                    } else {
+                        print "<td>" . xlt('Unsuccessful') . "</td>";
+                    }
+                    $patientInfo = explode("|||", $param['patient_info']);
+                    print "<td>" . text($patientInfo[0]) . " " . text($patientInfo[1]) . " " . text($patientInfo[3]) . "</td>";
                     print "<td>" . $param['dSentDateTime'] . "</td>";
                     print "<td>" . $param['pc_eventDate'] . " " . $param['pc_startTime'] . "</td>" ;
                     print "</tr>";
