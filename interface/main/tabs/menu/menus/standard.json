@@ -27,7 +27,7 @@
     "global_req_strict" : [ "!disable_rcb" ]
 }, {
     "label" : "Messages",
-    "menu_id" : "msg0",
+    "menu_id" : "msgimg",
     "target" : "msg",
     "url" : "/interface/main/messages/messages.php?form_active=1",
     "children" : [ ],
