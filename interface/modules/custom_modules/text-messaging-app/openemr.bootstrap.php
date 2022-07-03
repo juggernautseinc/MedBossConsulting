@@ -31,7 +31,7 @@ function oe_module_texting_add_menu_item(MenuEvent $event)
     $menuItem->global_req = [];
 
     foreach ($menu as $item) {
-        if ($item->menu_id == 'msg0') {
+        if ($item->menu_id == 'patimg') {
             $item->children[] = $menuItem;
             break;
         }
@@ -56,7 +56,7 @@ function oe_module_bulktexting_add_menu_item(MenuEvent $event)
     $menuItem->global_req = [];
 
     foreach ($menu as $item) {
-        if ($item->menu_id == 'msg0') {
+        if ($item->menu_id == 'patimg') {
             $item->children[] = $menuItem;
             break;
         }
@@ -105,7 +105,7 @@ function oe_module_logs_add_menu_item(MenuEvent $event)
     $menuItem->global_req = [];
 
     foreach ($menu as $item) {
-        if ($item->menu_id == 'msg0') {
+        if ($item->menu_id == 'patimg') {
             $item->children[] = $menuItem;
             break;
         }
