@@ -30,13 +30,19 @@ use OpenEMR\Core\Header;
     </div>
     <div class="mt-3">
         <table class="table table-striped">
-            <pre>
+            <th scope="col"><?php echo xlt("iLogId"); ?></th>
+            <th scope="col"><?php echo xlt("Status"); ?></th>
+            <th scope="col"><?php echo xlt("Patient"); ?></th>
+            <th scope="col"><?php echo xlt("Date Time Sent"); ?></th>
+            <th scope="col"><?php echo xlt("Appointment Date"); ?></th>
             <?php
                 foreach ($this->params as $param) {
-                    var_dump($param);
+                    print "<tr>";
+                    print "<td>" . $param['iLogId'] . "</td>" ;
+                    print "</tr>";
                 }
             ?>
-                </pre>
+
         </table>
     </div>
 </div>
