@@ -96,7 +96,12 @@ class NotificationModel
 
     public function getLogEntries()
     {
-        return sqlStatement("SELECT * FROM `notification_log` WHERE sms_gateway_type = 'TEXTBELT'");
+        $gather = sqlStatement("SELECT * FROM `notification_log` WHERE sms_gateway_type = 'TEXTBELT'");
+        $logentries = [];
+        while ($frow = sqlFetchArray($gather)) {
+            $logentries[] = $frow;
+        }
+        return $logentries;
     }
 
 }
