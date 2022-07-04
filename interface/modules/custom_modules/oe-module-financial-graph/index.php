@@ -32,4 +32,4 @@ $beginningDepositDate = '2022-05-01';
 $endingDepositDate = '2022-05-31';
 $insurersId = 106;
 
-echo insuranceIncome(beginningDepositDate: $beginningDepositDate, endingDepositDate: $endingDepositDate, insurersId: $insurersId);
+echo insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId);
