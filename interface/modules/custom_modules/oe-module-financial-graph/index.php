@@ -10,7 +10,7 @@
 
 require_once dirname(__FILE__, 4) . "/globals.php";
 
-$paymentsforthemonth = "SELECT (ar_activity.pay_amount) AS payment_sum FROM `ar_activity`
+$paymentsforthemonth = "SELECT ar_activity.pay_amount FROM `ar_activity`
 LEFT JOIN ar_session ON ar_session.session_id = ar_activity.session_id
 WHERE ar_session.payment_type = 'insurance'  AND ar_session.deposit_date BETWEEN '2022-05-01' AND '2022-05-31' AND ar_session.payer_id = 106";
 
@@ -18,7 +18,7 @@ $totalpayments = sqlStatement($paymentsforthemonth);
 
 $u = [];
 while ($iter = sqlFetchArray($totalpayments)) {
-   $u[] = $iter['payment_sum'];
+   $u[] = $iter['pay_amount'];
 }
 
 $display_total_payments = array_sum($u);
