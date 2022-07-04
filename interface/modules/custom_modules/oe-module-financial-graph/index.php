@@ -18,7 +18,7 @@ $totalpayments = sqlStatement($paymentsforthemonth);
 
 $u = [];
 while ($iter = sqlFetchArray($totalpayments)) {
-   $u[] = $iter;
+   $u[] = $iter['payment_sum'];
 }
 
 $display_total_payments = array_sum($u);
