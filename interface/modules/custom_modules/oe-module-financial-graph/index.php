@@ -27,9 +27,21 @@ function insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId)
 
     return array_sum($u);
 }
+$insurersId = 106;
+$beginningDepositDate = '2022-01-01';
+$endingDepositDate = '2022-01-31';
+
+echo "January Income: ";
+echo insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
+
+$beginningDepositDate = '2022-02-01';
+$endingDepositDate = '2022-02-29';
+
+echo "February Income: ";
+echo insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
 
 $beginningDepositDate = '2022-05-01';
 $endingDepositDate = '2022-05-31';
-$insurersId = 106;
 
-echo insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId);
+echo "March Income: ";
+echo insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
