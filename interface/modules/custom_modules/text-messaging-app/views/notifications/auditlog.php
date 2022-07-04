@@ -25,7 +25,7 @@ use OpenEMR\Core\Header;
     <script>
         $(function () {
             $('#auditTrail').DataTable({
-                order: [[1, 'desc']],
+                order: [[0, 'desc']],
             });
         });
     </script>

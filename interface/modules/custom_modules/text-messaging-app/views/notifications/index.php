@@ -31,7 +31,7 @@ $number = $phone->getPatientCell();
     <script>
         $(function () {
             $('#notification').DataTable({
-                order: [['desc']],
+                order: [[0, 'desc']],
             });
         });
     </script>
