@@ -5,7 +5,7 @@
  *  link    https://www.open-emr.org
  *  author  Sherwin Gaddis <sherwingaddis@gmail.com>
  *  Copyright (c) 2022.
- *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
+ *  All Rights Reserved
  */
 
 require_once dirname(__FILE__, 4) . "/globals.php";
@@ -32,4 +32,4 @@ $beginningDepositDate = '2022-05-01';
 $endingDepositDate = '2022-05-31';
 $insurersId = 106;
 
-echo insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId);
+echo insuranceIncome(beginningDepositDate: $beginningDepositDate, endingDepositDate: $endingDepositDate, insurersId: $insurersId);
