@@ -30,7 +30,7 @@ $number = $phone->getPatientCell();
     <?php Header::setupHeader(['common', 'datatables', 'datatables-dt', 'datatables-bs']) ?>
     <script>
         $(function () {
-            $('#auditTrail').DataTable({
+            $('#notification').DataTable({
                 order: [[1, 'desc']],
             });
         });
@@ -49,7 +49,7 @@ $number = $phone->getPatientCell();
                 </div>
                 <?php } ?>
             </div>
-            <table class="table table-striped">
+            <table class="table table-striped" id="notification">
                 <thead>
                     <th scope="col"><?php echo xlt('Date'); ?></th>
                     <th scope="col"><?php echo xlt('From'); ?></th>
