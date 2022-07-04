@@ -27,7 +27,14 @@ $number = $phone->getPatientCell();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="refresh" content="<?php echo $sec?>;URL='<?php echo $page?>'">
     <title><?php echo xlt('Notifications'); ?></title>
-    <?php Header::setupHeader(['common']) ?>
+    <?php Header::setupHeader(['common', 'datatables', 'datatables-dt', 'datatables-bs']) ?>
+    <script>
+        $(function () {
+            $('#auditTrail').DataTable({
+                order: [[1, 'desc']],
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="container-fluid main-container m-5 w-auto">
@@ -43,14 +50,15 @@ $number = $phone->getPatientCell();
                 <?php } ?>
             </div>
             <table class="table table-striped">
-                <tr>
+                <thead>
                     <th scope="col"><?php echo xlt('Date'); ?></th>
                     <th scope="col"><?php echo xlt('From'); ?></th>
                     <th scope="col"><?php echo xlt('Name'); ?></th>
                     <th scope="col"><?php echo xlt('Result'); ?></th>
                     <th scope="col"><?php echo xlt('Message'); ?></th>
                     <th scope="col"><?php echo xlt('Reply'); ?></th>
-                </tr>
+                </thead>
+                <tbody>
                 <?php
                     foreach ($this->params as $item) {
                         print "<tr>";
@@ -77,6 +85,7 @@ $number = $phone->getPatientCell();
                     }
 
                 ?>
+                </tbody>
             </table>
         </div>
     </div>
