@@ -96,7 +96,7 @@ class NotificationModel
 
     public function getLogEntries()
     {
-        $gather = sqlStatement("SELECT * FROM `notification_log` WHERE `sms_gateway_type` = 'TEXTBELT' ORDER BY `iLogId` DESC ");
+        $gather = sqlStatement("SELECT * FROM `notification_log` WHERE `sms_gateway_type` = 'TEXTBELT' ORDER BY `iLogId` DESC LIMIT 100");
         $logentries = [];
         while ($frow = sqlFetchArray($gather)) {
             $logentries[] = $frow;
