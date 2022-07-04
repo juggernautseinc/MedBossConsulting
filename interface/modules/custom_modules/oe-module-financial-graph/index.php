@@ -40,8 +40,21 @@ $endingDepositDate = '2022-02-29';
 echo "February Income: ";
 echo insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
 
+$beginningDepositDate = '2022-03-01';
+$endingDepositDate = '2022-03-31';
+
+echo "March Income: ";
+echo insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
+
+$beginningDepositDate = '2022-04-01';
+$endingDepositDate = '2022-04-31';
+
+echo "April Income: ";
+echo insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
+
+
 $beginningDepositDate = '2022-05-01';
 $endingDepositDate = '2022-05-31';
 
-echo "March Income: ";
+echo "May Income: ";
 echo insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
