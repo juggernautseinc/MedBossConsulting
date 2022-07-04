@@ -37,7 +37,7 @@ use OpenEMR\Core\Header;
     </div>
     <div class="mt-3">
         <table class="table stripe" id="auditTrail">
-            <caption><?php echo xlt('SMS notifications to patients'); ?></caption>
+            <caption><?php echo xlt('Text appointment reminders notification sent to patients'); ?></caption>
             <thead>
                 <th scope="col"><?php echo xlt("iLogId"); ?></th>
                 <th scope="col"><?php echo xlt("Status"); ?></th>
