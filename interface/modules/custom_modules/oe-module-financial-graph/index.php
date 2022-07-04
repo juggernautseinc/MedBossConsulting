@@ -22,4 +22,4 @@ while ($iter = sqlFetchArray($totalpayments)) {
 }
 
 $display_total_payments = array_sum($u);
-
+echo $display_total_payments;
