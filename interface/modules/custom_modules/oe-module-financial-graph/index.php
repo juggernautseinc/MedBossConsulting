@@ -28,33 +28,33 @@ function insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId)
     return array_sum($u);
 }
 $insurersId = 106;
-$beginningDepositDate = '2022-01-01';
-$endingDepositDate = '2022-01-31';
+$beginningDepositDate = date('Y') . '-01-01';
+$endingDepositDate = date('Y') . '-01-31';
 
 echo "January Income: ";
-echo insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
+echo $january = insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
 
-$beginningDepositDate = '2022-02-01';
-$endingDepositDate = '2022-02-28';
+$beginningDepositDate = date('Y') . '-02-01';
+$endingDepositDate = date('Y') . '-02-28';
 
 echo "February Income: ";
-echo insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
+echo $february = insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
 
-$beginningDepositDate = '2022-03-01';
-$endingDepositDate = '2022-03-31';
+$beginningDepositDate = date('Y') . '-03-01';
+$endingDepositDate = date('Y') . '-03-31';
 
 echo "March Income: ";
-echo insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
+echo $march = insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
 
-$beginningDepositDate = '2022-04-01';
-$endingDepositDate = '2022-04-30';
+$beginningDepositDate = date('Y') . '-04-01';
+$endingDepositDate = date('Y') . '-04-30';
 
 echo "April Income: ";
-echo insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
+echo $april = insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
 
 
-$beginningDepositDate = '2022-05-01';
-$endingDepositDate = '2022-05-31';
+$beginningDepositDate = date('Y') . '-05-01';
+$endingDepositDate = date('Y') . '-05-31';
 
 echo "May Income: ";
-echo insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
+echo $may = insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
