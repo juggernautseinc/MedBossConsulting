@@ -12,7 +12,8 @@ require_once dirname(__FILE__, 4) . "/globals.php";
 
 $paymentsforthemonth = "SELECT ar_activity.pay_amount, ar_activity.adj_amount FROM `ar_activity`
 LEFT JOIN ar_session ON ar_session.session_id = ar_activity.session_id
-WHERE ar_session.payment_type = 'insurance'  AND ar_session.deposit_date BETWEEN '2022-05-01' AND '2022-05-31' AND ar_session.payer_id = 106";
+WHERE ar_session.payment_type = 'insurance'  AND ar_session.deposit_date BETWEEN '2022-05-01' AND '2022-05-31' AND ar_session.payer_id = 106
+AND deposit_date IS NOT NULL";
 
 $totalpayments = sqlStatement($paymentsforthemonth);
 
