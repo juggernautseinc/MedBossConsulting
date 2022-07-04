@@ -58,3 +58,9 @@ $endingDepositDate = date('Y') . '-05-31';
 
 echo "May Income: ";
 echo $may = insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
+
+$beginningDepositDate = date('Y') . '-06-01';
+$endingDepositDate = date('Y') . '-06-30';
+
+echo "June Income: ";
+echo $may = insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
