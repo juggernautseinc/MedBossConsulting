@@ -27,7 +27,6 @@ $dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
     array("label" => "May", "y" => '4168.9'),
 	array("label" => "June", "y" => '3945.66')
     );
-    print_r($dataPoints, true);
 ?>
 
 <script type="text/javascript">
@@ -49,7 +48,7 @@ $dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
             {
                 type: "line",
 
-                dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+                dataPoints: <?php echo json_encode($dataPointsToDisplay, JSON_NUMERIC_CHECK); ?>
             }
             ]
         });
