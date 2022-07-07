@@ -156,5 +156,5 @@ echo $may = insuranceIncome($beginningDepositDate, $endingDepositDate, $insurers
 
 
 $dataPoints = buildDataPoints($insurersId);
-
+echo "<pre>";
 var_dump($dataPoints);
