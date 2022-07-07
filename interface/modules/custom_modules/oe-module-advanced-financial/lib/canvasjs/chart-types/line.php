@@ -1,6 +1,10 @@
-<?php include '../header.php'; ?>
-<?php include '../sidebar.php'; ?>
-<?php include '../content.php'; ?>
+<?php
+
+include dirname(__FILE__) . '../header.php';
+include dirname(__FILE__) . '../sidebar.php';
+include dirname(__FILE__) . '../content.php';
+
+?>
 <h1>Line Chart</h1>
 <div id="chartContainer"></div>
 

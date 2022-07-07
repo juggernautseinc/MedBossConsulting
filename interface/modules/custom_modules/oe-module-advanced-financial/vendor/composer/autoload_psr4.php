@@ -15,4 +15,5 @@ return array(
     'Symfony\\Component\\HttpFoundation\\' => array($vendorDir . '/symfony/http-foundation'),
     'Symfony\\Component\\Filesystem\\' => array($vendorDir . '/symfony/filesystem'),
     'Symfony\\Component\\Config\\' => array($vendorDir . '/symfony/config'),
+    'Juggernaut\\' => array($baseDir . '/src'),
 );

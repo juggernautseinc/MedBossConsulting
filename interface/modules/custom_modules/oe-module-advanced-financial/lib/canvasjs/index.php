@@ -2,9 +2,9 @@
 
 require_once dirname(__FILE__, 3) . "/vendor/autoload.php";
 
-require_once 'header.php';
-require_once 'sidebar.php';
-require_once 'content.php';
+require_once dirname(__FILE__) . '/header.php';
+require_once dirname(__FILE__) . '/sidebar.php';
+require_once dirname(__FILE__) . '/content.php';
 
 use Juggernaut\App\MonthlyIncomeDataPoints;
 
