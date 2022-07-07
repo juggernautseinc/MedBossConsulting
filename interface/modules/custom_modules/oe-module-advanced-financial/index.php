@@ -41,10 +41,10 @@ function buildDataPoints($insurersId): array
 
     (int)$currentMonth = date('m');
     $jsonArray = [];
-    $i = 0;
-    while ($i < $currentMonth) {
-        $text = monthText($currentMonth);
-        $depositDateInfo = depositDate($currentMonth);
+    $i = 1;
+    while ($i <= $currentMonth) {
+        $text = monthText($i);
+        $depositDateInfo = depositDate($i);
         $monthIncome = insuranceIncome($depositDateInfo[0], $depositDateInfo[1], $insurersId);
         $jsonArray[] = ['label' => $text, 'y' => $monthIncome];
      $i++;
