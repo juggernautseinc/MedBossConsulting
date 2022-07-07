@@ -3,7 +3,7 @@
 		<div id="sidebar" class="sidebar-toggle">
 			<ul class="nav nav-sidebar">
 					<li>
-							<a href="../">
+							<a href="../canvasjs">
 									<i class="fa fa-home" aria-hidden="true"></i>
 									<span>HOME</span>
 							</a>
@@ -19,29 +19,29 @@
 
 					<li>
 						<ul id="chart-types" class="sub-menu collapse">
-							<li><a href="../chart-types/column.php">Column Chart</a></li>
-							<li><a href="../chart-types/line.php">Line Chart</a></li>
-							<li><a href="../chart-types/step-line.php">Step Line Chart</a></li>
-							<li><a href="../chart-types/spline.php">Spline Chart</a></li>
-							<li><a href="../chart-types/step-area.php">Step Area Chart</a></li>
-							<li><a href="../chart-types/area.php">Area Chart</a></li>
-							<li><a href="../chart-types/spline-area.php">Spline Area Chart</a></li>
-                            <li><a href="../chart-types/bar.php">Bar Chart</a></li>
-							<li><a href="../chart-types/pie.php">Pie Chart</a></li>
-							<li><a href="../chart-types/doughnut.php">Doughnut Chart</a></li>
-							<li><a href="../chart-types/bubble.php">Bubble Chart</a></li>
-							<li><a href="../chart-types/scatter.php">Scatter Chart</a></li>
-							<li><a href="../chart-types/stacked-column.php">Stacked Column Chart</a></li>
-							<li><a href="../chart-types/stacked-column100.php">Stacked Column 100% Chart</a></li>
-							<li><a href="../chart-types/stacked-area.php">Stacked Area Chart</a></li>
-							<li><a href="../chart-types/stacked-area100.php">Stacked Area 100% Chart</a></li>
-							<li><a href="../chart-types/stacked-bar.php">Stacked Bar Chart</a></li>
-							<li><a href="../chart-types/stacked-bar100.php">Stacked Bar 100% Chart</a></li>
-							<!--<li><a href="../chart-types/range-column.php">Range Column Chart</a></li>
-							<li><a href="../chart-types/range-bar.php">Range Bar Chart</a></li>
-							<li><a href="../chart-types/range-area.php">Range Area Chart</a></li>
-							<li><a href="../chart-types/range-spline.php">Range Spline Area Chart</a></li>
-							<li><a href="../chart-types/ohlc.php">OHLC Chart</a></li>
+							<li><a href="../canvasjs/chart-types/column.php">Column Chart</a></li>
+							<li><a href="../canvasjs/chart-types/line.php">Line Chart</a></li>
+							<li><a href="../canvasjs/chart-types/step-line.php">Step Line Chart</a></li>
+							<li><a href="../canvasjs/chart-types/spline.php">Spline Chart</a></li>
+							<li><a href="../canvasjs/chart-types/step-area.php">Step Area Chart</a></li>
+							<li><a href="../canvasjs/chart-types/area.php">Area Chart</a></li>
+							<li><a href="../canvasjs/chart-types/spline-area.php">Spline Area Chart</a></li>
+                            <li><a href="../canvasjs/chart-types/bar.php">Bar Chart</a></li>
+							<li><a href="../canvasjs/chart-types/pie.php">Pie Chart</a></li>
+							<li><a href="../canvasjs/chart-types/doughnut.php">Doughnut Chart</a></li>
+							<li><a href="../canvasjs/chart-types/bubble.php">Bubble Chart</a></li>
+							<li><a href="../canvasjs/chart-types/scatter.php">Scatter Chart</a></li>
+							<li><a href="../canvasjs/chart-types/stacked-column.php">Stacked Column Chart</a></li>
+							<li><a href="../canvasjs/chart-types/stacked-column100.php">Stacked Column 100% Chart</a></li>
+							<li><a href="../canvasjs/chart-types/stacked-area.php">Stacked Area Chart</a></li>
+							<li><a href="../canvasjs/chart-types/stacked-area100.php">Stacked Area 100% Chart</a></li>
+							<li><a href="../canvasjs/chart-types/stacked-bar.php">Stacked Bar Chart</a></li>
+							<li><a href="../canvasjs/chart-types/stacked-bar100.php">Stacked Bar 100% Chart</a></li>
+							<!--<li><a href="../canvasjs/chart-types/range-column.php">Range Column Chart</a></li>
+							<li><a href="../canvasjs/chart-types/range-bar.php">Range Bar Chart</a></li>
+							<li><a href="../canvasjs/chart-types/range-area.php">Range Area Chart</a></li>
+							<li><a href="../canvasjs/chart-types/range-spline.php">Range Spline Area Chart</a></li>
+							<li><a href="../canvasjs/chart-types/ohlc.php">OHLC Chart</a></li>
 							<li><a href="../chart-types/candlestick.php">Candlestick Chart</a></li>-->
 						</ul>
 					</li>
