@@ -1,8 +1,8 @@
 <?php
 
-include dirname(__FILE__) . '../header.php';
-include dirname(__FILE__) . '../sidebar.php';
-include dirname(__FILE__) . '../content.php';
+include '../header.php';
+include '../sidebar.php';
+include '../content.php';
 
 ?>
 <h1>Line Chart</h1>
