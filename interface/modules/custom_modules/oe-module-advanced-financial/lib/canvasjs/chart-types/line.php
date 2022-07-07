@@ -13,6 +13,7 @@ $genDatapoints = new MonthlyIncomeDataPoints();
 $insurersId = 106;
 $dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
 
+var_dump($dataPointsToDisplay);
 ?>
 <h1>Line Chart</h1>
 <div id="chartContainer"></div>
@@ -26,6 +27,7 @@ $dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
     array("label" => "May", "y" => '4168.9'),
 	array("label" => "June", "y" => '3945.66')
     );
+    var_dump($dataPoints);
 ?>
 
 <script type="text/javascript">
