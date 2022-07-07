@@ -120,38 +120,38 @@ function depositDate($month) {
 }
 
 
-echo "January";
+echo "January ";
 echo $january = insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
 
 $beginningDepositDate = date('Y') . '-02-01';
 $endingDepositDate = date('Y') . '-02-28';
 
-echo "February";
+echo "February ";
 echo $february = insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
 
 $beginningDepositDate = date('Y') . '-03-01';
 $endingDepositDate = date('Y') . '-03-31';
 
-echo "March";
+echo "March ";
 echo $march = insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
 
 $beginningDepositDate = date('Y') . '-04-01';
 $endingDepositDate = date('Y') . '-04-30';
 
-echo "April";
+echo "April ";
 echo $april = insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
 
 
 $beginningDepositDate = date('Y') . '-05-01';
 $endingDepositDate = date('Y') . '-05-31';
 
-echo "May";
+echo "May ";
 echo $may = insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br>";
 
 $beginningDepositDate = date('Y') . '-06-01';
 $endingDepositDate = date('Y') . '-06-30';
 
-echo "June";
+echo "June ";
 echo $may = insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId) . "<br><br><br>";
 
 
