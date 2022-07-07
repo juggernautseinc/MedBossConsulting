@@ -4,6 +4,7 @@ include '../headers.php';
 include '../sidebars.php';
 include '../content.php';
 
+require_once dirname(__FILE__, 6) . "/../globals.php";
 require_once dirname(__FILE__, 3) . "/../vendor/autoload.php";
 
 use Juggernaut\App\MonthlyIncomeDataPoints;
