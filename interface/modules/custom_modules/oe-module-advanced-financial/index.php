@@ -52,17 +52,18 @@ function buildDataPoints($insurersId): array
    return $jsonArray;
 }
 
-function monthText($monthNumeral) {
-    return match ((int)$monthNumeral) {
-        1 => xlt("January"),
-        2 => xlt("February"),
-        3 => xlt("March"),
-        4 => xlt("April"),
-        5 => xlt("May"),
-        6 => xlt("June"),
-        7 => xlt("July"),
-        8 => xlt("August"),
-        default => xlt('Error processing month'),
+function monthText($monthNumeral): string
+{
+    return match ($monthNumeral) {
+        1 => "January",
+        2 => "February",
+        3 => "March",
+        4 => "April",
+        5 => "May",
+        6 => "June",
+        7 => "July",
+        8 => "August",
+        default => 'Error processing month',
     };
 }
 
