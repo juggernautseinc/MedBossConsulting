@@ -4,6 +4,14 @@ include '../headers.php';
 include '../sidebars.php';
 include '../content.php';
 
+require_once dirname(__FILE__, 3) . "/vendor/autoload.php";
+
+use Juggernaut\App\MonthlyIncomeDataPoints;
+
+$genDatapoints = new MonthlyIncomeDataPoints();
+$insurersId = 106;
+$dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
+
 ?>
 <h1>Line Chart</h1>
 <div id="chartContainer"></div>
