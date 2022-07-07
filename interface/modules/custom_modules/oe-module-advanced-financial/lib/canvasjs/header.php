@@ -9,19 +9,19 @@
 		<title>PHP Chart Samples using CanvasJS</title>
 
 		<!-- stylesheets -->
-		<link href="../canvasjs/assets/bootstrap.min.css" rel="stylesheet">
-		<link href="../canvasjs/assets/style.css" rel="stylesheet">
-		<link href="../canvasjs/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<link href="../assets/bootstrap.min.css" rel="stylesheet">
+		<link href="..assets/style.css" rel="stylesheet">
+		<link href="..assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 		<!-- scripts -->
 
 		<!--[if lt IE 9 ]>
-		<script src="../canvasjs/assets/js/html5shiv.min.js"></script>
-		<script src="../canvasjs/assets/js/respond.min.js"></script>
+		<script src="../assets/js/html5shiv.min.js"></script>
+		<script src="../assets/js/respond.min.js"></script>
 		<![endif]-->
 
 		<!--script src="/assets/js/	"></script-->
-		<script src="../canvasjs/assets/js/jquery-1.12.4.min.js"></script>
-		<script src="../canvasjs/assets/js/bootstrap.min.js"></script>
+		<script src="../assets/js/jquery-1.12.4.min.js"></script>
+		<script src="../assets/js/bootstrap.min.js"></script>
 
 
 		<script>
