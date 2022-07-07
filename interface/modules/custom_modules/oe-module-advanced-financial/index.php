@@ -47,7 +47,7 @@ function buildDataPoints($insurersId): array
         $depositDateInfo = depositDate($currentMonth);
         $monthIncome = insuranceIncome($depositDateInfo[0], $depositDateInfo[1], $insurersId);
         $jsonArray[] = ['label' => $text, 'y' => $monthIncome];
-
+     $i++;
     }
    return $jsonArray;
 }
