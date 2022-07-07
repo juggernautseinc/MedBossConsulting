@@ -1,4 +1,4 @@
-<?php include '../header.php'; ?>
+<?php include '../headers.php'; ?>
 <?php include '../sidebar.php'; ?>
 <?php include '../content.php'; ?>
 <h1>Column Chart</h1>
@@ -29,7 +29,7 @@
             },
             data: [
             {
-                type: "column",                
+                type: "column",
                 dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
             }
             ]
