@@ -54,17 +54,26 @@ function buildDataPoints($insurersId): array
 
 function monthText($monthNumeral): string
 {
-    return match ($monthNumeral) {
-        1 => "January",
-        2 => "February",
-        3 => "March",
-        4 => "April",
-        5 => "May",
-        6 => "June",
-        7 => "July",
-        8 => "August",
-        default => 'Error processing month',
-    };
+    switch ($monthNumeral) {
+        case 1:
+            return "January";
+        case 2:
+            return "February";
+       case 3:
+           return "March";
+       case 4:
+            return "April";
+       case 5:
+           return "May";
+       case 6:
+           return "June";
+       case 7:
+            return "July";
+       case 8:
+           return "August";
+       default:
+            return 'Error processing month';
+    }
 }
 
 function depositDate($month) {
