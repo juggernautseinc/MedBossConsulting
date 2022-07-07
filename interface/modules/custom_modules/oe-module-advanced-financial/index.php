@@ -3,7 +3,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-die('here');
+
 /**
  *  package OpenEMR
  *  link    https://www.open-emr.org
@@ -45,7 +45,8 @@ function buildDataPoints($insurersId): array
     while ($i < $currentMonth) {
         $text = monthText($currentMonth);
         $depositDateInfo = depositDate($currentMonth);
-        $jsonArray[] = "label => " . $text . ", y => " . insuranceIncome($depositDateInfo[0], $depositDateInfo[1], $insurersId);
+        $monthIncome = insuranceIncome($depositDateInfo[0], $depositDateInfo[1], $insurersId);
+        $jsonArray[] = ['label' => $text, 'y' => $monthIncome];
 
     }
    return $jsonArray;
