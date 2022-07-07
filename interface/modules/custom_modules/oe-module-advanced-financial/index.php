@@ -39,7 +39,7 @@ function insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId)
 function buildDataPoints($insurersId): array
 {
 
-    $currentMonth = date('m');
+    (int)$currentMonth = date('m');
     $jsonArray = [];
     $i = 0;
     while ($i < $currentMonth) {
