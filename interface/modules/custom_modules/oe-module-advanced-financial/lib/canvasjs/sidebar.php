@@ -3,7 +3,7 @@
 		<div id="sidebar" class="sidebar-toggle">
 			<ul class="nav nav-sidebar">
 					<li>
-							<a href="../">
+							<a href="../canvasjs">
 									<i class="fa fa-home" aria-hidden="true"></i>
 									<span>HOME</span>
 							</a>
@@ -19,8 +19,8 @@
 
 					<li>
 						<ul id="chart-types" class="sub-menu collapse">
-							<li><a href="../../chart-types/column.php">Column Chart</a></li>
-							<li><a href="../../chart-types/line.php">Line Chart</a></li>
+							<li><a href="./../chart-types/column.php">Column Chart</a></li>
+							<li><a href="./../chart-types/line.php">Line Chart</a></li>
 							<li><a href="../../chart-types/step-line.php">Step Line Chart</a></li>
 							<li><a href="../../chart-types/spline.php">Spline Chart</a></li>
 							<li><a href="../../chart-types/step-area.php">Step Area Chart</a></li>
