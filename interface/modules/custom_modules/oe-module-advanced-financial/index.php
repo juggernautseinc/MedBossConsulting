@@ -53,7 +53,7 @@ function buildDataPoints($insurersId): array
 }
 
 function monthText($monthNumeral) {
-    return match ($monthNumeral) {
+    return match ((int)$monthNumeral) {
         1 => xlt("January"),
         2 => xlt("February"),
         3 => xlt("March"),
