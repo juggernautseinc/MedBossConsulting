@@ -3,7 +3,7 @@
 		<div id="sidebar" class="sidebar-toggle">
 			<ul class="nav nav-sidebar">
 					<li>
-							<a href="../canvasjs">
+							<a href="../">
 									<i class="fa fa-home" aria-hidden="true"></i>
 									<span>HOME</span>
 							</a>
