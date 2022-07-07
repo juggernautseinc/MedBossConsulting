@@ -8,9 +8,9 @@ require_once 'content.php';
 
 use Juggernaut\App\MonthlyIncomeDataPoints;
 
-$genDatapoints = new MonthlyIncomeDataPoints();
-$insurersId = 106;
-$dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
+//$genDatapoints = new MonthlyIncomeDataPoints();
+//$insurersId = 106;
+//$dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
 ?>
 
 <h1>Home</h1>
