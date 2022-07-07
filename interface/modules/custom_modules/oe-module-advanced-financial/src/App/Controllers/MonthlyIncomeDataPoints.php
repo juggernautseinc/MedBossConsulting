@@ -40,7 +40,9 @@ class MonthlyIncomeDataPoints
             $text = self::monthText($i);
             $depositDateInfo = self::depositDate($i);
             $monthIncome = self::insuranceIncome($depositDateInfo[0], $depositDateInfo[1], $insurersId);
-            $dataPointsArray[] = ['label' => $text, 'y' => $monthIncome];
+            if ($monthIncome > 0) {
+                $dataPointsArray[] = ['label' => $text, 'y' => $monthIncome];
+            }
             $i++;
         }
         return $dataPointsArray;
