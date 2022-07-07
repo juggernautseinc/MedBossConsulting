@@ -13,7 +13,7 @@ $genDatapoints = new MonthlyIncomeDataPoints();
 $insurersId = 106;
 $dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
 
-var_dump($dataPointsToDisplay);
+//var_dump($dataPointsToDisplay);
 ?>
 <h1>Line Chart</h1>
 <div id="chartContainer"></div>
