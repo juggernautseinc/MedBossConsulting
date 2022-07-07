@@ -27,7 +27,7 @@ $dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
     array("label" => "May", "y" => '4168.9'),
 	array("label" => "June", "y" => '3945.66')
     );
-    var_dump($dataPoints);
+    print_r($dataPoints, true);
 ?>
 
 <script type="text/javascript">
