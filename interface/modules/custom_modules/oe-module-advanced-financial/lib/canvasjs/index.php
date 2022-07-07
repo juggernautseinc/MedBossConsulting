@@ -50,4 +50,4 @@ $dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
     });
 </script>
 
-<?php include 'footer.php'; ?>
+<?php include dirname(__FILE__) . '/footer.php'; ?>

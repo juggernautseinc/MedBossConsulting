@@ -5,39 +5,39 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		
+
 		<title>PHP Chart Samples using CanvasJS</title>
-		
+
 		<!-- stylesheets -->
-		<link href="/assets/bootstrap.min.css" rel="stylesheet">
-		<link href="/assets/style.css" rel="stylesheet">
-		<link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<link href="../assets/bootstrap.min.css" rel="stylesheet">
+		<link href="../assets/style.css" rel="stylesheet">
+		<link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 		<!-- scripts -->
-		
-		<!--[if lt IE 9 ]> 
-		<script src="/assets/js/html5shiv.min.js"></script>
-		<script src="/assets/js/respond.min.js"></script>
+
+		<!--[if lt IE 9 ]>
+		<script src="../assets/js/html5shiv.min.js"></script>
+		<script src="../assets/js/respond.min.js"></script>
 		<![endif]-->
-		
+
 		<!--script src="/assets/js/	"></script-->
-		<script src="/assets/js/jquery-1.12.4.min.js"></script>
-		<script src="/assets/js/bootstrap.min.js"></script>
-		
-		
+		<script src="../assets/js/jquery-1.12.4.min.js"></script>
+		<script src="../assets/js/bootstrap.min.js"></script>
+
+
 		<script>
 			$(function () {
 				// #sidebar-toggle-button
 				$('#sidebar-toggle-button').on('click', function () {
 						$('#sidebar').toggleClass('sidebar-toggle');
-						$('#page-content-wrapper').toggleClass('page-content-toggle');	
-						fireResize();					
+						$('#page-content-wrapper').toggleClass('page-content-toggle');
+						fireResize();
 				});
-				
+
 				// sidebar collapse behavior
 				$('#sidebar').on('show.bs.collapse', function () {
 					$('#sidebar').find('.collapse.in').collapse('hide');
 				});
-				
+
 				// To make current link active
 				var pageURL = $(location).attr('href');
 				var URLSplits = pageURL.split('/');
@@ -71,9 +71,9 @@
 			})
 		</script>
 		<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-		
+
 	</head>
-	
+
 	<body>
 		<!-- header -->
 		<nav id="header" class="navbar navbar-fixed-top">
@@ -87,8 +87,8 @@
 							CanvasJS Examples <span class="hidden-xs text-muted">PHP</span>
 						</a>
 					</div>
-					
+
 				</div>
 			</div>
-		</nav> 
-		<!-- /header -->         
+		</nav>
+		<!-- /header -->
