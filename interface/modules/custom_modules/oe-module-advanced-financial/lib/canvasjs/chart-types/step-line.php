@@ -1,5 +1,5 @@
-<?php include '../header.php'; ?>
-<?php include '../sidebar.php'; ?>
+<?php include '../headers.php'; ?>
+<?php include '../sidebars.php'; ?>
 <?php include '../content.php'; ?>
 <h1>Step Line Chart</h1>
 <div id="chartContainer"></div>

@@ -26,13 +26,13 @@
             theme: "light2",
             animationEnabled: true,
             title: {
-                text: "Analysis of Pepper Export - India"
+                text: "Analysis of Insurance Reimbursments"
             },
             axisX: {
                 title: "Year"
             },
             axisY: {
-                title: "In Tonnes"
+                title: "Deposits"
             },
 
             data: [
