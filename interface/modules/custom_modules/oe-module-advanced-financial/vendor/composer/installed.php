@@ -1,24 +1,15 @@
 <?php return array(
     'root' => array(
-        'name' => '__root__',
+        'name' => 'vendor_name/oe-module-advanced-financial',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '14be3999021401f7840804be30c9f9d611c2d0e6',
-        'type' => 'library',
+        'reference' => '2faf10cd9ad18174747e22221216bdd79bff9796',
+        'type' => 'openemr-module',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        '__root__' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '14be3999021401f7840804be30c9f9d611c2d0e6',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../../',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'symfony/config' => array(
             'pretty_version' => 'v5.4.9',
             'version' => '5.4.9.0',
@@ -106,6 +97,15 @@
             'reference' => '04e42926429d9e8b39c174387ab990bf7817f7a2',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/yaml',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'vendor_name/oe-module-advanced-financial' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '2faf10cd9ad18174747e22221216bdd79bff9796',
+            'type' => 'openemr-module',
+            'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

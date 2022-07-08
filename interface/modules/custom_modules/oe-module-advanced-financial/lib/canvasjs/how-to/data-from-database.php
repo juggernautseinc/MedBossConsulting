@@ -1,8 +1,8 @@
-<?php include '../header.php'; ?>
-<?php include '../sidebar.php'; ?>
+<?php include '../headers.php'; ?>
+<?php include '../sidebars.php'; ?>
 <?php include '../content.php'; ?>
 <h1>Render Data From Database</h1>
-<?php 
+<?php
 error_reporting(E_ERROR | E_PARSE);
 $conn = mysqli_connect('localhost:3306', 'root', '');
 if (!$conn) {

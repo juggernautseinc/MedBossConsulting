@@ -84,16 +84,16 @@
 
 					<li>
 						<ul id="how-to" class="sub-menu collapse">
-                                                        <li><a href="../how-to/enable-disable-ds.php">Hide / Show DataSeries</a></li>
-                                                        <li><a href="../how-to/live-chart.php">Dynamic / Live Chart</a></li>
-                                                        <li><a href="../how-to/sync-multiple-charts.php">Sync Mulitple Charts</a></li>
-                                                        <li><a href="../how-to/add-data-points.php">Add Data Points From User Input</a></li>
-                                                        <li><a href="../how-to/multiple-charts-in-a-page.php">Multiple Charts in a Page</a></li>
-                                                        <li><a href="../how-to/play-stop-live-chart.php">Play / Stop Live Chart</a></li>
-							                            <li><a href="../how-to/create-chart-from-json.php">Charts using JSON &amp; AJAX</a></li>
-                                                        <li><a href="../how-to/create-chart-from-xml.php">Charts using XML &amp; AJAX</a></li>
-                                                        <li><a href="../how-to/create-chart-from-csv.php">Charts using CSV &amp; AJAX</a></li>
-                                                        <li><a href="../how-to/data-from-database.php">Render Data from Database</a></li>
+                                                        <li><a href="/canvasjs/how-to/enable-disable-ds.php">Hide / Show DataSeries</a></li>
+                                                        <li><a href="/canvasjs/how-to/live-chart.php">Dynamic / Live Chart</a></li>
+                                                        <li><a href="/canvasjs/how-to/sync-multiple-charts.php">Sync Mulitple Charts</a></li>
+                                                        <li><a href="/canvasjs/how-to/add-data-points.php">Add Data Points From User Input</a></li>
+                                                        <li><a href="/canvasjs/how-to/multiple-charts-in-a-page.php">Multiple Charts in a Page</a></li>
+                                                        <li><a href="/canvasjs/how-to/play-stop-live-chart.php">Play / Stop Live Chart</a></li>
+							                            <li><a href="/canvasjs/how-to/create-chart-from-json.php">Charts using JSON &amp; AJAX</a></li>
+                                                        <li><a href="/canvasjs/how-to/create-chart-from-xml.php">Charts using XML &amp; AJAX</a></li>
+                                                        <li><a href="/canvasjs/how-to/create-chart-from-csv.php">Charts using CSV &amp; AJAX</a></li>
+                                                        <li><a href="/canvasjs/how-to/data-from-database.php">Render Data from Database</a></li>
 						</ul>
 					</li>
 					<!--  /how to  -->
