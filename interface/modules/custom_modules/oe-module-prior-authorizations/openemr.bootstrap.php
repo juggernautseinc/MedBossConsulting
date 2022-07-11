@@ -13,7 +13,7 @@
 
 use OpenEMR\Menu\MenuEvent;
 use OpenEMR\Menu\PatientMenuEvent;
-use OpenEMR\Events\PatientDemographics;
+use OpenEMR\Events\PatientDemographics\RenderEvent;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
