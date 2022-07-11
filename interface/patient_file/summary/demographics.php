@@ -1959,30 +1959,6 @@ if ($track_is_registered) {
         <?php
     }
         ?>
-    document
-        .getElementById('addButton')
-        .addEventListener("click", function (e){
-            if( ! confirm('Do you really want to do this?')){
-                e.preventDefault();
-            } else {
-                alert('Ok, lets do this! Click ok to really mark inactive.');
-                let libUrl = 'patient_status.php';
-                let pid = <?php echo $_SESSION['pid']; ?>;
-                let csrf = <?php echo js_url(CsrfUtils::collectCsrfToken()); ?>;
-                $.ajax({
-                    type: "POST",
-                    url: libUrl,
-                    data: {patientid: pid, csrf_token: csrf},
-                    error: function (qXHR) {
-                        console.log("There was an error");
-                        alert(<?php echo xlj("File Error") ?> +"\n" + id)
-                    },
-                    success: function (result) {
-                        alert(result);
-                    }
-                });
-            }
-        });
 
     <?php $GLOBALS["kernel"]->getEventDispatcher()->dispatch(RenderEvent::EVENT_RENDER_JAVA, new RenderEvent($pid), 10); ?>
 </script>

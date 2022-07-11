@@ -13,6 +13,7 @@
 
 use OpenEMR\Menu\MenuEvent;
 use OpenEMR\Menu\PatientMenuEvent;
+use OpenEMR\Events\PatientDemographics;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -50,6 +51,35 @@ function oe_module_priorauth_patient_menu_item(PatientMenuEvent $menuEvent)
     return $menuEvent;
 }
 
+function renderButtonPostLoad(Event $event) {
+    ?>
+    document
+            .getElementById('addButton')
+            .addEventListener("click", function (e){
+                if( ! confirm('Do you really want to do this?')){
+                     e.preventDefault();
+                } else {
+                alert('Ok, lets do this! Click ok to really mark inactive.');
+                let libUrl = 'patient_status.php';
+                let pid = <?php echo $_SESSION['pid']; ?>;
+                let csrf = <?php echo js_url(CsrfUtils::collectCsrfToken()); ?>;
+            $.ajax({
+                type: "POST",
+                url: libUrl,
+                data: {patientid: pid, csrf_token: csrf},
+                error: function (qXHR) {
+                console.log("There was an error");
+                alert(<?php echo xlj("File Error") ?> +"\n" + id)
+            },
+            success: function (result) {
+                alert(result);
+            }
+        });
+        }
+    });
+<?php
+}
+
 /**
  * @var EventDispatcherInterface $eventDispatcher
  * @var array                    $module
@@ -59,3 +89,4 @@ function oe_module_priorauth_patient_menu_item(PatientMenuEvent $menuEvent)
 
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_priorauth_add_menu_item');
 $eventDispatcher->addListener(PatientMenuEvent::MENU_UPDATE, 'oe_module_priorauth_patient_menu_item');
+$eventDispatcher->addListener(RenderEvent::EVENT_RENDER_JAVA, 'renderButtonPostLoad');
