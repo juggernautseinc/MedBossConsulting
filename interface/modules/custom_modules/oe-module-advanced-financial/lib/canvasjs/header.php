@@ -89,7 +89,7 @@
 					</div>
 					<div class="brand">
 						<a href="../canvasjs/">
-							<?php echo xlt('Advanced Financial Analytics'); ?> <span class="hidden-xs text-muted">PHP</span>
+							<?php echo xlt('Advanced Financial Analytics'); ?> <span class="hidden-xs text-muted"></span>
 						</a>
 					</div>
 

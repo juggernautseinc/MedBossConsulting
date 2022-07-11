@@ -22,10 +22,10 @@
 							<li><a href="../canvasjs/chart-types/column.php">Column Chart</a></li>
 							<li><a href="../canvasjs/chart-types/line.php">Line Chart</a></li>
 							<li><a href="../canvasjs/chart-types/step-line.php">Step Line Chart</a></li>
-							<li><a href="../../chart-types/spline.php">Spline Chart</a></li>
-							<li><a href="../../chart-types/step-area.php">Step Area Chart</a></li>
-							<li><a href="../../chart-types/area.php">Area Chart</a></li>
-							<li><a href="../../chart-types/spline-area.php">Spline Area Chart</a></li>
+							<li><a href="../canvasjs/chart-types/spline.php">Spline Chart</a></li>
+							<li><a href="../canvasjs/chart-types/step-area.php">Step Area Chart</a></li>
+							<li><a href="../canvasjs/chart-types/area.php">Area Chart</a></li>
+							<li><a href="../canvasjs/chart-types/spline-area.php">Spline Area Chart</a></li>
                             <li><a href="../../chart-types/bar.php">Bar Chart</a></li>
 							<li><a href="../../chart-types/pie.php">Pie Chart</a></li>
 							<li><a href="../../chart-types/doughnut.php">Doughnut Chart</a></li>
