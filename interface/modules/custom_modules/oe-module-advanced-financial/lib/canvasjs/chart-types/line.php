@@ -14,8 +14,7 @@ use Juggernaut\App\MonthlyIncomeDataPoints;
 $genDatapoints = new MonthlyIncomeDataPoints();
 $insurersId = 106;
 $dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
-$insurersId2 = 98;
-$dataPointsToDisplay2 = $genDatapoints->buildDataPoints($insurersId2);
+
 
 ?>
 <h1><?php echo xlt('Insurance Income'); ?></h1>
@@ -49,5 +48,6 @@ $dataPointsToDisplay2 = $genDatapoints->buildDataPoints($insurersId2);
     });
 
 </script>
+
 
 <?php include '../footer.php'; ?>
