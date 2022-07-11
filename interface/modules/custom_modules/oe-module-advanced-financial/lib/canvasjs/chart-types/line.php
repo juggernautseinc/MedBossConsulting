@@ -43,13 +43,7 @@ $dataPointsToDisplay2 = $genDatapoints->buildDataPoints($insurersId2);
                     dataPoints: <?php echo json_encode($dataPointsToDisplay, JSON_NUMERIC_CHECK); ?>
                 }
             ]
-            data: [
-                {
-                    type: "line",
 
-                    dataPoints: <?php echo json_encode($dataPointsToDisplay2, JSON_NUMERIC_CHECK); ?>
-                }
-            ]
         });
         chart.render();
     });
