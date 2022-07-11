@@ -14,7 +14,8 @@ use Juggernaut\App\MonthlyIncomeDataPoints;
 $genDatapoints = new MonthlyIncomeDataPoints();
 $insurersId = 106;
 $dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
-
+$insurersId2 = 98;
+$dataPointsToDisplay2 = $genDatapoints->buildDataPoints($insurersId2);
 
 ?>
 <h1><?php echo xlt('Insurance Income'); ?></h1>
@@ -40,6 +41,37 @@ $dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
                     type: "line",
 
                     dataPoints: <?php echo json_encode($dataPointsToDisplay, JSON_NUMERIC_CHECK); ?>
+                }
+            ]
+            data: [
+                {
+                    type: "line",
+
+                    dataPoints: <?php echo json_encode($dataPointsToDisplay2, JSON_NUMERIC_CHECK); ?>
+                }
+            ]
+        });
+        chart.render();
+    });
+
+    $(function () {
+        const chart = new CanvasJS.Chart("chartContainer", {
+            theme: "light2",
+            zoomEnabled: true,
+            animationEnabled: true,
+            title: {
+                text: "Revenues From 98"
+            },
+            subtitles: [
+                {
+                    text: "2022 - Month to date"
+                }
+            ],
+            data: [
+                {
+                    type: "line",
+
+                    dataPoints: <?php echo json_encode($dataPointsToDisplay2, JSON_NUMERIC_CHECK); ?>
                 }
             ]
         });

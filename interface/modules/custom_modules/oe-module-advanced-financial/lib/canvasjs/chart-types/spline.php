@@ -1,6 +1,14 @@
-<?php include '../header.php'; ?>
-<?php include '../sidebar.php'; ?>
-<?php include '../content.php'; ?>
+<?php
+
+require_once dirname(__FILE__, 6) . "/../globals.php";
+require_once dirname(__FILE__, 3) . "/../vendor/autoload.php";
+
+include '../headers.php';
+include '../sidemenu.php';
+include '../content.php';
+
+?>
+
 <h1>Spline Chart</h1>
 <div id="chartContainer"></div>
 
