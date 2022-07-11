@@ -62,7 +62,7 @@ function renderButtonPostLoad(Event $event) {
                 alert('Ok, lets do this! Click ok to really mark inactive.');
                 let libUrl = 'patient_status.php';
                 let pid = <?php echo $_SESSION['pid']; ?>;
-                let csrf = <?php echo js_url(CsrfUtils::collectCsrfToken()); ?>;
+                let csrf = <?php echo xlj(CsrfUtils::collectCsrfToken()); ?>;
             $.ajax({
                 type: "POST",
                 url: libUrl,
