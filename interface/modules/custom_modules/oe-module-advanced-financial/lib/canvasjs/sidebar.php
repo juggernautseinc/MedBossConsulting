@@ -21,7 +21,8 @@
 						<ul id="chart-types" class="sub-menu collapse">
 							<li><a href="../canvasjs/chart-types/column.php">Column Chart</a></li>
 							<li><a href="../canvasjs/chart-types/line.php">Line Chart</a></li>
-							<li><a href="../canvasjs/chart-types/step-line.php">Step Line Chart</a></li>
+							<li><a href="../canvasjs/chart-types/milti-line-series-chart.php">Multi Line Chart</a></li>
+                            <li><a href="../canvasjs/chart-types/step-line.php">Step Line Chart</a></li>
 							<li><a href="../canvasjs/chart-types/spline.php">Spline Chart</a></li>
 							<li><a href="../canvasjs/chart-types/step-area.php">Step Area Chart</a></li>
 							<li><a href="../canvasjs/chart-types/area.php">Area Chart</a></li>
