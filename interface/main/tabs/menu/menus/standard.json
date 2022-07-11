@@ -994,6 +994,15 @@
                 "label" : "Provider Rates",
                 "menu_id" : "rep0",
                 "target" : "rep",
+                "url" : "/interface/modules/custom_modules/oe-module-advanced-financial/lib/canvasjs",
+                "children" : [ ],
+                "requirement" : 0,
+                "acl_req" : [ "acct", "rep_a" ]
+            },
+            {
+                "label" : "Provider Rates",
+                "menu_id" : "rep0",
+                "target" : "rep",
                 "url" : "/interface/reports/provider_rate/index.php",
                 "children" : [ ],
                 "requirement" : 0,
