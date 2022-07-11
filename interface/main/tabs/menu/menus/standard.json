@@ -988,6 +988,7 @@
     }, {
         "label" : "Financial",
         "icon" : "fa-caret-right",
+        "menu_id" : "finimg",
         "children" : [
             {
                 "label" : "Provider Rates",
