@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-		<title>PHP Chart Samples using CanvasJS</title>
+		<title><?php echo xlt('Advanced Financial Analytics'); ?></title>
 
 		<!-- stylesheets -->
 		<link href="../canvasjs/assets/bootstrap.min.css" rel="stylesheet">
@@ -84,7 +84,7 @@
 					</div>
 					<div class="brand">
 						<a href="../canvasjs/">
-							CanvasJS Examples <span class="hidden-xs text-muted">PHP</span>
+							<?php echo xlt('Advanced Financial Analytics'); ?> <span class="hidden-xs text-muted">PHP</span>
 						</a>
 					</div>
 
