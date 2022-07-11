@@ -1,3 +1,8 @@
+<?php
+
+  require_once dirname(__DIR__, 5) . "/globals.php";
+
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
