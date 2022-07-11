@@ -49,7 +49,7 @@ function oe_module_adv_financials_add_menu_item(MenuEvent $event)
     $menuItem->requirement = 0;
     $menuItem->target = 'rep';
     $menuItem->menu_id = 'avf1';
-    $menuItem->label = xlt("Advance Financial");
+    $menuItem->label = xlt("Advance Financial Reports");
     $menuItem->url = "/interface/modules/custom_modules/oe-module-advanced-financial/lib/canvasjs";
     $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
