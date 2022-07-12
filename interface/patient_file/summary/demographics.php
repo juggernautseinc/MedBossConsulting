@@ -1948,19 +1948,21 @@ if ($track_is_registered) {
         }
     });
     <?php
-    $patient_status = sqlQuery("SELECT `status` FROM `patient_status` WHERE `pid` = ? ORDER BY `statusId` DESC LIMIT 1", [$_SESSION['pid']]);
-    if ($patient_status['status'] != 'inactive') {
-        ?>
-        document.getElementById('patientstatuschange').innerHTML = '<button class="btn btn-danger" id="addButton">Mark Inactive</button>';
-        <?php
-    } else {
-        ?>
-        document.getElementById('patientstatuschange').innerHTML = '<button class="btn btn-success" id="addButton">Mark Active</button>';
-        <?php
-    }
-        ?>
+    if (AclMain::aclCheckCore('acct', 'bill', 'write')) {
+            $patient_status = sqlQuery("SELECT `status` FROM `patient_status` WHERE `pid` = ? ORDER BY `statusId` DESC LIMIT 1", [$_SESSION['pid']]);
+            if ($patient_status['status'] != 'inactive') {
+                ?>
+                document.getElementById('patientstatuschange').innerHTML = '<button class="btn btn-danger" id="addButton">Mark Inactive</button>';
+                <?php
+            } else {
+                ?>
+                document.getElementById('patientstatuschange').innerHTML = '<button class="btn btn-success" id="addButton">Mark Active</button>';
+                <?php
+            }
 
-    <?php $GLOBALS["kernel"]->getEventDispatcher()->dispatch(RenderEvent::EVENT_RENDER_JAVA, new RenderEvent($pid), 10); ?>
+            $GLOBALS["kernel"]->getEventDispatcher()->dispatch(RenderEvent::EVENT_RENDER_JAVA, new RenderEvent($pid), 10);
+        }
+    ?>
 </script>
 
 </body>
