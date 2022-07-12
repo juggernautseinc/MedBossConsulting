@@ -450,7 +450,13 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
         <td class="detail">&nbsp;<?php echo text($appointment['fname'] . " " . $appointment['lname']) ?>
         </td>
         <td>
-            Insurance Here
+            <?php
+               $sql = "SELECT ic.name FROM insurance_companies ic
+                        JOIN insurance_data id ON id.provider = ic.id
+                        WHERE id.pid = ? AND id.type = 'primary'";
+               $iname = sqlQuery($sql, $appointment['pubpid']);
+               echo $iname['name'];
+            ?>
         </td>
 
         <td class="detail">&nbsp;<?php echo text($appointment['pubpid']) ?></td>
