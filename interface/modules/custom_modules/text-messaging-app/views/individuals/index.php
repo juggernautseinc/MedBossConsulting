@@ -47,7 +47,12 @@ use OpenEMR\Core\Header;
             if (response.ok) {
                 let reply;
                 response.text().then(function(text) {
-                    status.innerHTML = text;
+                        const obj = JSON.parse(text);
+                        if (obj.success == true) {
+                            status.innerHTML = <?php echo xlt('Message delivered to patient'); ?>;
+                        } else {
+                            status.innerHTML = <?php echo xlt('Not delivered. Possibly invalid cell number'); ?>;
+                        }
                     });
                 form.reset()
             } else {
@@ -55,12 +60,13 @@ use OpenEMR\Core\Header;
                     if (Object.hasOwn(data, 'errors')) {
                         status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
                     } else {
-                        status.innerHTML = "Oops! There was a problem submitting your form"
+                        status.innerHTML = <?php echo xlt("Oops! There was a problem submitting your form"); ?>
                     }
                 })
             }
         }).catch(error => {
-            status.innerHTML = "Oops! There was a problem submitting your form"});
+            status.innerHTML =  <?php echo xlt("Oops! There was a problem submitting your form"); ?>
+        });
     }
     form.addEventListener("submit", handleSubmit)
 </script>
