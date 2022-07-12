@@ -368,6 +368,9 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
         <th><a href="nojs.php" onclick="return dosort('patient')"
     <?php echo ($form_orderby == "patient") ? " style=\"color: var(--success)\"" : ""; ?>><?php echo xlt('Patient'); ?></a>
         </th>
+        <th>
+            <?php echo xlt('Insurance'); ?>
+        </th>
 
         <th><a href="nojs.php" onclick="return dosort('pubpid')"
     <?php echo ($form_orderby == "pubpid") ? " style=\"color: var(--success)\"" : ""; ?>><?php echo xlt('ID'); ?></a>
@@ -445,6 +448,9 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
         </td>
 
         <td class="detail">&nbsp;<?php echo text($appointment['fname'] . " " . $appointment['lname']) ?>
+        </td>
+        <td>
+            Insurance Here
         </td>
 
         <td class="detail">&nbsp;<?php echo text($appointment['pubpid']) ?></td>
