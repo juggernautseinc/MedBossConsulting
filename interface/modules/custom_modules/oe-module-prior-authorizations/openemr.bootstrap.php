@@ -11,10 +11,11 @@
  *
  */
 
-use OpenEMR\Common\Csrf\CsrfUtils;
+
 use OpenEMR\Menu\MenuEvent;
 use OpenEMR\Menu\PatientMenuEvent;
 use OpenEMR\Events\PatientDemographics\RenderEvent;
+use OpenEMR\Common\Csrf\CsrfUtils;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
