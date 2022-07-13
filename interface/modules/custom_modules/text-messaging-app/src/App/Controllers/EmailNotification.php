@@ -17,7 +17,7 @@ use OpenEMR\Common\Crypto\CryptoGen;
 class EmailNotification
 {
     private mixed $smtpUser;
-    private string|false $smtpPwd;
+    private string $smtpPwd;
     private mixed $patientid;
     private mixed $host;
     private mixed $secure;
