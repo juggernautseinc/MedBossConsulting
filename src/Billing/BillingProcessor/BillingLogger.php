@@ -94,7 +94,6 @@ class BillingLogger
             if ($GLOBALS['drive_encryption']) {
                 $this->hlog = $this->cryptoGen->encryptStandard($this->hlog, null, 'database');
             }
-            file_put_contents($GLOBALS['OE_SITE_DIR'] . "/documents/edi/process_bills.log", $this->hlog);
         }
 
         // If the generator set a callback function for when the log completes, call it here
