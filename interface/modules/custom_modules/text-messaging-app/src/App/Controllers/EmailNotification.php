@@ -16,14 +16,14 @@ use OpenEMR\Common\Crypto\CryptoGen;
 
 class EmailNotification
 {
-    private mixed $smtpUser;
-    private string $smtpPwd;
-    private mixed $patientid;
-    private mixed $host;
-    private mixed $secure;
-    private mixed $port;
-    private string $apptTime;
-    private mixed $apptDate;
+    protected mixed $smtpUser;
+    protected string $smtpPwd;
+    protected mixed $patientid;
+    protected mixed $host;
+    protected mixed $secure;
+    protected mixed $port;
+    protected string $apptTime;
+    protected mixed $apptDate;
 
     public function __construct(array $appointment)
     {

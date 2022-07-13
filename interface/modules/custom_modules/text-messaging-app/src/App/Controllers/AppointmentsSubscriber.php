@@ -35,6 +35,6 @@ namespace Juggernaut\App\Controllers;
         {
             $appointmentdata = $event->givenAppointmentData();
             file_put_contents("/var/www/html/errors/apptStatus1.txt", print_r($appointmentdata, true), FILE_APPEND);
-             // return new EmailNotification($appointmentdata);
+             return new EmailNotification($appointmentdata);
         }
     }
