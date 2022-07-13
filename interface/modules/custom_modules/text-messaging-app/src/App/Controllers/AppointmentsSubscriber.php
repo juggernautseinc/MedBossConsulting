@@ -13,6 +13,7 @@ namespace Juggernaut\App\Controllers;
     use OpenEMR\Events\Appointments\AppointmentSetEvent;
     use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
+
     class AppointmentsSubscriber implements EventSubscriberInterface
     {
 
@@ -27,9 +28,14 @@ namespace Juggernaut\App\Controllers;
             ];
         }
 
+        /**
+         * @param AppointmentSetEvent $event
+         * @return EmailNotification
+         */
         public function appointmentChanged(AppointmentSetEvent $event)
         {
             $appointmentdata = $event->givenAppointmentData();
+              return new EmailNotification($appointmentdata);
             file_put_contents("/var/www/html/errors/apptStatus1.txt", print_r($appointmentdata, true), FILE_APPEND);
         }
 
