@@ -30,6 +30,19 @@ use OpenEMR\Core\Header;
 <body>
     <div class="container-lg">
         <div class = "">
+            <?php
+                $template = 'RFS-form-Blank.pdf';
+
+                $fields = [
+                    'form1[0].#subform[0].VAFacilityName[0]' => 'My Facility Name Here',
+                ];
+
+                $pdf = new FPDM($template);
+                $pdf->Load($fields, true);
+                $pdf->Merge();
+                $pdf->Output();
+
+            ?>
 		</div>
 		<div class="">
 		</div>
