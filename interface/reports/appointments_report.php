@@ -388,7 +388,7 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
             <?php echo ($form_orderby == "status") ? " style=\"color: var(--success)\"" : ""; ?>><?php  echo xlt('Status'); ?></a>
         </th>
         <th>
-            Has Enc
+             Enc
         </th>
     </thead>
     <tbody>
@@ -486,15 +486,15 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
                       $sql = "SELECT encounter FROM `form_encounter` WHERE `date` LIKE ? AND pid = ? ";
                       $enc = sqlQuery($sql, [$appointment['pc_eventDate'].'%', $appointment['pid']] );
                       if (!empty($enc['encounter'])) {
-                          echo 'Has encounter ';
+                          echo '<span style="color: green">Has encounter </span>';
                           $docs = sqlQuery("SELECT COUNT(formdir) as formcount FROM `forms` WHERE `encounter` = ?", [$enc['encounter']]);
                           if ($docs['formcount'] > 1) {
-                              echo ' and forms registered';
+                              echo '<span style="color: green"> and forms registered </span>';
                           } else {
-                              echo ' No forms';
+                              echo '<span style="color: red"><strong>No forms</strong> ';
                           }
                       } else {
-                          echo "No encounter created";
+                          echo '<span style="color: red"><strong>No encounter created</strong></span>';
                       }
 
                  ?>
