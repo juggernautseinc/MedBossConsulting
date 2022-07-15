@@ -387,6 +387,9 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
         <th><a href="nojs.php" onclick="return dosort('status')"
             <?php echo ($form_orderby == "status") ? " style=\"color: var(--success)\"" : ""; ?>><?php  echo xlt('Status'); ?></a>
         </th>
+        <th>
+            Has Enc
+        </th>
     </thead>
     <tbody>
         <!-- added for better print-ability -->
@@ -477,6 +480,9 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
             }
             ?>
         </td>
+            <td>
+                test
+            </td>
     </tr>
 
         <?php
