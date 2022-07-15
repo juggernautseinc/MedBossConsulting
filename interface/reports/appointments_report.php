@@ -481,7 +481,7 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
             ?>
         </td>
             <td>
-                test
+                 <?php echo $appointment['pc_eventDate']; ?>
             </td>
     </tr>
 
