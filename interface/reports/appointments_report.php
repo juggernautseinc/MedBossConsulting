@@ -122,14 +122,14 @@ function fetch_reminders($pid, $appt_date)
     return $rems;
 }
 
-function appointmentDocumentStatus($eventDate, $appt_pid, $encnum)
+function appointmentDocumentStatus($eventDate, $appt_pid)
 {
     $status = '';
     $sql = "SELECT encounter FROM `form_encounter` WHERE `date` LIKE ? AND pid = ? ";
     $enc = sqlQuery($sql, [$eventDate.'%', $appt_pid] );
     if (!empty($enc['encounter'])) {
         $status .= '<span style="color: green">Has encounter </span>';
-        $docs = sqlQuery("SELECT COUNT(formdir) as formcount FROM `forms` WHERE `encounter` = ?", [$encnum]);
+        $docs = sqlQuery("SELECT COUNT(formdir) as formcount FROM `forms` WHERE `encounter` = ?", [$enc['encounter']]);
         if ($docs['formcount'] > 1) {
             $status .= '<span style="color: green"> and forms registered </span>';
         } else {
@@ -504,7 +504,7 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
             <td>
                  <?php
 
-                      $sql = "SELECT encounter FROM `form_encounter` WHERE `date` LIKE ? AND pid = ? ";
+                     /* $sql = "SELECT encounter FROM `form_encounter` WHERE `date` LIKE ? AND pid = ? ";
                       $enc = sqlQuery($sql, [$appointment['pc_eventDate'].'%', $appointment['pid']] );
                       if (!empty($enc['encounter'])) {
                           echo '<span style="color: green">Has encounter </span>';
@@ -516,8 +516,8 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
                           }
                       } else {
                           echo '<span style="color: red"><strong>No encounter created</strong></span>';
-                      }
-                      echo appointmentDocumentStatus($appointment['pc_eventDate'], $appointment['pid'], $enc['encounter']);
+                      }*/
+                      echo appointmentDocumentStatus($appointment['pc_eventDate'], $appointment['pid']);
                  ?>
             </td>
     </tr>
