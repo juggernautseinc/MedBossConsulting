@@ -22,8 +22,8 @@ function oe_module_faxsms_add_menu_item(MenuEvent $event)
     $menuItem = new stdClass();
     $menuItem->requirement = 0;
     $menuItem->target = 'mod';
-    $menuItem->menu_id = 'dxweb0';
-    $menuItem->label = xlt("DxWeb eRx Module");
+    $menuItem->menu_id = 'npa0';
+    $menuItem->label = xlt("New Patient Alert Module");
     $menuItem->url = "/interface/modules/custom_modules/oe-module-dx-web/settings.php";
     $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
@@ -40,5 +40,12 @@ function oe_module_faxsms_add_menu_item(MenuEvent $event)
 
     return $event;
 }
+
+/**
+ * @var EventDispatcherInterface $eventDispatcher
+ * @var array                    $module
+ * @global                       $eventDispatcher @see ModulesApplication::loadCustomModule
+ * @global                       $module          @see ModulesApplication::loadCustomModule
+ */
 
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_faxsms_add_menu_item');

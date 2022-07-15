@@ -12,6 +12,6 @@ return array(
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-factory/src', $vendorDir . '/psr/http-message/src'),
     'OpenEMR\\Composer\\ModuleInstallerPlugin\\' => array($vendorDir . '/openemr/oe-module-installer-plugin/src'),
     'Nyholm\\Psr7\\' => array($vendorDir . '/nyholm/psr7/src'),
-    'Juggernaut\\Modules\\DxWeb\\' => array($baseDir . '/src'),
+    'Juggernaut\\Modules\\' => array($baseDir . '/src'),
     'Http\\Message\\' => array($vendorDir . '/php-http/message-factory/src'),
 );

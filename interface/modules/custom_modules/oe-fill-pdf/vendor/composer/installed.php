@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
-        'name' => 'vendor_name/oe-module-dx-web',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'name' => 'vendor_name/oe-fill-pdf',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '1cebff8e27355315560c36cdadaa46ccca3b0eab',
         'type' => 'openemr-module',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -106,10 +106,19 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'vendor_name/oe-module-dx-web' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+        'tmw/fpdm' => array(
+            'pretty_version' => '2.9.2',
+            'version' => '2.9.2.0',
+            'reference' => '2db6f6a8cf7f0d593c13dbbe10df0737d9526313',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../tmw/fpdm',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'vendor_name/oe-fill-pdf' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '1cebff8e27355315560c36cdadaa46ccca3b0eab',
             'type' => 'openemr-module',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
