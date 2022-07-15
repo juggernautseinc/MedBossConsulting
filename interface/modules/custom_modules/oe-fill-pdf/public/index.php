@@ -38,7 +38,7 @@ use OpenEMR\Core\Header;
                 ];
 
                 $pdf = new FPDM($template);
-                $pdf->Load($fields, true);
+                $pdf->Load($fields, false);
                 $pdf->Merge();
                 $pdf->Output();
 
