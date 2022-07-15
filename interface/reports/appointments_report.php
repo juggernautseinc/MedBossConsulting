@@ -503,21 +503,9 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
         </td>
             <td>
                  <?php
-
-                     /* $sql = "SELECT encounter FROM `form_encounter` WHERE `date` LIKE ? AND pid = ? ";
-                      $enc = sqlQuery($sql, [$appointment['pc_eventDate'].'%', $appointment['pid']] );
-                      if (!empty($enc['encounter'])) {
-                          echo '<span style="color: green">Has encounter </span>';
-                          $docs = sqlQuery("SELECT COUNT(formdir) as formcount FROM `forms` WHERE `encounter` = ?", [$enc['encounter']]);
-                          if ($docs['formcount'] > 1) {
-                              echo '<span style="color: green"> and forms registered </span>';
-                          } else {
-                              echo '<span style="color: red"><strong>No forms</strong> ';
-                          }
-                      } else {
-                          echo '<span style="color: red"><strong>No encounter created</strong></span>';
-                      }*/
-                      echo appointmentDocumentStatus($appointment['pc_eventDate'], $appointment['pid']);
+                     if ($pc_apptstatus == ">") {
+                         echo appointmentDocumentStatus($appointment['pc_eventDate'], $appointment['pid']);
+                     }
                  ?>
             </td>
     </tr>
