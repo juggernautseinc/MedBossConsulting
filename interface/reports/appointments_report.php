@@ -121,6 +121,27 @@ function fetch_reminders($pid, $appt_date)
 
     return $rems;
 }
+
+function appointmentDocumentStatus($eventDate, $appt_pid, $encnum)
+{
+    $status = '';
+    $sql = "SELECT encounter FROM `form_encounter` WHERE `date` LIKE ? AND pid = ? ";
+    $enc = sqlQuery($sql, [$eventDate.'%', $appt_pid] );
+    if (!empty($enc['encounter'])) {
+        $status .= '<span style="color: green">Has encounter </span>';
+        $docs = sqlQuery("SELECT COUNT(formdir) as formcount FROM `forms` WHERE `encounter` = ?", [$encnum]);
+        if ($docs['formcount'] > 1) {
+            $status .= '<span style="color: green"> and forms registered </span>';
+        } else {
+            $status .= '<span style="color: red"><strong>No forms</strong> ';
+        }
+    } else {
+        $status .= '<span style="color: red"><strong>No encounter created</strong></span>';
+    }
+
+    return $status;
+}
+
 ?>
 
 <html>
@@ -496,7 +517,7 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
                       } else {
                           echo '<span style="color: red"><strong>No encounter created</strong></span>';
                       }
-
+                      echo appointmentDocumentStatus($appointment['pc_eventDate'], $appointment['pid'], $enc['encounter']);
                  ?>
             </td>
     </tr>
