@@ -48,7 +48,7 @@ class Texting extends SendMessage
                 self::getTextFacilityInfo()['name'] . ' ' .
                 self::meetingLink();
             $balance = self::balanceDue();
-        if ($balance > 0) {
+        if ($balance > 10) {
             $outboundMessage .= self::balanceMessage() . " $" . $balance;
         }
             $response = parent::outBoundMessage((int)$patientNumber, $outboundMessage);
