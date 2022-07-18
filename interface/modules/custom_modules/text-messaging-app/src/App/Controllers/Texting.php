@@ -96,7 +96,7 @@ class Texting extends SendMessage
     private function balanceDue()
     {
         require_once dirname(__FILE__, 8) . "/library/patient.inc";
-        return get_patient_balance_excluding($_SESSION['pid']);
+        return get_patient_balance($_SESSION['pid']);
     }
 
     private function balanceMessage(): string
