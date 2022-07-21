@@ -11,7 +11,7 @@ namespace Juggernaut\App;
 
 class TemplateProcessor
 {
-    protected string $template;
+    protected $template;
     protected string $title;
     protected string $pid;
 
