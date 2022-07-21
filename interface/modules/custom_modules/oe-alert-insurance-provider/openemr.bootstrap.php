@@ -16,7 +16,7 @@ use Juggernaut\App\Controllers\AppointmentsSubscriber;
 use OpenEMR\Menu\MenuEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-function oe_module_faxsms_add_menu_item(MenuEvent $event)
+function oe_module_insurance_templates_menu_item(MenuEvent $event)
 {
     $menu = $event->getMenu();
 
@@ -25,7 +25,7 @@ function oe_module_faxsms_add_menu_item(MenuEvent $event)
     $menuItem->target = 'mod';
     $menuItem->menu_id = 'npa0';
     $menuItem->label = xlt("New Patient Alert Module");
-    $menuItem->url = "/interface/modules/custom_modules/oe-module-dx-web/settings.php";
+    $menuItem->url = "/interface/modules/custom_modules/oe-alert-insurance-provider/settings.php";
     $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
     $menuItem->global_req = [];
@@ -49,7 +49,7 @@ function oe_module_faxsms_add_menu_item(MenuEvent $event)
  * @global                       $module          @see ModulesApplication::loadCustomModule
  */
 
-$eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_faxsms_add_menu_item');
+$eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_insurance_templates_menu_item');
 
 /**
  * @var EventDispatcherInterface $eventDispatcher
