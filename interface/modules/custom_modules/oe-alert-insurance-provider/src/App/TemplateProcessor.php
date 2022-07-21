@@ -30,7 +30,7 @@ class TemplateProcessor
         $formFilled = self::mergeDataIntoTemplate($this->template, $this->data);
     }
 
-    protected function getLetterTemplate(): string
+    protected function getLetterTemplate()
     {
         $template = dirname(__FILE__) . "/../Templates/Letter-head-NO-SHOW-template.html";
         return fopen($template, 'r');
