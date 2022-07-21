@@ -51,7 +51,7 @@ class TemplateProcessor
         $s = $this->template;
         $s = str_replace("{{APPSTATUS}}", $this->data['appstatus'], $s);
         $s = str_replace("{{VeteranVAAuthorizationnumber}}", $this->auth, $s);
-        file_put_contents("/var/www/html/error/filled.txt", $s);
+        file_put_contents("/var/www/html/errors/filled.txt", $s);
         //return $s;
 
     }
