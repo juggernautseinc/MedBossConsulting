@@ -11,7 +11,6 @@
 
 namespace Juggernaut\App;
 
-use JetBrains\PhpStorm\ArrayShape;
 use OpenEMR\Events\Appointments\AppointmentSetEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -19,7 +18,7 @@ class AppointmentSubscriber implements EventSubscriberInterface
 {
 
 
-    #[ArrayShape([AppointmentSetEvent::EVENT_HANDLE => "string"])] public static function getSubscribedEvents(): array
+    public static function getSubscribedEvents(): array
     {
         return [
             AppointmentSetEvent::EVENT_HANDLE => 'alertInsuranceCompany'
