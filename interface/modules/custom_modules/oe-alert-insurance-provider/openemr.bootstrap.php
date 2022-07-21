@@ -12,7 +12,7 @@
 
 require_once dirname(__FILE__) . "/vendor/autoload.php";
 
-use Juggernaut\App\Controllers\AppointmentsSubscriber;
+use Juggernaut\App\AppointmentsSubscriber;
 use OpenEMR\Menu\MenuEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -24,7 +24,7 @@ function oe_module_insurance_templates_menu_item(MenuEvent $event)
     $menuItem->requirement = 0;
     $menuItem->target = 'mod';
     $menuItem->menu_id = 'npa0';
-    $menuItem->label = xlt("New Patient Alert Module");
+    $menuItem->label = xlt("Insurance Alert Module");
     $menuItem->url = "/interface/modules/custom_modules/oe-alert-insurance-provider/settings.php";
     $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
