@@ -14,15 +14,15 @@ class TemplateProcessor
     protected $auth;
     protected $template;
     protected string $title;
-    protected int $pid;
+    protected string $pid;
     protected array $data;
 
 
-    public function __construct($data)
+    public function __construct($appointmentData)
     {
-        $this->data = $data;
-        $this->pid = $data['pid'];
-        $this->title = $data['form_title'];
+        $this->data = $appointmentData;
+        $this->pid = $appointmentData['pid'];
+        $this->title = $appointmentData['form_title'];
         self::letterTemplate();
     }
 
