@@ -37,7 +37,7 @@ class TemplateProcessor
     protected function getLetterTemplate()
     {
         $this->template = dirname(__FILE__) . "/../Templates/Letter-head-template.html";
-        return fopen($this->template, 'r');
+        return file_get_contents($this->template);
     }
 
     protected function getTemplateData($pid)
