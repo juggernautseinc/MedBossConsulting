@@ -16,10 +16,12 @@ class TemplateProcessor
     protected string $title;
     protected string $pid;
     protected array $data;
+    protected array $status;
 
 
     public function __construct($appointmentData)
     {
+        $this->status = ['+', '?', 'x'];
         $this->data = $appointmentData;
         $this->pid = $appointmentData['form_pid'];
         $this->title = $appointmentData['form_title'];
@@ -49,10 +51,21 @@ class TemplateProcessor
     protected function mergeDataIntoTemplate()
     {
         $s = $this->template;
-        $s = str_replace("{{APPSTATUS}}", $this->data['form_apptstatus'], $s);
+        $status = self::convertStatus();
+        $s = str_replace("{{APPSTATUS}}", $status, $s);
         $s = str_replace("{{VeteranVAAuthorizationnumber}}", $this->auth, $s);
         file_put_contents("/var/www/html/errors/filled.txt", $s);
         //return $s;
 
+    }
+
+    protected function convertStatus()
+    {
+        return match ($this->data['form_apptstatus']) {
+            '+' => 'Rescheduled',
+            'x' => 'Canceled',
+            '?' => 'No Show',
+            default => null,
+        };
     }
 }
