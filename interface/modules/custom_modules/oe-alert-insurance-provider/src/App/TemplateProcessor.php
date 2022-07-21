@@ -25,9 +25,9 @@ class TemplateProcessor
     protected function letterTemplate($pid): void
     {
         $this->template = self::getLetterTemplate();
-        file_put_contents('/var/www/html/errors/aTemplate.txt', $this->template); die;
-        $this->data = self::getTemplateData($pid);
-        $formFilled = self::mergeDataIntoTemplate($this->template, $this->data);
+        file_put_contents('/var/www/html/errors/aTemplate.txt', $this->template);
+        //$this->data = self::getTemplateData($pid);
+        //$formFilled = self::mergeDataIntoTemplate($this->template, $this->data);
     }
 
     protected function getLetterTemplate()
