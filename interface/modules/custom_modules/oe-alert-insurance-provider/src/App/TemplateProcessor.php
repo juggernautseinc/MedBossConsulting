@@ -31,7 +31,7 @@ class TemplateProcessor
         $this->template = self::getLetterTemplate(); // retrieve template contents
         $this->auth = self::getTemplateData($this->pid); //auth number
         file_put_contents('/var/www/html/errors/aTemplate.txt', $this->template);
-        $formFilled = self::mergeDataIntoTemplate($this->template, $this->data);
+        $formFilled = self::mergeDataIntoTemplate();
     }
 
     protected function getLetterTemplate()
