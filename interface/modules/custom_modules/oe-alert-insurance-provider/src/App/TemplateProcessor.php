@@ -52,16 +52,18 @@ class TemplateProcessor
     {
         $s = $this->template;
         $status = self::convertStatus();
-        $s = str_replace("{{APPSTATUS}}", $status, $s);
-        $s = str_replace("{{VeteranVAAuthorizationnumber}}", $this->auth, $s);
-        file_put_contents("/var/www/html/errors/filled.txt", $s);
-        //return $s;
-
+        if (in_array_r($this->data['form_apptstatus'], $this->status)) {
+            $s = str_replace("{{APPSTATUS}}", $status, $s);
+            $s = str_replace("{{VeteranVAAuthorizationnumber}}", $this->auth, $s);
+            file_put_contents("/var/www/html/errors/filled.txt", $s);
+            //return $s;
+        }
     }
 
     protected function convertStatus()
     {
-        return match ($this->data['form_apptstatus']) {
+        $s = $this->data['form_apptstatus'];
+        return match ($s) {
             '+' => 'Rescheduled',
             'x' => 'Canceled',
             '?' => 'No Show',
