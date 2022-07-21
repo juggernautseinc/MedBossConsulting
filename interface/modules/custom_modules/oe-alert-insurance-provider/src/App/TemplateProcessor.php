@@ -40,16 +40,16 @@ class TemplateProcessor
         return file_get_contents($this->template);
     }
 
-    protected function getTemplateData($pid)
+    protected function getTemplateData()
     {
         $patientData = new Database();
-        return $patientData->lookUpPatientData($pid);
+        return $patientData->lookUpPatientData($this->pid);
     }
 
     protected function mergeDataIntoTemplate()
     {
         $s = $this->template;
-        $s = str_replace("{{APPSTATUS}}", $this->data['appstatus'], $s);
+        $s = str_replace("{{APPSTATUS}}", $this->data['form_apptstatus'], $s);
         $s = str_replace("{{VeteranVAAuthorizationnumber}}", $this->auth, $s);
         file_put_contents("/var/www/html/errors/filled.txt", $s);
         //return $s;
