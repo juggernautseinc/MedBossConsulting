@@ -14,7 +14,7 @@ class TemplateProcessor
     protected $auth;
     protected $template;
     protected string $title;
-    protected string $pid;
+    protected int $pid;
     protected array $data;
 
 
