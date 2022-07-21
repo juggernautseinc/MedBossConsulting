@@ -62,12 +62,25 @@ class TemplateProcessor
 
     protected function convertStatus()
     {
-        $s = $this->data['form_apptstatus'];
-        return match ($s) {
-            '+' => 'Rescheduled',
-            'x' => 'Canceled',
-            '?' => 'No Show',
-            default => null,
-        };
+
+        switch ($this->data['form_apptstatus']) {
+            case '+':
+                return 'Rescheduled';
+
+            case '?':
+                return 'No Show';
+
+            case 'x':
+                return 'Canceled';
+
+            default:
+                return null;
+        }
+//        return match ($s) {
+//            '+' => 'Rescheduled',
+//            'x' => 'Canceled',
+//            '?' => 'No Show',
+//            default => null,
+//        };
     }
 }
