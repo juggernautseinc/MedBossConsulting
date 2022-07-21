@@ -1,6 +1,6 @@
 <?php return array(
     'root' => array(
-        'name' => 'vendor_name/oe-fill-pdf',
+        'name' => 'vendor_name/oe-alert-insurance-provider',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
         'reference' => '1cebff8e27355315560c36cdadaa46ccca3b0eab',
@@ -115,7 +115,7 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'vendor_name/oe-fill-pdf' => array(
+        'vendor_name/oe-alert-insurance-provider' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'reference' => '1cebff8e27355315560c36cdadaa46ccca3b0eab',

@@ -10,9 +10,10 @@
  *
  */
 
+require_once dirname(__FILE__) . "/vendor/autoload.php";
 
+use Juggernaut\App\Controllers\AppointmentsSubscriber;
 use OpenEMR\Menu\MenuEvent;
-use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 function oe_module_faxsms_add_menu_item(MenuEvent $event)
@@ -49,3 +50,10 @@ function oe_module_faxsms_add_menu_item(MenuEvent $event)
  */
 
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_faxsms_add_menu_item');
+
+/**
+ * @var EventDispatcherInterface $eventDispatcher
+ * register subscriber to the appointment event
+ */
+$subscriber = new AppointmentsSubscriber();
+$eventDispatcher->addSubscriber($subscriber);

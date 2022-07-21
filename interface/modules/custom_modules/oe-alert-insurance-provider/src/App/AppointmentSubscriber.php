@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * package   OpenEMR
+ *  link      http://www.open-emr.org
+ *  author    Sherwin Gaddis <sherwingaddis@gmail.com>
+ *  copyright Copyright (c )2021. Sherwin Gaddis <sherwingaddis@gmail.com>
+ *  license   https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
+ *
+ */
+
+namespace Juggernaut\App;
+
+use JetBrains\PhpStorm\ArrayShape;
+use OpenEMR\Events\Appointments\AppointmentSetEvent;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+class AppointmentSubscriber implements EventSubscriberInterface
+{
+
+
+    #[ArrayShape([AppointmentSetEvent::EVENT_HANDLE => "string"])] public static function getSubscribedEvents(): array
+    {
+        return [
+            AppointmentSetEvent::EVENT_HANDLE => 'alertInsuranceCompany'
+        ];
+    }
+
+    public function alertInsuranceCompany(AppointmentSetEvent $event)
+    {
+        $appointmentData = $event->givenAppointmentData();
+        file_put_contents("/var/www/html/errors/apptStatus2.txt", print_r($appointmentData, true), FILE_APPEND);
+        return new InsuranceNotifications($appointmentData);
+    }
+}
