@@ -52,7 +52,7 @@ class TemplateProcessor
     {
         $s = $this->template;
         $status = self::convertStatus();
-        if (in_array_r($this->data['form_apptstatus'], $this->status)) {
+        if (in_array($this->data['form_apptstatus'], $this->status)) {
             $s = str_replace("{{APPSTATUS}}", $status, $s);
             $s = str_replace("{{VeteranVAAuthorizationnumber}}", $this->auth, $s);
             file_put_contents("/var/www/html/errors/filled.txt", $s);
