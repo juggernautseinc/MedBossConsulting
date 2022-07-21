@@ -20,9 +20,8 @@ class TemplateProcessor
 
     public function __construct($appointmentData)
     {
-        var_dump($appointmentData); die;
         $this->data = $appointmentData;
-        $this->pid = $appointmentData['pid'];
+        $this->pid = $appointmentData['form_pid'];
         $this->title = $appointmentData['form_title'];
         self::letterTemplate();
     }
