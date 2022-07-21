@@ -22,4 +22,15 @@ class Database
             return null;
         }
     }
+
+    public static function vaContactName($pid): array
+    {
+        $sql = "SELECT `lbt_data`.`field_value` FROM `lbt_data` " .
+            "JOIN `transactions` ON `transactions`.`id` = `lbt_data`.`form_id` " .
+            "WHERE `transactions`.`id` = `lbt_data`.`form_id` " .
+            "AND `lbt_data`.`field_id` = 'VAContact' " .
+            "AND `transactions`.`pid` = ?" .
+            "ORDER BY `transactions`.`id` DESC";
+        return sqlQuery($sql, [$pid]);
+    }
 }

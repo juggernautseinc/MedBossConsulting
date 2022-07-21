@@ -51,10 +51,15 @@ class TemplateProcessor
     protected function mergeDataIntoTemplate()
     {
         $s = $this->template;
-        $status = self::convertStatus();
+        $status = self::convertStatus() ?? null;
+        $contactName = Database::vaContactName($this->data['form_pid']) ?? null;
         if (in_array($this->data['form_apptstatus'], $this->status)) {
             $s = str_replace("{{APPSTATUS}}", $status, $s);
             $s = str_replace("{{VeteranVAAuthorizationnumber}}", $this->auth, $s);
+            $s = str_replace("{{VeteranContactFirstName}}", $contactName, $s);
+            $s = str_replace("{{PatientfirstnameLastName}}", $this->data['form_patient'], $s);
+            $s = str_replace("{{NewPatientTelehealthappointmentdate}}", $this->data['form_date'], $s);
+            $s = str_replace("{{appointmenttime}}", $this->data['form_hour'] .":". $this->data['form_minute'],$s);
             file_put_contents("/var/www/html/errors/filled.txt", $s);
             //return $s;
         }
