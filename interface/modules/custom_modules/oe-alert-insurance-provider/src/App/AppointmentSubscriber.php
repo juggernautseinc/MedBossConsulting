@@ -28,7 +28,6 @@ class AppointmentSubscriber implements EventSubscriberInterface
     public function alertInsuranceCompany(AppointmentSetEvent $event)
     {
         $appointmentData = $event->givenAppointmentData();
-        file_put_contents("/var/www/html/errors/apptStatus2.txt", print_r($appointmentData, true), FILE_APPEND);
         return new InsuranceNotifications($appointmentData);
     }
 }

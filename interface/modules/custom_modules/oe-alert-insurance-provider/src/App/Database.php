@@ -14,7 +14,12 @@ class Database
 {
     public function lookUpPatientData($pid)
     {
-        //get patient data here
+        $val = sqlStatement('select 1 from `module_prior_authorizations` LIMIT 1');
+        if ($val !== FALSE) {
+            $auth_num = sqlQuery("SELECT `auth_num` FROM `module_prior_authorizations` WHERE `pid` = ? AND `end_date` > NOW()", [$pid]);
+            return $auth_num[''];
+        } else {
+            return null;
+        }
     }
-
 }

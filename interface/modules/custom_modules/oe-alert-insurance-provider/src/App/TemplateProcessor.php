@@ -11,29 +11,33 @@ namespace Juggernaut\App;
 
 class TemplateProcessor
 {
+    protected $auth;
     protected $template;
     protected string $title;
     protected string $pid;
+    protected array $data;
 
-    public function __construct($pid, $title)
+
+    public function __construct($data)
     {
-        $this->pid = $pid;
-        $this->title = $title;
-        self::letterTemplate($this->pid);
+        $this->data = $data;
+        $this->pid = $data['pid'];
+        $this->title = $data['form_title'];
+        self::letterTemplate();
     }
 
-    protected function letterTemplate($pid): void
+    protected function letterTemplate(): void
     {
-        $this->template = self::getLetterTemplate();
+        $this->template = self::getLetterTemplate(); // retrieve template contents
+        $this->auth = self::getTemplateData($this->pid); //auth number
         file_put_contents('/var/www/html/errors/aTemplate.txt', $this->template);
-        //$this->data = self::getTemplateData($pid);
-        //$formFilled = self::mergeDataIntoTemplate($this->template, $this->data);
+        $formFilled = self::mergeDataIntoTemplate($this->template, $this->data);
     }
 
     protected function getLetterTemplate()
     {
-        $template = dirname(__FILE__) . "/../Templates/Letter-head-NO-SHOW-template.html";
-        return fopen($template, 'r');
+        $this->template = dirname(__FILE__) . "/../Templates/Letter-head-template.html";
+        return fopen($this->template, 'r');
     }
 
     protected function getTemplateData($pid)
@@ -42,12 +46,13 @@ class TemplateProcessor
         return $patientData->lookUpPatientData($pid);
     }
 
-    protected function mergeDataIntoTemplate($template, $data)
+    protected function mergeDataIntoTemplate()
     {
-        $s = $template;
-        $s = str_replace("{{APPSTATUS}}", $data['appstatus'], $s);
-        $s = str_replace("{{VeteranVAAuthorizationnumber}}", $data['vetsname'], $s);
-        return $s;
+        $s = $this->template;
+        $s = str_replace("{{APPSTATUS}}", $this->data['appstatus'], $s);
+        $s = str_replace("{{VeteranVAAuthorizationnumber}}", $this->auth, $s);
+        file_put_contents("/var/www/html/error/filled.txt", $s);
+        //return $s;
 
     }
 }

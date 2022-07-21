@@ -19,7 +19,7 @@ class InsuranceNotifications
      */
     public function __construct(array $appointmentData)
     {
-        $genLetter = new TemplateProcessor($appointmentData['form_pid'], $appointmentData['form_title']);
+        $genLetter = new TemplateProcessor($appointmentData);
     }
 
 
