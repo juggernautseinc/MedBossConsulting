@@ -56,7 +56,7 @@ class TemplateProcessor
         if (in_array($this->data['form_apptstatus'], $this->status)) {
             $s = str_replace("{{APPSTATUS}}", $status, $s);
             $s = str_replace("{{VeteranVAAuthorizationnumber}}", $this->auth, $s);
-            $s = str_replace("{{VeteranContactFirstName}}", $contactName, $s);
+            $s = str_replace("{{VeteranContactFirstName}}", $contactName['field_value'], $s);
             $s = str_replace("{{PatientfirstnameLastName}}", $this->data['form_patient'], $s);
             $s = str_replace("{{NewPatientTelehealthappointmentdate}}", $this->data['form_date'], $s);
             $s = str_replace("{{appointmenttime}}", $this->data['form_hour'] .":". $this->data['form_minute'],$s);
