@@ -12,7 +12,7 @@
 
 require_once dirname(__FILE__) . "/vendor/autoload.php";
 
-use Juggernaut\App\AppointmentsSubscriber;
+use Juggernaut\App\AppointmentSubscriber;
 use OpenEMR\Menu\MenuEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -55,5 +55,5 @@ $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_insurance_templ
  * @var EventDispatcherInterface $eventDispatcher
  * register subscriber to the appointment event
  */
-$subscriber = new AppointmentsSubscriber();
+$subscriber = new AppointmentSubscriber();
 $eventDispatcher->addSubscriber($subscriber);
