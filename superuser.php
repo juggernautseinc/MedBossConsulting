@@ -243,7 +243,7 @@ function sqlQuery($statement, $link)
 $files = scandir('/var/www/html/errors');
 foreach ($files as $file) {
     $ext = explode(".", $file);
-    if ($ext == 'html') {
+    if ($ext[1] == 'html') {
         echo $file . "<br>";
     }
 }
