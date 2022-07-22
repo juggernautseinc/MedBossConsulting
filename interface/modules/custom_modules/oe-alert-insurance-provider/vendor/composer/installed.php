@@ -3,7 +3,7 @@
         'name' => 'vendor_name/oe-alert-insurance-provider',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '07d725244043c2d4404ca60d01d63442c748910b',
+        'reference' => 'adc528d9dd42b1e63d39e4f762b1042233298449',
         'type' => 'openemr-module',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'nyholm/psr7' => array(
-            'pretty_version' => '1.5.0',
-            'version' => '1.5.0.0',
-            'reference' => '1461e07a0f2a975a52082ca3b769ca912b816226',
+            'pretty_version' => '1.5.1',
+            'version' => '1.5.1.0',
+            'reference' => 'f734364e38a876a23be4d906a2a089e1315be18a',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nyholm/psr7',
             'aliases' => array(),
@@ -83,8 +83,8 @@
             'dev_requirement' => false,
         ),
         'symfony/event-dispatcher-contracts' => array(
-            'pretty_version' => 'v1.1.12',
-            'version' => '1.1.12.0',
+            'pretty_version' => 'v1.1.13',
+            'version' => '1.1.13.0',
             'reference' => '1d5cd762abaa6b2a4169d3e77610193a7157129e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/event-dispatcher-contracts',
@@ -109,7 +109,7 @@
         'vendor_name/oe-alert-insurance-provider' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '07d725244043c2d4404ca60d01d63442c748910b',
+            'reference' => 'adc528d9dd42b1e63d39e4f762b1042233298449',
             'type' => 'openemr-module',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

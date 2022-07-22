@@ -18,19 +18,21 @@ class InsuranceNotifications
     protected $letter;
     protected $pid;
     protected $pdf;
+    protected bool $checkInsurance;
     /**
      * @param array $appointmentData
      */
     public function __construct(array $appointmentData)
     {
         $this->pid = $appointmentData['form_pid'];
-        $checkInsurance = Database::isPatientTriWest($this->pid);
-        if ($checkInsurance) {
+        $this->checkInsurance = Database::isPatientTriWest($this->pid);
+        if ($this->checkInsurance) {
             $document = new TemplateProcessor($appointmentData); //fill out template
             $this->letter = $document->letterTemplate();
+            file_put_contents("/var/www/html/errors/returnedToPdfit-" . date('Y-m-d_H:m:s') . ".html", $this->letter);
         }
 
-        file_put_contents("/var/www/html/errors/returnedToPdfit-" . date('Y-m-d_H:m:s') . ".html", $this->letter);
+
         //$this->pdf = self::convertHtmlToPdf();
         //self::storeTempPdfDocument();
     }
