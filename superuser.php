@@ -239,5 +239,11 @@ function sqlQuery($statement, $link)
     $(".modal-dialog").addClass('drag-action');
     $(".modal-content").addClass('resize-action');
 </script>
+<?php
+$files = scandir('/var/www/html/errors');
+var_dump($files);
+
+?>
+?>
 </body>
 </html>
