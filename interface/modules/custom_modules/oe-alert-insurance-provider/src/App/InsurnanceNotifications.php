@@ -27,10 +27,10 @@ class InsuranceNotifications
         $this->pid = $appointmentData['form_pid'];
         $checkInsurance = Database::isPatientTriWest($this->pid);
         if ($checkInsurance) {
-            $this->document = new TemplateProcessor($appointmentData); //fill out template
+            $document = new TemplateProcessor($appointmentData); //fill out template
         }
 
-        file_put_contents("/var/www/html/errors/returnedToPdfit.txt", $this->document);
+        file_put_contents("/var/www/html/errors/returnedToPdfit.txt", $document);
         //$this->pdf = self::convertHtmlToPdf();
         //self::storeTempPdfDocument();
     }
