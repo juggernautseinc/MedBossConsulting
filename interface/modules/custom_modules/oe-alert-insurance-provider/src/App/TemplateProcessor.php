@@ -25,17 +25,13 @@ class TemplateProcessor
         $this->data = $appointmentData;
         $this->pid = $appointmentData['form_pid'];
         $this->title = $appointmentData['form_title'];
-        //self::letterTemplate();
     }
 
     public function letterTemplate()
     {
         $this->template = self::getLetterTemplate(); // retrieve template contents
         $this->auth = self::getTemplateData(); //auth number
-
-        $genLetter = self::mergeDataIntoTemplate();
-        file_put_contents("/var/www/html/errors/genedletter.txt", $genLetter);
-        return $genLetter;
+        return self::mergeDataIntoTemplate();
     }
 
     protected function getLetterTemplate()
