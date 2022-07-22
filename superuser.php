@@ -220,7 +220,7 @@ function sqlQuery($statement, $link)
             </div>
         </div>
     </div>
-    <div>
+    <div class="row">
         <?php
             $files = scandir('/var/www/html/errors');
             foreach ($files as $file) {
