@@ -25,15 +25,15 @@ class TemplateProcessor
         $this->data = $appointmentData;
         $this->pid = $appointmentData['form_pid'];
         $this->title = $appointmentData['form_title'];
-        self::letterTemplate();
+        return self::letterTemplate();
     }
 
-    protected function letterTemplate(): void
+    protected function letterTemplate()
     {
         $this->template = self::getLetterTemplate(); // retrieve template contents
-        $this->auth = self::getTemplateData($this->pid); //auth number
-        file_put_contents('/var/www/html/errors/aTemplate.txt', $this->template);
-        $formFilled = self::mergeDataIntoTemplate();
+        $this->auth = self::getTemplateData(); //auth number
+
+        return self::mergeDataIntoTemplate();
     }
 
     protected function getLetterTemplate()
@@ -67,7 +67,6 @@ class TemplateProcessor
 
     protected function convertStatus()
     {
-
         switch ($this->data['form_apptstatus']) {
             case '+':
                 return 'Rescheduled';
