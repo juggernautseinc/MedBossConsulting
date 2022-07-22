@@ -34,7 +34,7 @@ class InsuranceNotifications
         self::storeTempPdfDocument();
     }
 
-    protected function storeTempPdfDocument()
+    protected function storeTempPdfDocument(): void
     {
         $file_name = date('Y-m-d') . "TriWest.pdf";
         $templocation = "/sites/" . $GLOBALS['site_id'] . "/documents/temp/";
