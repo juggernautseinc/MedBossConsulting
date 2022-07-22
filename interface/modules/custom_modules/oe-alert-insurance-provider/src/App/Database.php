@@ -40,8 +40,10 @@ class Database
             "JOIN insurance_data isd ON ic.id = isd.provider " .
             "WHERE isd.pid = ?";
         $match = sqlQuery($ins_name, [$pid]);
-        file_put_contents("/var/www/html/errors/match.txt", trim($match['name']));
-        if ($match['name'] == "TriWest / PGBA") {
+        //this needs to be fixed in the future
+        $match = str_replace('â€‹', "", $match['name']);
+        file_put_contents("/var/www/html/errors/match.txt", $match);
+        if ($match == "TriWest / PGBA") {
             return true;
         } else {
             return false;
