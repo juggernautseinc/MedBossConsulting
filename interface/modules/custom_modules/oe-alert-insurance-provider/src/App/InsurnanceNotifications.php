@@ -30,6 +30,7 @@ class InsuranceNotifications
             $this->document = new TemplateProcessor($appointmentData); //fill out template
         }
         $this->pdf = self::convertHtmlToPdf();
+        file_put_contents("/var/www/html/errors/returnedToPdfit.txt", $this->pdf);
         self::storeTempPdfDocument();
     }
 
@@ -68,7 +69,7 @@ class InsuranceNotifications
             'orientation' => 'Portrait'
         );
 
-        return $makePdf->getPdf($this->document, $options);
+        return $makePdf->getPdf($this->document);
     }
 
 
