@@ -25,7 +25,7 @@ class TemplateProcessor
         $this->data = $appointmentData;
         $this->pid = $appointmentData['form_pid'];
         $this->title = $appointmentData['form_title'];
-        self::letterTemplate();
+        //self::letterTemplate();
     }
 
     public function letterTemplate()
