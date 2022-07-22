@@ -14,7 +14,6 @@ use OpenEMR\Pdf\PdfCreator;
 
 class InsuranceNotifications
 {
-
     protected array $statuses;
     protected $letter;
     protected $pid;
