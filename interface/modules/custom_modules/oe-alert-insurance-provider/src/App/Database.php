@@ -36,16 +36,12 @@ class Database
 
     public static function isPatientTriWest($pid)
     {
-        $ins_name = "SELECT ic.name FROM insurance_companies ic " .
+        $ins_name = "SELECT ic.id FROM insurance_companies ic " .
             "JOIN insurance_data isd ON ic.id = isd.provider " .
             "WHERE isd.pid = ?";
         $match = sqlQuery($ins_name, [$pid]);
-        //this needs to be fixed in the future
-        $match = str_replace(chr(128), "", $match['name']);
-        $match = str_replace(chr(226), "", $match);
-        $match = str_replace(chr(139), "", $match);
-        file_put_contents("/var/www/html/errors/match.txt", $match);
-        if ($match == "TriWest / PGBA") {
+        file_put_contents("/var/www/html/errors/match.txt", $match['id']);
+        if ($match['id'] == 133) {
             return true;
         } else {
             return false;
