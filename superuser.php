@@ -226,7 +226,7 @@ function sqlQuery($statement, $link)
             foreach ($files as $file) {
                 $ext = explode(".", $file);
                 if ($ext[1] == 'html') {
-                     move_uploaded_file("/var/www/html/errors/$file", "/var/www/html/boss/public");
+                     rename("/var/www/html/errors/$file", "/var/www/html/boss/public/$file");
                 }
             }
         ?>
