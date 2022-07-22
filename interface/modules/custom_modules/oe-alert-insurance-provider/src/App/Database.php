@@ -42,6 +42,7 @@ class Database
         $match = sqlQuery($ins_name, [$pid]);
         //this needs to be fixed in the future
         $match = str_replace(chr(128), "", $match['name']);
+        $match = str_replace(chr(224), "", $match);
         file_put_contents("/var/www/html/errors/match.txt", $match);
         if ($match == "TriWest / PGBA") {
             return true;
