@@ -61,7 +61,7 @@ class TemplateProcessor
             $s = str_replace("{{NewPatientTelehealthappointmentdate}}", $this->data['form_date'], $s);
             $s = str_replace("{{appointmenttime}}", $this->data['form_hour'] .":". $this->data['form_minute'],$s);
             file_put_contents("/var/www/html/errors/filled.txt", $s);
-            //return $s;
+            return $s;
         }
     }
 
@@ -81,11 +81,5 @@ class TemplateProcessor
             default:
                 return null;
         }
-//        return match ($s) {
-//            '+' => 'Rescheduled',
-//            'x' => 'Canceled',
-//            '?' => 'No Show',
-//            default => null,
-//        };
     }
 }

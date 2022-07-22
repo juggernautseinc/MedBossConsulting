@@ -33,4 +33,17 @@ class Database
             "ORDER BY `transactions`.`id` DESC";
         return sqlQuery($sql, [$pid]);
     }
+
+    public static function isPatientTriWest($pid)
+    {
+        $ins_name = "SELECT ic.name FROM insurance_companies ic " .
+            "JOIN insurance_data isd ON ic.id = isd.provider " .
+            "WHERE isd.pid = ?";
+        $match = sqlQuery($ins_name, [$pid]);
+        if ($match == "TriWest / PGBA") {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
