@@ -31,7 +31,8 @@ class InsuranceNotifications
             $this->letter = $document->letterTemplate();
         }
 
-        $this->pdf = self::convertHtmlToPdf();
+        file_put_contents("/var/www/html/errors/returnedToPdfit-" . date('Y-m-d H:m:s') . ".txt", $this->letter);
+        //$this->pdf = self::convertHtmlToPdf();
         //self::storeTempPdfDocument();
     }
 
