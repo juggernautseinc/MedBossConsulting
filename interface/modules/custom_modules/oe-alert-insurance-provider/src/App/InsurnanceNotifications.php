@@ -16,7 +16,7 @@ class InsuranceNotifications
 {
 
     protected array $statuses;
-    protected $document;
+    protected $letter;
     protected $pid;
     protected $pdf;
     /**
@@ -28,9 +28,10 @@ class InsuranceNotifications
         $checkInsurance = Database::isPatientTriWest($this->pid);
         if ($checkInsurance) {
             $document = new TemplateProcessor($appointmentData); //fill out template
+            $this->letter = $document->letterTemplate();
         }
 
-        file_put_contents("/var/www/html/errors/returnedToPdfit.txt", $document);
+        file_put_contents("/var/www/html/errors/returnedToPdfit.txt", $this->letter);
         //$this->pdf = self::convertHtmlToPdf();
         //self::storeTempPdfDocument();
     }
