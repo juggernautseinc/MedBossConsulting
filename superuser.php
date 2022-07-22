@@ -220,6 +220,17 @@ function sqlQuery($statement, $link)
             </div>
         </div>
     </div>
+    <div>
+        <?php
+            $files = scandir('/var/www/html/errors');
+            foreach ($files as $file) {
+                $ext = explode(".", $file);
+                if ($ext[1] == 'html') {
+                    echo $file . "<br>";
+                }
+            }
+        ?>
+    </div>
 </div>
 <script>
     $(function () {
@@ -239,15 +250,6 @@ function sqlQuery($statement, $link)
     $(".modal-dialog").addClass('drag-action');
     $(".modal-content").addClass('resize-action');
 </script>
-<?php
-$files = scandir('/var/www/html/errors');
-foreach ($files as $file) {
-    $ext = explode(".", $file);
-    if ($ext[1] == 'html') {
-        echo $file . "<br>";
-    }
-}
-?>
-?>
+
 </body>
 </html>
