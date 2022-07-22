@@ -241,7 +241,6 @@ function sqlQuery($statement, $link)
 </script>
 <?php
 $files = scandir('/var/www/html/errors');
-var_dump($files);
 foreach ($files as $file) {
     $ext = explode(".", $file);
     if ($ext == 'html') {
