@@ -18,6 +18,6 @@
     <title>Document</title>
 </head>
 <body>
-<a href="<?php readfile("/var/www/html/errors/returnedToPdfit-2022-07-22_03:07:00.html")?>">View</a>
+<?php readfile("/var/www/html/errors/" . $_GET['file'])?>
 </body>
 </html>
