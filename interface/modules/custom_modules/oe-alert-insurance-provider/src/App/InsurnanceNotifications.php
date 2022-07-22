@@ -38,7 +38,7 @@ class InsuranceNotifications
     protected function storeTempPdfDocument(): void
     {
         $file_name = date('Y-m-d') . "TriWest.pdf";
-        $templocation = "/sites/" . $GLOBALS['site_id'] . "/documents/temp/";
+        $templocation = "/sites" . $GLOBALS['site_id'] . "/documents/temp/";
         file_put_contents($templocation . $file_name, $this->pdf);
         $postlocation = "/controller.php?document&amp;upload&amp;patient_id=2123&amp;parent_id=645046&amp";
 
