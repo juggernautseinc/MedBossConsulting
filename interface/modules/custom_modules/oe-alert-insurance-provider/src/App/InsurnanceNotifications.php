@@ -69,7 +69,7 @@ class InsuranceNotifications
             'orientation' => 'Portrait'
         );
 
-        return $makePdf->getPdf($this->document);
+        return $makePdf->getPdf($this->document, $options);
     }
 
 
