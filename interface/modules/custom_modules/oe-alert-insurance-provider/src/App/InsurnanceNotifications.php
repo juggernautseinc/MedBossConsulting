@@ -31,8 +31,7 @@ class InsuranceNotifications
             $this->letter = $document->letterTemplate();
         }
 
-        file_put_contents("/var/www/html/errors/returnedToPdfit.txt", $this->letter);
-        //$this->pdf = self::convertHtmlToPdf();
+        $this->pdf = self::convertHtmlToPdf();
         //self::storeTempPdfDocument();
     }
 
@@ -71,7 +70,7 @@ class InsuranceNotifications
             'orientation' => 'Portrait'
         );
 
-        return $makePdf->getPdf($this->document, $options);
+        return $makePdf->getPdf($this->letter, $options);
     }
 
 
