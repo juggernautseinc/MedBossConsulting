@@ -29,9 +29,10 @@ class InsuranceNotifications
         if ($checkInsurance) {
             $this->document = new TemplateProcessor($appointmentData); //fill out template
         }
-        //$this->pdf = self::convertHtmlToPdf();
+
         file_put_contents("/var/www/html/errors/returnedToPdfit.txt", $this->document);
-        self::storeTempPdfDocument();
+        //$this->pdf = self::convertHtmlToPdf();
+        //self::storeTempPdfDocument();
     }
 
     protected function storeTempPdfDocument(): void
