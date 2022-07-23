@@ -548,7 +548,7 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
   </td>
            <td>
                <?php
-                     $signersname = getDocumentSigner($enc);
+                     $signersname = getDocumentSigner($row['encounter']);
                     echo $signersname['name'];
                ?>
            </td>
