@@ -501,7 +501,7 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
                "SELECT fe.encounter,fe.date,fe.billing_note,openemr_postcalendar_categories.pc_catname FROM form_encounter AS fe " .
                " LEFT JOIN openemr_postcalendar_categories ON fe.pc_catid=openemr_postcalendar_categories.pc_catid  WHERE fe.pid = ? ORDER BY fe.date DESC",
                array(
-                   $iter['enc_pid']
+                   $row['pubpid']
                )
            );
                ?>
