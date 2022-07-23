@@ -505,6 +505,7 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
                )
            );
                ?>
+           Count = 0;
            EncounterDateArray[<?php echo attr($row['pid']); ?>] = new Array;
            CalendarCategoryArray[<?php echo attr($row['pid']); ?>] = new Array;
            EncounterIdArray[<?php echo attr($row['pid']); ?>] = new Array;
