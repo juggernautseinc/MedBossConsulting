@@ -495,10 +495,31 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
   </td>
    <td>
        <script>
+           <?php
+           // Encounter details are stored to javacript as array.
+           $result4 = sqlStatement(
+               "SELECT fe.encounter,fe.date,fe.billing_note,openemr_postcalendar_categories.pc_catname FROM form_encounter AS fe " .
+               " LEFT JOIN openemr_postcalendar_categories ON fe.pc_catid=openemr_postcalendar_categories.pc_catid  WHERE fe.pid = ? ORDER BY fe.date DESC",
+               array(
+                   $iter['enc_pid']
+               )
+           );
+               ?>
            EncounterDateArray[<?php echo attr($row['pid']); ?>] = new Array;
            CalendarCategoryArray[<?php echo attr($row['pid']); ?>] = new Array;
            EncounterIdArray[<?php echo attr($row['pid']); ?>] = new Array;
            EncounterNoteArray[<?php echo attr($row['pid']); ?>] = new Array;
+           <?php
+           while ($rowresult4 = sqlFetchArray($result4)) {
+           ?>
+               EncounterIdArray[<?php echo attr($iter['enc_pid']); ?>][Count] = <?php echo js_escape($rowresult4['encounter']); ?>;
+               EncounterDateArray[<?php echo attr($iter['enc_pid']); ?>][Count] = <?php echo js_escape(oeFormatShortDate(date("Y-m-d", strtotime($rowresult4['date'])))); ?>;
+               CalendarCategoryArray[<?php echo attr($iter['enc_pid']); ?>][Count] = <?php echo js_escape(xl_appt_category($rowresult4['pc_catname'])); ?>;
+               EncounterNoteArray[<?php echo attr($iter['enc_pid']); ?>][Count] = <?php echo js_escape($rowresult4['billing_note']); ?>;
+               Count++;
+           <?php
+           $enc_billing_note[$rowresult4['encounter']] = $rowresult4['billing_note'];
+           } ?>
        </script>
        <?php  $ptname = $row['fname'] . ' ' . $row['lname'];
        $name = getPatientData($row['pid'], "fname, mname, lname, pubpid, billing_note, DATE_FORMAT(DOB,'%Y-%m-%d') as DOB_YMD");
