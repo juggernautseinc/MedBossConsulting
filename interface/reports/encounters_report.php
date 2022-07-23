@@ -136,6 +136,11 @@ if ($form_not_esigned) {
 $query .= "ORDER BY $orderby";
 
 $res = sqlStatement($query, $sqlBindArray);
+
+function getDocumentSigner($enc)
+{
+    return sqlQuery("SELECT CONCAT(u.fname, ', ', u.lname) as name FROM `users` u JOIN `esign_signatures` es ON `es`.`uid` = `u`.`id` WHERE `es`.`tid` = ? ", [$enc]);
+}
 ?>
 <html>
 <head>
@@ -382,6 +387,10 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
   <th>
         <?php echo xlt('Coding'); ?>
   </th>
+
+  <th>
+      <?php echo xlt('Signed By'); ?>
+  </th>
 <?php } else { ?>
   <th><?php echo xlt('Provider'); ?></td>
   <th><?php echo xlt('Encounters'); ?></td>
@@ -537,6 +546,12 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
   <td>
                 <?php echo text($coded); ?>
   </td>
+           <td>
+               <?php
+                     $signersname = getDocumentSigner($enc);
+                    echo $signersname['name'];
+               ?>
+           </td>
  </tr>
                 <?php
             } else {
