@@ -387,9 +387,11 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
   <th>
         <?php echo xlt('Coding'); ?>
   </th>
-
-  <th>
-      <?php echo xlt('Signed By'); ?>
+      <?php
+            if ($form_esigned == 'checked') {
+                echo "<th>" . xlt('Signed By') . "</th>";
+            }
+      ?>
   </th>
 <?php } else { ?>
   <th><?php echo xlt('Provider'); ?></td>
@@ -546,12 +548,14 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
   <td>
                 <?php echo text($coded); ?>
   </td>
-           <td>
+
                <?php
-                     $signersname = getDocumentSigner($row['encounter']);
-                    echo $signersname['name'];
+                   if ($form_esigned == 'checked') {
+                       $signersname = getDocumentSigner($row['encounter']);
+                       echo "<td>" . $signersname['name'] . "</td>";
+                   }
                ?>
-           </td>
+
  </tr>
                 <?php
             } else {
