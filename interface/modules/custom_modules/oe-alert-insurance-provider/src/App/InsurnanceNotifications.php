@@ -26,7 +26,8 @@ class InsuranceNotifications
     {
         $this->pid = $appointmentData['form_pid'];
         $this->checkInsurance = Database::isPatientTriWest($this->pid);
-        if ($this->checkInsurance) {
+        $hasReferral = new TemplateProcessor();
+        if ($this->checkInsurance && !empty($hasReferral->contactEmail)) {
             $document = new TemplateProcessor($appointmentData); //fill out template
             $this->letter = $document->letterTemplate();
             file_put_contents("/var/www/html/errors/" . $this->pid . "-" . date('Y-m-d_H:m:s') . ".html", $this->letter);
