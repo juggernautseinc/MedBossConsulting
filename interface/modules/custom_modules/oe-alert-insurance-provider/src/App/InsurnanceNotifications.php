@@ -11,6 +11,7 @@
 namespace Juggernaut\App;
 
 use OpenEMR\Pdf\PdfCreator;
+use OpenEMR\Mpdf;
 
 class InsuranceNotifications
 {
@@ -19,6 +20,8 @@ class InsuranceNotifications
     protected $pid;
     protected $pdf;
     protected bool $checkInsurance;
+    protected $output;
+    protected $pdfName;
     /**
      * @param array $appointmentData
      */
@@ -32,18 +35,27 @@ class InsuranceNotifications
             $this->letter = $document->letterTemplate();
             file_put_contents("/var/www/html/errors/" . $this->pid . "-" . date('Y-m-d_H:m:s') . ".html", $this->letter);
         }
+        $this->pdfName = date('Y-m-d_H:m:s') . ".pdf";
+        $mpdf = new Mpdf();
+        $mpdf->WriteHTML($this->letter);
+        $this->output = $mpdf->Output($this->pdfName);
+        file_put_contents("/var/www/html/errors/" . $this->pid . "-" . date('Y-m-d_H:m:s') . ".pdf", $this->output);
 
-
-        //$this->pdf = self::convertHtmlToPdf();
         //self::storeTempPdfDocument();
     }
 
     protected function storeTempPdfDocument(): void
     {
-        $file_name = date('Y-m-d') . "TriWest.pdf";
-        $templocation = "/sites" . $GLOBALS['site_id'] . "/documents/temp/";
-        file_put_contents($templocation . $file_name, $this->pdf);
-        $postlocation = "/controller.php?document&amp;upload&amp;patient_id=2123&amp;parent_id=645046&amp";
+        $postlocation = dirname(__DIR__, 6) . "/controller.php?document&upload&patient_id=" . $this->pid . "&parent_id=685461&";
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('POST', $postlocation, [
+            'multipart' => [
+                'name' => $this->pdfName,
+                'contents' => $this->output
+            ]
+    ]);
+
+         "//controller.php?document&upload&patient_id=2635&parent_id=685461&";
 
     }
 
