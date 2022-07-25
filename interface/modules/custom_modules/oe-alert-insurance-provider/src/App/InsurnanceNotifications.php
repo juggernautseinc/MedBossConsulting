@@ -55,7 +55,7 @@ class InsuranceNotifications
             'keep_table_proportions' => true
         );
         $mpdf = new Mpdf($config_mpdf);
-        $mpdf->WriteHTML($this->letter);
+        $mpdf->WriteHTML(__toString($this->letter));
         $this->output = $mpdf->Output($this->pdfName);
         file_put_contents("/var/www/html/errors/" . $this->pid . "-" . date('Y-m-d_H:m:s') . ".pdf", $this->output);
 
