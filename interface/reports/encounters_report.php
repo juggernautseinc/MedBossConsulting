@@ -392,7 +392,7 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
                 echo "<th>" . xlt('Signed By') . "</th>";
             }
       ?>
-  </th>
+
 <?php } else { ?>
   <th><?php echo xlt('Provider'); ?></td>
   <th><?php echo xlt('Encounters'); ?></td>
@@ -502,7 +502,7 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
                 <?php echo text($status); ?>&nbsp;
   </td>
   <td style="width: 650px">
-                <?php echo text($row['reason']); ?>
+                <?php echo text($row['reason']); ?>&nbsp;
   </td>
    <td>
        <script>
