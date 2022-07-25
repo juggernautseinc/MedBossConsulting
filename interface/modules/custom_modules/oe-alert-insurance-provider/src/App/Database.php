@@ -28,8 +28,9 @@ class Database
         $sql = "SELECT `lbt_data`.`field_value` FROM `lbt_data` " .
             "JOIN `transactions` ON `transactions`.`id` = `lbt_data`.`form_id` " .
             "WHERE `transactions`.`id` = `lbt_data`.`form_id` " .
+            "AND (`lbt_data`.`field_id` = 'VAContact' OR `lbt_data`.`field_id` = 'VAPhone' OR `lbt_data`.`field_id` = 'VAEmail')" .
             "AND `transactions`.`pid` = ?" .
-            "ORDER BY `transactions`.`id` DESC LIMIT 17";
+            "ORDER BY `transactions`.`id` DESC";
         return sqlQuery($sql, [$pid]);
     }
 
