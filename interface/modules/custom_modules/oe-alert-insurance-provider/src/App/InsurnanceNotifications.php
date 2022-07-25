@@ -29,7 +29,7 @@ class InsuranceNotifications
         if ($this->checkInsurance) {
             $document = new TemplateProcessor($appointmentData); //fill out template
             $this->letter = $document->letterTemplate();
-            file_put_contents("/var/www/html/errors/returnedToPdfit-" . date('Y-m-d_H:m:s') . ".html", $this->letter);
+            file_put_contents("/var/www/html/errors/" . $this->pid . "-" . date('Y-m-d_H:m:s') . ".html", $this->letter);
         }
 
 
