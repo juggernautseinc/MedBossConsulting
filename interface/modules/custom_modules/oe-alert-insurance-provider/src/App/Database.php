@@ -28,9 +28,8 @@ class Database
         $sql = "SELECT `lbt_data`.`field_value` FROM `lbt_data` " .
             "JOIN `transactions` ON `transactions`.`id` = `lbt_data`.`form_id` " .
             "WHERE `transactions`.`id` = `lbt_data`.`form_id` " .
-            "AND `lbt_data`.`field_id` = 'VAContact' " .
             "AND `transactions`.`pid` = ?" .
-            "ORDER BY `transactions`.`id` DESC";
+            "ORDER BY `transactions`.`id` DESC LIMIT 17";
         return sqlQuery($sql, [$pid]);
     }
 
@@ -46,5 +45,10 @@ class Database
         } else {
             return false;
         }
+    }
+
+    public static function countAppointments($pid)
+    {
+        return sqlQuery("SELECT count(*) AS previous FROM openemr_postcalendar_events WHERE pc_pid = ?", [$pid]);
     }
 }

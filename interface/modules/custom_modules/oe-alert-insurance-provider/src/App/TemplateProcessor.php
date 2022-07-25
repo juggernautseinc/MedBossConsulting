@@ -36,7 +36,12 @@ class TemplateProcessor
 
     protected function getLetterTemplate()
     {
-        $this->template = dirname(__FILE__) . "/../Templates/Letter-head-template.html";
+        $isFirstAppointment = Database::countAppointments($this->pid);
+        if ($isFirstAppointment['previous'] > 0) {
+            $this->template = dirname(__FILE__) . "/../Templates/Letter-head-template.html";
+        } else {
+            $this->template = dirname(__FILE__) . "/../Templates/First-appointment-template.html";
+        }
         return file_get_contents($this->template);
     }
 
@@ -51,6 +56,7 @@ class TemplateProcessor
         $s = $this->template;
         $status = self::convertStatus() ?? null;
         $contactName = Database::vaContactName($this->data['form_pid']) ?? null;
+        var_dump($contactName); die;
         if (in_array($this->data['form_apptstatus'], $this->status)) {
             $s = str_replace("{{APPSTATUS}}", $status, $s);
             $s = str_replace("{{VeteranVAAuthorizationnumber}}", $this->auth, $s);
