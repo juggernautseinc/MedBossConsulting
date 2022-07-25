@@ -17,6 +17,8 @@ class TemplateProcessor
     protected string $pid;
     protected array $data;
     protected array $status;
+    public string $contactEmail;
+    public string $contactFax;
 
 
     public function __construct($appointmentData)
@@ -56,15 +58,18 @@ class TemplateProcessor
         $s = $this->template;
         $status = self::convertStatus() ?? null;
         $contactName = Database::vaContactName($this->data['form_pid']) ?? null;
-        var_dump($contactName); die;
+
         if (in_array($this->data['form_apptstatus'], $this->status)) {
             $s = str_replace("{{APPSTATUS}}", $status, $s);
             $s = str_replace("{{VeteranVAAuthorizationnumber}}", $this->auth, $s);
-            $s = str_replace("{{VeteranContactFirstName}}", $contactName['field_value'], $s);
+            $s = str_replace("{{VeteranContactFirstName}}", $contactName[0]['field_value'], $s);
             $s = str_replace("{{PatientfirstnameLastName}}", $this->data['form_patient'], $s);
             $s = str_replace("{{NewPatientTelehealthappointmentdate}}", $this->data['form_date'], $s);
             $s = str_replace("{{appointmenttime}}", $this->data['form_hour'] .":". $this->data['form_minute'],$s);
             file_put_contents("/var/www/html/errors/filled.txt", $s);
+
+            $this->contactEmail = $contactName[1]['field_value'];
+            $this->contactFax = str_replace("-", "", $contactName[2]['field_value']);
             return $s;
         }
     }
