@@ -11,7 +11,7 @@
 namespace Juggernaut\App;
 
 use OpenEMR\Pdf\PdfCreator;
-use OpenEMR\Mpdf\Mpdf;
+use Mpdf\Mpdf;
 
 class InsuranceNotifications
 {
