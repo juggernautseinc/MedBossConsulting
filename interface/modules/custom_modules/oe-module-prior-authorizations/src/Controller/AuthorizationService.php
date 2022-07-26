@@ -183,8 +183,6 @@ class AuthorizationService
             FROM `patient_data` pd " . "
             LEFT JOIN  `module_prior_authorizations` mpa ON pd.pid = mpa.pid " . "
             LEFT JOIN `transactions` ON `transactions`.`pid` = `pd`.`pid` " . "
-            LEFT JOIN `lbt_data` ON `transactions`.`id` = `lbt_data`.`form_id` " . "
-            LEFT JOIN `insurance_data` ins ON `ins`.`pid` = `pd`.`pid` AND `ins`.`provider` = 133
             WHERE " . "
             `pd`.`pid` NOT IN ( SELECT `ps`.`pid` FROM `patient_status` ps WHERE `ps`.`status` = 'inactive') " . "
 			ORDER BY pd.lname";
