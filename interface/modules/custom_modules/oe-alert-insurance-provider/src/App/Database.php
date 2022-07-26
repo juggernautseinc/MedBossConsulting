@@ -36,7 +36,7 @@ class Database
          while ($row = sqlFetchArray($vaInfo)) {
              $contactInfo[] = $row;
          }
-        file_put_contents("/var/www/html/errors/contact.txt", print_r($contactInfo, true));
+        file_put_contents("/var/www/html/errors/contact.txt", $contactInfo[1]['field_value']);
         return $contactInfo;
     }
 
