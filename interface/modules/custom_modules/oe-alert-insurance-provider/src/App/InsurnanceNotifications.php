@@ -30,7 +30,6 @@ class InsuranceNotifications
         $this->pid = $appointmentData['form_pid'];
         $this->checkInsurance = Database::isPatientTriWest($this->pid);
         $document = new TemplateProcessor($appointmentData);
-        echo $document->contactEmail; die;
         if ($this->checkInsurance && !empty($document->contactEmail)) {
              //fill out template
             $this->letter = $document->letterTemplate();

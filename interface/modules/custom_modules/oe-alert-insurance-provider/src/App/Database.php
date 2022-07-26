@@ -36,6 +36,7 @@ class Database
          while ($row = sqlFetchArray($vaInfo)) {
              $contactInfo[] = $row;
          }
+         var_dump($contactInfo); die;
         return $contactInfo;
     }
 
