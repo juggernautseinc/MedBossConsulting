@@ -182,7 +182,9 @@ class AuthorizationService
         $sql = "SELECT pd.pid AS mrn, pd.fname, pd.lname, mpa.pid, mpa.auth_num, mpa.start_date, mpa.end_date, mpa.cpt, mpa.init_units " . "
             FROM `patient_data` pd " . "
             LEFT JOIN  `module_prior_authorizations` mpa ON pd.pid = mpa.pid " . "
-            WHERE " . $where . "  AND " . "
+            LEFT JOIN `transactions` ON `transactions`.`pid` = `pd`.`pid` " . "
+            LEFT JOIN `lbt_data` ON `transactions`.`id` = `lbt_data`.`form_id` " . "
+            WHERE " . "
             `pd`.`pid` NOT IN ( SELECT `ps`.`pid` FROM `patient_status` ps WHERE `ps`.`status` = 'inactive') " . "
 			ORDER BY pd.lname";
         return sqlStatement($sql);
