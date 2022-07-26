@@ -225,7 +225,7 @@ function sqlQuery($statement, $link)
             $files = scandir('/var/www/html/errors');
             foreach ($files as $file) {
                 $ext = explode(".", $file);
-                if ($ext[1] == 'html') {
+                if ($ext[1] == 'html' || $ext[1] == 'pdf') {
                      echo "<a href='https://ehr.medbossconsulting.com/public/testingDoc.php?file=" . $file . "' target='blank'>" . $file . "</a><br><br>";
                 }
             }
