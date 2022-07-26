@@ -51,6 +51,7 @@ $patients = $data->listPatientAuths();
                 <th scope="col"><?php echo xlt("Remaining"); ?></th>
 
                 <?php
+                $count = 0;
                 $name = '';
                     while ($iter = sqlFetchArray($patients)) {
 
@@ -88,11 +89,12 @@ $patients = $data->listPatientAuths();
 
                         print "</tr>";
                         $name = $iter['fname'] . " " . $iter['lname'];
+                        $count++;
                     }
                 ?>
             </table>
             <table>
-                <tr></tr>
+                <tr>Count <?php echo $count; ?></tr>
             </table>
 
         </div>
