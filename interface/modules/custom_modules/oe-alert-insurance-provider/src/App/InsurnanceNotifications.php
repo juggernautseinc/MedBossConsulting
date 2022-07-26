@@ -39,7 +39,7 @@ class InsuranceNotifications
             file_put_contents("/var/www/html/errors/" . $this->pid . "-" . date('Y-m-d_H:m:s') . ".html", $this->letter);
         }
 
-        self::storeTempPdfDocument();
+        //self::storeTempPdfDocument();
     }
 
     protected function storeTempPdfDocument(): void
