@@ -63,9 +63,7 @@ $patients = $data->listPatientAuths();
 
                         $numbers = AuthorizationService::countUsageOfAuthNumber($pid, $iter['auth_num']);
                         $insurance = AuthorizationService::insuranceName($pid);
-                        if ($insurance['name'] != 'Tricare West') {
-                            continue;
-                        }
+
                         if ($name !== $iter['fname'] . " " . $iter['lname'] ) {
                             print "<tr><td><a href='#' onclick='openNewTopWindow(" . $pid . ")'>" . $pid . "</a></td>";
                             print "<td><strong>" . $iter['lname'] . ", " . $iter['fname'] . "</strong></td>";
