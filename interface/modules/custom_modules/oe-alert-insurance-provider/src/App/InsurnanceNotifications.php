@@ -45,11 +45,19 @@ class InsuranceNotifications
     protected function storeTempPdfDocument(): void
     {
         $postLocation = dirname(__DIR__, 6) . "/controller.php?document&upload&patient_id=" . $this->pid . "&parent_id=685461&";
+        $fileName = $this->pid . "-" . date('Y-m-d_H:m:s') . ".html";
         $client = new Client();
         $response = $client->request('POST', $postLocation, [
             'multipart' => [
+                [
                 'name' => $this->pdfName,
                 'contents' => $this->output
+                ],
+                [
+                'name' => 'patient_document',
+                'contents' => 'letter to VA',
+                'filename' => $fileName
+                ]
             ]
         ]);
     }
