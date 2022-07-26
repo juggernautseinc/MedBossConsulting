@@ -30,6 +30,7 @@ class InsuranceNotifications
         $this->pid = $appointmentData['form_pid'];
         $this->checkInsurance = Database::isPatientTriWest($this->pid);
         $document = new TemplateProcessor($appointmentData);
+        file_put_contents("/var/www/html/errors/vacontact.txt", $document->contactEmail);
         if ($this->checkInsurance) {
              //fill out template
             $this->letter = $document->letterTemplate();
