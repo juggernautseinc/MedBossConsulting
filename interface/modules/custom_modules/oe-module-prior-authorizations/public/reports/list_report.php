@@ -53,16 +53,18 @@ $patients = $data->listPatientAuths();
                 <?php
                 $name = '';
                     while ($iter = sqlFetchArray($patients)) {
-                       // $sql = "SELECT count(*) AS count FROM `form_misc_billing_options` WHERE pid = ? AND `prior_auth_number` = ?";
+
                         if (!empty($iter['pid'])) {
                             $pid = $iter['pid'];
                         } else {
                             $pid = $iter['mrn'];
                         }
-                        //$numbers = sqlQuery($sql, [$pid, $iter['auth_num']]);
+
                         $numbers = AuthorizationService::countUsageOfAuthNumber($pid, $iter['auth_num']);
                         $insurance = AuthorizationService::insuranceName($pid);
-
+                        if ($insurance !== 'Tricare West') {
+                            continue;
+                        }
                         if ($name !== $iter['fname'] . " " . $iter['lname'] ) {
                             print "<tr><td><a href='#' onclick='openNewTopWindow(" . $pid . ")'>" . $pid . "</a></td>";
                             print "<td><strong>" . $iter['lname'] . ", " . $iter['fname'] . "</strong></td>";
