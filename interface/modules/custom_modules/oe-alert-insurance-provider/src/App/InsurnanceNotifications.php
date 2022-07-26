@@ -31,11 +31,11 @@ class InsuranceNotifications
         $this->checkInsurance = Database::isPatientTriWest($this->pid);
         $contact = Database::vaContactName($this->pid);
         $document = new TemplateProcessor($appointmentData);
-        file_put_contents("/var/www/html/errors/contactInfo.txt", print_r($contact, true));
-        if ($this->checkInsurance) {
-             //fill out template
+
+        if ($this->checkInsurance && !empty($contact[1]['field_value'])) {
+             //fill out template if the contact form has an email address
             $this->letter = $document->letterTemplate();
-            file_put_contents("/var/www/html/errors/" . $this->pid . "-" . date('Y-m-d_H:m:s') . ".html", $this->letter);
+            file_put_contents("/var/www/html/errors/" . $this->pid . "-" . date('Y-m-d_H:m:s') . ".pdf", $this->letter);
         }
         $this->pdfName = date('Y-m-d_H:m:s') . ".pdf";
         $config_mpdf = array(
