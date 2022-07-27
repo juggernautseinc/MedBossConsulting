@@ -61,6 +61,10 @@ $patients = $data->listPatientAuths();
                             $pid = $iter['mrn'];
                         }
 
+                        if ($iter['provider'] != 133) {
+                            continue;
+                        }
+
                         $numbers = AuthorizationService::countUsageOfAuthNumber($pid, $iter['auth_num']);
                         $insurance = AuthorizationService::insuranceName($pid);
 
