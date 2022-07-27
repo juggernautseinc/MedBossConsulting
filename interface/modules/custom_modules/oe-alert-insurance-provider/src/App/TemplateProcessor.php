@@ -12,6 +12,7 @@ namespace Juggernaut\App;
 class TemplateProcessor
 {
     protected $auth;
+    protected string $apptStatus;
     protected $template;
     protected string $title;
     protected string $pid;
@@ -27,6 +28,17 @@ class TemplateProcessor
         $this->data = $appointmentData;
         $this->pid = $appointmentData['form_pid'];
         $this->title = $appointmentData['form_title'];
+        $this->apptStatus = $appointmentData['form_apptstatus'];
+
+    }
+
+    public function createTemplateFlag()
+    {
+        if (in_array($this->apptStatus, $this->status)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function letterTemplate()

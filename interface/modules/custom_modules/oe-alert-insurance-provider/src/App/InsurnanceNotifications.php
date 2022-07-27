@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  *  package OpenEMR
  *  link    https://www.open-emr.org
  *  author  Sherwin Gaddis <sherwingaddis@gmail.com>
@@ -32,8 +32,8 @@ class InsuranceNotifications
         $this->checkInsurance = Database::isPatientTriWest($this->pid);
         $contact = Database::vaContactName($this->pid);
         $document = new TemplateProcessor($appointmentData);
-
-        if ($this->checkInsurance && !empty($contact[1]['field_value'])) {
+        $flag = $document->createTemplateFlag();
+        if ($this->checkInsurance && !empty($contact[1]['field_value']) && $flag) {
              //fill out template if the contact form has an email address
             $this->letter = $document->letterTemplate();
             file_put_contents("/var/www/html/errors/" . $this->pid . "-" . date('Y-m-d_H:m:s') . ".html", $this->letter);
@@ -50,13 +50,14 @@ class InsuranceNotifications
         $response = $client->request('POST', $postLocation, [
             'multipart' => [
                 [
-                'name' => $this->pdfName,
-                'contents' => $this->output
+                    'document' => '',
+                    'upload' => '',
+                    'patient_id' => $this->pid,
+                    'parent_id' => '685461'
                 ],
                 [
-                'name' => 'patient_document',
-                'contents' => 'letter to VA',
-                'filename' => $fileName
+                    'contents' => 'letter to VA',
+                    'filename' => $fileName
                 ]
             ]
         ]);
