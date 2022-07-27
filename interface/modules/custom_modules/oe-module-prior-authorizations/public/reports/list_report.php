@@ -67,7 +67,7 @@ $patients = $data->listPatientAuths();
                             continue;
                         }
                         if ($status['status'] == 'inactive') {
-                            continue;
+                            //continue;
                         }
 
                         $numbers = AuthorizationService::countUsageOfAuthNumber($pid, $iter['auth_num']);
