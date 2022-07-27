@@ -76,7 +76,7 @@ $patients = $data->listPatientAuths();
                         if ($name !== $iter['fname'] . " " . $iter['lname'] ) {
                             print "<tr><td><a href='#' onclick='openNewTopWindow(" . $pid . ")'>" . $pid . "</a></td>";
                             print "<td><strong>" . $iter['lname'] . ", " . $iter['fname'] . "</strong></td>";
-                            print "<td style='max-width:75px;'>" . $insurance['name'] . "</td>";
+                            print "<td style='max-width:75px;'>" . $insurance['name'] . " " . $status['status'] . "</td>";
                         } else {
                             print "<td></td>";
                             print "<td></td>";
