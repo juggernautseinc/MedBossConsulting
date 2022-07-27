@@ -90,7 +90,12 @@ $patients = $data->listPatientAuths();
                             print "<td></td>";
                         } else {
                             print "<td>" . $iter['init_units'] . "</td>";
-                            print "<td>" . ($iter['init_units'] - $numbers['count']) . "</td>";
+                            $unitCount = $iter['init_units'] - $numbers['count'];
+                            if ($unitCount > 0) {
+                                print "<td>" . $unitCount . "</td>";
+                            } else {
+                                print "<td>&nbsp</td>";
+                            }
                         }
 
                         print "</tr>";
