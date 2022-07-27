@@ -182,7 +182,7 @@ class AuthorizationService
         $sql = "SELECT pd.pid AS mrn, pd.fname, pd.lname, mpa.pid, mpa.auth_num, mpa.start_date, mpa.end_date, mpa.cpt, mpa.init_units, ins.provider " . "
             FROM `patient_data` pd " . "
             LEFT JOIN  `module_prior_authorizations` mpa ON pd.pid = mpa.pid " . "
-            LEFT JOIN `insurance_data` ins ON  `insurance_data`.`pid` = `pd`.`pid` " . "
+            LEFT JOIN `insurance_data` ins ON  `ins`.`pid` = `pd`.`pid` " . "
             ORDER BY pd.lname";
         return sqlStatement($sql);
     }
