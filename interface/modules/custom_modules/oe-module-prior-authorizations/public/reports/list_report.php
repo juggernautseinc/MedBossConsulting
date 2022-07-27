@@ -60,8 +60,8 @@ $patients = $data->listPatientAuths();
                         } else {
                             $pid = $iter['mrn'];
                         }
-
-                        if ($iter['provider'] != 133) {
+                        $requireAuth = AuthorizationService::requiresAuthorization($iter['pid']);
+                        if (($iter['provider'] != 133) || ($requireAuth['field_id'] != 'YES')) {
                             continue;
                         }
 

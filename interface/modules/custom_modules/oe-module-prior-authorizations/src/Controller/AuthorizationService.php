@@ -226,4 +226,12 @@ class AuthorizationService
                          WHERE pid = ? AND `prior_auth_number` = ?", [$pid, $authnum]);
     }
 
+    public static function requiresAuthorization($pid): bool|array|null
+    {
+        $sql = "SELECT `d`.`field_value` FROM `lbt_data` d
+JOIN `transactions` t ON `t`.`id` = `d`.`form_id` AND `t`.`title` = 'LBT_authorizations'
+WHERE `t`.`pid` = ? AND `d`.`field_id` = 'authorization_001'";
+        return sqlQuery($sql, [$pid]);
+    }
+
 }
