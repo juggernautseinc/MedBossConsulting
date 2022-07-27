@@ -66,7 +66,7 @@ $patients = $data->listPatientAuths();
                         if ($iter['provider'] != 133 && ($requireAuth['field_id'] != 'YES')) {
                             continue;
                         }
-                        echo $status['status'] . " " . $pid . "<br>";
+
                         if ($status['status'] == 'inactive') {
                             continue;
                         }
@@ -77,7 +77,7 @@ $patients = $data->listPatientAuths();
                         if ($name !== $iter['fname'] . " " . $iter['lname'] ) {
                             print "<tr><td><a href='#' onclick='openNewTopWindow(" . $pid . ")'>" . $pid . "</a></td>";
                             print "<td><strong>" . $iter['lname'] . ", " . $iter['fname'] . "</strong></td>";
-                            print "<td style='max-width:75px;'>" . $insurance['name'] . " " . $status['status'] . "</td>";
+                            print "<td style='max-width:75px;'>" . $insurance['name'] . "</td>";
                         } else {
                             print "<td></td>";
                             print "<td></td>";
