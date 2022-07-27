@@ -49,6 +49,7 @@ $patients = $data->listPatientAuths();
                 <th scope="col"><?php echo xlt("End"); ?></th>
                 <th scope="col">#<?php echo xlt("of Units"); ?></th>
                 <th scope="col"><?php echo xlt("Remaining"); ?></th>
+                <th>Status</th>
 
                 <?php
                 $count = 0;
@@ -90,7 +91,7 @@ echo $status['status'];
                             print "<td>" . ($iter['init_units'] - $numbers['count']) . "</td>";
                         }
 
-
+                        print "<td>" . $status['status'] . "</td>";
                         print "</tr>";
                         $name = $iter['fname'] . " " . $iter['lname'];
                         $count++;
