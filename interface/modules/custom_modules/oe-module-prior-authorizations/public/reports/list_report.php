@@ -61,8 +61,8 @@ $patients = $data->listPatientAuths();
                             $pid = $iter['mrn'];
                         }
                         $requireAuth = AuthorizationService::requiresAuthorization($iter['pid']);
-                        $status = AuthorizationService::patientInactive($iter['pid']);
-                        if (($iter['provider'] != 133) || ($requireAuth['field_id'] != 'YES')) {
+                        echo $status = AuthorizationService::patientInactive($iter['pid']);
+                        if ($iter['provider'] != 133) {
                             continue;
                         }
 
