@@ -66,6 +66,7 @@ $patients = $data->listPatientAuths();
                         if ($iter['provider'] != 133 && ($requireAuth['field_id'] != 'YES')) {
                             continue;
                         }
+                        echo $status['status'] . " " . $pid . "<br>";
                         if ($status['status'] == 'inactive') {
                             continue;
                         }
