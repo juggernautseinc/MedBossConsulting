@@ -49,7 +49,6 @@ $patients = $data->listPatientAuths();
                 <th scope="col"><?php echo xlt("End"); ?></th>
                 <th scope="col">#<?php echo xlt("of Units"); ?></th>
                 <th scope="col"><?php echo xlt("Remaining"); ?></th>
-                <th>Status</th>
 
                 <?php
                 $count = 0;
@@ -64,7 +63,7 @@ $patients = $data->listPatientAuths();
                         $requireAuth = AuthorizationService::requiresAuthorization($iter['pid']);
                         $status = AuthorizationService::patientInactive($iter['pid']);
 
-                        if ($iter['provider'] != 133) {
+                        if ($iter['provider'] != 133 && ($requireAuth['field_id'] != 'YES')) {
                             continue;
                         }
                         if ($status['status'] == 'inactive') {
@@ -86,7 +85,7 @@ $patients = $data->listPatientAuths();
                         print "<td>" . $iter['auth_num'] . "</td>";
                         print "<td>" . $iter['start_date'] . "</td>";
                         print "<td>" . $iter['end_date'] . "</td>";
-                        if (($iter['end_date'] < date('Y-m-d')) && ($iter['end_date'] !== '0000-00-00')) {
+                        if (($iter['end_date'] < date('Y-m-d')) && ($iter['end_date'] !== '0000-00-00') && !empty($iter['auth_num'])) {
                             print "<td style='color: red'><strong>" . xlt('Expired') . "</strong></td>";
                             print "<td></td>";
                         } else {
@@ -94,7 +93,6 @@ $patients = $data->listPatientAuths();
                             print "<td>" . ($iter['init_units'] - $numbers['count']) . "</td>";
                         }
 
-                        print "<td>" . $status['status'] . "</td>";
                         print "</tr>";
                         $name = $iter['fname'] . " " . $iter['lname'];
                         $count++;
