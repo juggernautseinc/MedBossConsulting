@@ -236,7 +236,7 @@ WHERE `t`.`pid` = ? AND `d`.`field_id` = 'authorization_001'";
 
     public static function patientInactive($pid)
     {
-        return sqlQuery("SELECT `ps`.`status` FROM `patient_status` ps WHERE `ps`.`pid` = ?", [$pid]);
+        return sqlQuery("SELECT `ps`.`status` FROM `patient_status` ps WHERE `ps`.`pid` = ? ORDER BY `ps`.`statusId` DESC", [$pid]);
     }
 
 }
