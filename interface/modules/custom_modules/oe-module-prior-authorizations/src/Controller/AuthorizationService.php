@@ -179,12 +179,11 @@ class AuthorizationService
            $where = "mpa.pid = pd.pid";
         }
 
-        $sql = "SELECT pd.pid AS mrn, pd.fname, pd.lname, mpa.pid, mpa.auth_num, mpa.start_date, mpa.end_date, mpa.cpt, mpa.init_units " . "
+        $sql = "SELECT pd.pid AS mrn, pd.fname, pd.lname, mpa.pid, mpa.auth_num, mpa.start_date, mpa.end_date, mpa.cpt, mpa.init_units, ins.provider " . "
             FROM `patient_data` pd " . "
             LEFT JOIN  `module_prior_authorizations` mpa ON pd.pid = mpa.pid " . "
-            WHERE " . $where . "  AND " . "
-            `pd`.`pid` NOT IN ( SELECT `ps`.`pid` FROM `patient_status` ps WHERE `ps`.`status` = 'inactive') " . "
-			ORDER BY pd.lname";
+            LEFT JOIN `insurance_data` ins ON  `insurance_data`.`pid` = `pd`.`pid` " . "
+            ORDER BY pd.lname";
         return sqlStatement($sql);
     }
 
