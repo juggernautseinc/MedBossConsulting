@@ -54,7 +54,7 @@ class InsuranceNotifications
             'multipart' => [
                 [
                     'name'     => $fileName,
-                    'contents' => $this->letter,
+                    'contents' => file_get_contents($this->letter),
                 ],
             ]
         ]);
