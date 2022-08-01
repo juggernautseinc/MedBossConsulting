@@ -179,7 +179,7 @@ class AuthorizationService
            $where = "mpa.pid = pd.pid";
         }
 
-        $sql = "SELECT pd.pid AS mrn, pd.fname, pd.lname, mpa.pid, mpa.auth_num, mpa.start_date, mpa.end_date, mpa.cpt, mpa.init_units, ins.provider " . "
+        $sql = "SELECT DISTINCT pd.pid AS mrn, pd.fname, pd.lname, mpa.pid, mpa.auth_num, mpa.start_date, mpa.end_date, mpa.cpt, mpa.init_units, ins.provider " . "
             FROM `patient_data` pd " . "
             LEFT JOIN  `module_prior_authorizations` mpa ON pd.pid = mpa.pid " . "
             LEFT JOIN `insurance_data` ins ON  `ins`.`pid` = `pd`.`pid` " . "
