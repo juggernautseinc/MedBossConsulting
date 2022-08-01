@@ -99,6 +99,7 @@ if (!empty($phone_parts)) {
 }
 
 $query .= $where . " ORDER BY i.name, a.zip";
+var_dump($query);
 $res = sqlStatement($query);
 ?>
 <html>
