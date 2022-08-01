@@ -38,7 +38,7 @@ class InsuranceNotifications
             file_put_contents("/var/www/html/errors/" . $this->pid . "-" . date('Y-m-d_H:m:s') . ".html", $this->letter);
         }
 
-        //self::storeTempPdfDocument();
+        self::storeTempPdfDocument();
     }
 
     protected function storeTempPdfDocument(): void
@@ -47,19 +47,15 @@ class InsuranceNotifications
         $fileName = $this->pid . "-" . date('Y-m-d_H:m:s') . ".html";
         $client = new Client();
         $response = $client->request('POST', $postLocation, [
+            'headers' => [
+                'Accept'                => 'application/json',
+                'Content-Type'          => 'multipart/form-data'
+                ],
             'multipart' => [
                 [
-                    'contents' => 'letter to VA',
-                    'name' => $fileName,
-                    'document' => '',
-                    'upload' => '',
-                    'patient_id' => $this->pid,
-                    'parent_id' => '685461'
+                    'name'     => $fileName,
+                    'contents' => file_get_contents($this->letter),
                 ],
-                [
-                    'contents' => 'letter to VA',
-                    'filename' => $fileName
-                ]
             ]
         ]);
         file_put_contents("/var/www/html/errors/file_upload.txt", $response);
