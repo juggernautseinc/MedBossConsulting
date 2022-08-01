@@ -87,7 +87,7 @@ if (
     $where = addwhere($where, 'p.number', $phone_parts[1]);
 }
 
-$query = "SELECT DISTINCT" .
+$query = "SELECT DISTINCT " .
     "i.id, i.name, i.attn, " .
     "a.line1, a.line2, a.city, a.state, a.zip, " .
     "p.area_code, p.prefix, p.number " .
