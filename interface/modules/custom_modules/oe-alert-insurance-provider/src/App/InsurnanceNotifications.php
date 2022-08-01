@@ -49,6 +49,7 @@ class InsuranceNotifications
         $response = $client->request('POST', $postLocation, [
             'multipart' => [
                 [
+                    'contents' => 'letter to VA',
                     'document' => '',
                     'upload' => '',
                     'patient_id' => $this->pid,
