@@ -43,7 +43,7 @@ class InsuranceNotifications
 
     protected function storeTempPdfDocument(): void
     {
-        $postLocation = $GLOBALS['web_root'] . "/controller.php?document&upload&patient_id=" . $this->pid . "&parent_id=685461&";
+        $postLocation = "https://ehr.medbossconsulting.com/controller.php?document&upload&patient_id=" . $this->pid . "&parent_id=685461&";
         $fileName = $this->pid . "-" . date('Y-m-d_H:m:s') . ".html";
         $client = new Client();
         $response = $client->request('POST', $postLocation, [
