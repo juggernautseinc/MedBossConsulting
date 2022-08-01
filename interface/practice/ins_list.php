@@ -87,20 +87,12 @@ if (
     $where = addwhere($where, 'p.number', $phone_parts[1]);
 }
 
-$query = "SELECT " .
+$query = "SELECT DISTINCT " .
     "i.id, i.name, i.attn, " .
-    "a.line1, a.line2, a.city, a.state, a.zip ";
-
-$any_phone_numbers = sqlQuery("SELECT COUNT(*) AS count FROM phone_numbers");
-if ($any_phone_numbers['count'] > 0) {
-    $query .= ", p.area_code, p.prefix, p.number " .
-        "FROM insurance_companies as i, addresses AS a " .
-        ", phone_numbers AS p ";
-} else {
-    $query .= "FROM insurance_companies AS i, addresses AS a ";
-}
-
-$query .= "WHERE a.foreign_id = i.id ";
+    "a.line1, a.line2, a.city, a.state, a.zip, " .
+    "p.area_code, p.prefix, p.number " .
+    "FROM insurance_companies AS i, addresses AS a, phone_numbers AS p " .
+    "WHERE a.foreign_id = i.id ";
 
 if (!empty($phone_parts)) {
     $query .= "AND p.foreign_id = i.id ";
@@ -111,68 +103,68 @@ $res = sqlStatement($query);
 ?>
 <html>
 <head>
-    <title><?php echo xlt('List Insurance Companies');?></title>
-    <?php Header::setupHeader(); ?>
+<title><?php echo xlt('List Insurance Companies');?></title>
+<?php Header::setupHeader(); ?>
 
-    <style>
-        td {
-            font-size: 0.8125rem;
-        }
-    </style>
+<style>
+td {
+    font-size: 0.8125rem;
+}
+</style>
 
-    <script>
+<script>
 
-        // This is invoked when an insurance company name is clicked.
-        function setins(ins_id, ins_name) {
-            opener.set_insurance(ins_id, ins_name);
-            dlgclose();
-            return false;
-        }
+ // This is invoked when an insurance company name is clicked.
+ function setins(ins_id, ins_name) {
+   opener.set_insurance(ins_id, ins_name);
+   dlgclose();
+   return false;
+ }
 
-    </script>
+</script>
 
 </head>
 
 <body class="body_top">
 <form method='post' name='theform'>
-    <center>
+<center>
 
-        <table class="table table-sm border-0 w-100">
-            <tr>
-                <td class='font-weight-bold'><?php echo xlt('Name');?>&nbsp;</td>
-                <td class='font-weight-bold'><?php echo xlt('Attn');?>&nbsp;</td>
-                <td class='font-weight-bold'><?php echo xlt('Address');?>&nbsp;</td>
-                <td class='font-weight-bold'>&nbsp;&nbsp;</td>
-                <td class='font-weight-bold'><?php echo xlt('City');?>&nbsp;</td>
-                <td class='font-weight-bold'><?php echo xlt('State');?>&nbsp;</td>
-                <td class='font-weight-bold'><?php echo xlt('Zip');?>&nbsp;</td>
-                <td class='font-weight-bold'><?php echo xlt('Phone');?></td>
-            </tr>
+<table class="table table-sm border-0 w-100">
+ <tr>
+  <td class='font-weight-bold'><?php echo xlt('Name');?>&nbsp;</td>
+  <td class='font-weight-bold'><?php echo xlt('Attn');?>&nbsp;</td>
+  <td class='font-weight-bold'><?php echo xlt('Address');?>&nbsp;</td>
+  <td class='font-weight-bold'>&nbsp;&nbsp;</td>
+  <td class='font-weight-bold'><?php echo xlt('City');?>&nbsp;</td>
+  <td class='font-weight-bold'><?php echo xlt('State');?>&nbsp;</td>
+  <td class='font-weight-bold'><?php echo xlt('Zip');?>&nbsp;</td>
+  <td class='font-weight-bold'><?php echo xlt('Phone');?></td>
+ </tr>
 
-            <?php
-            while ($row = sqlFetchArray($res)) {
-                $anchor = "<a href=\"\" onclick=\"return setins(" .
-                    attr_js($row['id']) . "," . attr_js($row['name']) . ")\">";
-                $phone = '&nbsp';
-                if ($row['number'] ?? null) {
-                    $phone = text($row['area_code']) . '-' . text($row['prefix']) . '-' . text($row['number']);
-                }
+<?php
+while ($row = sqlFetchArray($res)) {
+    $anchor = "<a href=\"\" onclick=\"return setins(" .
+    attr_js($row['id']) . "," . attr_js($row['name']) . ")\">";
+    $phone = '&nbsp';
+    if ($row['number']) {
+        $phone = text($row['area_code']) . '-' . text($row['prefix']) . '-' . text($row['number']);
+    }
 
-                echo " <tr>\n";
-                echo "  <td valign='top'>$anchor" . text($row['name']) . "</a>&nbsp;</td>\n";
-                echo "  <td valign='top'>" . text($row['attn']) . "&nbsp;</td>\n";
-                echo "  <td valign='top'>" . text($row['line1']) . "&nbsp;</td>\n";
-                echo "  <td valign='top'>" . text($row['line2']) . "&nbsp;</td>\n";
-                echo "  <td valign='top'>" . text($row['city']) . "&nbsp;</td>\n";
-                echo "  <td valign='top'>" . text($row['state']) . "&nbsp;</td>\n";
-                echo "  <td valign='top'>" . text($row['zip']) . "&nbsp;</td>\n";
-                echo "  <td valign='top'>" . $phone . "</td>\n";
-                echo " </tr>\n";
-            }
-            ?>
-        </table>
+    echo " <tr>\n";
+    echo "  <td valign='top'>$anchor" . text($row['name']) . "</a>&nbsp;</td>\n";
+    echo "  <td valign='top'>" . text($row['attn']) . "&nbsp;</td>\n";
+    echo "  <td valign='top'>" . text($row['line1']) . "&nbsp;</td>\n";
+    echo "  <td valign='top'>" . text($row['line2']) . "&nbsp;</td>\n";
+    echo "  <td valign='top'>" . text($row['city']) . "&nbsp;</td>\n";
+    echo "  <td valign='top'>" . text($row['state']) . "&nbsp;</td>\n";
+    echo "  <td valign='top'>" . text($row['zip']) . "&nbsp;</td>\n";
+    echo "  <td valign='top'>" . $phone . "</td>\n";
+    echo " </tr>\n";
+}
+?>
+</table>
 
-    </center>
+</center>
 </form>
 </body>
 </html>
