@@ -38,12 +38,13 @@ class InsuranceNotifications
             file_put_contents("/var/www/html/errors/" . $this->pid . "-" . date('Y-m-d_H:m:s') . ".html", $this->letter);
         }
 
-        self::storeTempPdfDocument();
+        //self::storeTempPdfDocument();
     }
 
     protected function storeTempPdfDocument(): void
     {
-        $postLocation = "https://ehr.medbossconsulting.com/controller.php?document&upload&patient_id=" . $this->pid . "&parent_id=685461&";
+        $postLocation = "../controller.php?document&amp;upload&amp;patient_id=" . $this->pid . "&amp;parent_id=685461&amp;";
+
         $fileName = $this->pid . "-" . date('Y-m-d_H:m:s') . ".html";
         $client = new Client();
         $response = $client->request('POST', $postLocation, [
@@ -54,7 +55,7 @@ class InsuranceNotifications
             'multipart' => [
                 [
                     'name'     => $fileName,
-                    'contents' => file_get_contents($this->letter),
+                    'contents' => $this->letter,
                 ],
             ]
         ]);
