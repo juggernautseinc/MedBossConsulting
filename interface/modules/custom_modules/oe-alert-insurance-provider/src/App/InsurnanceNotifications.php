@@ -48,13 +48,13 @@ class InsuranceNotifications
         $client = new Client();
         $response = $client->request('POST', $postLocation, [
             'headers' => [
-                'Accept'                => 'application/json',
-                'Content-Type'          => 'multipart/form-data'
+                'Accept'       => 'application/json',
+                'Content-Type' => 'multipart/form-data'
                 ],
             'multipart' => [
                 [
                     'name'     => $fileName,
-                    'contents' => file_get_contents($this->letter),
+                    'contents' => $this->letter,
                 ],
             ]
         ]);
