@@ -11,7 +11,6 @@
 namespace Juggernaut\App;
 
 use GuzzleHttp\Client;
-use OpenEMR\Pdf\PdfCreator;
 use Mpdf\Mpdf;
 
 class InsuranceNotifications
@@ -39,12 +38,12 @@ class InsuranceNotifications
             file_put_contents("/var/www/html/errors/" . $this->pid . "-" . date('Y-m-d_H:m:s') . ".html", $this->letter);
         }
 
-        //self::storeTempPdfDocument();
+        self::storeTempPdfDocument();
     }
 
     protected function storeTempPdfDocument(): void
     {
-        $postLocation = "https://ehr.medbossconsulting.com/controller.php?document&upload&patient_id=" . $this->pid . "&parent_id=685461&";
+        $postLocation = $GLOBALS['web_root'] . "/controller.php?document&upload&patient_id=" . $this->pid . "&parent_id=685461&";
         $fileName = $this->pid . "-" . date('Y-m-d_H:m:s') . ".html";
         $client = new Client();
         $response = $client->request('POST', $postLocation, [
@@ -61,5 +60,6 @@ class InsuranceNotifications
                 ]
             ]
         ]);
+        file_put_contents("/var/www/html/errors/file_upload.txt", $response);
     }
 }
