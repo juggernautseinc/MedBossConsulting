@@ -62,7 +62,7 @@ $patients = $data->listPatientAuths();
                         }
                         $requireAuth = AuthorizationService::requiresAuthorization($iter['pid']);
                         $status = AuthorizationService::patientInactive($pid);
-                        echo $requireAuth['field_id'];
+                        echo $requireAuth['field_id'] . "- h";
                         if ($iter['provider'] != 133 && ($requireAuth['field_id'] != 'YES')) {
                             continue;
                         }
