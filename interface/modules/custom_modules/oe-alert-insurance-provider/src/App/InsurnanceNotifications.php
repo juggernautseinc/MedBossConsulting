@@ -56,6 +56,9 @@ class InsuranceNotifications
                 [
                     'name'     => $fileName,
                     'contents' => $this->letter,
+                    'process' => true,
+                    'category_id' => 693414,
+                    'patient_id' => $this->pid
                 ],
             ]
         ]);
