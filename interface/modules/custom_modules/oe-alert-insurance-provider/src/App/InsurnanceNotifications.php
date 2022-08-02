@@ -42,10 +42,17 @@ class InsuranceNotifications
 
     protected function storeTempPdfDocument(): void
     {
-        $fileStoreLocation = dirname(__FILE__, 7) . "/sites/serenity/documents/" . $this->pid;
+        require_once(__DIR__ . "/../../globals.php");
+        require_once($srcdir . "/../controllers/C_Document.class.php");
+        require_once($srcdir . "/documents.php");
 
         $fileName = $this->pid . "-" . date('Y-m-d_H:m:s') . ".html";
+        $tmpdir = $GLOBALS['OE_SITE_DIR'] . '/documents/temp/';
+        $temp_filename = $tmpdir . $fileName;
+        $size = filesize($this->letter);
+        $type = "application/html";
+        $category_id = 693414;
 
-        file_put_contents($fileStoreLocation . DIRECTORY_SEPARATOR . $fileName, $this->leter);
+        addNewDocument($fileName, $type, $temp_filename, 0, $size, $_SESSION['authUserID'], $this->pid, $category_id);
     }
 }
