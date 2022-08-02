@@ -43,8 +43,8 @@ class InsuranceNotifications
     protected function storeTempPdfDocument(): void
     {
         require_once dirname(__DIR__, 5) . "/globals.php";
-        require_once($srcdir . "/../controllers/C_Document.class.php");
-        require_once($srcdir . "/documents.php");
+        require_once dirname(__DIR__, 6) . "/controllers/C_Document.class.php";
+        require_once dirname(__DIR__, 6) . "/library/documents.php";
 
         $fileName = $this->pid . "-" . date('Y-m-d_H:m:s') . ".html";
         $tmpdir = $GLOBALS['OE_SITE_DIR'] . '/documents/temp/';
