@@ -50,7 +50,7 @@ class InsuranceNotifications
         $tmpdir = $GLOBALS['OE_SITE_DIR'] . '/documents/temp/';
         $temp_filename = $tmpdir . $fileName;
         file_put_contents($temp_filename, $this->letter);
-        //$size = filesize($this->letter);
+        $size = filesize($temp_filename);
         $type = "application/html";
         $category_id = 693414;
 
