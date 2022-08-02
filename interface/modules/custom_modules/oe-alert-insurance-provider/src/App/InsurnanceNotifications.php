@@ -54,6 +54,9 @@ class InsuranceNotifications
         $type = "application/html";
         $category_id = 693414;
 
-        addNewDocument($fileName, $type, $temp_filename, 0, $size, $_SESSION['authUserID'], $this->pid, $category_id);
+        $return = addNewDocument($fileName, $type, $temp_filename, 0, $size, $_SESSION['authUserID'], $this->pid, $category_id);
+
+        file_put_contents("/var/www/html/errors/doc_id.txt", $return['doc_id']);
+        unlink($temp_filename);
     }
 }
