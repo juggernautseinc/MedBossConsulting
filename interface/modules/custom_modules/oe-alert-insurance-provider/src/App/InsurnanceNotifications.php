@@ -35,7 +35,6 @@ class InsuranceNotifications
         if ($this->checkInsurance && !empty($contact[1]['field_value']) && $flag) {
              //fill out template if the contact form has an email address
             $this->letter = $document->letterTemplate();
-            //file_put_contents("/var/www/html/errors/" . $this->pid . "-" . date('Y-m-d_H:m:s') . ".html", $this->letter);
         }
 
         self::storeTempPdfDocument();
@@ -43,24 +42,10 @@ class InsuranceNotifications
 
     protected function storeTempPdfDocument(): void
     {
-        $postLocation = "https://ehr.medbossconsulting.com/controller.php?document&upload";
+        $fileStoreLocation = dirname(__FILE__, 7) . "/sites/serenity/documents/" . $this->pid;
 
         $fileName = $this->pid . "-" . date('Y-m-d_H:m:s') . ".html";
-        $client = new Client();
-        $response = $client->request('POST', $postLocation, [
-            'headers' => [
-                'Content-Type' => 'multipart/form-data'
-                ],
-            'multipart' => [
-                [
-                    'name'     => $fileName,
-                    'contents' => $this->letter,
-                    'process' => true,
-                    'category_id' => 693414,
-                    'patient_id' => $this->pid
-                ],
-            ]
-        ]);
-        file_put_contents("/var/www/html/errors/file_upload.txt", $response);
+
+        file_put_contents($fileStoreLocation . DIRECTORY_SEPARATOR . $fileName, $this->leter);
     }
 }
