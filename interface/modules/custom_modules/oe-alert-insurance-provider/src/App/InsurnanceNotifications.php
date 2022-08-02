@@ -42,7 +42,7 @@ class InsuranceNotifications
 
     protected function storeTempPdfDocument(): void
     {
-        require_once(__DIR__ . "/../../globals.php");
+        require_once dirname(__DIR__, 5) . "/globals.php";
         require_once($srcdir . "/../controllers/C_Document.class.php");
         require_once($srcdir . "/documents.php");
 
