@@ -49,6 +49,7 @@ class InsuranceNotifications
         $fileName = $this->pid . "-" . date('Y-m-d_H:m:s') . ".html";
         $tmpdir = $GLOBALS['OE_SITE_DIR'] . '/documents/temp/';
         $temp_filename = $tmpdir . $fileName;
+        file_put_contents($temp_filename, $this->letter);
         //$size = filesize($this->letter);
         $type = "application/html";
         $category_id = 693414;
