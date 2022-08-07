@@ -76,10 +76,10 @@ if ($form_encounter_esigned) {
     $esign_joins = "LEFT OUTER JOIN esign_signatures AS es ON es.tid = fe.encounter ";
 }
 
-if ($form_esigned) {
+//if ($form_esigned) {
     $esign_fields = ", es.table, es.tid ";
     $esign_joins = "LEFT OUTER JOIN esign_signatures AS es ON es.tid = fe.encounter ";
-}
+//}
 
 if ($form_not_esigned) {
     $esign_fields = ", es.table, es.tid ";
