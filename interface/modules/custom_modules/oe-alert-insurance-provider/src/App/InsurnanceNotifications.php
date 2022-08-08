@@ -69,7 +69,7 @@ class InsuranceNotifications
         //check for a fax module
         $moduleType = Database::isFaxable();
         if ($moduleType == 'FaxSMS') {
-            $sendFaxUrl = $GLOBALS['webroot'] . '/interface/modules/custom_modules/oe-module-faxsms/contact.php?isDocuments=false&isQueue=' .
+            $sendFaxUrl = $_SERVER['HTTP_HOST'] . '/interface/modules/custom_modules/oe-module-faxsms/contact.php?isDocuments=false&isQueue=' .
             $this->contact[2]['field_value'] . '&file=' . $this->tempFilename;
             $opts = [ 'https' => [
                 'header' => [ "Content-type: application/x-www-form-urlencoded\r\n"
