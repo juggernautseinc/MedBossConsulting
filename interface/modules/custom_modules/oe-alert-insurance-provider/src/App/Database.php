@@ -58,4 +58,17 @@ class Database
     {
         return sqlQuery("SELECT count(*) AS previous FROM openemr_postcalendar_events WHERE pc_pid = ?", [$pid]);
     }
+
+    public static function isFaxable()
+    {
+        $module = sqlQuery("SELECT `mod_name` FROM `modules` WHERE `mod_name LIKE` 'FaxSMS%'");
+        if (! empty($module['mod_name'])) {
+            return 'FaxSMS';
+        }
+        $module = sqlQuery("SELECT `mod_name` FROM `modules` WHERE `mod_name LIKE` 'Documo%'");
+        if (! empty($module['mod_name'])) {
+            return 'Documo';
+        }
+        return null;
+    }
 }
