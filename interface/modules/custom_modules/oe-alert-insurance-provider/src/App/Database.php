@@ -61,11 +61,11 @@ class Database
 
     public static function isFaxable()
     {
-        $module = sqlQuery("SELECT `mod_name` FROM `modules` WHERE `mod_name LIKE` 'FaxSMS%'");
+        $module = sqlQuery("SELECT `mod_name` FROM `modules` WHERE `mod_name` LIKE 'FaxSMS%'");
         if (! empty($module['mod_name'])) {
             return 'FaxSMS';
         }
-        $module = sqlQuery("SELECT `mod_name` FROM `modules` WHERE `mod_name LIKE` 'Documo%'");
+        $module = sqlQuery("SELECT `mod_name` FROM `modules` WHERE `mod_name` LIKE 'Documo%'");
         if (! empty($module['mod_name'])) {
             return 'Documo';
         }
