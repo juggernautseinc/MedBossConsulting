@@ -61,7 +61,7 @@ class ListAuthorizations
         $array_merger = array_push($formsAuths, $formMiscBilling);
         $moduleAuths = self::getAuthsFromModulePriorAuth();
 
-        if (!empty($moduleAuths) && !empty($array_merger)) {
+        if (is_array($moduleAuths) && is_array($array_merger)) {
             $insertArray = array_diff($moduleAuths, $array_merger);
         }
         if (!empty($insertArray)) {
