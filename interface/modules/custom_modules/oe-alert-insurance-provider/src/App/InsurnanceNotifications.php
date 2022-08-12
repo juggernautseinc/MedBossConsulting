@@ -13,6 +13,7 @@ namespace Juggernaut\App;
 use GuzzleHttp\Client;
 use MailSender;
 use Mpdf\Mpdf;
+use MyMailer;
 
 class InsuranceNotifications
 {
@@ -59,7 +60,7 @@ class InsuranceNotifications
 
         addNewDocument($fileName, $type, $this->tempFilename, 0, $this->size, $_SESSION['authUserID'], $this->pid, $category_id);
         $this->faxVaDocument(); //send fax if a fax module is installed
-
+        $this->emailVaDocument();
         unlink($this->tempFilename);
     }
 
@@ -82,12 +83,33 @@ class InsuranceNotifications
             $content = fopen($sendFaxUrl, 'r', false, $context);
         }
         if ($moduleType == 'Documo') {
-            //do this
+            //do this later
         }
     }
 
     protected function emailVaDocument()
     {
-        $sendEmail = new \MyMailer();
+        $email = new MyMailer();
+
+        $message = xlt('This email is to notify your office of a change in the patient appointment status');
+        $email_subject = xl('Patient Appointment Status Change');
+        $email_sender = $GLOBALS['patient_reminder_sender_email'];
+        $email->AddReplyTo($email_sender, $email_sender);
+        $email->SetFrom($email_sender, $email_sender);
+        $email->AddAddress($this->contact[1]['field_value'], $this->contact[1]['field_value']);
+        $email->AddAttachment($this->tempFilename, 'PatientAppointmentStatus.html');
+        $email->Subject = $email_subject;
+        $email->MsgHTML("<html><body><div class='wrapper'>" . $message . "</div></body></html>");
+
+        $email->IsHTML(true);
+        $email->AltBody = $message;
+
+        if ($email->Send()) {
+            return true;
+        } else {
+            $email_status = $email->ErrorInfo;
+            error_log("EMAIL ERROR: " . errorLogEscape($email_status), 0);
+            return false;
+        }
     }
 }
