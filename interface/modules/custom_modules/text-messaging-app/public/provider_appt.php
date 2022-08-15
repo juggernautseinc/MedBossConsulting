@@ -13,7 +13,7 @@ $providerArray = [];
 $providers = sqlStatement("SELECT DISTINCT pc_aid FROM `openemr_postcalendar_events` WHERE pc_aid > 2");
 
 while ($prow = sqlFetchArray($providers)) {
-     $providerArray[] = $prow;
+     $providerArray[] = $prow['pc_aid'];
 }
 
 foreach ($providerArray as $key => $value) {
