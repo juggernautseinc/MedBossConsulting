@@ -15,4 +15,14 @@ $providers = sqlStatement("SELECT DISTINCT pc_aid FROM `openemr_postcalendar_eve
 while ($prow = sqlFetchArray($providers)) {
      $providerArray[] = $prow;
 }
-var_dump($providerArray);
+
+foreach ($providerArray as $pc_aid) {
+    $apptDate = date('Y-m-d', strtotime(' +1 day'));
+    $appts = sqlStatement("SELECT pc_title, pc_startTime FROM `openemr_postcalendar_events` " .
+        " WHERE pc_aid = ? AND pc_eventDate = ?", [$pc_aid, $apptDate]);
+    $message = '';
+    while ($arow = sqlFetchArray($appts)) {
+         $message .= $arow['pc_title'] . ", " . $arow['pc_startTime'] . '\r\n';
+    }
+
+}
