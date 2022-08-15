@@ -24,7 +24,7 @@ foreach ($providerArray as $key => $value) {
     $appts = sqlStatement("SELECT pc_title, pc_startTime FROM `openemr_postcalendar_events` " .
         " WHERE pc_aid = ? AND pc_eventDate = ? ORDER BY pc_startTime ASC", [$value, $apptDate]);
 
-    $message = '';
+    $message = "Your schedule for today:";
     while ($arow = sqlFetchArray($appts)) {
          $message .= $arow['pc_title'] . ", " . $arow['pc_startTime'] . "<br>";
     }
@@ -36,6 +36,4 @@ foreach ($providerArray as $key => $value) {
 
         SendMessage::outBoundMessage($cell, $message);
     }
-
-
 }
