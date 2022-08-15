@@ -19,7 +19,7 @@ while ($prow = sqlFetchArray($providers)) {
 foreach ($providerArray as $key => $value) {
     $apptDate = date('Y-m-d', strtotime(' +1 day'));
     $appts = sqlStatement("SELECT pc_title, pc_startTime FROM `openemr_postcalendar_events` " .
-        " WHERE pc_aid = ? AND pc_eventDate = ?", [$value, $apptDate]);
+        " WHERE pc_aid = ? AND pc_eventDate = ? ORDER BY pc_startTime ASC", [$value, $apptDate]);
 
     $message = '';
     while ($arow = sqlFetchArray($appts)) {
