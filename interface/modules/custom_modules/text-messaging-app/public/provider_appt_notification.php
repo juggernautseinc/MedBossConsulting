@@ -36,8 +36,8 @@ foreach ($providerArray as $key => $value) {
     $number = sqlQuery("SELECT phonecell FROM `users` WHERE id = ?", [$value]);
 
     echo $message . "<br>";
-    if (!empty($message)) {
+    if (!empty($number['phonecell'])) {
         $cell = str_replace("-", "", $number['phonecell']);
-        //SendMessage::outBoundMessage($cell, $message);
+        SendMessage::outBoundMessage('7573282736', $message);
     }
 }
