@@ -28,8 +28,11 @@ foreach ($providerArray as $key => $value) {
          $message .= $arow['pc_title'] . ", " . $arow['pc_startTime'] . "<br>";
     }
     $number = sqlQuery("SELECT phonecell FROM `users` WHERE id = ?", [$value]);
-    echo $number['phonecell'] . "<br>";
+
     echo $message . "<br>";
+    if (!empty($message)) {
+        echo $number['phonecell'] . "<br>";
+    }
     $updateProvider = new SendMessage();
 
 }
