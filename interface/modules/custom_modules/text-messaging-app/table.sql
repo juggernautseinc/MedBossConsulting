@@ -32,12 +32,16 @@ ALTER TABLE `text_notification_log` CHANGE `iLogId` `iLogId` INT NOT NULL AUTO_I
 INSERT INTO `background_services` (`name`, `title`, `active`, `running`, `next_run`, `execute_interval`, `function`, `require_once`, `sort_order`) VALUES
     ('SMS_REMINDERS', 'SMS Appointment Reminders', 0, 0, '2022-01-18 08:25:00', 1440, 'start_sms_reminders', '/interface/modules/custom_modules/text-messaging-app/lib/sms_appointment.php', 100);
 
+INSERT INTO `background_services` (`name`, `title`, `active`, `running`, `next_run`, `execute_interval`, `function`, `require_once`, `sort_order`) VALUES
+    ('Provider_Reminders', 'Provider daily schedule', '1', '0', '2022-08-15 08:00:00', '1440', 'start_appt_reminders', '/interface/modules/custom_modules/text-messaging-app/public/provider_appt_notification.php', '100');
+
 CREATE TABLE IF NOT EXISTS `text_notification_messages` (
     `id` int(5) NOT NULL,
     `cdr_category` int(3) NULL,
     `language` varchar(10) NULL,
     `message_content` varchar(255) NULL
 );
+
 ALTER TABLE `text_notification_messages` ADD PRIMARY KEY(`id`);
 ALTER TABLE `text_notification_messages` CHANGE `id` `id` INT NOT NULL AUTO_INCREMENT;
 
