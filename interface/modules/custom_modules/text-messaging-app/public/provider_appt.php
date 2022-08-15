@@ -9,7 +9,10 @@
  */
 
 require_once dirname(__DIR__, 4) . '/globals.php';
-
+$providerArray = [];
 $providers = sqlStatement("SELECT DISTINCT pc_aid FROM `openemr_postcalendar_events` WHERE pc_aid > 2");
 
-var_dump($providers);
+while ($prow = sqlFetchArray($providers)) {
+     $providerArray[] = $prow;
+}
+var_dump($providerArray);
