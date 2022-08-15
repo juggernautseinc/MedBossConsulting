@@ -23,7 +23,7 @@ foreach ($providerArray as $key => $value) {
 
     $message = '';
     while ($arow = sqlFetchArray($appts)) {
-         $message .= $arow['pc_title'] . ", " . $arow['pc_startTime'] . '\r\n';
+         $message .= $arow['pc_title'] . ", " . $arow['pc_startTime'] . "<br>";
     }
     echo $message . "<br>";
 }
