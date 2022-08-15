@@ -8,6 +8,8 @@
  *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  */
 
+use Juggernaut\App\Controllers\SendMessage;
+
 require_once dirname(__DIR__, 4) . '/globals.php';
 $providerArray = [];
 $providers = sqlStatement("SELECT DISTINCT pc_aid FROM `openemr_postcalendar_events` WHERE pc_aid > 2");
@@ -25,5 +27,9 @@ foreach ($providerArray as $key => $value) {
     while ($arow = sqlFetchArray($appts)) {
          $message .= $arow['pc_title'] . ", " . $arow['pc_startTime'] . "<br>";
     }
+    $number = sqlQuery("SELECT phonecell FROM `users` WHERE id = ?", [$value]);
+    echo $number['phonecell'] . "<br>";
     echo $message . "<br>";
+    $updateProvider = new SendMessage();
+
 }
