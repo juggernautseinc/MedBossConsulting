@@ -8,6 +8,7 @@
  *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  */
 
+
 use Juggernaut\App\Controllers\SendMessage;
 
 require_once dirname(__DIR__, 4) . '/globals.php';
@@ -31,8 +32,10 @@ foreach ($providerArray as $key => $value) {
 
     echo $message . "<br>";
     if (!empty($message)) {
-        echo $number['phonecell'] . "<br>";
+        echo $cell = str_replace("-", "", $number['phonecell']);
+
+        SendMessage::outBoundMessage($cell, $message);
     }
-    $updateProvider = new SendMessage();
+
 
 }
