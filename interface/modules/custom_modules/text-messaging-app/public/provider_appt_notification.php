@@ -38,6 +38,6 @@ foreach ($providerArray as $key => $value) {
     echo $message . "<br>";
     if (!empty($number['phonecell'])) {
         $cell = str_replace("-", "", $number['phonecell']);
-        SendMessage::outBoundMessage('7573282736', $message);
+        //SendMessage::outBoundMessage($cell, $message);
     }
 }
