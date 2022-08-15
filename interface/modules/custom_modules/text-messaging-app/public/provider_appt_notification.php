@@ -23,11 +23,10 @@ foreach ($providerArray as $key => $value) {
         " WHERE pc_aid = ? AND pc_eventDate = ? ORDER BY pc_startTime ASC", [$value, $apptDate]);
     $facility = sqlQuery("SELECT facility FROM `users` WHERE id = ?", [$value]);
 
-    $message = "Your " . $facility['facility'] . " schedule for today: <br>";
+    $message = "Your " . $facility['facility'] . " schedule for today: \r\n";
     $mcount = 0;
     while ($arow = sqlFetchArray($appts)) {
-
-            $message .= $arow['pc_title'] . ", " . $arow['pc_startTime'] . "<br>";
+            $message .= $arow['pc_title'] . ", " . $arow['pc_startTime'] . "\r\n";
         $mcount++;
     }
     if ($mcount == 0) {
