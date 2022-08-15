@@ -24,9 +24,15 @@ foreach ($providerArray as $key => $value) {
     $facility = sqlQuery("SELECT facility FROM `users` WHERE id = ?", [$value]);
 
     $message = "Your " . $facility['facility'] . " schedule for today: <br>";
+
     while ($arow = sqlFetchArray($appts)) {
-         $message .= $arow['pc_title'] . ", " . $arow['pc_startTime'] . "<br>";
+        if (empty($arow['pc_title'])) {
+            $message .= "None";
+        } else {
+            $message .= $arow['pc_title'] . ", " . $arow['pc_startTime'] . "<br>";
+        }
     }
+
     $number = sqlQuery("SELECT phonecell FROM `users` WHERE id = ?", [$value]);
 
     echo $message . "<br>";
