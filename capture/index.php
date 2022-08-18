@@ -7,82 +7,137 @@
     <title>getUserMedia Demo by Aurelio De Rosa</title>
     <link rel="stylesheet" href="../shared.css" />
     <style>
-        .video
-        {
-            display: block;
-            width: 100%;
+        .button-group, .play-area {
+            border: 1px solid grey;
+            padding: 1em 1%;
+            margin-bottom: 1em;
+        }
+
+        .button {
+            padding: 0.5em;
+            margin-right: 1em;
+        }
+
+        .play-area-sub {
+            width: 47%;
+            padding: 1em 1%;
+            display: inline-block;
+            text-align: center;
+        }
+
+        #capture {
+            display: none;
+        }
+
+        #snapshot {
+            display: inline-block;
+            width: 320px;
+            height: 240px;
         }
     </style>
 </head>
 <body>
 
-<h1>getUserMedia API</h1>
-<span id="gum-unsupported" class="api-support hidden">API not supported</span>
-<span id="gum-partially-supported" class="api-support hidden">API partially supported (video only)</span>
-
-<video id="video" class="video" autoplay="autoplay" controls="controls"></video>
-<div class="buttons-wrapper">
-    <button id="button-play-gum" class="button">Play demo</button>
-    <button id="button-stop-gum" class="button">Stop demo</button>
+<!-- The buttons to control the stream -->
+<div class="button-group">
+    <button id="btn-start" type="button" class="button">Start Streaming</button>
+    <button id="btn-stop" type="button" class="button">Stop Streaming</button>
+    <button id="btn-capture" type="button" class="button">Capture Image</button>
 </div>
 
-<small class="author">
-    Demo created by <a href="https://www.audero.it">Aurelio De Rosa</a>
-    (<a href="https://twitter.com/AurelioDeRosa">@AurelioDeRosa</a>).<br />
-    This demo is part of the <a href="https://github.com/AurelioDeRosa/HTML5-API-demos">HTML5 API demos repository</a>.
-</small>
+<!-- Video Element & Canvas -->
+<div class="play-area">
+    <div class="play-area-sub">
+        <h3>The Stream</h3>
+        <video id="stream" width="320" height="240"></video>
+    </div>
+    <div class="play-area-sub">
+        <h3>The Capture</h3>
+        <canvas id="capture" width="320" height="240"></canvas>
+        <div id="snapshot"></div>
+    </div>
+</div>
 
 <script>
-    var videoStream = null;
-    var video = document.getElementById('video');
+    // The buttons to start & stop stream and to capture the image
+    var btnStart = document.getElementById( "btn-start" );
+    var btnStop = document.getElementById( "btn-stop" );
+    var btnCapture = document.getElementById( "btn-capture" );
 
-    // Test browser support
-    window.navigator = window.navigator || {};
-    navigator.getUserMedia = navigator.getUserMedia       ||
-        navigator.webkitGetUserMedia ||
-        navigator.mozGetUserMedia    ||
-        null;
-    if (navigator.getUserMedia === null) {
-        document.getElementById('gum-unsupported').classList.remove('hidden');
-        document.getElementById('button-play-gum').setAttribute('disabled', 'disabled');
-        document.getElementById('button-stop-gum').setAttribute('disabled', 'disabled');
-    } else {
-        // Opera <= 12.16 accepts the direct stream.
-        // More on this here: https://dev.opera.com/articles/view/playing-with-html5-video-and-getusermedia-support/
-        var createSrc = window.URL ? window.URL.createObjectURL : function(stream) {return stream;};
+    // The stream & capture
+    var stream = document.getElementById( "stream" );
+    var capture = document.getElementById( "capture" );
+    var snapshot = document.getElementById( "snapshot" );
 
-        // Opera <= 12.16 supports video only.
-        var audioContext = window.AudioContext       ||
-            window.webkitAudioContext ||
-            null;
-        if (audioContext === null) {
-            document.getElementById('gum-partially-supported').classList.remove('hidden');
-        }
+    // The video stream
+    var cameraStream = null;
 
-        document.getElementById('button-play-gum').addEventListener('click', function() {
+    // Attach listeners
+    btnStart.addEventListener( "click", startStreaming );
+    btnStop.addEventListener( "click", stopStreaming );
+    btnCapture.addEventListener( "click", captureSnapshot );
 
-            // Capture user's audio and video source
-            navigator.getUserMedia({
-                    video: true,
-                    audio: true
-                },
-                function(stream) {
-                    videoStream = stream;
-                    // Stream the data
-                    video.src = createSrc(stream);
-                    video.play();
-                },
-                function(error) {
-                    console.log('Video capture error: ' + error.code);
+    // Start Streaming
+    function startStreaming() {
+
+        var mediaSupport = 'mediaDevices' in navigator;
+
+        if( mediaSupport && null == cameraStream ) {
+
+            navigator.mediaDevices.getUserMedia( { video: true } )
+                .then( function( mediaStream ) {
+
+                    cameraStream = mediaStream;
+
+                    stream.srcObject = mediaStream;
+
+                    stream.play();
+                })
+                .catch( function( err ) {
+
+                    console.log( "Unable to access camera: " + err );
                 });
-        });
-        document.getElementById('button-stop-gum').addEventListener('click', function() {
-            // Pause the video
-            video.pause();
-            // Stop the stream
-            videoStream.stop();
-        });
+        }
+        else {
+
+            alert( 'Your browser does not support media devices.' );
+
+            return;
+        }
     }
+
+    // Stop Streaming
+    function stopStreaming() {
+
+        if( null != cameraStream ) {
+
+            var track = cameraStream.getTracks()[ 0 ];
+
+            track.stop();
+            stream.load();
+
+            cameraStream = null;
+        }
+    }
+
+    function captureSnapshot() {
+
+        if( null != cameraStream ) {
+
+            var ctx = capture.getContext( '2d' );
+            var img = new Image();
+
+            ctx.drawImage( stream, 0, 0, capture.width, capture.height );
+
+            img.src		= capture.toDataURL( "image/png" );
+            img.width	= 240;
+
+            snapshot.innerHTML = '';
+
+            snapshot.appendChild( img );
+        }
+    }
+
 </script>
 </body>
 </html>
