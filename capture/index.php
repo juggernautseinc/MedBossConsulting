@@ -8,143 +8,114 @@
  */
 
 ?>
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Image Capture</title>
-    <style>
-        .button-group, .play-area {
-            border: 1px solid grey;
-            padding: 1em 1%;
-            margin-bottom: 1em;
+    <title>Demo - Capture Photo From Webcam Using Javascript</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <style type="text/css">
+
+        button {
+            width: 120px;
+            padding: 10px;
+            display: block;
+            margin: 20px auto;
+            border: 2px solid #111111;
+            cursor: pointer;
+            background-color: white;
         }
 
-        .button {
-            padding: 0.5em;
-            margin-right: 1em;
+        #start-camera {
+            margin-top: 50px;
         }
 
-        .play-area-sub {
-            width: 47%;
-            padding: 1em 1%;
-            display: inline-block;
-            text-align: center;
+        #video {
+            display: none;
+            margin: 50px auto 0 auto;
         }
 
-        #capture {
+        #click-photo {
             display: none;
         }
 
-        #snapshot {
-            display: inline-block;
-            width: 320px;
-            height: 240px;
+        #dataurl-container {
+            display: none;
         }
+
+        #canvas {
+            display: block;
+            margin: 0 auto 20px auto;
+        }
+
+        #dataurl-header {
+            text-align: center;
+            font-size: 15px;
+        }
+
+        #dataurl {
+            display: block;
+            height: 100px;
+            width: 320px;
+            margin: 10px auto;
+            resize: none;
+            outline: none;
+            border: 1px solid #111111;
+            padding: 5px;
+            font-size: 13px;
+            box-sizing: border-box;
+        }
+
     </style>
 </head>
+
 <body>
-<!-- The buttons to control the stream -->
-<div class="button-group">
-    <button id="btn-start" type="button" class="button">Start Streaming</button>
-    <button id="btn-stop" type="button" class="button">Stop Streaming</button>
-    <button id="btn-capture" type="button" class="button">Capture Image</button>
+
+<button id="start-camera">Start Camera</button>
+<video id="video" width="320" height="240" autoplay></video>
+<button id="click-photo">Click Photo</button>
+<div id="dataurl-container">
+    <canvas id="canvas" width="320" height="240"></canvas>
+    <div id="dataurl-header">Image Data URL</div>
+    <textarea id="dataurl" readonly></textarea>
 </div>
 
-<!-- Video Element & Canvas -->
-<div class="play-area">
-    <div class="play-area-sub">
-        <h3>The Stream</h3>
-        <video id="stream" width="320" height="240"></video>
-    </div>
-    <div class="play-area-sub">
-        <h3>The Capture</h3>
-        <canvas id="capture" width="320" height="240"></canvas>
-        <div id="snapshot"></div>
-    </div>
-</div>
 <script>
-    // The buttons to start & stop stream and to capture the image
-    var btnStart = document.getElementById( "btn-start" );
-    var btnStop = document.getElementById( "btn-stop" );
-    var btnCapture = document.getElementById( "btn-capture" );
 
-    // The stream & capture
-    var stream = document.getElementById( "stream" );
-    var capture = document.getElementById( "capture" );
-    var snapshot = document.getElementById( "snapshot" );
+    let camera_button = document.querySelector("#start-camera");
+    let video = document.querySelector("#video");
+    let click_button = document.querySelector("#click-photo");
+    let canvas = document.querySelector("#canvas");
+    let dataurl = document.querySelector("#dataurl");
+    let dataurl_container = document.querySelector("#dataurl-container");
 
-    // The video stream
-    var cameraStream = null;
+    camera_button.addEventListener('click', async function() {
+        let stream = null;
 
-    // Attach listeners
-    btnStart.addEventListener( "click", startStreaming );
-    btnStop.addEventListener( "click", stopStreaming );
-    btnCapture.addEventListener( "click", captureSnapshot );
-
-    // Start Streaming
-    function startStreaming() {
-
-        var mediaSupport = 'mediaDevices' in navigator;
-
-        if( mediaSupport && null == cameraStream ) {
-
-            navigator.mediaDevices.getUserMedia( { video: true } )
-                .then( function( mediaStream ) {
-
-                    cameraStream = mediaStream;
-
-                    stream.srcObject = mediaStream;
-
-                    stream.play();
-                })
-                .catch( function( err ) {
-
-                    console.log( "Unable to access camera: " + err );
-                });
+        try {
+            stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
         }
-        else {
-
-            alert( 'Your browser does not support media devices.' );
-
+        catch(error) {
+            alert(error.message);
             return;
         }
-    }
 
-    // Stop Streaming
-    function stopStreaming() {
+        video.srcObject = stream;
 
-        if( null != cameraStream ) {
+        video.style.display = 'block';
+        camera_button.style.display = 'none';
+        click_button.style.display = 'block';
+    });
 
-            var track = cameraStream.getTracks()[ 0 ];
+    click_button.addEventListener('click', function() {
+        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+        let image_data_url = canvas.toDataURL('image/jpeg');
 
-            track.stop();
-            stream.load();
+        dataurl.value = image_data_url;
+        dataurl_container.style.display = 'block';
+    });
 
-            cameraStream = null;
-        }
-    }
-
-    function captureSnapshot() {
-
-        if( null != cameraStream ) {
-
-            var ctx = capture.getContext( '2d' );
-            var img = new Image();
-
-            ctx.drawImage( stream, 0, 0, capture.width, capture.height );
-
-            img.src		= capture.toDataURL( "image/png" );
-            img.width	= 240;
-
-            snapshot.innerHTML = '';
-
-            snapshot.appendChild( img );
-        }
-    }
 </script>
+
 </body>
 </html>
