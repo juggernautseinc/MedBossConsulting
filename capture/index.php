@@ -40,18 +40,18 @@
 
 <!-- The buttons to control the stream -->
 <div class="button-group">
-    <button id="btn-start" type="button" class="button">Start Streaming</button>
-    <button id="btn-stop" type="button" class="button">Stop Streaming</button>
+    <button id="btn-start" type="button" class="button">Start Streaming</button><br>
+    <button id="btn-stop" type="button" class="button">Stop Streaming</button><br>
     <button id="btn-capture" type="button" class="button">Capture Image</button>
 </div>
 
 <!-- Video Element & Canvas -->
 <div class="play-area">
-    <div class="play-area-sub">
+    <div class="play-area-sub" style="float: left">
         <h3>The Stream</h3>
         <video id="stream" width="320" height="240"></video>
     </div>
-    <div class="play-area-sub">
+    <div class="play-area-sub" style="float: left">
         <h3>The Capture</h3>
         <canvas id="capture" width="320" height="240"></canvas>
         <div id="snapshot"></div>
