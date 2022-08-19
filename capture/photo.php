@@ -14,8 +14,10 @@ $sessionAllowWrite = true;
 require_once dirname(__FILE__) . "/../interface/globals.php";
 require_once "photo_inc.php";
 
+$msg = xlt("Source not given. Contact link provider");
+
 if (!isset($_GET['source'])) {
-    echo "Source not given. Contact link provider.";
+    echo $msg;
    die;
 }
 if (!filter_input(INPUT_GET, 'source', FILTER_VALIDATE_INT)) {
@@ -25,10 +27,16 @@ if (!filter_input(INPUT_GET, 'source', FILTER_VALIDATE_INT)) {
 $patient_id = filter_input(INPUT_GET, 'source', FILTER_VALIDATE_INT);
 $database = filter_input(INPUT_GET, 'd', FILTER_SANITIZE_SPECIAL_CHARS);
 
-$check_source = isPatientHere($patient_id, $database);
+if (!empty($patient_id) && !empty($database)) {
+    $check_source = isPatientHere($patient_id, $database);
+} else {
+    echo $msg;
+    die;
+}
+
 
 if (empty($check_source['pid'])) {
-    echo "Source not valid, contact link provider";
+    echo $msg;
     die;
 }
 
