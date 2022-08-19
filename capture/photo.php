@@ -8,8 +8,16 @@
  *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  */
 
+if (isset($_GET['source'])) {
+    echo "Source not given. Contact link provider.";
+   die;
+}
+if (!filter_input(INPUT_GET, 'source', FILTER_VALIDATE_INT)) {
+    echo "Source not valid. Contact link provider.";
+    die;
+}
 $patient_id = filter_input(INPUT_GET, 'source', FILTER_VALIDATE_INT);
-echo $patient_id . 'is';
+
 
 ?>
 <!DOCTYPE html>
