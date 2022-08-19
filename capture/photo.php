@@ -14,14 +14,14 @@ $sessionAllowWrite = true;
 require_once dirname(__FILE__) . "/../interface/globals.php";
 require_once "photo_inc.php";
 
-$msg = xlt("Source not given. Contact link provider");
+$msg = xlt("Source not given. Contact link provider ");
 
 if (!isset($_GET['source'])) {
-    echo $msg;
+    echo $msg . 1;
    die;
 }
 if (!filter_input(INPUT_GET, 'source', FILTER_VALIDATE_INT)) {
-    echo "Source not valid. Contact link provider.";
+    echo $msg . 2;
     die;
 }
 $patient_id = filter_input(INPUT_GET, 'source', FILTER_VALIDATE_INT);
@@ -30,13 +30,13 @@ $database = filter_input(INPUT_GET, 'd', FILTER_SANITIZE_SPECIAL_CHARS);
 if (!empty($patient_id) && !empty($database)) {
     $check_source = isPatientHere($patient_id, $database);
 } else {
-    echo $msg;
+    echo $msg . 3;
     die;
 }
 
 
 if (empty($check_source['pid'])) {
-    echo $msg;
+    echo $msg . 4;
     die;
 }
 
