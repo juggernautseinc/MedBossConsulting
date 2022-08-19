@@ -10,14 +10,19 @@
 
 function isPatientHere($source, $database)
 {
-    return sqlQuery("SELECT pid FROM $database.patient_data WHERE pid = ?", [$source]);
+    $database = $database . ".";
+    return sqlQuery("SELECT pid FROM " . $database . "patient_data WHERE pid = ?", [$source]);
 }
 
 function whichFacility($d) {
-    return match ($d) {
-        1 => "serenity",
-        2 => "reencuentro",
-        default => "default",
-    };
+
+    switch($d){
+        case 1:
+            return "serenity";
+        case 2:
+            return "reencuentro";
+        default:
+            return "";
+    }
 }
 
