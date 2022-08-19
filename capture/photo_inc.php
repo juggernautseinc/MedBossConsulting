@@ -10,5 +10,5 @@
 
 function isPatientHere($source)
 {
-    return sqlQuery("SELECT pid FROM patient_data WHERE pid = ?" [$source]);
+    return sqlQuery("SELECT pid FROM patient_data WHERE pid = ?", [$source]);
 }
