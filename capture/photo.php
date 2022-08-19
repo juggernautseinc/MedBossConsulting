@@ -149,7 +149,7 @@ if (empty($check_source['pid'])) {
         dataurl_container.style.display = 'block';
     });
 
-    const element = document.getElementById("click-photo");
+    const element = document.getElementById("start-camera");
     element.addEventListener("click", isMobileDevice);
     function isMobileDevice() {
         let isMobile = false; //initiate as false
