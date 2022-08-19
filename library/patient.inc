@@ -1830,10 +1830,10 @@ function is_patient_deceased($pid, $date = '')
 
 function getPriorAuth($pid)
 {
-    $sql = "select prior_auth_number from form_prior_auth where pid = ?";
+    $sql = "select `auth_num` from `module_prior_authorizations` where pid = ?";
     $auth_num = sqlQuery($sql, [$pid]);
-    if (!empty($auth_num['prior_auth_number'])) {
-        return $auth_num['prior_auth_number'];
+    if (!empty($auth_num['auth_num'])) {
+        return $auth_num['auth_num'];
     } else {
         return "None";
     }
