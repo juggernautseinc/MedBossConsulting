@@ -23,7 +23,7 @@ if (!filter_input(INPUT_GET, 'source', FILTER_VALIDATE_INT)) {
     die;
 }
 $patient_id = filter_input(INPUT_GET, 'source', FILTER_VALIDATE_INT);
-$database = filter_input(INPUT_GET, 'd', FILTER_VALIDATE_INT);
+$database = filter_input(INPUT_GET, 'd', FILTER_SANITIZE_SPECIAL_CHARS);
 
 $check_source = isPatientHere($patient_id, $database);
 
