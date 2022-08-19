@@ -14,7 +14,7 @@ $sessionAllowWrite = true;
 require_once dirname(__FILE__) . "/../interface/globals.php";
 require_once "photo_inc.php";
 
-$msg = xlt("Something is wrong with your link. Contact link provider to get corrected link.  Error code");
+$msg = xlt("Something is wrong with your link. Contact link provider to get corrected link.  Error code - ");
 
 
 if (!isset($_GET['source'])) {
