@@ -8,8 +8,8 @@
  *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  */
 
-$patient_id = filter_input('GET', 'source', FILTER_VALIDATE_INT);
-echo $patient_id;
+$patient_id = filter_input(INPUT_GET, 'source', FILTER_VALIDATE_INT);
+echo $patient_id . 'is';
 
 ?>
 <!DOCTYPE html>
