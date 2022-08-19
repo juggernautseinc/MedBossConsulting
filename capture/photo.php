@@ -8,7 +8,7 @@
  *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  */
 
-if (isset($_GET['source'])) {
+if (!isset($_GET['source'])) {
     echo "Source not given. Contact link provider.";
    die;
 }
