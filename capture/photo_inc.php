@@ -10,6 +10,5 @@
 
 function isPatientHere($source)
 {
-    require_once dirname(__FILE__) . "/../interface/globals.php";
     return sqlQuery("SELECT pid FROM patient_data WHERE pid = ?" [$source]);
 }
