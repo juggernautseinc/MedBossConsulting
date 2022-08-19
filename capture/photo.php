@@ -106,10 +106,10 @@ if (empty($check_source['pid'])) {
 <body>
 
 <button id="start-camera">Start Camera</button>
-<video id="video" width="420" height="640" autoplay></video>
+<video id="video" width="320" height="240" autoplay></video>
 <button id="click-photo"><?php echo xlt("Click to capture Photo") ?></button>
 <div id="dataurl-container">
-    <canvas id="canvas" width="420" height="640"></canvas>
+    <canvas id="canvas" width="320" height="240"></canvas>
     <div id="dataurl-header">Image Data URL</div>
     <textarea id="dataurl" readonly></textarea>
 </div>
@@ -161,7 +161,7 @@ if (empty($check_source['pid'])) {
         if (isMobile == false) {
             let $msg = '<?php echo xlt("Please use a mobile device to upload picture") ?>';
             alert($msg);
-            process.exit();
+            Event.stopPropagation();
         }
     }
 
