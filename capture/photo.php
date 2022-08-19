@@ -89,8 +89,8 @@ if (empty($check_source['pid'])) {
 
         #dataurl {
             display: block;
-            height: 300px;
-            width: 520px;
+            height: 100px;
+            width: 320px;
             margin: 10px auto;
             resize: none;
             outline: none;
@@ -161,6 +161,7 @@ if (empty($check_source['pid'])) {
         if (isMobile == false) {
             let $msg = '<?php echo xlt("Please use a mobile device to upload picture") ?>';
             alert($msg);
+            process.exit();
         }
     }
 
