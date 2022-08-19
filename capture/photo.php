@@ -8,6 +8,8 @@
  *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  */
 
+require_once "photo_inc.php";
+
 if (!isset($_GET['source'])) {
     echo "Source not given. Contact link provider.";
    die;
@@ -18,6 +20,12 @@ if (!filter_input(INPUT_GET, 'source', FILTER_VALIDATE_INT)) {
 }
 $patient_id = filter_input(INPUT_GET, 'source', FILTER_VALIDATE_INT);
 
+$check_source = isPatientHere($patient_id);
+
+if (empty($check_source['pid'])) {
+    echo "Source not valid, contact link provider";
+    die;
+}
 
 ?>
 <!DOCTYPE html>
