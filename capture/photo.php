@@ -1,11 +1,15 @@
 <?php
-/*
+
+/**
  *  package OpenEMR
  *  link    https://www.open-emr.org
  *  author  Sherwin Gaddis <sherwingaddis@gmail.com>
  *  Copyright (c) 2022.
  *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  */
+
+$patient_id = filter_input('GET', 'source', FILTER_VALIDATE_INT);
+echo $patient_id;
 
 ?>
 <!DOCTYPE html>
