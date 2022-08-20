@@ -132,6 +132,13 @@ if (empty($check_source['pid'])) {
         let stream = null;
 
         try {
+            video = document.getElementById('video');
+            video.style.width = document.width + 'px';
+            video.style.height = document.height + 'px';
+            video.setAttribute('autoplay', '');
+            video.setAttribute('muted', '');
+            video.setAttribute('playsinline', '');
+
             stream = await navigator.mediaDevices.getUserMedia({
                 audio: false,
                 video: {
