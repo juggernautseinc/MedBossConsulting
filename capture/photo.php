@@ -106,10 +106,12 @@ if (empty($check_source['pid'])) {
 <body>
 
 <button id="start-camera">Start Camera</button>
+<div>
 <video id="video" width="620" height="440" autoplay></video>
+</div>
 <button id="click-photo"><?php echo xlt("Click to capture Photo") ?></button>
 <div id="dataurl-container">
-    <canvas id="canvas" width="320" height="240"></canvas>
+    <canvas id="canvas" width="620" height="440"></canvas>
     <div id="dataurl-header">Image Data URL</div>
     <textarea id="dataurl" readonly></textarea>
 </div>
@@ -124,7 +126,7 @@ if (empty($check_source['pid'])) {
     let dataurl_container = document.querySelector("#dataurl-container");
 
     camera_button.addEventListener('click', async function() {
-        //isMobileDevice();
+        isMobileDevice();
         let stream = null;
 
         try {
