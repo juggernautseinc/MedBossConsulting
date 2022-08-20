@@ -125,9 +125,9 @@ if ($form_encounter_esigned) {
     $query .= "AND es.tid = fe.encounter AND es.table = 'form_encounter' ";
 }
 
-//if ($form_esigned) {
+if ($form_esigned) {
     $query .= "AND es.tid = fe.encounter ";
-//}
+}
 
 if ($form_not_esigned) {
     $query .= "AND es.tid IS NULL ";
@@ -389,9 +389,9 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
         <?php echo xlt('Coding'); ?>
   </th>
       <?php
-            //if ($form_esigned == 'checked') {
+            if ($form_esigned) {
                 echo "<th>" . xlt('Signed By') . "</th>";
-            //}
+            }
       ?>
 
 <?php } else { ?>
@@ -551,10 +551,10 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_orderby'])) {
   </td>
 
                <?php
-                   //if ($form_esigned == 'checked') {
+                   if ($form_esigned) {
                        $signersname = getDocumentSigner($row['encounter']);
                        echo "<td>" . $signersname['name'] . "</td>";
-                   //}
+                   }
                ?>
 
  </tr>
