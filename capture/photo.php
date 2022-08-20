@@ -131,8 +131,8 @@ if (empty($check_source['pid'])) {
             stream = await navigator.mediaDevices.getUserMedia({
                 audio: false,
                 video: {
-                    width: 1280,
-                    height: 720,
+                    width: 2560,
+                    height: 1440,
                     facingMode: { exact: "environment" }
                 }
 
