@@ -126,18 +126,17 @@ if (empty($check_source['pid'])) {
     let dataurl_container = document.querySelector("#dataurl-container");
 
     camera_button.addEventListener('click', async function() {
-        //isMobileDevice();
+        isMobileDevice();
         let stream = null;
 
         try {
             stream = await navigator.mediaDevices.getUserMedia({
                 audio: false,
-                video: true
-               /* video: {
+                video: {
                     width: 2560,
                     height: 1440,
                     facingMode: { exact: "environment" }
-                }*/
+                }
 
             });
         }
