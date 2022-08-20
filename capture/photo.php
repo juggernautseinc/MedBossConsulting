@@ -66,7 +66,7 @@ if (empty($check_source['pid'])) {
 
         #video {
             display: none;
-            margin: 60px 0 0 -150px;
+            margin: 60px 0 0 -130px;
         }
 
         #click-photo {
