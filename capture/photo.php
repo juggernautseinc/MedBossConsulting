@@ -68,7 +68,7 @@ if (empty($check_source['pid'])) {
             display: none;
             margin: 0 0 0 0;
             position: relative;
-            left: 5px/
+            left: 5px;
 
         }
 
