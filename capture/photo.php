@@ -79,7 +79,7 @@ if (empty($check_source['pid'])) {
 
         #canvas {
             display: block;
-            margin: 0 auto 200px auto;
+            margin: 0 auto 20px auto;
         }
 
         #dataurl-header {
@@ -124,10 +124,19 @@ if (empty($check_source['pid'])) {
     let dataurl_container = document.querySelector("#dataurl-container");
 
     camera_button.addEventListener('click', async function() {
+        isMobileDevice();
         let stream = null;
 
         try {
-            stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+            stream = await navigator.mediaDevices.getUserMedia({
+                audio: false,
+                video: {
+                    width: 1280,
+                    height: 720,
+                    facingMode: { exact: "environment" }
+                }
+
+            });
         }
         catch(error) {
             alert(error.message);
@@ -149,8 +158,6 @@ if (empty($check_source['pid'])) {
         dataurl_container.style.display = 'block';
     });
 
-    const element = document.getElementById("start-camera");
-    element.addEventListener("click", isMobileDevice);
     function isMobileDevice() {
         let isMobile = false; //initiate as false
         // device detection
