@@ -45,10 +45,10 @@ if (empty($check_source['pid'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Demo - Capture Photo From Webcam Using Javascript</title>
+    <title><?php echo xlt('Capture ID card'); ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <style type="text/css">
+    <style>
 
         button {
             width: 120px;
@@ -66,7 +66,7 @@ if (empty($check_source['pid'])) {
 
         #video {
             display: none;
-            margin: auto auto auto auto;
+            margin: 0 0 0 0;
         }
 
         #click-photo {
@@ -79,7 +79,7 @@ if (empty($check_source['pid'])) {
 
         #canvas {
             display: block;
-            margin: auto auto auto auto;
+            margin: 0 0 0 0;
         }
 
         #dataurl-header {
@@ -106,9 +106,11 @@ if (empty($check_source['pid'])) {
 <body>
 
 <button id="start-camera">Start Camera</button>
-
-<video id="video" width="620" height="440" autoplay></video>
-
+<div id="video-holder">
+    <div id="video-frame">
+        <video id="video" width="620" height="440" autoplay></video>
+    </div>
+</div>
 <button id="click-photo"><?php echo xlt("Click to capture Photo") ?></button>
 <div id="dataurl-container">
     <canvas id="canvas" width="620" height="440"></canvas>
