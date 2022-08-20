@@ -124,7 +124,7 @@ if (empty($check_source['pid'])) {
     let dataurl_container = document.querySelector("#dataurl-container");
 
     camera_button.addEventListener('click', async function() {
-        isMobileDevice();
+        //isMobileDevice();
         let stream = null;
 
         try {
