@@ -66,7 +66,7 @@ if (empty($check_source['pid'])) {
 
         #video {
             display: none;
-            /*margin: 0px auto 0 auto;*/
+            margin: auto auto auto auto;
         }
 
         #click-photo {
@@ -107,7 +107,7 @@ if (empty($check_source['pid'])) {
 
 <button id="start-camera">Start Camera</button>
 
-<video id="video" width="420" height="640" autoplay></video>
+<video id="video" width="620" height="440" autoplay></video>
 
 <button id="click-photo"><?php echo xlt("Click to capture Photo") ?></button>
 <div id="dataurl-container">
