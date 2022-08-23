@@ -105,7 +105,7 @@ if (empty($check_source['pid'])) {
 
 <body>
 
-<button id="start-camera">Start Camera</button>
+<button id="start-camera"><?php echo xlt('Start Camera'); ?></button>
 <div id="video-holder">
     <div id="video-frame">
         <video id="video" width="620" height="440" autoplay></video>
@@ -164,6 +164,7 @@ if (empty($check_source['pid'])) {
         let image_data_url = canvas.toDataURL('image/jpeg');
 
         dataurl.value = image_data_url;
+        video.style.display = 'none';
         dataurl_container.style.display = 'block';
     });
 
