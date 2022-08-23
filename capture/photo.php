@@ -156,7 +156,7 @@ if (empty($check_source['pid'])) {
 
         video.style.display = 'block';
         camera_button.style.display = 'none';
-        click_button.style.display = 'block';
+        click_button.style.display = 'none';
     });
 
     click_button.addEventListener('click', function() {
