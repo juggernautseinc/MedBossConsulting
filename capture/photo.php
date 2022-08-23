@@ -115,7 +115,7 @@ if (empty($check_source['pid'])) {
 <div id="dataurl-container">
     <canvas id="canvas" ></canvas>
     <div id="dataurl-header">Image Data URL</div>
-    <!--<textarea id="dataurl" readonly></textarea>-->
+    <textarea id="dataurl" readonly></textarea>
 </div>
 
 <script>
