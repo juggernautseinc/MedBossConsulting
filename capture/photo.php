@@ -14,6 +14,8 @@ $sessionAllowWrite = true;
 require_once dirname(__FILE__) . "/../interface/globals.php";
 require_once "photo_inc.php";
 
+use OpenEMR\Common\Csrf\CsrfUtils;
+
 $msg = xlt("Something is wrong with your link. Contact link provider to get corrected link.  Error code - ");
 
 
@@ -101,6 +103,11 @@ if (empty($check_source['pid'])) {
         }
 
     </style>
+    <script>
+        function reloadCapture() {
+            window.location.reload();
+        }
+    </script>
 </head>
 
 <body>
@@ -114,8 +121,9 @@ if (empty($check_source['pid'])) {
 <button id="click-photo"><?php echo xlt("Click to capture Photo") ?></button>
 <div id="dataurl-container">
     <canvas id="canvas" ></canvas>
-    <div id="dataurl-header"><?php echo xlt('Image captured'); ?></div>
+    <div id="dataurl-header"><?php echo xlt('Image Uploaded'); ?></div>
     <textarea id="dataurl" readonly></textarea>
+    <button id="start-new-capture" onclick="reloadCapture()"><?php echo xlt('Next Image') ?></button>
 </div>
 
 <script>
