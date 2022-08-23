@@ -114,7 +114,7 @@ if (empty($check_source['pid'])) {
 <button id="click-photo"><?php echo xlt("Click to capture Photo") ?></button>
 <div id="dataurl-container">
     <canvas id="canvas" ></canvas>
-    <!--<div id="dataurl-header">Image Data URL</div>-->
+    <div id="dataurl-header">Image Data URL</div>
     <!--<textarea id="dataurl" readonly></textarea>-->
 </div>
 
