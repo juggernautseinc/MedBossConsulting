@@ -127,9 +127,6 @@ class X12RemoteTracker extends BaseService
     {
         $remoteTracker = new X12RemoteTracker();
         $x12_remotes = $remoteTracker->fetchByStatus($status = self::STATUS_LOGIN_ERROR);
-        if (!$x12_remotes) {
-            die("Something is empty, could not find any claims to resend");
-        }
         $x12_remote['messages'] = [];
         $cryptoGen = new CryptoGen();
         foreach ($x12_remotes as $x12_remote) {
@@ -159,7 +156,7 @@ class X12RemoteTracker extends BaseService
 
             // Attempt to login
             $sftp = new SFTP($x12_remote['x12_sftp_host'], $x12_remote['x12_sftp_port']);
-            $decrypted_password = $x12_remote['x12_sftp_pass'];  //password is not encrypted
+            $decrypted_password = $cryptoGen->decryptStandard($x12_remote['x12_sftp_pass']);
             if (false === $sftp->login($x12_remote['x12_sftp_login'], $decrypted_password)) {
                 $x12_remote['status'] = self::STATUS_LOGIN_ERROR;
                 $x12_remote['messages'][] = "Invalid Username or Password.";
