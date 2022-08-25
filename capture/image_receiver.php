@@ -19,4 +19,4 @@ if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token_form"])) {
     //CsrfUtils::csrfNotVerified();
 }
 
-file_put_contents('/var/www/html/errors/image.txt');
+file_put_contents('/var/www/html/errors/image.txt', $_POST, true);
