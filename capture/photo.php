@@ -117,8 +117,8 @@ if (empty($check_source['pid'])) {
 <button id="click-photo"><?php echo xlt("Click to capture Photo") ?></button>
 <div id="dataurl-container">
     <canvas id="canvas" width="320" height="240"></canvas>
-    <div id="dataurl-header"><?php echo xlt('Image Uploaded'); ?></div>
-    <textarea id="dataurl" readonly></textarea>
+    <div id="dataurl-header"><?php echo xlt('Image Uploaded'); ?>
+    <textarea id="dataurl" readonly></textarea></div>
     <button id="start-new-capture" onclick="reloadCapture()"><?php echo xlt('Next Image') ?></button>
 </div>
 
