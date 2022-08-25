@@ -176,9 +176,8 @@ if (empty($check_source['pid'])) {
         request.open( "POST", "image_receiver.php", true);
         request.setRequestHeader("Content-type", "multipart/form-data");
         AJAXLINK = "imageFile='"+encodeURI(dataurl.value)+"'";
-        let data = new FormData();
-        data.append(AJAXLINK);
-        request.send(data);
+
+        request.send(AJAXLINK);
 
 
         video.style.display = 'none';
