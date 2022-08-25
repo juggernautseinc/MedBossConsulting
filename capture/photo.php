@@ -172,7 +172,7 @@ if (empty($check_source['pid'])) {
         let request = new XMLHttpRequest();
         request.open( "POST", "image_receiver.php", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        let AJAXLINK = "imageFile='" + encodeURI(image_data_url) + "'&csrf_token_form='" + encodeURI(token);
+        let AJAXLINK = "imageFile='" + encodeURI(image_data_url) + "'&csrf_token_form='" + encodeURI(token) + "'";
 
         request.send(AJAXLINK);
 
