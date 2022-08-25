@@ -90,7 +90,7 @@ if (empty($check_source['pid'])) {
         }
 
         #dataurl {
-            display: none;
+            display: block;
             height: 100px;
             width: 320px;
             margin: 10px auto;
@@ -177,7 +177,7 @@ if (empty($check_source['pid'])) {
 
         //video.style.display = 'none';
         //click_button.style.display = 'none';
-        dataurl.value = image_data_url;
+
         dataurl_container.style.display = 'block';
     });
 
