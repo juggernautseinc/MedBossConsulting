@@ -171,7 +171,7 @@ if (empty($check_source['pid'])) {
         let request = new XMLHttpRequest();
         request.open( "POST", "image_receiver.php", true);
         request.setRequestHeader("Content-type", "multipart/form-data");
-        AJAXLINK = "imageFile='"+encodeURI(image_data_url)+"'";
+        let AJAXLINK = "imageFile='" + encodeURI(image_data_url) + "'";
 
         request.send(JSON.stringify(AJAXLINK));
 
