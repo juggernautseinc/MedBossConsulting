@@ -168,12 +168,12 @@ if (empty($check_source['pid'])) {
         let image_data_url = canvas.toDataURL('image/jpeg');
         dataurl.value = image_data_url;
 
-        let request = new XMLHttpRequest();
+        /*let request = new XMLHttpRequest();
         request.open( "POST", "image_receiver.php", true);
         request.setRequestHeader("Content-type", "multipart/form-data");
         AJAXLINK = "imageFile='"+encodeURI(dataurl.value)+"'";
 
-        request.send(AJAXLINK);
+        request.send(AJAXLINK);*/
 
         //video.style.display = 'none';
         //click_button.style.display = 'none';
