@@ -173,11 +173,11 @@ if (empty($check_source['pid'])) {
         dataurl.value = image_data_url;
 
         let request = new XMLHttpRequest();
-        /*request.open( "POST", "image_receiver.php", true);
-        request.setRequestHeader("Content-type", "multipart/form-data");
+        request.open( "POST", "image_receiver.php", true);
+        //request.setRequestHeader("Content-type", "multipart/form-data");
         AJAXLINK = "imageFile='"+encodeURI(document.upload.dataurl.value)+"'";
         let data = new FormData();
-        data.append(AJAXLINK);
+        /*data.append(AJAXLINK);
         request.send(data);*/
 
 
