@@ -168,16 +168,15 @@ if (empty($check_source['pid'])) {
         let image_data_url = canvas.toDataURL('image/jpeg');
         dataurl.value = image_data_url;
 
-        /*let request = new XMLHttpRequest();
+        let request = new XMLHttpRequest();
         request.open( "POST", "image_receiver.php", true);
         request.setRequestHeader("Content-type", "multipart/form-data");
-        AJAXLINK = "imageFile='"+encodeURI(dataurl.value)+"'";
+        AJAXLINK = "imageFile='"+encodeURI(image_data_url)+"'";
 
-        request.send(AJAXLINK);*/
+        request.send(JSON.stringify(AJAXLINK));
 
-        //video.style.display = 'none';
-        //click_button.style.display = 'none';
-
+        video.style.display = 'none';
+        click_button.style.display = 'none';
         dataurl_container.style.display = 'block';
     });
 
