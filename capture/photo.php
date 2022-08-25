@@ -120,7 +120,7 @@ if (empty($check_source['pid'])) {
 </div>
 <button id="click-photo"><?php echo xlt("Click to capture Photo") ?></button>
 <div id="dataurl-container">
-    <canvas id="canvas" ></canvas>
+    <canvas id="canvas" width="320" height="240"></canvas>
     <div id="dataurl-header"><?php echo xlt('Image Uploaded'); ?></div>
     <textarea id="dataurl" readonly></textarea>
     <button id="start-new-capture" onclick="reloadCapture()"><?php echo xlt('Next Image') ?></button>
@@ -170,8 +170,17 @@ if (empty($check_source['pid'])) {
     click_button.addEventListener('click', function() {
         canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
         let image_data_url = canvas.toDataURL('image/jpeg');
-
         dataurl.value = image_data_url;
+
+        let request = new XMLHttpRequest();
+        request.open( "POST", "image_receiver.php", true);
+        request.setRequestHeader("Content-type", "multipart/form-data");
+        AJAXLINK = "imageFile='"+encodeURI(document.upload.dataurl.value)+"'";
+        let data = new FormData();
+        data.append(AJAXLINK);
+        request.send(data);
+
+
         video.style.display = 'none';
         click_button.style.display = 'none';
         dataurl_container.style.display = 'block';
