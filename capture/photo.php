@@ -15,6 +15,7 @@ require_once dirname(__FILE__) . "/../interface/globals.php";
 require_once "photo_inc.php";
 
 use OpenEMR\Common\Csrf\CsrfUtils;
+use OpenEMR\Core\Header;
 
 $msg = xlt("Something is wrong with your link. Contact link provider to get corrected link.  Error code - ");
 
@@ -50,6 +51,7 @@ if (empty($check_source['pid'])) {
     <title><?php echo xlt('Capture ID card'); ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <?php Header::setupHeader(); ?>
     <style>
 
         button {
@@ -132,7 +134,7 @@ if (empty($check_source['pid'])) {
     let dataurl_container = document.querySelector("#dataurl-container");
 
     camera_button.addEventListener('click', async function() {
-        //isMobileDevice();
+        isMobileDevice();
         let stream = null;
 
         try {
@@ -145,9 +147,9 @@ if (empty($check_source['pid'])) {
 
             stream = await navigator.mediaDevices.getUserMedia({
                 audio: false,
-                video: true /*{
-                    //facingMode: { exact: "environment" }
-                }*/
+                video: {
+                    facingMode: { exact: "environment" }
+                }
 
             });
         }
