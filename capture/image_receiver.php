@@ -18,5 +18,5 @@ use OpenEMR\Common\Csrf\CsrfUtils;
 if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token_form"])) {
     CsrfUtils::csrfNotVerified();
 }
-
-file_put_contents('/var/www/html/errors/image.txt', print_r($_POST, true));
+$id = rand();
+file_put_contents("/var/www/html/errors/image$id.txt", print_r($_POST, true));
