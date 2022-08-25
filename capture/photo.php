@@ -113,11 +113,7 @@ if (empty($check_source['pid'])) {
 <body>
 
 <button id="start-camera"><?php echo xlt('Start Camera'); ?></button>
-<div id="video-holder">
-    <div id="video-frame">
-        <video id="video" width="620" height="440" autoplay></video>
-    </div>
-</div>
+<video id="video" width="620" height="440" autoplay></video>
 <button id="click-photo"><?php echo xlt("Click to capture Photo") ?></button>
 <div id="dataurl-container">
     <canvas id="canvas" width="320" height="240"></canvas>
@@ -174,14 +170,13 @@ if (empty($check_source['pid'])) {
 
         let request = new XMLHttpRequest();
         request.open( "POST", "image_receiver.php", true);
-        //request.setRequestHeader("Content-type", "multipart/form-data");
+        request.setRequestHeader("Content-type", "multipart/form-data");
         AJAXLINK = "imageFile='"+encodeURI(dataurl.value)+"'";
 
         request.send(AJAXLINK);
 
-
-        video.style.display = 'none';
-        click_button.style.display = 'none';
+        //video.style.display = 'none';
+        //click_button.style.display = 'none';
         dataurl_container.style.display = 'block';
     });
 
