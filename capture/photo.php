@@ -167,7 +167,7 @@ if (empty($check_source['pid'])) {
         canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
         let image_data_url = canvas.toDataURL('image/jpeg');
         dataurl.value = image_data_url;
-        let token = '<?php  echo attr(CsrfUtils::collectCsrfToken()); ?>';
+        let token = '<?php  echo js_escape(CsrfUtils::collectCsrfToken()); ?>';
 
         let request = new XMLHttpRequest();
         request.open( "POST", "image_receiver.php", true);
