@@ -90,7 +90,7 @@ if (empty($check_source['pid'])) {
         }
 
         #dataurl {
-            display: block;
+            display: none;
             height: 100px;
             width: 320px;
             margin: 10px auto;
