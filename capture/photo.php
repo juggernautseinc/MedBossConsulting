@@ -167,12 +167,12 @@ if (empty($check_source['pid'])) {
         canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
         let image_data_url = canvas.toDataURL('image/jpeg');
         dataurl.value = image_data_url;
-        let token = '<?php echo "thing " . CsrfUtils::collectCsrfToken(); ?>';
+        let token = '<?php  echo CsrfUtils::collectCsrfToken(); ?>';
 
         let request = new XMLHttpRequest();
         request.open( "POST", "image_receiver.php", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        let AJAXLINK = "imageFile='" + encodeURI(image_data_url) + "'&csrf_token_form='" + encodeURI(token) + "'";
+        let AJAXLINK = "imageFile='" + encodeURIComponent(image_data_url) + "'&csrf_token_form='" + encodeURIComponent(token) + "'";
 
         request.send(AJAXLINK);
 
