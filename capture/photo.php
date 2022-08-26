@@ -14,7 +14,6 @@ $sessionAllowWrite = true;
 require_once dirname(__FILE__) . "/../interface/globals.php";
 require_once "photo_inc.php";
 
-use OpenEMR\Common\Csrf\CsrfUtils;
 use OpenEMR\Core\Header;
 
 $msg = xlt("Something is wrong with your link. Contact link provider to get corrected link.  Error code - ");
@@ -113,7 +112,7 @@ if (empty($check_source['pid'])) {
 </head>
 
 <body>
-<?php  echo CsrfUtils::collectCsrfToken(); ?>
+<?php  echo  "token " . CsrfUtils::collectCsrfToken(); ?>
 <button id="start-camera"><?php echo xlt('Start Camera'); ?></button>
 <video id="video" width="620" height="440" autoplay></video>
 <button id="click-photo"><?php echo xlt("Click to capture Photo") ?></button>
@@ -169,10 +168,10 @@ if (empty($check_source['pid'])) {
         canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
         let image_data_url = canvas.toDataURL('image/jpeg');
         dataurl.value = image_data_url;
-        let token = '';
+        let token = '<?php echo $patient_id; ?>';
         let formData = new FormData();
         formData.append('imageFile', image_data_url);
-        formData.append('csrf_token_form', token);
+        formData.append('token', token);
         let request = new XMLHttpRequest();
         request.upload.addEventListener("progress", uploadProgress, false);
         request.addEventListener("load", uploadComplete, false);
