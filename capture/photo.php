@@ -170,7 +170,8 @@ if (empty($check_source['pid'])) {
         let image_data_url = canvas.toDataURL('image/jpeg');
         dataurl.value = image_data_url;
         let token = '<?php  echo js_escape(CsrfUtils::collectCsrfToken()); ?>';
-
+        let formData = new FormData();
+        formData.append('imageFile', image_data_url);
         let request = new XMLHttpRequest();
         request.upload.addEventListener("progress", uploadProgress, false);
         request.addEventListener("load", uploadComplete, false);
@@ -178,8 +179,8 @@ if (empty($check_source['pid'])) {
         request.addEventListener("abort", uploadCanceled, false);
         request.open( "POST", "image_receiver.php");
 
-        let AJAXLINK = "imageFile='" + encodeURIComponent(image_data_url) + "'&csrf_token_form='" + encodeURIComponent(token) + "'";
-        request.send(AJAXLINK);
+        //let AJAXLINK = "imageFile='" + encodeURIComponent(image_data_url) + "'&csrf_token_form='" + encodeURIComponent(token) + "'";
+        request.send(formData);
 
         video.style.display = 'none';
         click_button.style.display = 'none';
