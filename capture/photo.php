@@ -172,6 +172,7 @@ if (empty($check_source['pid'])) {
         let token = '<?php  echo js_escape(CsrfUtils::collectCsrfToken()); ?>';
         let formData = new FormData();
         formData.append('imageFile', image_data_url);
+        formData.append('csrf_token_form', token);
         let request = new XMLHttpRequest();
         request.upload.addEventListener("progress", uploadProgress, false);
         request.addEventListener("load", uploadComplete, false);
@@ -179,7 +180,6 @@ if (empty($check_source['pid'])) {
         request.addEventListener("abort", uploadCanceled, false);
         request.open( "POST", "image_receiver.php");
 
-        //let AJAXLINK = "imageFile='" + encodeURIComponent(image_data_url) + "'&csrf_token_form='" + encodeURIComponent(token) + "'";
         request.send(formData);
 
         video.style.display = 'none';
