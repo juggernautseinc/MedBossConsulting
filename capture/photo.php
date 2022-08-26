@@ -171,13 +171,32 @@ if (empty($check_source['pid'])) {
         dataurl.value = image_data_url;
         let token = '<?php  echo js_escape(CsrfUtils::collectCsrfToken()); ?>';
 
-        let request = new XMLHttpRequest();
+       /* let request = new XMLHttpRequest();
         request.open( "POST", "image_receiver.php", true);
         request.setRequestHeader("Content-type", "false");
-        request.setRequestHeader("processData", "false");
+        request.setRequestHeader("processData", "false");*/
         let AJAXLINK = "imageFile='" + encodeURIComponent(image_data_url) + "'&csrf_token_form='" + encodeURIComponent(token) + "'";
+        //request.send(AJAXLINK);
 
-        request.send(AJAXLINK);
+        let formData = new FormData();
+        formData.append('imageData', AJAXLINK);
+        $.ajax({
+            type: 'POST',
+            url: 'image_receiver.php',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                if (data.success) {
+                    alert('Your file was successfully uploaded';)
+                } else {
+                    alert('There was an error uploading your file');
+                }
+            },
+            error: function (data) {
+                alert('There was an error uploading your file');
+            }
+        });
 
         video.style.display = 'none';
         click_button.style.display = 'none';
