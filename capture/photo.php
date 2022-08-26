@@ -14,6 +14,7 @@ $sessionAllowWrite = true;
 require_once dirname(__FILE__) . "/../interface/globals.php";
 require_once "photo_inc.php";
 
+use OpenEMR\Common\Csrf\CsrfUtils;
 use OpenEMR\Core\Header;
 
 $msg = xlt("Something is wrong with your link. Contact link provider to get corrected link.  Error code - ");
@@ -112,7 +113,7 @@ if (empty($check_source['pid'])) {
 </head>
 
 <body>
-<?php  echo  "token " . CsrfUtils::collectCsrfToken(); ?>
+
 <button id="start-camera"><?php echo xlt('Start Camera'); ?></button>
 <video id="video" width="620" height="440" autoplay></video>
 <button id="click-photo"><?php echo xlt("Click to capture Photo") ?></button>
