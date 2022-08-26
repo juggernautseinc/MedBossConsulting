@@ -172,7 +172,7 @@ if (empty($check_source['pid'])) {
         let token = '<?php  echo js_escape(CsrfUtils::collectCsrfToken()); ?>';
 
         let request = new XMLHttpRequest();
-        request.open( "POST", "image_receiver.php", true);
+        request.open( "POST", "image_receiver.php");
 
         let AJAXLINK = "imageFile='" + encodeURIComponent(image_data_url) + "'&csrf_token_form='" + encodeURIComponent(token) + "'";
         request.send(AJAXLINK);
