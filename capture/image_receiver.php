@@ -19,4 +19,13 @@ if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token_form"])) {
     //CsrfUtils::csrfNotVerified();
 }
 $id = rand();
-file_put_contents("/var/www/html/errors/image.txt", print_r($_POST, true));
+try {
+    file_put_contents("/var/www/html/errors/image.txt", print_r($_POST, true));
+} catch (Exception $e) {
+    echo "Error " . $e->getMessage();
+}
+
+echo "Complete";
+
+
+

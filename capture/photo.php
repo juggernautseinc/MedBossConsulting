@@ -172,6 +172,10 @@ if (empty($check_source['pid'])) {
         let token = '<?php  echo js_escape(CsrfUtils::collectCsrfToken()); ?>';
 
         let request = new XMLHttpRequest();
+        request.upload.addEventListener("progress", uploadProgress, false);
+        request.addEventListener("load", uploadComplete, false);
+        request.addEventListener("error", uploadFailed, false);
+        request.addEventListener("abort", uploadCanceled, false);
         request.open( "POST", "image_receiver.php");
 
         let AJAXLINK = "imageFile='" + encodeURIComponent(image_data_url) + "'&csrf_token_form='" + encodeURIComponent(token) + "'";
@@ -194,6 +198,34 @@ if (empty($check_source['pid'])) {
             alert($msg);
             Event.stopPropagation();
         }
+    }
+
+    function uploadProgress(evt) {
+
+        if (evt.lengthComputable) {
+            var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+            document.getElementById('progress').innerHTML = percentComplete.toString() + '%';
+        }
+        else {
+            document.getElementById('progress').innerHTML = 'unable to compute';
+        }
+    }
+
+    function uploadComplete(evt) {
+        /* This event is raised when the server send back a response */
+        alert(evt.target.responseText);
+    }
+
+    function uploadFailed(evt) {
+
+        alert("There was an error attempting to upload the file.");
+
+    }
+
+    function uploadCanceled(evt) {
+
+        alert("The upload has been canceled by the user or the browser dropped the connection.");
+
     }
 
 </script>
