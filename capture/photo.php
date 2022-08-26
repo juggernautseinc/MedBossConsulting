@@ -113,7 +113,7 @@ if (empty($check_source['pid'])) {
 </head>
 
 <body>
-
+<?php  echo CsrfUtils::collectCsrfToken(); ?>
 <button id="start-camera"><?php echo xlt('Start Camera'); ?></button>
 <video id="video" width="620" height="440" autoplay></video>
 <button id="click-photo"><?php echo xlt("Click to capture Photo") ?></button>
@@ -169,7 +169,7 @@ if (empty($check_source['pid'])) {
         canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
         let image_data_url = canvas.toDataURL('image/jpeg');
         dataurl.value = image_data_url;
-        let token = '<?php  echo js_escape(CsrfUtils::collectCsrfToken()); ?>';
+        let token = '';
         let formData = new FormData();
         formData.append('imageFile', image_data_url);
         formData.append('csrf_token_form', token);
