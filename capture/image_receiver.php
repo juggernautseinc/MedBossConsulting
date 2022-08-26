@@ -16,7 +16,7 @@ require_once dirname(__FILE__) . "/../interface/globals.php";
 use OpenEMR\Common\Csrf\CsrfUtils;
 
 if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token_form"])) {
-    //CsrfUtils::csrfNotVerified();
+    CsrfUtils::csrfNotVerified();
 }
 $id = rand();
 try {
@@ -25,7 +25,7 @@ try {
     echo "Error " . $e->getMessage();
 }
 
-echo "Complete";
+echo "Image Upload Complete";
 
 
 
