@@ -16,7 +16,7 @@ require_once dirname(__FILE__) . "/../interface/globals.php";
 
 $id = rand();
 try {
-    file_put_contents("/var/www/html/errors/image-$id.txt", print_r($_POST, true));
+    file_put_contents("/var/www/html/errors/image-$id.jpg", base64_decode($_POST['imageFile']));
 } catch (Exception $e) {
     echo "Error " . $e->getMessage();
 }
