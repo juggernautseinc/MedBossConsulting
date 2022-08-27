@@ -20,9 +20,10 @@ try {
     file_put_contents("/var/www/html/errors/image-$id.jpg", base64_decode($image));
 } catch (Exception $e) {
     echo "Error " . $e->getMessage();
+    die;
 }
 
-echo "Image Upload Complete";
+echo xlt("Image Upload Complete");
 
 //get the file from the tmp folder
 $image = "/var/www/html/errors/image-$id.jpg";

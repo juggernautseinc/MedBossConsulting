@@ -204,7 +204,7 @@ if (empty($check_source['pid'])) {
     function uploadProgress(evt) {
 
         if (evt.lengthComputable) {
-            var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+            let percentComplete = Math.round(evt.loaded * 100 / evt.total);
             document.getElementById('progress').innerHTML = percentComplete.toString() + '%';
         }
         else {
@@ -218,14 +218,14 @@ if (empty($check_source['pid'])) {
     }
 
     function uploadFailed(evt) {
-
-        alert("There was an error attempting to upload the file.");
+        let ufailed = '<?php echo xlt("There was an error attempting to upload the file"); ?>';
+        alert(ufailed);
 
     }
 
     function uploadCanceled(evt) {
-
-        alert("The upload has been canceled by the user or the browser dropped the connection.");
+        let ucancel = '<?php echo xlt("The upload has been canceled by the user or the browser dropped the connection"); ?>';
+        alert(ucancel);
 
     }
 

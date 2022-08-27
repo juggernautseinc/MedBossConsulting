@@ -14,20 +14,6 @@ function isPatientHere($source, $database)
     return sqlQuery("SELECT pid FROM " . $database . "patient_data WHERE pid = ?", [$source]);
 }
 
-function whichFacility($d): string
-{
-
-    switch($d){
-        case 1:
-            return "serenity";
-        case 2:
-            return "reencuentro";
-        default:
-            return "";
-    }
-}
-
-
 function processUploaedImage($image, $pid)
 {
     //move image to patient chart
