@@ -79,6 +79,7 @@ if (empty($check_source['pid'])) {
 
         #dataurl-container {
             display: none;
+            margin: auto;
         }
 
         #canvas {

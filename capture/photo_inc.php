@@ -14,7 +14,8 @@ function isPatientHere($source, $database)
     return sqlQuery("SELECT pid FROM " . $database . "patient_data WHERE pid = ?", [$source]);
 }
 
-function whichFacility($d) {
+function whichFacility($d): string
+{
 
     switch($d){
         case 1:
@@ -26,3 +27,8 @@ function whichFacility($d) {
     }
 }
 
+
+function processUploaedImage($image, $pid)
+{
+    //move image to patient chart
+}

@@ -12,7 +12,7 @@ $ignoreAuth = true;
 // Set $sessionAllowWrite to true to prevent session concurrency issues during authorization related code
 $sessionAllowWrite = true;
 require_once dirname(__FILE__) . "/../interface/globals.php";
-
+require_once "photo_inc.php";
 
 $id = rand();
 try {
@@ -24,5 +24,7 @@ try {
 
 echo "Image Upload Complete";
 
-
+//get the file from the tmp folder
+$image = "/var/www/html/errors/image-$id.jpg";
+processUploaedImage($image, $_POST['token']);
 
