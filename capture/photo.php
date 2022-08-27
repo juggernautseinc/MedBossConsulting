@@ -93,8 +93,8 @@ if (empty($check_source['pid'])) {
 
         #dataurl {
             display: none;
-            height: 100px;
-            width: 320px;
+            height: 400px;
+            width: 620px;
             margin: 10px auto;
             resize: none;
             outline: none;
