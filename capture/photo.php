@@ -23,22 +23,22 @@ if (!isset($_GET['source'])) {
     echo $msg . 1;
    die;
 }
-if (!filter_input(INPUT_GET, 'source', FILTER_SANITIZE_SPECIAL_CHARS)) {
+if (!filter_input(INPUT_GET, 'source', FILTER_VALIDATE_INT)) {
     echo $msg . 2;
     die;
 }
-$patient_id = filter_input(INPUT_GET, 'source', FILTER_SANITIZE_SPECIAL_CHARS);
+$patient_id = filter_input(INPUT_GET, 'source', FILTER_VALIDATE_INT);
 $database = filter_input(INPUT_GET, 'd', FILTER_SANITIZE_SPECIAL_CHARS);
 
-if (!empty($_GET['source']) && !empty($database)) {
-    $check_source = isPatientHere($_GET['source'], $database);
+if (!empty($patient_id) && !empty($database)) {
+    $check_source = isPatientHere($patient_id, $database);
 } else {
     echo $msg . 3;
     die;
 }
 
 if (empty($check_source)) {
-    echo $msg . 4 . " - " . $_GET['source'];
+    echo $msg . 4;
     die;
 }
 
