@@ -26,8 +26,7 @@ if ($_POST['token']) {
 if (!empty($_POST['imageFile']) && !empty($check_source)) {
     try {
         $image = str_replace('data:image/jpeg;base64,', '', $_POST['imageFile']);
-        $path = dirname(__DIR__) . "/sites/" . $_POST['dbase'] . "/document/temp";
-        file_put_contents('/var/www/html/errors/path.txt', $path);
+        $path = dirname(__DIR__) . "/sites/" . $_POST['dbase'] . "/documents/temp";
         file_put_contents($path . "/image-$id.jpg", base64_decode($image));
     } catch (Exception $e) {
         echo "Error " . $e->getMessage();
