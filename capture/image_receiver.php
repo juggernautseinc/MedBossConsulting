@@ -15,7 +15,12 @@ require_once dirname(__FILE__) . "/../interface/globals.php";
 require_once "photo_inc.php";
 
 $id = rand();
-$check_source = isPatientHere($_POST['token'], $_POST['dbase']);
+if ($_POST['token']) {
+    $check_source = isPatientHere($_POST['token'], $_POST['dbase']);
+} else {
+    echo xlt('Danger Wil Robinson') . "!";
+}
+
 if (!empty($_POST['imageFile']) && !empty($check_source['pid'])) {
     try {
         $image = str_replace('data:image/jpeg;base64,', '', $_POST['imageFile']);
