@@ -15,7 +15,13 @@ function isPatientHere($source, $database)
     return $pid['pubpid'];
 }
 
-function processUploaedImage($image, $pid)
+function processUploaedImage($imageName, $image, $pid)
 {
+    require_once dirname(__DIR__) . "/library/documents.php";
+    $size = filesize($image);
+    $type = "application/jpeg";
+    $category_id = 742111;
+
+    addNewDocument($imageName, $type, $image, 0, $size, $pid, $pid, $category_id);
     //move image to patient chart
 }

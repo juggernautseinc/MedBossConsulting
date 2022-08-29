@@ -26,7 +26,8 @@ if ($_POST['token']) {
 if (!empty($_POST['imageFile']) && !empty($check_source)) {
     try {
         $image = str_replace('data:image/jpeg;base64,', '', $_POST['imageFile']);
-        $path = dirname(__DIR__) . "/sites/" . $_POST['dbase'] . "/documents/temp";
+        $path = dirname(__DIR__) . "/sites/" . $_POST['dbase'] . "/documents/temp/";
+        $imageName = "image-$id.jpg";
         file_put_contents($path . "/image-$id.jpg", base64_decode($image));
     } catch (Exception $e) {
         echo "Error " . $e->getMessage();
@@ -38,8 +39,8 @@ if (!empty($_POST['imageFile']) && !empty($check_source)) {
     die($eMsg);
 }
 
-die;
 //get the file from the tmp folder
-$image = $path . "/image-$id.jpg";
-processUploaedImage($image, $_POST['token']);
+$image = $path . $imageName;
 
+processUploaedImage($imageName, $image, $_POST['token']);
+//unlink($image);
