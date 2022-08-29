@@ -38,7 +38,7 @@ if (!empty($patient_id) && !empty($database)) {
 }
 
 
-if (empty($check_source['pid'])) {
+if (empty($check_source)) {
     echo $msg . 4;
     die;
 }
