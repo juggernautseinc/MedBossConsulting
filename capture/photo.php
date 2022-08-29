@@ -37,7 +37,7 @@ if (!empty($_GET['source']) && !empty($database)) {
     die;
 }
 
-if (empty($check_source['pid'])) {
+if (empty($check_source)) {
     var_dump($check_source);
     echo $msg . 4 . " " . $_GET['source'] . " - " . $check_source['pid'] ;
     die;

@@ -11,8 +11,8 @@
 function isPatientHere($source, $database)
 {
     $database = $database . ".";
-    return "SELECT pid FROM " . $database . "patient_data WHERE uuid = ?";
-    return sqlQuery("SELECT pid FROM " . $database . "patient_data WHERE uuid = ?", [$source]);
+    $pid = sqlQuery("SELECT pid FROM " . $database . "patient_data WHERE uuid = ?", [$source]);
+    return $pid['pid'];
 }
 
 function processUploaedImage($image, $pid)
