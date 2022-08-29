@@ -14,10 +14,8 @@ $ignoreAuth = true;
 require_once dirname(__FILE__) . "/../interface/globals.php";
 require_once "photo_inc.php";
 
-echo dirname(__DIR__) . "/sites/"; die;
-
 $id = rand();
-$check_source = isPatientHere($_POST['token'], $database);
+$check_source = isPatientHere($_POST['token'], $_POST['dbase']);
 if (!empty($_POST['imageFile']) && !empty($check_source['pid'])) {
     try {
         $image = str_replace('data:image/jpeg;base64,', '', $_POST['imageFile']);

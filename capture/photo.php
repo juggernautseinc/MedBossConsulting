@@ -23,11 +23,11 @@ if (!isset($_GET['source'])) {
     echo $msg . 1;
    die;
 }
-if (!filter_input(INPUT_GET, 'source', FILTER_VALIDATE_INT)) {
+if (!filter_input(INPUT_GET, 'source', FILTER_SANITIZE_SPECIAL_CHARS)) {
     echo $msg . 2;
     die;
 }
-$patient_id = filter_input(INPUT_GET, 'source', FILTER_VALIDATE_INT);
+$patient_id = filter_input(INPUT_GET, 'source', FILTER_SANITIZE_SPECIAL_CHARS);
 $database = filter_input(INPUT_GET, 'd', FILTER_SANITIZE_SPECIAL_CHARS);
 
 if (!empty($patient_id) && !empty($database)) {
