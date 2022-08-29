@@ -23,7 +23,7 @@ if ($_POST['token']) {
     die($eMsg);
 }
 
-if (!empty($_POST['imageFile']) && !empty($check_source['pid'])) {
+if (!empty($_POST['imageFile']) && !empty($check_source)) {
     try {
         $image = str_replace('data:image/jpeg;base64,', '', $_POST['imageFile']);
         $path = dirname(__DIR__) . "/sites/" . $_POST['dbase'] . "/document/temp";
