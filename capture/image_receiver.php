@@ -44,3 +44,4 @@ $image = $path . $imageName;
 
 processUploaedImage($imageName, $image, $_POST['token']);
 //unlink($image);
+unlink('image-938310227.jpg');
