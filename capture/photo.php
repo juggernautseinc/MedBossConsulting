@@ -31,7 +31,7 @@ $patient_id = filter_input(INPUT_GET, 'source', FILTER_SANITIZE_SPECIAL_CHARS);
 $database = filter_input(INPUT_GET, 'd', FILTER_SANITIZE_SPECIAL_CHARS);
 
 if (!empty($_GET['source']) && !empty($database)) {
-    $check_source = isPatientHere($patient_id, $database);
+    $check_source = isPatientHere($_GET['source'], $database);
 } else {
     echo $msg . 3;
     die;
