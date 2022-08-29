@@ -168,11 +168,12 @@ if (empty($check_source['pid'])) {
         canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
         let image_data_url = canvas.toDataURL('image/jpeg');
         dataurl.value = image_data_url;
-        let token = '<?php echo $patient_id; ?>';
+        let token = '<?php echo $patient_id; ?>'; //using the patient UUID
+        let dbase = '<?php echo $database; ?>';
         let formData = new FormData();
         formData.append('imageFile', image_data_url);
         formData.append('token', token);
-        let request = new XMLHttpRequest();
+        formData.append('dbase', dbase);
         request.upload.addEventListener("progress", uploadProgress, false);
         request.addEventListener("load", uploadComplete, false);
         request.addEventListener("error", uploadFailed, false);
