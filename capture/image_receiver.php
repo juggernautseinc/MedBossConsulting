@@ -28,7 +28,7 @@ if (!empty($_POST['imageFile']) && !empty($check_source)) {
         $image = str_replace('data:image/jpeg;base64,', '', $_POST['imageFile']);
         $path = dirname(__DIR__) . "/sites/" . $_POST['dbase'] . "/documents/temp/";
         $imageName = "image-$id.jpg";
-        file_put_contents($path . "/image-$id.jpg", base64_decode($image));
+        file_put_contents($path . "image-$id.jpg", base64_decode($image));
     } catch (Exception $e) {
         echo "Error " . $e->getMessage();
         die;
@@ -44,4 +44,4 @@ $image = $path . $imageName;
 
 processUploaedImage($imageName, $image, $_POST['token']);
 //unlink($image);
-unlink('image-938310227.jpg');
+
