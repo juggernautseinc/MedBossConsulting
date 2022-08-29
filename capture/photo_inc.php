@@ -17,6 +17,8 @@ function isPatientHere($source, $database)
 
 function processUploaedImage($imageName, $image, $pid)
 {
+    require_once dirname(__DIR__) . "/interface/globals.php";
+    require_once dirname(__DIR__) . "/controllers/C_Document.class.php";
     require_once dirname(__DIR__) . "/library/documents.php";
     $size = filesize($image);
     $type = "application/jpeg";
