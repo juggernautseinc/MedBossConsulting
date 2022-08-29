@@ -15,10 +15,12 @@ require_once dirname(__FILE__) . "/../interface/globals.php";
 require_once "photo_inc.php";
 
 $id = rand();
+$eMsg =  xlt('Danger Wil Robinson') . "!";
+
 if ($_POST['token']) {
     $check_source = isPatientHere($_POST['token'], $_POST['dbase']);
 } else {
-    echo xlt('Danger Wil Robinson') . "!";
+    die($eMsg);
 }
 
 if (!empty($_POST['imageFile']) && !empty($check_source['pid'])) {
@@ -32,7 +34,8 @@ if (!empty($_POST['imageFile']) && !empty($check_source['pid'])) {
     }
     echo xlt("Image Upload Complete");
 } else {
-    echo xlt('Danger Wil Robinson') . "!";
+
+    die($eMsg);
 }
 
 die;
