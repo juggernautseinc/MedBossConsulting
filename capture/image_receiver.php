@@ -1,5 +1,5 @@
 <?php
-echo $GLOBALS['webroot']; die;
+
 /**
  *  package OpenEMR
  *  link    https://www.open-emr.org
@@ -13,6 +13,8 @@ $ignoreAuth = true;
 
 require_once dirname(__FILE__) . "/../interface/globals.php";
 require_once "photo_inc.php";
+
+echo $GLOBALS['webroot']; die;
 
 $id = rand();
 $check_source = isPatientHere($_POST['token'], $database);
