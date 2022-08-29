@@ -30,7 +30,7 @@ if (!filter_input(INPUT_GET, 'source', FILTER_SANITIZE_SPECIAL_CHARS)) {
 $patient_id = filter_input(INPUT_GET, 'source', FILTER_SANITIZE_SPECIAL_CHARS);
 $database = filter_input(INPUT_GET, 'd', FILTER_SANITIZE_SPECIAL_CHARS);
 
-if (!empty($patient_id) && !empty($_GET['d'])) {
+if (!empty($_GET['source']) && !empty($database)) {
     $check_source = isPatientHere($patient_id, $database);
 } else {
     echo $msg . 3;
