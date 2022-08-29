@@ -11,6 +11,7 @@
 function isPatientHere($source, $database)
 {
     $database = $database . ".";
+    return "SELECT pid FROM " . $database . "patient_data WHERE uuid = ?";
     return sqlQuery("SELECT pid FROM " . $database . "patient_data WHERE uuid = ?", [$source]);
 }
 
