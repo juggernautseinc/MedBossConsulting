@@ -191,7 +191,7 @@ if (!empty($_POST['form_refresh'])) {
     "LEFT OUTER JOIN forms AS f ON f.pid = fe.pid AND f.encounter = fe.encounter AND f.formdir = 'newpatient' " .
     "LEFT OUTER JOIN patient_data AS p ON p.pid = fe.pid " .
     // "LEFT OUTER JOIN users AS u ON BINARY u.username = BINARY f.user WHERE ";
-    "LEFT OUTER JOIN users AS u ON u.id = fe.provider_id WHERE u.active = 1, ";
+    "LEFT OUTER JOIN users AS u ON u.id = fe.provider_id WHERE ";
     array_push($sqlBindArray, '?', '?');
     if ($form_to_date) {
         // $query .= "LEFT(fe.date, 10) >= '$form_from_date' AND LEFT(fe.date, 10) <= '$form_to_date' ";
