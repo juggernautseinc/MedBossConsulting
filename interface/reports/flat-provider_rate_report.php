@@ -56,7 +56,7 @@ $grand_total_provider_payouts = [];
 $userid = '';
 
 function identity() {
-    $sql = "SELECT fname, lname  FROM users WHERE id = ?";
+    $sql = "SELECT fname, lname  FROM users WHERE id = ? AND active = 1";
     $name = sqlQuery($sql, [$_SESSION['authUserID']]);
     return $name['lname'] . ", " . $name['fname'] ;
 }
@@ -99,7 +99,7 @@ function endDoctor(&$docrow)
     $nametoid = explode(",", $docrow['docname']);
     $fname = trim($nametoid[1]);
     $lname = trim($nametoid[0]);
-    $thedoc = sqlQuery("SELECT `id` FROM `users` WHERE `lname` LIKE ? AND `fname` LIKE ?", [$lname, $fname]);
+    $thedoc = sqlQuery("SELECT `id` FROM `users` WHERE `lname` LIKE ? AND `fname` LIKE ? AND active = 1", [$lname, $fname]);
 
     $rate = getRate($thedoc['id']);
     echo " <tr class='report_totals'>\n";
@@ -191,7 +191,7 @@ if (!empty($_POST['form_refresh'])) {
     "LEFT OUTER JOIN forms AS f ON f.pid = fe.pid AND f.encounter = fe.encounter AND f.formdir = 'newpatient' " .
     "LEFT OUTER JOIN patient_data AS p ON p.pid = fe.pid " .
     // "LEFT OUTER JOIN users AS u ON BINARY u.username = BINARY f.user WHERE ";
-    "LEFT OUTER JOIN users AS u ON u.id = fe.provider_id WHERE ";
+    "LEFT OUTER JOIN users AS u ON u.id = fe.provider_id WHERE u.active = 1 ";
     array_push($sqlBindArray, '?', '?');
     if ($form_to_date) {
         // $query .= "LEFT(fe.date, 10) >= '$form_from_date' AND LEFT(fe.date, 10) <= '$form_to_date' ";
@@ -377,7 +377,7 @@ if (!empty($_POST['form_refresh'])) {
 <th> <?php echo xlt('Charges'); ?>&nbsp; </th>
 <th> <?php echo xlt('Docs'); ?>&nbsp; </th>
 <th> <?php echo xlt('Billed'); ?> </th>
-<!--<th> &nbsp;<?php echo xlt('Error'); ?> </th>-->
+
 </thead>
 <tbody>
     <?php
