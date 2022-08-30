@@ -87,7 +87,6 @@ $providers = $providerdata->getProviders();
         top.restoreSession();
         fetch(url
         ).then(res => {
-            alert(res.text());
             return res.text()
         })
         .then(data => console.log(data))
