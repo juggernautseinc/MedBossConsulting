@@ -14,7 +14,7 @@ $ignoreAuth = true;
 require_once dirname(__FILE__) . "/../interface/globals.php";
 require_once "photo_inc.php";
 
-use PHPMailer\PHPMailer;
+use MyMailer;
 
 $id = rand();
 $eMsg =  xlt('Danger Wil Robinson') . "!";
@@ -59,9 +59,21 @@ function send_staff_email($subject, $body)
         return;
     }
 
-    $mail = new PHPMailer();
+    $mail = new MyMailer();
+    extracted($recipient, $mail, $body, $subject);
+}
+
+/**
+ * @param mixed $recipient
+ * @param \MyMailer $mail
+ * @param $body
+ * @param $subject
+ * @return void
+ */
+function extracted(mixed $recipient, \MyMailer $mail, $body, $subject): void
+{
     $mail->From = $recipient;
-    $mail->FromName = 'In-House Pharmacy';
+    $mail->FromName = 'Image uploaded by patient';
     $mail->isMail();
     $mail->Host = "localhost";
     $mail->Mailer = "mail";

@@ -30,18 +30,7 @@ function send_drug_email($subject, $body)
     }
 
     $mail = new PHPMailer();
-    $mail->From = $recipient;
-    $mail->FromName = 'In-House Pharmacy';
-    $mail->isMail();
-    $mail->Host = "localhost";
-    $mail->Mailer = "mail";
-    $mail->Body = $body;
-    $mail->Subject = $subject;
-    $mail->AddAddress($recipient);
-    if (!$mail->Send()) {
-        error_log("There has been a mail error sending to " . errorLogEscape($recipient .
-        " " . $mail->ErrorInfo));
-    }
+    extracted($recipient, $mail, $body, $subject);
 }
 
 function sellDrug(
