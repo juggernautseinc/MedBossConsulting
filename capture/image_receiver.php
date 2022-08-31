@@ -15,6 +15,9 @@ require_once dirname(__DIR__) . "/interface/globals.php";
 require_once "photo_inc.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+$mail = new PHPMailer();
 
 $id = rand();
 $eMsg =  xlt('Danger Wil Robinson') . "!";
@@ -59,8 +62,8 @@ function send_staff_email($subject, $body)
         return;
     }
 
-    $mail = new PHPMailer();
-    $mail->From = $recipient;
+
+    /*$mail->From = $recipient;
     $mail->FromName = 'In-House Pharmacy';
     $mail->isMail();
     $mail->Host = "localhost";
@@ -71,5 +74,5 @@ function send_staff_email($subject, $body)
     if (!$mail->Send()) {
         error_log("There has been a mail error sending to " . errorLogEscape($recipient .
                 " " . $mail->ErrorInfo));
-    }
+    }*/
 }
