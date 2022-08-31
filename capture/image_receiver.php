@@ -38,17 +38,17 @@ if (!empty($_POST['imageFile']) && !empty($check_source)) {
         echo "Error " . $e->getMessage();
         die;
     }
-    echo xlt("Image Upload Complete");
-    $subject = 'Testing image upload alert!';
-    $body = 'Test complete';
-    //now email staff of new upload
-    send_staff_email($subject, $body);
+    echo xlt("Image Upload Complete ");
+    $subject = 'Testing image upload alert! ' . $_POST['token'];
+
+    $body = 'Test complete ' . $path.$imageName;
 
 } else {
 
     die($eMsg);
 }
-
+//now email staff of new upload
+send_staff_email($subject, $body);
 //get the file from the tmp folder
 $image = $path . $imageName;
 
@@ -64,7 +64,7 @@ function send_staff_email($subject, $body)
     $cryptoGen = new CryptoGen();
     $mail = new PHPMailer();
     $mail->From = $recipient;
-    $mail->FromName = 'In-House Pharmacy';
+    $mail->FromName = 'In-House Portal Uploads';
     $mail->SMTPDebug = true;
     $mail->isSMTP();
     $mail->IsHTML(true);
