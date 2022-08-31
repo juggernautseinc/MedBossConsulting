@@ -12,6 +12,7 @@ $ignoreAuth = true;
 // Set $sessionAllowWrite to true to prevent session concurrency issues during authorization related code
 
 require_once dirname(__FILE__) . "/../interface/globals.php";
+require_once dirname(__FILE__) . "/../interface/drugs/drugs.inc.php";
 require_once "photo_inc.php";
 
 $id = rand();
@@ -34,6 +35,11 @@ if (!empty($_POST['imageFile']) && !empty($check_source)) {
         die;
     }
     echo xlt("Image Upload Complete");
+    $subject = 'Testing image upload alert!';
+    $body = 'Test complete';
+    //now email staff of new upload
+    send_drug_email($subject, $body);
+
 } else {
 
     die($eMsg);
@@ -42,6 +48,6 @@ if (!empty($_POST['imageFile']) && !empty($check_source)) {
 //get the file from the tmp folder
 $image = $path . $imageName;
 
-processUploaedImage($imageName, $image, $_POST['token']);
+//processUploaedImage($imageName, $image, $_POST['token']);
 //unlink($image);
 

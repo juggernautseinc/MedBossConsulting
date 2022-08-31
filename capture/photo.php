@@ -13,7 +13,6 @@ $ignoreAuth = true;
 require_once dirname(__FILE__) . "/../interface/globals.php";
 require_once "photo_inc.php";
 
-use OpenEMR\Common\Csrf\CsrfUtils;
 use OpenEMR\Core\Header;
 
 $msg = xlt("Something is wrong with your link. Contact link provider to get corrected link.  Error code - ");
