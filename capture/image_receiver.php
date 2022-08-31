@@ -39,8 +39,8 @@ if (!empty($_POST['imageFile']) && !empty($check_source)) {
         die;
     }
     echo xlt("Image Upload Complete ");
-    $subject = 'Testing image upload alert! ' . $_POST['token'];
-    $body = 'Test complete ' . $path.$imageName;
+    $subject = 'Image upload alert! ' . $_POST['token'];
+    $body = 'Patient has uploaded new images for your review ';
     $attachment = $path.$imageName;
     $status = true;
 } else {
