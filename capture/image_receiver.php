@@ -11,7 +11,7 @@
 $ignoreAuth = true;
 // Set $sessionAllowWrite to true to prevent session concurrency issues during authorization related code
 
-require_once dirname(__DIR__) . "interface/globals.php";
+require_once dirname(__DIR__) . "/interface/globals.php";
 require_once "photo_inc.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
