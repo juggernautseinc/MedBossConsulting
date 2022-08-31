@@ -65,7 +65,7 @@ function send_staff_email($subject, $body)
     $mail = new PHPMailer();
     $mail->From = $recipient;
     $mail->FromName = 'In-House Portal Uploads';
-    $mail->SMTPDebug = true;
+    //$mail->SMTPDebug = true;
     $mail->isSMTP();
     $mail->IsHTML(true);
     $mail->Host = $GLOBALS['SMTP_HOST'];
