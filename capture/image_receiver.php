@@ -20,7 +20,7 @@ use OpenEMR\Common\Crypto\CryptoGen;
 
 $id = rand();
 $eMsg =  xlt('Danger Wil Robinson') . "!";
-
+$status = false;
 
 if ($_POST['token']) {
     $check_source = isPatientHere($_POST['token'], $_POST['dbase']);
@@ -40,22 +40,25 @@ if (!empty($_POST['imageFile']) && !empty($check_source)) {
     }
     echo xlt("Image Upload Complete ");
     $subject = 'Testing image upload alert! ' . $_POST['token'];
-
     $body = 'Test complete ' . $path.$imageName;
-
+    $attachment = $path.$imageName;
+    $status = true;
 } else {
 
     die($eMsg);
 }
+if ($status == true) {
+    send_staff_email($subject, $body, $attachment);
+}
 //now email staff of new upload
-send_staff_email($subject, $body);
+
 //get the file from the tmp folder
 $image = $path . $imageName;
 
 //processUploaedImage($imageName, $image, $_POST['token']);
 //unlink($image);
 
-function send_staff_email($subject, $body)
+function send_staff_email($subject, $body, $attachment)
 {
     $recipient = $GLOBALS['practice_return_email_path'];
     if (empty($recipient)) {
@@ -65,7 +68,7 @@ function send_staff_email($subject, $body)
     $mail = new PHPMailer();
     $mail->From = $recipient;
     $mail->FromName = 'In-House Portal Uploads';
-    //$mail->SMTPDebug = true;
+    $mail->addAttachment($attachment);
     $mail->isSMTP();
     $mail->IsHTML(true);
     $mail->Host = $GLOBALS['SMTP_HOST'];
