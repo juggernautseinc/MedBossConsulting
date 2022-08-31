@@ -16,11 +16,11 @@ require_once "photo_inc.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
-$mail = new PHPMailer();
+use OpenEMR\Common\Crypto\CryptoGen;
 
 $id = rand();
 $eMsg =  xlt('Danger Wil Robinson') . "!";
+
 
 if ($_POST['token']) {
     $check_source = isPatientHere($_POST['token'], $_POST['dbase']);
@@ -42,7 +42,7 @@ if (!empty($_POST['imageFile']) && !empty($check_source)) {
     $subject = 'Testing image upload alert!';
     $body = 'Test complete';
     //now email staff of new upload
-    send_staff_email($mail, $subject, $body);
+    send_staff_email($subject, $body);
 
 } else {
 
@@ -55,23 +55,30 @@ $image = $path . $imageName;
 //processUploaedImage($imageName, $image, $_POST['token']);
 //unlink($image);
 
-function send_staff_email($mail, $subject, $body)
+function send_staff_email($subject, $body)
 {
-    $staff = $GLOBALS['practice_return_email_path'];
-    if (empty($staff)) {
+    $recipient = $GLOBALS['practice_return_email_path'];
+    if (empty($recipient)) {
         return;
     }
-
-    $mail->From = $staff;
+    $cryptoGen = new CryptoGen();
+    $mail = new PHPMailer();
+    $mail->From = $recipient;
     $mail->FromName = 'In-House Pharmacy';
-    $mail->isMail();
-    $mail->Host = "localhost";
-    $mail->Mailer = "mail";
+    $mail->SMTPDebug = true;
+    $mail->isSMTP();
+    $mail->IsHTML(true);
+    $mail->Host = $GLOBALS['SMTP_HOST'];
+    $mail->SMTPAuth = true;
+    $mail->Username = $GLOBALS['SMTP_USER'];
+    $mail->Password = $cryptoGen->decryptStandard($GLOBALS['SMTP_PASS']);
+    $mail->SMTPSecure = $GLOBALS['SMTP_SECURE'];
+    $mail->Port = $GLOBALS['SMTP_PORT'];
     $mail->Body = $body;
     $mail->Subject = $subject;
-    $mail->AddAddress($staff);
+    $mail->AddAddress($recipient);
     if (!$mail->Send()) {
-        error_log("There has been a mail error sending to " . errorLogEscape($staff .
+        error_log("There has been a mail error sending to " . errorLogEscape($recipient .
                 " " . $mail->ErrorInfo));
     }
 }
