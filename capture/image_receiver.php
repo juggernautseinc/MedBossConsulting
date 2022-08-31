@@ -12,8 +12,9 @@ $ignoreAuth = true;
 // Set $sessionAllowWrite to true to prevent session concurrency issues during authorization related code
 
 require_once dirname(__FILE__) . "/../interface/globals.php";
-require_once dirname(__FILE__) . "/../interface/drugs/drugs.inc.php";
 require_once "photo_inc.php";
+
+use PHPMailer\PHPMailer\PHPMailer;
 
 $id = rand();
 $eMsg =  xlt('Danger Wil Robinson') . "!";
@@ -38,7 +39,7 @@ if (!empty($_POST['imageFile']) && !empty($check_source)) {
     $subject = 'Testing image upload alert!';
     $body = 'Test complete';
     //now email staff of new upload
-    send_drug_email($subject, $body);
+    send_staff_email($subject, $body);
 
 } else {
 
@@ -51,3 +52,24 @@ $image = $path . $imageName;
 //processUploaedImage($imageName, $image, $_POST['token']);
 //unlink($image);
 
+function send_staff_email($subject, $body)
+{
+    $recipient = $GLOBALS['practice_return_email_path'];
+    if (empty($recipient)) {
+        return;
+    }
+
+    $mail = new PHPMailer();
+    $mail->From = $recipient;
+    $mail->FromName = 'In-House Pharmacy';
+    $mail->isMail();
+    $mail->Host = "localhost";
+    $mail->Mailer = "mail";
+    $mail->Body = $body;
+    $mail->Subject = $subject;
+    $mail->AddAddress($recipient);
+    if (!$mail->Send()) {
+        error_log("There has been a mail error sending to " . errorLogEscape($recipient .
+                " " . $mail->ErrorInfo));
+    }
+}
