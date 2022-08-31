@@ -12,6 +12,7 @@ $ignoreAuth = true;
 // Set $sessionAllowWrite to true to prevent session concurrency issues during authorization related code
 
 require_once dirname(__FILE__) . "/../interface/globals.php";
+require_once dirname(__FILE__) . "/../interface/drugs/drugs.inc.php";
 require_once "photo_inc.php";
 
 $id = rand();
@@ -37,7 +38,7 @@ if (!empty($_POST['imageFile']) && !empty($check_source)) {
     $subject = 'Testing image upload alert!';
     $body = 'Test complete';
     //now email staff of new upload
-    send_staff_email($subject, $body);
+    send_drug_email($subject, $body);
 
 } else {
 
