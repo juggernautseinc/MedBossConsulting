@@ -14,7 +14,7 @@ $ignoreAuth = true;
 require_once dirname(__FILE__) . "/../interface/globals.php";
 require_once "photo_inc.php";
 
-use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer;
 
 $id = rand();
 $eMsg =  xlt('Danger Wil Robinson') . "!";
