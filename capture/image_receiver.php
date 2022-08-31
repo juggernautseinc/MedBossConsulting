@@ -50,13 +50,7 @@ if (!empty($_POST['imageFile']) && !empty($check_source)) {
 if ($status == true) {
     send_staff_email($subject, $body, $attachment);
 }
-//now email staff of new upload
 
-//get the file from the tmp folder
-$image = $path . $imageName;
-
-//processUploaedImage($imageName, $image, $_POST['token']);
-//unlink($image);
 
 function send_staff_email($subject, $body, $attachment)
 {
@@ -84,4 +78,5 @@ function send_staff_email($subject, $body, $attachment)
         error_log("There has been a mail error sending to " . errorLogEscape($recipient .
                 " " . $mail->ErrorInfo));
     }
+    unlink($attachment);
 }
