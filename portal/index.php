@@ -511,6 +511,7 @@ if (!(isset($_SESSION['password_update']) || (!empty($GLOBALS['portal_two_pass_r
                 echo $hiddenLanguageField;
             } ?>
         </form>
+        <h1><?php echo xlt("If you are new to the portal, click the RED registration button first.") ?></h1>
     </div><!-- div wrapper -->
     <?php } ?> <!--  logon wrapper -->
 
@@ -625,7 +626,5 @@ if (!(isset($_SESSION['password_update']) || (!empty($GLOBALS['portal_two_pass_r
             inputPass.value = "";
         }
     </script>
-    <hr>
-    <h1><?php echo xlt("If you are new to the portal, click the RED registration button first.") ?></h1>
 </body>
 </html>
