@@ -20,7 +20,7 @@ use OpenEMR\Common\Crypto\CryptoGen;
 
 $id = rand();
 $eMsg =  xlt('Danger Wil Robinson') . "!";
-$status = false;
+$status = '';
 
 if ($_POST['token']) {
     $check_source = isPatientHere($_POST['token'], $_POST['dbase']);
@@ -35,24 +35,24 @@ if (!empty($_POST['imageFile']) && !empty($check_source)) {
         $imageName = "image-$id.jpg";
         file_put_contents($path . "image-$id.jpg", base64_decode($image));
     } catch (Exception $e) {
-        echo "Error " . $e->getMessage();
+        echo xlt("Error ") . $e->getMessage();
         die;
     }
     echo xlt("Image Upload Complete ");
-    $subject = 'Image upload alert! ' . $_POST['token'];
-    $body = 'Patient has uploaded new images for your review ';
+    $subject = xlt('Image upload alert! ') . $_POST['token'];
+    $body = xlt('Patient has uploaded new images for your review ');
     $attachment = $path.$imageName;
-    $status = true;
+    $status = 1;
 } else {
 
     die($eMsg);
 }
-if ($status == true) {
+if (!empty($status)) {
     send_staff_email($subject, $body, $attachment);
 }
 
 
-function send_staff_email($subject, $body, $attachment)
+function send_staff_email($subject, $body, $attachment): void
 {
     $recipient = $GLOBALS['practice_return_email_path'];
     if (empty($recipient)) {
