@@ -512,7 +512,7 @@ if (!(isset($_SESSION['password_update']) || (!empty($GLOBALS['portal_two_pass_r
             } ?>
         </form>
         <br>
-        <h1><?php echo xlt("If you are new to the portal, and don't have credentials<br> click the RED registration button first.") ?></h1>
+        <h1><?php echo xlt("If you are new to the portal, and don't have credentials") . xlt("<br>") . xlt(" click the RED registration button first.") ?></h1>
     </div><!-- div wrapper -->
     <?php } ?> <!--  logon wrapper -->
 
