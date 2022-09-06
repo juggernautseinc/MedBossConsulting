@@ -83,7 +83,7 @@ if (!empty($GLOBALS['portal_onsite_two_enable'])) {
         if (SavePatientAudit($thispid, $invoices) != true) {
             return false;
         } // this is all the invoice data for portal auditing
-        $note = xl('You have an invoice due for payment in your Patient Documents. There you may pay, download or print the invoice. Thank you.');
+        $note = xl('You have a balance that needs to be paid. Select the Accountings button at the top to pay now. Thank you.');
         if (sendMail($_SESSION['authUser'], $note, xlt('Bill/Collect'), '', '0', $_SESSION['authUser'], $_SESSION['authUser'], $_SESSION['portalUser'], $invoices[0]['patient'], "New", '0') == 1) { // remind admin this was sent
             sendMail($_SESSION['portalUser'], $note, xlt('Bill/Collect'), '', '0', $_SESSION['authUser'], $_SESSION['authUser'], $_SESSION['portalUser'], $invoices[0]['patient'], "New", '0'); // notify patient
         } else {
