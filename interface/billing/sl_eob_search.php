@@ -124,7 +124,7 @@ if (!empty($GLOBALS['portal_onsite_two_enable'])) {
             $audit['action_user'] = $pid;
             $audit['action_taken_time'] = "";
             $audit['checksum'] = "";
-            $edata = $appsql->getPortalAudit($pid, 'payment', 'invoice', "waiting transaction", 0);
+            $edata = $appsql->getPortalAudit($pid, 'payment', 'invoice', "transaction", 0);
             if ($edata['id'] > 0) {
                 $appsql->portalAudit('update', $edata['id'], $audit);
             } else {
