@@ -651,6 +651,7 @@ if (!$_REQUEST['flb_table']) {
                             <?php } ?>
                         <td class="detail text-center">
                             <?php
+                                echo $balance = get_patient_balance($appt_pid);
                                 $checkDate = sqlQuery("SELECT `end_date` FROM `module_prior_authorizations` WHERE pid = ?", [$appt_pid]);
                                 if (!empty($checkDate['end_date'])) {
                                     if ($checkDate['end_date'] < date('Y-m-d')) {
@@ -659,6 +660,7 @@ if (!$_REQUEST['flb_table']) {
                                         echo "<span class='good'></span>";
                                     }
                                 }
+
                             ?>
                         </td>
                         <td class="detail text-center" name="kiosk_hide">
