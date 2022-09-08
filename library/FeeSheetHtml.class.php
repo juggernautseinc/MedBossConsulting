@@ -56,8 +56,8 @@ class FeeSheetHtml extends FeeSheet
         while ($row = sqlFetchArray($res)) {
             $provid = $row['id'];
             $s .= "<option value='" . attr($provid) . "'";
-            if ($provid == $_SESSION['authUserID']) {
-                $s .= " selected";   //changed by sherwin 06/14/2022
+            if ($provid == $default) {
+                $s .= " selected";
             }
 
             $s .= ">";
