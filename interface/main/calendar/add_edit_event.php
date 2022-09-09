@@ -609,10 +609,10 @@ if (!empty($_POST['form_action']) && ($_POST['form_action'] == "save")) {
                 // after the two diffs above, we must update for remaining providers
                 // those who are intersected in $providers_current and $providers_new
                 foreach ($_POST['form_provider'] as $provider) {
-                    $informantString = [];
-                    $informantString[] = $_SESSION['authUserID'];
-                    $informantString[] = $_POST['pc_informant'] ;
-                    $informantJson = json_encode($informantString);
+                    $informantArray = [];
+                    $informantArray[] = $_SESSION['authUserID'];
+                    $informantArray[] = $_POST['pc_informant'] ;
+                    $informantJson = json_encode($informantArray);
                     sqlStatement("UPDATE openemr_postcalendar_events SET " .
                     "pc_catid = '" . add_escape_custom($_POST['form_category']) . "', " .
                     "pc_pid = '" . add_escape_custom($_POST['form_pid']) . "', " .
@@ -1416,6 +1416,7 @@ function find_available(extra) {
 
 <!-- ViSolve : Requirement - Redirect to Create New Patient Page -->
 <input type='hidden' size='2' name='resname' value='empty' />
+    <input type="hidden" name="pc_informant" value="<?php echo $_POST['pc_informant']; ?>"
 <?php
 if (!empty($_POST["resname"]) && ($_POST["resname"] == "noresult")) {
     echo '
