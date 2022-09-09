@@ -59,6 +59,12 @@ use OpenEMR\Events\Appointments\AppointmentRenderEvent;
 if (!AclMain::aclCheckCore('patients', 'appt', '', array('write','wsome'))) {
     die(xl('Access not allowed'));
 }
+if (!empty($_POST['pc_informant'])) {
+    $informantArray = [];
+    $informantArray[] = $_POST['pc_informant'];
+    $informantArray = json_encode($informantArray, true);
+}
+
 $patientBalance = get_patient_balance($_SESSION['pid']);
 /* Things that might be passed by our opener. */
 $eid           = $_GET['eid'] ?? null; // only for existing events
@@ -629,6 +635,7 @@ if (!empty($_POST['form_action']) && ($_POST['form_action'] == "save")) {
                     "pc_prefcatid = '" . add_escape_custom($_POST['form_prefcat']) . "' ,"  .
                     "pc_facility = '" . add_escape_custom((int)$_POST['facility']) . "' ,"  . // FF stuff
                     "pc_billing_location = '" . add_escape_custom((int)$_POST['billing_facility']) . "' "  .
+
                     "WHERE pc_aid = '" . add_escape_custom($provider) . "' AND pc_multiple = '" . add_escape_custom($row['pc_multiple'])  . "'");
                 } // foreach
             }
@@ -725,6 +732,7 @@ if (!empty($_POST['form_action']) && ($_POST['form_action'] == "save")) {
                 "pc_prefcatid = '" . add_escape_custom($_POST['form_prefcat']) . "' ,"  .
                 "pc_facility = '" . add_escape_custom((int)$_POST['facility']) . "' ,"  . // FF stuff
                 "pc_billing_location = '" . add_escape_custom((int)$_POST['billing_facility']) . "' "  .
+                    "pc_conttell = '" . add_escape_custom($informantArray) . "'" .
                 "WHERE pc_eid = '" . add_escape_custom($eid) . "'");
             }
         }
