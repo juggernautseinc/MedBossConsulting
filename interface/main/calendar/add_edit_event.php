@@ -609,6 +609,10 @@ if (!empty($_POST['form_action']) && ($_POST['form_action'] == "save")) {
                 // after the two diffs above, we must update for remaining providers
                 // those who are intersected in $providers_current and $providers_new
                 foreach ($_POST['form_provider'] as $provider) {
+                    $informantString = [];
+                    $informantString[] = $_SESSION['authUserID'];
+                    $informantString[] = $_POST['pc_informant'] ;
+                    $informantJson = json_encode($informantString);
                     sqlStatement("UPDATE openemr_postcalendar_events SET " .
                     "pc_catid = '" . add_escape_custom($_POST['form_category']) . "', " .
                     "pc_pid = '" . add_escape_custom($_POST['form_pid']) . "', " .
@@ -616,7 +620,7 @@ if (!empty($_POST['form_action']) && ($_POST['form_action'] == "save")) {
                     "pc_time = NOW(), " .
                     "pc_hometext = '" . add_escape_custom($_POST['form_comments']) . "', " .
                     "pc_room = '" . add_escape_custom($_POST['form_room']) . "', " .
-                    "pc_informant = '" . add_escape_custom($_SESSION['authUserID']) . ", ". add_escape_custom($_POST['pc_informant']) . "', " .
+                    "pc_informant = '" . add_escape_custom($informantJson) . "', " .
                     "pc_eventDate = '" . add_escape_custom($event_date) . "', " .
                     "pc_endDate = '" . add_escape_custom($_POST['form_enddate']) . "', " .
                     "pc_duration = '" . add_escape_custom(($duration * 60)) . "', " .
