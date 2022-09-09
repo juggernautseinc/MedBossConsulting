@@ -616,7 +616,7 @@ if (!empty($_POST['form_action']) && ($_POST['form_action'] == "save")) {
                     "pc_time = NOW(), " .
                     "pc_hometext = '" . add_escape_custom($_POST['form_comments']) . "', " .
                     "pc_room = '" . add_escape_custom($_POST['form_room']) . "', " .
-                    "pc_informant = '" . add_escape_custom($_SESSION['authUserID']) . "', " .
+                    "pc_informant = '" . add_escape_custom($_SESSION['authUserID']) . ", ". add_escape_custom($_POST['pc_informant']) . "', " .
                     "pc_eventDate = '" . add_escape_custom($event_date) . "', " .
                     "pc_endDate = '" . add_escape_custom($_POST['form_enddate']) . "', " .
                     "pc_duration = '" . add_escape_custom(($duration * 60)) . "', " .
