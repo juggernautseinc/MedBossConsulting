@@ -732,7 +732,6 @@ if (!empty($_POST['form_action']) && ($_POST['form_action'] == "save")) {
                 "pc_prefcatid = '" . add_escape_custom($_POST['form_prefcat']) . "' ,"  .
                 "pc_facility = '" . add_escape_custom((int)$_POST['facility']) . "' ,"  . // FF stuff
                 "pc_billing_location = '" . add_escape_custom((int)$_POST['billing_facility']) . "' "  .
-                    "pc_conttell = '" . add_escape_custom($informantArray) . "'" .
                 "WHERE pc_eid = '" . add_escape_custom($eid) . "'");
             }
         }
