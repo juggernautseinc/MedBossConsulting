@@ -708,6 +708,10 @@ if (!empty($_POST['form_action']) && ($_POST['form_action'] == "save")) {
 
                 // mod the SINGLE event or ALL EVENTS in a repeating series
                 // simple provider case
+                $informantArray = [];
+                $informantArray[] = $_SESSION['authUserID'];
+                $informantArray[] = $_POST['pc_informant'] ;
+                $informantJson = json_encode($informantArray);
                 sqlStatement("UPDATE openemr_postcalendar_events SET " .
                 "pc_catid = '" . add_escape_custom($_POST['form_category']) . "', " .
                 "pc_aid = '" . add_escape_custom($prov) . "', " .
@@ -716,7 +720,7 @@ if (!empty($_POST['form_action']) && ($_POST['form_action'] == "save")) {
                 "pc_time = NOW(), " .
                 "pc_hometext = '" . add_escape_custom($_POST['form_comments']) . "', " .
                 "pc_room = '" . add_escape_custom($_POST['form_room']) . "', " .
-                "pc_informant = '" . add_escape_custom($_SESSION['authUserID']) . "', " .
+                "pc_informant = '" . add_escape_custom($informantJson) . "', " .
                 "pc_eventDate = '" . add_escape_custom($event_date) . "', " .
                 "pc_endDate = '" . add_escape_custom($_POST['form_enddate']) . "', " .
                 "pc_duration = '" . add_escape_custom(($duration * 60)) . "', " .
