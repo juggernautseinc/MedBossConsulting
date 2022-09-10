@@ -893,7 +893,7 @@ if (!empty($_REQUEST['groupid'])) {
 if ($eid) {
     // $row = sqlQuery("SELECT * FROM openemr_postcalendar_events WHERE pc_eid = $eid");
     require_once dirname(__DIR__, 3) . "/library/audit_log.inc.php";
-    $history = appointmentLog($row['pc_eid']);
+    $history = appointmentLog($eid);
     $row = sqlQuery("SELECT e.*, u.fname, u.mname, u.lname " .
       "FROM openemr_postcalendar_events AS e " .
       "LEFT OUTER JOIN users AS u ON u.id = e.pc_informant " .
