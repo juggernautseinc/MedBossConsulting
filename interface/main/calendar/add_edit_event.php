@@ -899,9 +899,7 @@ if ($eid) {
       "LEFT OUTER JOIN users AS u ON u.id = e.pc_informant " .
       "WHERE pc_eid = ?", array($eid));
     $informant = $row['fname'] . ' ' . $row['mname'] . ' ' . $row['lname'];
-    echo "<pre>";
-    var_dump($history);
-    echo "</pre>";
+
     // instead of using the event's starting date, keep what has been provided
     // via the GET array, see the top of this file
     if (empty($_GET['date'])) {
@@ -1829,6 +1827,10 @@ if (empty($_GET['prov'])) { ?>
     <input class="col-sm mx-sm-2 my-2 my-sm-auto btn btn-secondary" type='button' name='form_duplicate' id='form_duplicate' value='<?php echo xla('Create Duplicate'); ?>' />
 </div>
 <?php if ($informant) {
+    foreach ($history as $item) {
+        echo "<label><p>" . $item['original_user'] . " on " . $item['date'] . "</p></label>";
+    }
+
     echo "<label><p class='text'>" . xlt('Last update by') . " " .
     text($informant) . " " . xlt('on') . " " . text($row['pc_time']) . "</p></label>\n";
 } ?>
