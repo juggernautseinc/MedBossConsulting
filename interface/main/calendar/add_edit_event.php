@@ -1827,8 +1827,10 @@ if (empty($_GET['prov'])) { ?>
     <input class="col-sm mx-sm-2 my-2 my-sm-auto btn btn-secondary" type='button' name='form_duplicate' id='form_duplicate' value='<?php echo xla('Create Duplicate'); ?>' />
 </div>
 <?php if ($informant) {
+    $h = 1;
     foreach ($history as $item) {
-        echo "<label><p>" . $item['original_user'] . " on " . $item['date'] . "</p></label><br>";
+        echo "<p>" . $h .") ". $item['original_user'] . " on " . $item['date'] . "</p>";
+        ++$h;
     }
 
     echo "<label><p class='text'>" . xlt('Last update by') . " " .
