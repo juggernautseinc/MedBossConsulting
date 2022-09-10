@@ -899,7 +899,9 @@ if ($eid) {
       "LEFT OUTER JOIN users AS u ON u.id = e.pc_informant " .
       "WHERE pc_eid = ?", array($eid));
     $informant = $row['fname'] . ' ' . $row['mname'] . ' ' . $row['lname'];
+    echo "<pre>";
     var_dump($history);
+    echo "</pre>";
     // instead of using the event's starting date, keep what has been provided
     // via the GET array, see the top of this file
     if (empty($_GET['date'])) {
