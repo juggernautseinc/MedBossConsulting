@@ -1828,7 +1828,7 @@ if (empty($_GET['prov'])) { ?>
 </div>
 <?php if ($informant) {
     foreach ($history as $item) {
-        echo "<label><p>" . $item['original_user'] . " on " . $item['date'] . "</p></label>";
+        echo "<label><p>" . $item['original_user'] . " on " . $item['date'] . "</p></label><br>";
     }
 
     echo "<label><p class='text'>" . xlt('Last update by') . " " .
