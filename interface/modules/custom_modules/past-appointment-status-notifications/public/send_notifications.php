@@ -1,4 +1,7 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 /*
  *  package OpenEMR
@@ -10,8 +13,8 @@ error_reporting(E_ALL);
 
 require_once dirname(__DIR__, 3) . "/../globals.php";
 require_once dirname(__DIR__, 4) . '/../library/patient.inc';
+require_once dirname(__DIR__, 4) . '/../library/classes/postmaster.php';
 
-use MyMailer;
 
 
 $twdaysago = new DateTime('2 days ago');
