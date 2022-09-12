@@ -24,7 +24,7 @@ FROM `openemr_postcalendar_events` WHERE `pc_apptstatus` = '^' AND `pc_eventDate
 AND `pc_pid` != ''";
 
 //$list_ofAppointments = sqlStatement($sql, [$twdaysago->format('Y-m-d')]);
-$list_ofAppointments = sqlStatement($sql, ['2022-09-08']);
+$list_ofAppointments = sqlStatement($sql, ['2022-09-06']);
 $pendingAppointments = [];
 
 while ($status = sqlFetchArray($list_ofAppointments))
@@ -37,7 +37,7 @@ $mail = new MyMailer();
 $message = '';
 foreach ($pendingAppointments as $appt) {
     $provider = getProviderName($appt['pc_aid']);
-    $message .= $appt['pc_pid'] . ", " . $provider . ", " . $appt['pc_eventDate'] . ", " . $appt['pc_startTime'] . "\r\n";
+    $message .= "Patient " . $appt['pc_pid'] . ", " . $provider . ", " . $appt['pc_eventDate'] . ", " . $appt['pc_startTime'] . "\r\n";
 }
 
 file_put_contents('/var/www/html/errors/pmessage.txt', $message);
