@@ -9,10 +9,14 @@ error_reporting(E_ALL);
  */
 
 require_once dirname(__DIR__, 3) . "/../globals.php";
+require_once dirname(__DIR__, 4) . '/../library/patient.inc';
+
+use MyMailer;
+
 
 $twdaysago = new DateTime('2 days ago');
 
-$sql = "SELECT `pc_eid`, `pc_pid`, `pc_aid`, `pc_title`, `pc_eventDate`, `pc_apptstatus` 
+$sql = "SELECT `pc_eid`, `pc_pid`, `pc_aid`, `pc_title`, `pc_eventDate`, `pc_apptstatus`, `pc_startTime` 
 FROM `openemr_postcalendar_events` WHERE `pc_apptstatus` = '^' AND `pc_eventDate` = ?
 AND `pc_pid` != ''";
 
@@ -25,7 +29,12 @@ while ($status = sqlFetchArray($list_ofAppointments))
     $pendingAppointments[] = $status;
 }
 
-var_dump($pendingAppointments);
+$mail = new MyMailer();
 
-file_put_contents('/var/www/html/errors/status.txt', print_r($pendingAppointments, true), FILE_APPEND);
+$message = '';
+foreach ($pendingAppointments as $appt) {
+    $provider = getProviderId($appt['pc_aid']);
+    $message += $appt['pc_pid'] . ", " . $provider . ", " . $appt['pc_eventDate'] . ", " . $appt['pc_startTime'] . "\r\n";
+}
 
+file_put_contents('/var/www/html/errors/pmessage.txt', $message);
