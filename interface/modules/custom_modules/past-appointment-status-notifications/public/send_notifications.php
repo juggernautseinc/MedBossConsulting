@@ -16,10 +16,11 @@ $sql = "SELECT `pc_eid`, `pc_pid`, `pc_aid`, `pc_title`, `pc_eventDate`, `pc_app
 FROM `openemr_postcalendar_events` WHERE `pc_apptstatus` = '^' AND `pc_eventDate` = ?
 AND `pc_pid` != ''";
 
-$listofappointments = sqlStatement($sql, [$twdaysago->format('Y-m-d')]);
+//$list_ofAppointments = sqlStatement($sql, [$twdaysago->format('Y-m-d')]);
+$list_ofAppointments = sqlStatement($sql, ['2022-09-08']);
 $pendingAppointments = [];
 
-while ($status = sqlFetchArray($listofappointments))
+while ($status = sqlFetchArray($list_ofAppointments))
 {
     $pendingAppointments[] = $status;
 }
