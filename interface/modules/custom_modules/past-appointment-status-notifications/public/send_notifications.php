@@ -37,7 +37,7 @@ $mail = new MyMailer();
 $message = '';
 foreach ($pendingAppointments as $appt) {
     $provider = getProviderName($appt['pc_aid']);
-    $message += $appt['pc_pid'] . ", " . $provider . ", " . $appt['pc_eventDate'] . ", " . $appt['pc_startTime'] . "\r\n";
+    $message .= $appt['pc_pid'] . ", " . $provider . ", " . $appt['pc_eventDate'] . ", " . $appt['pc_startTime'] . "\r\n";
 }
 
 file_put_contents('/var/www/html/errors/pmessage.txt', $message);
