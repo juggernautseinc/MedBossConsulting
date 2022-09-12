@@ -40,4 +40,19 @@ foreach ($pendingAppointments as $appt) {
     $message .= "Patient " . $appt['pc_pid'] . ", " . $provider . ", " . $appt['pc_eventDate'] . ", " . $appt['pc_startTime'] . "\r\n";
 }
 
-file_put_contents('/var/www/html/errors/pmessage.txt', $message);
+$emailSubject = xlt('Pending Appointment Status');
+$email_sender = $GLOBALS['patient_reminder_sender_email'];
+$mail->AddReplyTo($email_sender, $email_sender);
+$mail->SetFrom($email_sender, $email_sender);
+$mail->AddAddress($email_sender, $email_sender);
+$mail->Subject = $emailSubject;
+$mail->MsgHTML($message);
+$mail->IsHTML(false);
+$mail->AltBody = $message;
+
+if ($mail->Send()) {
+    file_put_contents('/var/www/html/errors/appt_notification.txt', 'Sent ' . $date('Y-m-d'), FILE_APPEND);
+} else {
+    $email_status = $email->ErrorInfo;
+    error_log("EMAIL ERROR: " . errorLogEscape($email_status), 0);
+}

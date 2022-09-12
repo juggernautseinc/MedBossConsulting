@@ -23,6 +23,8 @@ class MyMailer extends PHPMailer
     var $Password;
     var $Port;
     var $CharSet;
+    public $Subject;
+    public $AltBody;
 
     function __construct()
     {
