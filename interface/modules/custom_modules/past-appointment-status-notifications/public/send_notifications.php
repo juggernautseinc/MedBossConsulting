@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ALL);
 /*
  *  package OpenEMR
  *  link    https://www.open-emr.org
@@ -24,6 +24,8 @@ while ($status = sqlFetchArray($list_ofAppointments))
 {
     $pendingAppointments[] = $status;
 }
+
+var_dump($pendingAppointments);
 
 file_put_contents('/var/www/html/errors/status.txt', print_r($pendingAppointments, true), FILE_APPEND);
 
