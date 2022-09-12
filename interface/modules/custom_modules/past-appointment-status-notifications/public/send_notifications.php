@@ -23,8 +23,8 @@ $sql = "SELECT `pc_eid`, `pc_pid`, `pc_aid`, `pc_title`, `pc_eventDate`, `pc_app
 FROM `openemr_postcalendar_events` WHERE `pc_apptstatus` = '^' AND `pc_eventDate` = ?
 AND `pc_pid` != ''";
 
-//$list_ofAppointments = sqlStatement($sql, [$twdaysago->format('Y-m-d')]);
-$list_ofAppointments = sqlStatement($sql, ['2022-09-06']);
+$list_ofAppointments = sqlStatement($sql, [$twdaysago->format('Y-m-d')]);
+
 $pendingAppointments = [];
 
 while ($status = sqlFetchArray($list_ofAppointments))
@@ -53,6 +53,6 @@ $mail->AltBody = $message;
 if ($mail->Send()) {
     file_put_contents('/var/www/html/errors/appt_notification.txt', "Sent " . date('Y-m-d'), FILE_APPEND);
 } else {
-    $email_status = $email->ErrorInfo;
-    error_log("EMAIL ERROR: " . errorLogEscape($email_status), 0);
+    $mail_status = $mail->ErrorInfo;
+    error_log("EMAIL ERROR: " . errorLogEscape($mail_status), 0);
 }
