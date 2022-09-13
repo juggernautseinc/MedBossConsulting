@@ -39,8 +39,11 @@ foreach ($pendingAppointments as $appt) {
     $provider = getProviderName($appt['pc_aid']);
     $message .= "Patient " . $appt['pc_pid'] . ", " . $provider . ", " . $appt['pc_eventDate'] . ", " . $appt['pc_startTime'] . "\r\n";
 }
-var_dump($message);
-die;
+
+if (empty($message)) {
+    $message = "No appointments were left in pending status on the calendar ";
+}
+
 $emailSubject = xlt('Pending Appointment Status');
 $email_sender = $GLOBALS['patient_reminder_sender_email'];
 $mail->AddReplyTo($email_sender, $email_sender);
