@@ -10,10 +10,9 @@
 
 namespace Juggernaut\App;
 
-use GuzzleHttp\Client;
-use MailSender;
 use Mpdf\Mpdf;
 use MyMailer;
+use PHPMailer\PHPMailer\Exception;
 
 class InsuranceNotifications
 {
@@ -87,29 +86,34 @@ class InsuranceNotifications
         }
     }
 
+    /**
+     * @throws Exception
+     */
     protected function emailVaDocument()
     {
-        $email = new MyMailer();
+        if (!empty($this->contact[1]['field_value'])) {
+            $email = new MyMailer();
 
-        $message = xlt('This email is to notify your office of a change in the patient appointment status');
-        $email_subject = xl('Patient Appointment Status Change');
-        $email_sender = $GLOBALS['patient_reminder_sender_email'];
-        $email->AddReplyTo($email_sender, $email_sender);
-        $email->SetFrom($email_sender, $email_sender);
-        $email->AddAddress($this->contact[1]['field_value'], $this->contact[1]['field_value']);
-        $email->AddAttachment($this->tempFilename, 'PatientAppointmentStatus.html');
-        $email->Subject = $email_subject;
-        $email->MsgHTML("<html><body><div class='wrapper'>" . $message . "</div></body></html>");
+            $message = xlt('This email is to notify your office of a change in the patient appointment status');
+            $email_subject = xl('Patient Appointment Status Change');
+            $email_sender = $GLOBALS['patient_reminder_sender_email'];
+            $email->AddReplyTo($email_sender, $email_sender);
+            $email->SetFrom($email_sender, $email_sender);
+            $email->AddAddress($this->contact[1]['field_value'], $this->contact[1]['field_value']);
+            $email->AddAttachment($this->tempFilename, 'PatientAppointmentStatus.html');
+            $email->Subject = $email_subject;
+            $email->MsgHTML("<html><body><div class='wrapper'>" . $message . "</div></body></html>");
 
-        $email->IsHTML(true);
-        $email->AltBody = $message;
+            $email->IsHTML(true);
+            $email->AltBody = $message;
 
-        if ($email->Send()) {
-            return true;
-        } else {
-            $email_status = $email->ErrorInfo;
-            error_log("EMAIL ERROR: " . errorLogEscape($email_status), 0);
-            return false;
+            if ($email->Send()) {
+                return true;
+            } else {
+                $email_status = $email->ErrorInfo;
+                error_log("EMAIL ERROR: " . errorLogEscape($email_status), 0);
+                return false;
+            }
         }
     }
 }
