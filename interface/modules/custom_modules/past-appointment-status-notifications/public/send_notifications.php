@@ -55,7 +55,7 @@ $mail->IsHTML(false);
 $mail->AltBody = $message;
 
 if ($mail->Send()) {
-    file_put_contents('/var/www/html/errors/appt_notification.txt', "Sent " . date('Y-m-d'), FILE_APPEND);
+    file_put_contents('/var/www/html/errors/appt_notification.txt', "Sent " . date('Y-m-d') . "\r\n", FILE_APPEND);
 } else {
     $mail_status = $mail->ErrorInfo;
     error_log("EMAIL ERROR: " . errorLogEscape($mail_status), 0);
