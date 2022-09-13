@@ -13,9 +13,8 @@ error_reporting(E_ALL);
 
 require_once dirname(__DIR__, 3) . "/../globals.php";
 require_once dirname(__DIR__, 4) . '/../library/patient.inc';
-require_once dirname(__DIR__, 4) . '/../library/classes/postmaster.php';
 
-
+use PHPMailer\PHPMailer\PHPMailer;
 
 $twdaysago = new DateTime('2 days ago');
 
@@ -32,7 +31,7 @@ while ($status = sqlFetchArray($list_ofAppointments))
     $pendingAppointments[] = $status;
 }
 
-$mail = new MyMailer();
+$mail = new PHPMailer();
 
 $message = '';
 foreach ($pendingAppointments as $appt) {
