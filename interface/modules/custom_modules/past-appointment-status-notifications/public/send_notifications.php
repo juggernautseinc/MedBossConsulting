@@ -22,8 +22,8 @@ $checkApptStatus = new Notification();
 $twodaysago = new DateTime('2 days ago');
 
 
-die($checkApptStatus->sendList($twodaysago->format('Y-m-d')));
-
+var_dump($checkApptStatus->sendList($twodaysago->format('Y-m-d')));
+die;
 
 
 $sql = "SELECT `pc_eid`, `pc_pid`, `pc_aid`, `pc_title`, `pc_eventDate`, `pc_apptstatus`, `pc_startTime` 
