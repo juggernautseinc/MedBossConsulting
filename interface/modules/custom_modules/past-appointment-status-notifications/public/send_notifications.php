@@ -26,29 +26,6 @@ var_dump($checkApptStatus->sendList('2022-09-06'));
 die;
 
 
-$sql = "SELECT `pc_eid`, `pc_pid`, `pc_aid`, `pc_title`, `pc_eventDate`, `pc_apptstatus`, `pc_startTime` 
-FROM `openemr_postcalendar_events` WHERE `pc_apptstatus` = '^' AND `pc_eventDate` = ?
-AND `pc_pid` != ''";
-
-$list_ofAppointments = sqlStatement($sql, [$twodaysago->format('Y-m-d')]);
-
-$pendingAppointments = [];
-
-while ($status = sqlFetchArray($list_ofAppointments))
-{
-    $pendingAppointments[] = $status;
-}
-
-$mail = new PHPMailer();
-
-var_dump($mail); die;
-
-$message = '';
-foreach ($pendingAppointments as $appt) {
-    $provider = getProviderName($appt['pc_aid']);
-    $message .= "Patient " . $appt['pc_pid'] . ", " . $provider . ", " . $appt['pc_eventDate'] . ", " . $appt['pc_startTime'] . "\r\n";
-}
-
 if (empty($message)) {
     $message = "No appointments were left in pending status on the calendar ";
 }
