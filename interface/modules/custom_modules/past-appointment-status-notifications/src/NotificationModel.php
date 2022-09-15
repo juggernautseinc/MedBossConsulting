@@ -42,6 +42,7 @@ AND `pc_pid` != ''";
     protected function buildAppointmentList()
     {
         $list_ofAppointments = $this->retrievePendingStatusAppts();
+        var_dump($list_ofAppointments);
         $pendingAppointments = [];
 
         while ($status = sqlFetchArray($list_ofAppointments))
