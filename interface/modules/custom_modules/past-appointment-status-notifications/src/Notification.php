@@ -39,7 +39,7 @@ class Notification
     /**
      * @throws \phpmailerException
      */
-    private function emailStaff($message): void
+    private function emailStaff($message)
     {
         $emailSubject = xlt('Pending Appointment Status');
         $email_sender = $GLOBALS['patient_reminder_sender_email'];
@@ -58,5 +58,6 @@ class Notification
             $mail_status = $mail->ErrorInfo;
             error_log("EMAIL ERROR: " . errorLogEscape($mail_status), 0);
         }
+        return "SENT";
     }
 }
