@@ -18,11 +18,15 @@ class NotificationModel
     {
         $this->pastDays = $days;
 
+    }
+
+    public function hasPendingAppts()
+    {
         $hasPendingAppts = $this->buildAppointmentList();
         if (!empty($hasPendingAppts)) {
             return "Empty";
         } else {
-          return 'List';
+            return 'List';
         }
     }
 

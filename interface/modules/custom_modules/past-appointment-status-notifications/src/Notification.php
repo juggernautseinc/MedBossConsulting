@@ -14,6 +14,7 @@ class Notification
 
     public function sendList($days)
     {
-       return new NotificationModel($days);
+        $listPending = new NotificationModel($days);
+       return $listPending->hasPendingAppts();
     }
 }
