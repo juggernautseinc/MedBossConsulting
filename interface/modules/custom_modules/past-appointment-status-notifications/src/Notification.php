@@ -43,7 +43,7 @@ class Notification
     {
         $emailSubject = xlt('Pending Appointment Status');
         $email_sender = $GLOBALS['patient_reminder_sender_email'];
-        $mail = new PHPMailer;
+        $mail = new PHPMailer\PHPMailer\PHPMailer();
         $mail->AddReplyTo($email_sender, $email_sender);
         $mail->SetFrom($email_sender, $email_sender);
         $mail->AddAddress($email_sender, $email_sender);
