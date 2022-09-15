@@ -12,14 +12,8 @@ namespace Juggernaut;
 class Notification
 {
 
-    public function getPreviousDate()
+    public function sendList($days)
     {
-        $past = new DateTime('2 days ago');
-        return $past;
-    }
-
-    public function sendList()
-    {
-       return new NotificationModel();
+       return new NotificationModel($days);
     }
 }

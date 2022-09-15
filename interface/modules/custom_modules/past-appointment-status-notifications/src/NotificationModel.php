@@ -12,8 +12,12 @@ namespace Juggernaut;
 
 class NotificationModel
 {
-    public function __construct()
+    private $pastDays;
+
+    public function __construct($days)
     {
+        $this->pastDays = $days;
+
         $hasPendingAppts = $this->buildAppointmentList();
         if (!empty($hasPendingAppts)) {
             return "Empty";
@@ -28,9 +32,8 @@ class NotificationModel
 FROM `openemr_postcalendar_events` WHERE `pc_apptstatus` = '^' AND `pc_eventDate` = ?
 AND `pc_pid` != ''";
 
-        $notification = new Notification;
-        $previousDate = $notification->getPreviousDate();
-        return sqlStatement($sql, [$previousDate]);
+
+        return sqlStatement($sql, [$this->pastDays]);
     }
 
     protected function buildAppointmentList()

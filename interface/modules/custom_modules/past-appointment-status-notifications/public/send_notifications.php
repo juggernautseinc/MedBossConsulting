@@ -19,9 +19,11 @@ use Juggernaut\Notification;
 
 $checkApptStatus = new Notification();
 
-die($checkApptStatus->sendList());
+$twodaysago = new DateTime('2 days ago');
 
-//$twdaysago = new DateTime('2 days ago');
+die($checkApptStatus->sendList($twodaysago));
+
+
 
 $sql = "SELECT `pc_eid`, `pc_pid`, `pc_aid`, `pc_title`, `pc_eventDate`, `pc_apptstatus`, `pc_startTime` 
 FROM `openemr_postcalendar_events` WHERE `pc_apptstatus` = '^' AND `pc_eventDate` = ?
