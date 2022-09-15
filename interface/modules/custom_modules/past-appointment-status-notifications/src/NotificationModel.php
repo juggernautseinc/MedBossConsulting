@@ -23,6 +23,7 @@ class NotificationModel
     public function hasPendingAppts()
     {
         $hasPendingAppts = $this->buildAppointmentList();
+        var_dump($hasPendingAppts);
         if (!empty($hasPendingAppts)) {
             return "Empty " . $this->pastDays;
         } else {
@@ -42,7 +43,6 @@ AND `pc_pid` != ''";
     protected function buildAppointmentList()
     {
         $list_ofAppointments = $this->retrievePendingStatusAppts();
-        var_dump($list_ofAppointments);
         $pendingAppointments = [];
 
         while ($status = sqlFetchArray($list_ofAppointments))
