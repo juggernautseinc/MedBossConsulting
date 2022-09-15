@@ -21,8 +21,8 @@ $checkApptStatus = new Notification();
 
 $twodaysago = new DateTime('2 days ago');
 
-
-var_dump($checkApptStatus->sendList($twodaysago->format('Y-m-d')));
+var_dump($checkApptStatus->sendList('2022-09-06'));
+//var_dump($checkApptStatus->sendList($twodaysago->format('Y-m-d')));
 die;
 
 
