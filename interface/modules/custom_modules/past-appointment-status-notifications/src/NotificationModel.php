@@ -25,9 +25,9 @@ class NotificationModel
         $hasPendingAppts = $this->buildAppointmentList();
         var_dump($hasPendingAppts);
         if (!empty($hasPendingAppts)) {
-            return "Empty " . $this->pastDays;
+            return "Has Values ";
         } else {
-            return 'List';
+            return xlt('No pending appointments found for ' . $this->pastDays);
         }
     }
 
