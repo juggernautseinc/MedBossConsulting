@@ -24,7 +24,7 @@ class NotificationModel
     {
         $hasPendingAppts = $this->buildAppointmentList();
         if (!empty($hasPendingAppts)) {
-            return "Empty";
+            return "Empty " . $this->pastDays;
         } else {
             return 'List';
         }
@@ -35,7 +35,6 @@ class NotificationModel
         $sql = "SELECT `pc_eid`, `pc_pid`, `pc_aid`, `pc_title`, `pc_eventDate`, `pc_apptstatus`, `pc_startTime` 
 FROM `openemr_postcalendar_events` WHERE `pc_apptstatus` = '^' AND `pc_eventDate` = ?
 AND `pc_pid` != ''";
-
 
         return sqlStatement($sql, [$this->pastDays]);
     }
