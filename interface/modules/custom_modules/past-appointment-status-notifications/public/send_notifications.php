@@ -21,7 +21,8 @@ $checkApptStatus = new Notification();
 
 $twodaysago = new DateTime('2 days ago');
 
-die($checkApptStatus->sendList($twodaysago));
+
+die($checkApptStatus->sendList($twodaysago->format('Y-m-d')));
 
 
 
@@ -29,7 +30,7 @@ $sql = "SELECT `pc_eid`, `pc_pid`, `pc_aid`, `pc_title`, `pc_eventDate`, `pc_app
 FROM `openemr_postcalendar_events` WHERE `pc_apptstatus` = '^' AND `pc_eventDate` = ?
 AND `pc_pid` != ''";
 
-$list_ofAppointments = sqlStatement($sql, [$twdaysago->format('Y-m-d')]);
+$list_ofAppointments = sqlStatement($sql, [$twodaysago->format('Y-m-d')]);
 
 $pendingAppointments = [];
 
