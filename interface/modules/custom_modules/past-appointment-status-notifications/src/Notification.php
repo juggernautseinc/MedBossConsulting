@@ -16,13 +16,16 @@ class Notification
 {
     private $pendingArray;
 
+    /**
+     * @throws \phpmailerException
+     */
     public function sendList($days)
     {
         $listPending = new NotificationModel($days);
         $this->pendingArray = $listPending->hasPendingAppts();
         $staffMessage = $this->buildMessage();
-        $this->emailStaff($staffMessage);
-        return ;
+        return $this->emailStaff($staffMessage);
+
     }
 
     private function buildMessage()
@@ -37,9 +40,9 @@ class Notification
     }
 
     /**
-     * @throws \phpmailerException
+     * @throws PHPMailer\PHPMailer\Exception
      */
-    private function emailStaff($message)
+    private function emailStaff($message): string
     {
         $emailSubject = xlt('Pending Appointment Status');
         $email_sender = $GLOBALS['patient_reminder_sender_email'];
