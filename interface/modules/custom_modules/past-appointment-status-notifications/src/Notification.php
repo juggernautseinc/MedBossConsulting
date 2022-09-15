@@ -11,9 +11,22 @@ namespace Juggernaut;
 
 class Notification
 {
+    private $pendingArray;
+
     public function sendList($days)
     {
         $listPending = new NotificationModel($days);
-       return $listPending->hasPendingAppts();
+        $this->pendingArray = $listPending->hasPendingAppts();
+        return $this->buildMessage();
+    }
+
+    private function buildMessage()
+    {
+        $message = '';
+        foreach ($this->pendingArray as $appt) {
+            $provider = getProviderName($appt['pc_aid']);
+            $message .= "Patient " . $appt['pc_pid'] . ", " . $provider . ", " . $appt['pc_eventDate'] . ", " . $appt['pc_startTime'] . "\r\n";
+        }
+        return $message;
     }
 }
