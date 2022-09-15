@@ -13,6 +13,7 @@ error_reporting(E_ALL);
 
 require_once dirname(__DIR__, 3) . "/../globals.php";
 require_once dirname(__DIR__, 4) . '/../library/patient.inc';
+require_once __DIR__ . "/../vendor/autoload.php";
 
 use Juggernaut\Notification;
 
