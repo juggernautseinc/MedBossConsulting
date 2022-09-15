@@ -14,7 +14,8 @@ class Notification
 
     public function getPreviousDate()
     {
-        return new DateTime('2 days ago');
+        $past = new DateTime('2 days ago');
+        return $past;
     }
 
     public function sendList()
