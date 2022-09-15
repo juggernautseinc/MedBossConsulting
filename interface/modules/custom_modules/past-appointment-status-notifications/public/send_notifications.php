@@ -14,9 +14,13 @@ error_reporting(E_ALL);
 require_once dirname(__DIR__, 3) . "/../globals.php";
 require_once dirname(__DIR__, 4) . '/../library/patient.inc';
 
-use PHPMailer\PHPMailer\PHPMailer;
+use Juggernaut\Notification;
 
-$twdaysago = new DateTime('2 days ago');
+$checkApptStatus = new Notification();
+
+die($checkApptStatus->sendList());
+
+//$twdaysago = new DateTime('2 days ago');
 
 $sql = "SELECT `pc_eid`, `pc_pid`, `pc_aid`, `pc_title`, `pc_eventDate`, `pc_apptstatus`, `pc_startTime` 
 FROM `openemr_postcalendar_events` WHERE `pc_apptstatus` = '^' AND `pc_eventDate` = ?
@@ -33,6 +37,8 @@ while ($status = sqlFetchArray($list_ofAppointments))
 
 $mail = new PHPMailer();
 
+var_dump($mail); die;
+
 $message = '';
 foreach ($pendingAppointments as $appt) {
     $provider = getProviderName($appt['pc_aid']);
@@ -45,6 +51,7 @@ if (empty($message)) {
 
 $emailSubject = xlt('Pending Appointment Status');
 $email_sender = $GLOBALS['patient_reminder_sender_email'];
+\PHPMailer\PHPMailer\PHPMailer::class;
 $mail->AddReplyTo($email_sender, $email_sender);
 $mail->SetFrom($email_sender, $email_sender);
 $mail->AddAddress($email_sender, $email_sender);
