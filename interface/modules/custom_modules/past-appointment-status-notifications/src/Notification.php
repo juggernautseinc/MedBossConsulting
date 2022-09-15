@@ -11,7 +11,6 @@ namespace Juggernaut;
 
 class Notification
 {
-
     public function sendList($days)
     {
         $listPending = new NotificationModel($days);

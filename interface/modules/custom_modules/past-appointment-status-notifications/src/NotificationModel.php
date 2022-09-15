@@ -23,7 +23,6 @@ class NotificationModel
     public function hasPendingAppts()
     {
         $hasPendingAppts = $this->buildAppointmentList();
-        var_dump($hasPendingAppts);
         if (!empty($hasPendingAppts)) {
             return "Has Values ";
         } else {
