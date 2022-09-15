@@ -32,7 +32,8 @@ class NotificationModel
 
     private function retrievePendingStatusAppts()
     {
-        $sql = "SELECT `pc_eid`, `pc_pid`, `pc_aid`, `pc_title`, `pc_eventDate`, `pc_apptstatus`, `pc_startTime` 
+        $sql = "SELECT `pc_eid`, `pc_pid`, `pc_aid`, `pc_title`, `pc_eventDate`, " .
+            " `pc_apptstatus`, `pc_startTime` 
 FROM `openemr_postcalendar_events` WHERE `pc_apptstatus` = '^' AND `pc_eventDate` = ?
 AND `pc_pid` != ''";
 

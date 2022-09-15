@@ -23,7 +23,7 @@ class Notification
     private function buildMessage()
     {
         $message = '';
-        var_dump($this->pendingArray);
+
         foreach ($this->pendingArray as $appt) {
             $provider = getProviderName($appt['pc_aid']);
             $message .= "Patient " . $appt['pc_pid'] . ", " . $provider . ", " . $appt['pc_eventDate'] . ", " . $appt['pc_startTime'] . "\r\n";
