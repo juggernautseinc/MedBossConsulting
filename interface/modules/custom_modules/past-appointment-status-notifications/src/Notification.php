@@ -10,8 +10,8 @@
 
 namespace Juggernaut;
 
-use PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class Notification
 {
@@ -49,7 +49,7 @@ class Notification
     {
         $emailSubject = xlt('Pending Appointment Status');
         $email_sender = $GLOBALS['patient_reminder_sender_email'];
-        $mail = new PHPMailer\PHPMailer\PHPMailer();
+        $mail = new PHPMailer();
         $mail->AddReplyTo($email_sender, $email_sender);
         $mail->SetFrom($email_sender, $email_sender);
         $mail->AddAddress('sherwin@affordablecustomehr.com', 'Med Boss Consulting');
