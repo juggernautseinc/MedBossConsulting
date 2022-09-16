@@ -23,8 +23,13 @@ class Notification
     {
         $listPending = new NotificationModel($days);
         $this->pendingArray = $listPending->hasPendingAppts();
+        var_dump($this->pendingArray); die;
         $staffMessage = $this->buildMessage();
-        return $this->emailStaff($staffMessage);
+        if (is_array($staffMessage)) {
+            return $this->emailStaff($staffMessage);
+        } else {
+
+        }
 
     }
 
