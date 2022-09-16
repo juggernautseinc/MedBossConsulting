@@ -30,6 +30,7 @@ class Notification
             $staffMessage = $this->buildMessage();
             return $this->emailStaff($staffMessage);
         }
+        return;
     }
 
     private function buildMessage()
@@ -38,13 +39,13 @@ class Notification
 
         foreach ($this->pendingArray as $appt) {
             $provider = getProviderName($appt['pc_aid']);
-            $message .= "Patient " . $appt['pc_pid'] . ", " . $provider . ", " . $appt['pc_eventDate'] . ", " . $appt['pc_startTime'] . "\r\n";
+            $message .= "Patient " . $appt['pc_pid'] . ", " . $provider . ", " . $appt['pc_eventDate'] . ", " . $appt['pc_startTime'] . "<br>";
         }
         return $message;
     }
 
     /**
-     * @throws PHPMailer\PHPMailer\Exception
+     * @throws Exception
      */
     private function emailStaff($message): string
     {
