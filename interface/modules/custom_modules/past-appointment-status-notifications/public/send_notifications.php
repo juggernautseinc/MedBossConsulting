@@ -18,12 +18,17 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 use Juggernaut\Notification;
 
-$checkApptStatus = new Notification();
+function start_appt_notification()
+{
+    $checkApptStatus = new Notification();
 
-$twodaysago = new DateTime('2 days ago');
+    $twodaysago = new DateTime('2 days ago');
 
-try {
-    $checkApptStatus->sendList($twodaysago->format('Y-m-d'));
-} catch (phpmailerException $e) {
-    file_put_contents('/var/www/html/errors/appt_notification_error.txt',  $e->getMessage(), FILE_APPEND);
+    try {
+        $checkApptStatus->sendList($twodaysago->format('Y-m-d'));
+    } catch (phpmailerException $e) {
+        file_put_contents('/var/www/html/errors/appt_notification_error.txt', $e->getMessage(), FILE_APPEND);
+    }
 }
+
+start_appt_notification();
