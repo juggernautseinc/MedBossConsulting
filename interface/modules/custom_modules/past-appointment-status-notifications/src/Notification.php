@@ -54,7 +54,7 @@ class Notification
         $mail = new MyMailer();
         $mail->AddReplyTo($email_sender, $email_sender);
         $mail->SetFrom($email_sender, $email_sender);
-        $mail->AddAddress('sherwin@affordablecustomehr.com', 'Med Boss Consulting');
+        $mail->AddAddress('callcenter@medbossconsulting.com', 'Med Boss Consulting');
         $mail->Subject = $emailSubject;
         $mail->MsgHTML($message);
         $mail->IsHTML(false);
