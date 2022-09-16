@@ -31,4 +31,3 @@ function start_appt_notification()
     }
 }
 
-start_appt_notification();
