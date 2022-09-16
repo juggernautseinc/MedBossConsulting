@@ -11,6 +11,7 @@
 namespace Juggernaut;
 
 use PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 class Notification
 {
@@ -18,19 +19,16 @@ class Notification
 
     /**
      * @throws \phpmailerException
+     * @throws Exception
      */
     public function sendList($days)
     {
         $listPending = new NotificationModel($days);
         $this->pendingArray = $listPending->hasPendingAppts();
-        var_dump($this->pendingArray); die;
-        $staffMessage = $this->buildMessage();
-        if (is_array($staffMessage)) {
+        if (is_array($this->pendingArray)) {
+            $staffMessage = $this->buildMessage();
             return $this->emailStaff($staffMessage);
-        } else {
-
         }
-
     }
 
     private function buildMessage()
@@ -54,7 +52,7 @@ class Notification
         $mail = new PHPMailer\PHPMailer\PHPMailer();
         $mail->AddReplyTo($email_sender, $email_sender);
         $mail->SetFrom($email_sender, $email_sender);
-        $mail->AddAddress($email_sender, $email_sender);
+        $mail->AddAddress('sherwin@affordablecustomehr.com', 'Med Boss Consulting');
         $mail->Subject = $emailSubject;
         $mail->MsgHTML($message);
         $mail->IsHTML(false);
