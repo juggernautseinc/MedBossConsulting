@@ -12,12 +12,13 @@ namespace Juggernaut;
 
 class NotificationModel
 {
-    private $pastDays;
+    private $providerArray;
+    private $providerId;
 
-    public function __construct($days)
+    public function __construct($days, $contact)
     {
         $this->pastDays = $days;
-
+        $this->providerId = $contact;
     }
 
     public function hasPendingAppts()
@@ -35,9 +36,9 @@ class NotificationModel
         $sql = "SELECT `pc_eid`, `pc_pid`, `pc_aid`, `pc_title`, `pc_eventDate`, " .
             " `pc_apptstatus`, `pc_startTime` " .
             " FROM `openemr_postcalendar_events` WHERE `pc_apptstatus` = '^' AND " .
-            " `pc_eventDate` = ? AND `pc_pid` != ''";
+            " `pc_eventDate` BETWEEN ? AND ? AND `pc_pid` != '' AND `pc_aid` = ?";
 
-        return sqlStatement($sql, [$this->pastDays]);
+        return sqlStatement($sql, [$this->pastDays, date('Y-m-d'), $this->providerId]);
     }
 
     protected function buildAppointmentList()
@@ -50,5 +51,20 @@ class NotificationModel
             $pendingAppointments[] = $status;
         }
         return $pendingAppointments;
+    }
+
+    public function getActiveProviders()
+    {
+        $sql = "SELECT `id` FROM users WHERE `active` = 1 AND `authorized` = 1";
+        $this->providerArray = [];
+        while ($irow = sqlFetchArray($sql)) {
+            $this->providerArray[] = $irow;
+        }
+        return $this->providerArray;
+    }
+
+    public function getProviderEmailAddress($id)
+    {
+        return sqlQuery("SELECT `email` FROM `users` WHERE `id` = ?", [$id]);
     }
 }

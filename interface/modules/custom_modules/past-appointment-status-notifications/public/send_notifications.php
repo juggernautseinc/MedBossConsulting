@@ -17,6 +17,7 @@ require_once dirname(__DIR__, 4) . '/../library/patient.inc';
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use Juggernaut\Notification;
+use Juggernaut\NotificationModel;
 
 /**
  * @return void
@@ -24,13 +25,17 @@ use Juggernaut\Notification;
 function start_appt_notification()
 {
     $checkApptStatus = new Notification();
+    $providers = new NotificationModel();
+    $contacts = $providers->getActiveProviders();
 
-    $twodaysago = new DateTime('2 days ago');
+    foreach ($contacts as $contact) {
+        $twodaysago = new DateTime('28 days ago');
 
-    try {
-        $checkApptStatus->sendList($twodaysago->format('Y-m-d'));
-    } catch (\PHPMailer\PHPMailer\Exception|phpmailerException $e) {
-        file_put_contents('/var/www/html/errors/appt_notification_error.txt', $e->getMessage(), FILE_APPEND);
+        try {
+            $checkApptStatus->sendAlert($twodaysago->format('Y-m-d'), $contact);
+        } catch (\PHPMailer\PHPMailer\Exception|phpmailerException $e) {
+            file_put_contents('/var/www/html/errors/appt_notification_error.txt', $e->getMessage(), FILE_APPEND);
+        }
     }
 }
 

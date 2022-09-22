@@ -22,13 +22,14 @@ class Notification
      * @throws \phpmailerException
      * @throws Exception
      */
-    public function sendList($days)
+    public function sendAlert($days, $contact)
     {
-        $listPending = new NotificationModel($days);
+        $listPending = new NotificationModel($days, $contact);
+        $providerEmail = $listPending->getProviderEmailAddress($contact);
         $this->pendingArray = $listPending->hasPendingAppts();
         if (is_array($this->pendingArray)) {
-            $staffMessage = $this->buildMessage();
-            return $this->emailStaff($staffMessage);
+            $providerMessage = $this->buildMessage();
+            return $this->emailProvider($providerMessage, $providerEmail);
         }
         return;
     }
@@ -38,23 +39,24 @@ class Notification
         $message = '';
 
         foreach ($this->pendingArray as $appt) {
-            $provider = getProviderName($appt['pc_aid']);
-            $message .= "Patient " . $appt['pc_pid'] . ", " . $provider . ", " . $appt['pc_eventDate'] . ", " . $appt['pc_startTime'] . "<br>";
+            $message .= "Patient " . $appt['pc_pid'] . ", " . $appt['pc_eventDate'] . ", " . $appt['pc_startTime'] . "<br>";
         }
+        $message .= xlt('Update these patients appointments or risk not being paid. Jana');
         return $message;
     }
 
     /**
      * @throws Exception
      */
-    private function emailStaff($message): string
+    private function emailProvider($message, $providerEmail): string
     {
+
         $emailSubject = xlt('Pending Appointment Status');
         $email_sender = $GLOBALS['patient_reminder_sender_email'];
         $mail = new MyMailer();
         $mail->AddReplyTo($email_sender, $email_sender);
         $mail->SetFrom($email_sender, $email_sender);
-        $mail->AddAddress('callcenter@medbossconsulting.com', 'Med Boss Consulting');
+        $mail->AddAddress($providerEmail);
         $mail->Subject = $emailSubject;
         $mail->MsgHTML($message);
         $mail->IsHTML(false);
