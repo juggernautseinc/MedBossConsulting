@@ -27,6 +27,9 @@ function start_appt_notification()
     $checkApptStatus = new Notification();
     $providers = new NotificationModel();
     $contacts = $providers->getActiveProviders();
+    $month = date('m');
+    $yr = date('Y');
+    $days_no = cal_days_in_month(CAL_GREGORIAN, $month, $yr);
 
     foreach ($contacts as $contact) {
         $twodaysago = new DateTime('28 days ago');
@@ -37,5 +40,7 @@ function start_appt_notification()
             file_put_contents('/var/www/html/errors/appt_notification_error.txt', $e->getMessage(), FILE_APPEND);
         }
     }
+
+    $checkApptStatus->updateBackgroundServices($days_no);
 }
 

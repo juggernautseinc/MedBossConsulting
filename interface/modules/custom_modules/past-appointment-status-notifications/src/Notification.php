@@ -70,4 +70,11 @@ class Notification
         }
         return "SENT";
     }
+
+    public function updateBackgroundServices($days): void
+    {
+        $interval = $days * 1440;
+        $backfunc = 'start_appt_notification';
+        sqlStatement("UPDATE background_service SET exec_interval = ? WHERE function = ?", [$interval, $backfunc]);
+    }
 }
