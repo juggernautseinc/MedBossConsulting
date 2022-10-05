@@ -406,6 +406,7 @@ class InsuranceCompany extends ORDataObject
             "INNER JOIN addresses as a on p.id = a.foreign_id " . $city . " " . add_escape_custom($sort);
 
         //echo $sql . "<bR />";
+        file_put_contents('/var/www/html/errors/smarty.txt', $sql);
         $results = sqlQ($sql);
         //echo "sql: $sql";
         //print_r($results);
