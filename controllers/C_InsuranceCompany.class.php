@@ -9,7 +9,7 @@ class C_InsuranceCompany extends Controller
 
     function __construct($template_mod = "general")
     {
-        require_once "../library/classes/SmartyPaginate.class.php";
+        require_once __DIR__ . "/../library/classes/SmartyPaginate.class.php";
 
         parent::__construct();
         $this->icompanies = array();
