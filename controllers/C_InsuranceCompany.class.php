@@ -30,7 +30,7 @@ class C_InsuranceCompany extends Controller
         $this->assign("SUPPORT_ENCOUNTER_CLAIMS", $GLOBALS['support_encounter_claims']);
         $this->assign("SUPPORT_ELIGIBILITY_REQUESTS", $GLOBALS['enable_oa']);*/
         $this->InsuranceCompany = new InsuranceCompany();
-        echo $twig->render('insurance_companies');
+        echo $twig->render('insurance_companies/general_list.html.twig');
     }
 
     function default_action()
