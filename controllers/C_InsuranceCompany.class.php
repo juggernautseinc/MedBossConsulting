@@ -5,11 +5,13 @@ class C_InsuranceCompany extends Controller
 
     var $template_mod;
     var $icompanies;
+    var $paginate;
 
     function __construct($template_mod = "general")
     {
         parent::__construct();
         $this->icompanies = array();
+
         $this->template_mod = $template_mod;
         $this->assign("FORM_ACTION", $GLOBALS['webroot'] . "/controller.php?" . attr($_SERVER['QUERY_STRING']));
         $this->assign("CURRENT_ACTION", $GLOBALS['webroot'] . "/controller.php?" . "practice_settings&insurance_company&");
@@ -17,10 +19,18 @@ class C_InsuranceCompany extends Controller
         $this->assign("SUPPORT_ENCOUNTER_CLAIMS", $GLOBALS['support_encounter_claims']);
         $this->assign("SUPPORT_ELIGIBILITY_REQUESTS", $GLOBALS['enable_oa']);
         $this->InsuranceCompany = new InsuranceCompany();
+        $this->paginate = new SmartyPaginate();
+        //require connection
+        $this->paginate->connect();
+        //set items per page
+        $this->paginate->setLimit(25);
+
     }
 
     function default_action()
     {
+        $smarty = $this->list_action();
+        $this->paginate->assign($smarty);
         return $this->list_action();
     }
 
