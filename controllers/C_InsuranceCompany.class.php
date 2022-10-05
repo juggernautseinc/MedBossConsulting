@@ -1,5 +1,15 @@
 <?php
 
+/**
+ *  package OpenEMR
+ *  link    https://www.open-emr.org
+ *  author  Sherwin Gaddis <sherwingaddis@gmail.com>
+ *  Copyright (c) 2022.
+ *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
+ */
+
+use OpenEMR\Common\Twig\TwigContainer;
+
 class C_InsuranceCompany extends Controller
 {
 
@@ -8,15 +18,19 @@ class C_InsuranceCompany extends Controller
 
     function __construct($template_mod = "general")
     {
+        $twig = (new TwigContainer('', $GLOBALS['kernel']))->getTwig();
+
+
         parent::__construct();
         $this->icompanies = array();
-        $this->template_mod = $template_mod;
+        /*$this->template_mod = $template_mod;
         $this->assign("FORM_ACTION", $GLOBALS['webroot'] . "/controller.php?" . attr($_SERVER['QUERY_STRING']));
         $this->assign("CURRENT_ACTION", $GLOBALS['webroot'] . "/controller.php?" . "practice_settings&insurance_company&");
         $this->assign("STYLE", $GLOBALS['style']);
         $this->assign("SUPPORT_ENCOUNTER_CLAIMS", $GLOBALS['support_encounter_claims']);
-        $this->assign("SUPPORT_ELIGIBILITY_REQUESTS", $GLOBALS['enable_oa']);
+        $this->assign("SUPPORT_ELIGIBILITY_REQUESTS", $GLOBALS['enable_oa']);*/
         $this->InsuranceCompany = new InsuranceCompany();
+        echo $twig->render('insurance_companies');
     }
 
     function default_action()

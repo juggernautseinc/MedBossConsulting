@@ -1,0 +1,42 @@
+<a href="{$CURRENT_ACTION}action=edit" onclick="top.restoreSession()"
+   class="btn btn-secondary btn-add">
+    {{ 'Add a Company' | js_escape }}</a>
+    <br /><br />
+<div class="table-responsive">
+  <table class="table table-striped">
+      <thead>
+          <tr>
+              <th>{{ 'Name' | js_escape  }}</th>
+              <th>{{ 'Address' | js_escape  }}</th>
+              <th>{{ 'City, State, ZIP' | js_escape  }}</th>
+              <th>{{ 'Phone' | js_escape  }}</th>
+              <th>{{ 'Fax' | js_escape  }}</th>
+              <th>{{ 'Payer ID' | js_escape  }}</th>
+              <th>{{ 'Default X12 Partner' | js_escape  }}</th>
+              <th>{{ 'Deactivated' | js_escape  }}</th>
+          </tr>
+      </thead>
+      <tbody>
+          {foreach from=$icompanies item=insurancecompany}
+          <tr>
+              <td>
+                  <a href="{$CURRENT_ACTION}action=edit&id={$insurancecompany->id|attr_url}" onclick="top.restoreSession()">
+                      {$insurancecompany->name|text}
+                  </a>
+              </td>
+              <td>{$insurancecompany->address->line1|text} {$insurancecompany->address->line2|text}&nbsp;</td>
+              <td>{$insurancecompany->address->city|text} {$insurancecompany->address->state|upper|text} {$insurancecompany->address->zip|text}&nbsp;</td>
+              <td>{$insurancecompany->get_phone()|text}&nbsp;</td>
+              <td>{$insurancecompany->get_fax()|text}&nbsp;</td>
+              <td>{$insurancecompany->cms_id|text}&nbsp;</td>
+              <td>{$insurancecompany->get_x12_default_partner_name()|text}&nbsp;</td>
+              <td>{if $insurancecompany->get_inactive() eq 1}{'Yes'}{/if}&nbsp;</td>
+          </tr>
+          {foreachelse}
+          <tr>
+              <td colspan="8">{'No Insurance Companies Found'}</td>
+          </tr>
+          {/foreach}
+      </tbody>
+  </table>
+</div>
