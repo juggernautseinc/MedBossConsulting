@@ -391,7 +391,7 @@ class InsuranceCompany extends ORDataObject
         return ($pharmacy_array);
     }
 
-    function insurance_companies_factory($city = "", $sort = "ORDER BY name, id")
+    function insurance_companies_factory($city = "", $sort = "ORDER BY name, id LIMIT [1, 100]")
     {
         if (empty($city)) {
              $city = "";
