@@ -25,7 +25,7 @@ class C_InsuranceCompany extends Controller
         //require connection
         $this->paginate->connect();
         //set items per page
-        $this->paginate->setLimit(25);
+        $this->paginate->setLimit(50);
 
     }
 

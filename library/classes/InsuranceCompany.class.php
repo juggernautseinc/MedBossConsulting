@@ -391,12 +391,12 @@ class InsuranceCompany extends ORDataObject
         return ($pharmacy_array);
     }
 
-    function insurance_companies_factory($city = "", $sort = "ORDER BY name, id LIMIT 1, 100")
+    function insurance_companies_factory($city = "", $sort = "ORDER BY name, id LIMIT 1, 50")
     {
         if (empty($city)) {
              $city = "";
         } else {
-            $city = " WHERE city = '" . add_escape_custom($foreign_id) . "' LIMIT 1, 100";
+            $city = " WHERE city = '" . add_escape_custom($foreign_id) . "' LIMIT 1, 50";
         }
 
         $p = new InsuranceCompany();
