@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  *  package OpenEMR
  *  link    https://www.open-emr.org
  *  author  Sherwin Gaddis <sherwingaddis@gmail.com>
