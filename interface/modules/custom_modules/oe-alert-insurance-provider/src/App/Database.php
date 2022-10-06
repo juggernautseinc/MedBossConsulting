@@ -30,7 +30,7 @@ class Database
             "JOIN `transactions` ON `transactions`.`id` = `lbt_data`.`form_id` " .
             "WHERE `transactions`.`id` = `lbt_data`.`form_id` " .
             "AND (`lbt_data`.`field_id` = 'VAContact' OR `lbt_data`.`field_id` = 'VAPhone' OR `lbt_data`.`field_id` = 'VAEmail')" .
-            "AND `transactions`.`pid` = ?" .
+            "AND `transactions`.`pid` = ? " .
             "ORDER BY `transactions`.`id` DESC";
         $vaInfo = sqlStatement($sql, [$pid]);
          while ($row = sqlFetchArray($vaInfo)) {
