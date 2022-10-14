@@ -652,7 +652,11 @@ if (!$_REQUEST['flb_table']) {
                         <td class="detail text-center">
                             <?php
                                 echo '$' . $balance = get_patient_balance($appt_pid) . "<br>";
-                                $checkDate = sqlQuery("SELECT `end_date` FROM `module_prior_authorizations` WHERE pid = ?", [$appt_pid]);
+                                $checkDate = sqlQuery(
+                                        "SELECT `end_date` FROM `module_prior_authorizations` WHERE pid = ? " .
+                                        " ORDER BY end_date DESC ",
+                                        [$appt_pid]
+                                        );
                                 if (!empty($checkDate['end_date'])) {
                                     if ($checkDate['end_date'] < date('Y-m-d')) {
                                         echo "<span class='dot'></span>";
@@ -689,9 +693,6 @@ if (!$_REQUEST['flb_table']) {
                                          echo $copay;
                                      }
 
-                                    /*if ($appt_enc != 0) {
-                                        echo text($appt_enc);
-                                    }*/
                                 ?>
                             </td>
                         <?php } ?>
