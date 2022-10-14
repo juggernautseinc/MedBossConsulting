@@ -212,12 +212,8 @@ require_once("$srcdir/options.js.php");
     function sendTeleSMS(phone) {
         let btnClose = <?php echo xlj("Close"); ?>;
         let title = <?php echo xlj("Tele-Health Meeting Alert"); ?>;
-        if (phone.length >= 10) {
-            const url = top.webroot_url +
-                '/interface/modules/custom_modules/text-messaging-app/public/index.php/texting/sendTelehealthMessage';
-        } else {
-            alert('Please check phone number');
-        }
+        const url = top.webroot_url + '/interface/modules/custom_modules/text-messaging-app/public/index.php/texting/sendTelehealthMessage';
+
         // leave dialog name param empty so send dialogs can cascade.
         dlgopen(url, '', 'modal-md', 400, '', title, {
             buttons: [
