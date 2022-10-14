@@ -77,7 +77,7 @@ if ($days_deceased) { ?>
                    onclick="top.restoreSession()">
                    <?php echo xlt('NewCrop Account Status');?>
                 </a>
-            <!--<div id='accountstatus'></div>RP_MOVED-->
+
                 <?php
             } // eRX Enabled
             //Patient Portal
@@ -107,6 +107,7 @@ if ($days_deceased) { ?>
             }
                 if ($oefax) {
                     $getCell = sqlQuery("select phone_cell from patient_data where pid = ?", [$pid]);
+
                     ?>
                         <p style="padding-left: 30px">
                             <a class="btn btn-primary" onclick="sendTeleSMS('<?php echo $getCell['phone_cell'] ?>')">Send SmS</a>
