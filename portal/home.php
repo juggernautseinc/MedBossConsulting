@@ -107,7 +107,7 @@ function buildNav($newcnt, $pid, $result)
 {
     $navItems = [
         [
-            'url' => $GLOBALS['web_root'] . "capture/photo.php?source=$pid&d=".$_SESSION['site_id'],
+            'url' => $GLOBALS['web_root'] . "../capture/photo.php?source=$pid&d=".$_SESSION['site_id'],
             'label' => xl('Uploads'),
             'icon' => 'fa-book-medical',
             'dropdownID' => 'upload',
