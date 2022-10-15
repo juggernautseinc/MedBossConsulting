@@ -8,8 +8,6 @@
  *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  */
 
-$ignoreAuth = true;
-// Set $sessionAllowWrite to true to prevent session concurrency issues during authorization related code
 
 require_once dirname(__DIR__) . "/interface/globals.php";
 require_once "photo_inc.php";
@@ -48,11 +46,11 @@ if (!empty($_POST['imageFile']) && !empty($check_source)) {
     die($eMsg);
 }
 if (!empty($status)) {
-    send_staff_email($subject, $body, $attachment);
+    sendStaffEmail($subject, $body, $attachment);
 }
 
 
-function send_staff_email($subject, $body, $attachment): void
+function sendStaffEmail($subject, $body, $attachment): void
 {
     $recipient = $GLOBALS['practice_return_email_path'];
     if (empty($recipient)) {
