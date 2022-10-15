@@ -8,7 +8,6 @@
  *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  */
 
-$ignoreAuth = true;
 
 require_once dirname(__FILE__) . "/../interface/globals.php";
 require_once "photo_inc.php";
