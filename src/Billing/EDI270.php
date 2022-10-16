@@ -857,7 +857,7 @@ MIMEBODY;
         $response = oeHttp::bodyFormat('body')
             //->setDebug('5000')/* @todo uncomment and set proxy port to debug eg Fiddler */
             ->usingHeaders($headers)
-            ->post('webservices.capario.net/capariodataws/CAQH_CORE_Servlet_2_2_0', $mime_body); // @TODO put request urls in x12 partner's for versatility.
+            ->post('https://wsd.officeally.com/TransactionSite/rtx.aspx', $mime_body); // @TODO put request urls in x12 partner's for versatility.
 
         $formBody = $response->body();
         $contentType = $response->header('Content-Type')[0];
