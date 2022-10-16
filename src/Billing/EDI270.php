@@ -855,7 +855,7 @@ $x12_270
 MIMEBODY;
         // send the request
         $response = oeHttp::bodyFormat('body')
-            ->setDebug('5000')/* @todo uncomment and set proxy port to debug eg Fiddler */
+            //->setDebug('5000')/* @todo uncomment and set proxy port to debug eg Fiddler */
             ->usingHeaders($headers)
             ->post('https://wsd.officeally.com/TransactionSite/rtx.aspx', $mime_body); // @TODO put request urls in x12 partner's for versatility.
 
