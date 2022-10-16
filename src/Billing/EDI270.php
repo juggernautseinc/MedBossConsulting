@@ -46,13 +46,13 @@ class EDI270
         $ISA = array();
         $ISA[0] = "ISA"; // Interchange Control Header Segment ID
         $ISA[1] = "00";  // Author Info Qualifier
-        $ISA[2] = str_pad($X12info['x12_isa02'], 10, " ");        // Author Information
-        $ISA[3] = "01"; //   Security Information Qualifier
+        $ISA[2] = str_pad("0000000", 10, " ");        // Author Information
+        $ISA[3] = "00"; //   Security Information Qualifier
         //   MEDI-CAL NOTE: For Leased-Line & Dial-Up use '01',
         //   for BATCH use '00'.
         //   '00' No Security Information Present
         //   (No Meaningful Information in I04)
-        $ISA[4] = str_pad($X12info['x12_isa04'], 10, " ");         // Security Information
+        $ISA[4] = str_pad("0000000000", 10, " ");         // Security Information
         $ISA[5] = str_pad($X12info['x12_isa05'], 2, " ");              // Interchange ID Qualifier
         $ISA[6] = str_pad($X12info['x12_sender_id'], 15, " ");      // INTERCHANGE SENDER ID
         $ISA[7] = str_pad($X12info['x12_isa07'], 2, " ");              // Interchange ID Qualifier
@@ -340,7 +340,6 @@ class EDI270
         $PATEDI = "";
         // For Header Segment
         $nHlCounter = 1;
-        $overallCount = 1;
         $rowCount = 0;
         $trcNo = 1234501;
         $refiden = 5432101;
@@ -362,8 +361,6 @@ class EDI270
                 $PATEDI .= self::createNM1($row, '1P', $X12info, $segTer, $compEleSep);  // 5010 no longer uses FA
                 $nHlCounter = $nHlCounter + 2;
                 $segmentcount = 6; // segment counts - start from ST
-                $overallCounter = $overallCounter + 1;
-                $segmentcount = 2;
             }
             // For Subscriber Segment
             $PATEDI .= self::createHL($row, $nHlCounter, $X12info, $segTer, $compEleSep);
@@ -432,6 +429,9 @@ class EDI270
         $res = sqlStatement($query, array($pid));
 
         $details = self::requestRealTimeEligible($res, '', "~", ':', true);
+        if ($details === false) {
+            $details = "Error: Nothing returned from X12 Partner.";
+        }
         $isError = strpos($details, "Error:");
         $isError = $isError !== false ? $isError : strpos($details, "AAA");
         if ($isError !== false) {
@@ -448,7 +448,11 @@ class EDI270
     public static function requestRealTimeEligible($res, $X12info, $segTer, $compEleSep, $eFlag = false)
     {
         $rowCount = 0;
-        $totalCount = count($res);
+        if (is_countable($res)) {
+            $totalCount = count($res);
+        } else {
+            return false;
+        }
         $down_accum = $log = $error_accum = '';
         foreach ($res as $row) {
             if (!$X12info) {
@@ -528,8 +532,8 @@ class EDI270
         <thead>
             <th>" . text(xl('Facility Name')) . "</th>
             <th>" . text(xl('Facility NPI')) . "</th>
-            <th>" . text(xl('Primary Insurance')) . "</th>
-            <th>" . text(xl('Appointment Date')) . "</th>
+            <th>" . text(xl('Insurance Comp')) . "</th>
+            <th>" . text(xl('Appt Date')) . "</th>
             <th>" . text(xl('Policy No')) . "</th>
             <th>" . text(xl('Patient Name')) . "</th>
             <th>" . text(xl('DOB')) . "</th>
@@ -596,7 +600,7 @@ class EDI270
     public static function showEligibilityInformation($pid, $flag = false)
     {
         $query =
-            "SELECT DISTINCT eligr.*, eligv.insurance_id, eligv.copay, insd.pid, insc.name, " .
+            "SELECT eligr.*, eligv.insurance_id, eligv.copay, insd.pid, insc.name, " .
             "Date_Format(eligv.eligibility_check_date, '%W %M %e, %Y %h:%i %p') AS verificationDate " .
             "FROM eligibility_verification eligv " .
             "INNER JOIN benefit_eligibility eligr ON eligr.verification_id = eligv.verification_id " .
@@ -604,8 +608,7 @@ class EDI270
             "INNER JOIN insurance_companies insc ON insc.id = insd.provider " .
             "WHERE insd.pid = ? AND eligv.eligibility_check_date = " .
             "(SELECT Max(eligibility_verification.eligibility_check_date) FROM eligibility_verification " .
-            "WHERE eligibility_verification.insurance_id = eligv.insurance_id)".
-            "ORDER BY eligr.type, eligr.network_ind, eligr.coverage_level DESC, eligr.coverage_period, eligr.coverage_type"; //ALB Added ordering here
+            "WHERE eligibility_verification.insurance_id = eligv.insurance_id)";
         $result = sqlStatement($query, array($pid));
 
         $showString = "<div class='row'>";
@@ -648,10 +651,8 @@ class EDI270
             $showString .= !empty($benefit['plan_type']) ? "<b>" . xlt('Plan Type') . ":</b> " . text($benefit['plan_type']) . "<br />\n" : '';
             $showString .= !empty($benefit['plan_desc']) ? "<b>" . xlt('Plan Description') . ":</b> " . text(text($benefit['plan_desc'])) . "<br />\n" : '';
             $showString .= !empty($benefit['coverage_period']) ? "<b>" . xlt('Coverage Period') . ":</b> " . text($benefit['coverage_period']) . "<br />\n" : '';
-            //ALB Don't show amount for co-insurance, only percentage
-            $showString .= (!empty($benefit['amount']) && $benefit['type'] != 'A') ? "<b>" . xlt('Amount') . ":</b> " . text($benefit['amount']) . "<br />\n" : '';
-            //ALB Don't show percentage, except for co-insurance, also show as XX%
-            $showString .= (!empty($benefit['percent']) && $benefit['type'] == 'A') ? "<b>" . xlt('Percentage') . ":</b> " . text($benefit['percent']) . "<br />\n" : '';
+            $showString .= !empty($benefit['amount']) ? "<b>" . xlt('Amount') . ":</b> " . text($benefit['amount']) . "<br />\n" : '';
+            $showString .= !empty($benefit['percent']) ? "<b>" . xlt('Percentage') . ":</b> " . text($benefit['percent']) . "<br />\n" : '';
             $showString .= !empty($benefit['network_ind']) ? "<b>" . xlt('Network Indicator') . ":</b> " . text($benefit['network_ind']) . "<br />\n" : '';
             $showString .= !empty($benefit['message']) ? "<b>" . xlt('Message') . ":</b> " . text($benefit['message']) . "<br />\n" : '';
             $showString .= "</div>";
@@ -680,10 +681,9 @@ class EDI270
         $insurance_id = 0;
         $partner_id = $subscriber['isa_sender_id'];
         $patient_id = $subscriber['pid'];
-        $eligibility_date = substr($subscriber['verify_date'], 0, 10) ;//ALB Added this to only pull up current insurance
 
-        $query = "SELECT id, copay FROM insurance_data WHERE type = 'primary' and pid = ? and date <= ? order by date desc limit 1";
-        $insId = sqlQuery($query, array($patient_id, $eligibility_date));
+        $query = "SELECT id, copay FROM insurance_data WHERE type = 'primary' and pid = ?";
+        $insId = sqlQuery($query, array($patient_id));
         if ($insId !== false) {
             $insurance_id = $insId['id'];
             $copay = $insId['copay'];
@@ -772,15 +772,6 @@ class EDI270
         return $returnval;
     }
 
-// return formated array
-
-    public static function arrFormated(&$item, $key)
-    {
-        $item = strstr($item, '_');
-        $item = substr($item, 1, strlen($item) - 1);
-        $item = "'" . $item;
-    }
-
     public static function requestEligibility($partner = '', $x12_270 = '')
     {
         global $X12info;
@@ -804,7 +795,7 @@ class EDI270
         $now_date = date("Y-m-d\TH:i:s\Z");
         $headers = array(
             'Content-Type' => "multipart/form-data; boundary=$boundary",
-            'Host' => ' webservices.capario.net'
+            'Host' => ' wsd.officeally.com'
         );
 
 // IMPORTANT: Do not change the format of $mime_body below.
@@ -972,11 +963,6 @@ MIMEBODY;
                         $in['isa_sender_id'] = $elements[6];
                         $in['isa_receiver_id'] = $elements[8];
                         $in['isa_control_number'] = $elements[13];
-                        $in['isa_date'] = $elements[9];
-                        $in['isa_time'] = $elements[10];
-                        $el_date = substr($in['isa_date'], 2, 2) .'/'. substr($in['isa_date'], 4, 2) .'/'. substr($in['isa_date'],0,2);
-                        $el_time = substr($in['isa_time'], 0, 2) .':'. substr($in['isa_date'], 2, 2);
-                        $heading = "*** Eligibility Response received on " . $el_date . " at " . $el_time . " ***";
                         break;
 
                     case 'HL':
@@ -992,15 +978,12 @@ MIMEBODY;
                         } elseif ($loop['id'] === 2) { //"1P" or "FA"
                             $in['provider_org'] = $elements[3];
                             $in['provider_member_id'] = $elements[9];
-                        } elseif ($elements[1] == "IL" || $loop['context'] == "TRN") { //"IL" ALB - This is subscriber or Insured, but may be different from patient
+                        } elseif ($elements[1] == "IL" || $loop['context'] == "TRN") { //"IL"
                             $in['trace'] = $trace;
                             $in['subscriber_lname'] = $elements[3];
                             $in['subscriber_fname'] = $elements[4];
                             $in['subscriber_mname'] = $elements[5];
                             $in['subscriber_member_id'] = $elements[9];
-                            $in['lname'] = $elements[3]; //ALB Set the patient name to be that of subscriber, unless changed later for dependent
-                            $in['fname'] = $elements[4];
-                            $in['mname'] = $elements[5];
                             $in['verify_date'] = date('Y/m/d H:i:s');
                         }
                         $loop['context'] = $elements[0];
@@ -1015,10 +998,10 @@ MIMEBODY;
                         // 2100A-C should be done so get our patient id.
                         if (!(int)$in['pid']) {
                             $in['pid'] = (int)self::getPatientMatch(
-                                $in['fname'],
-                                $in['lname'],
-                                $in['sex'],
-                                $in['dob']
+                                $in['subscriber_fname'],
+                                $in['subscriber_lname'],
+                                $in['subscriber_sex'],
+                                $in['subscriber_dob']
                             );
                         }
                         break;
@@ -1029,13 +1012,12 @@ MIMEBODY;
                             break; // subscriber not set yet
                         }
                         $trace++;
-                        //ALB It appears that this is already being set below with segment SE; otherwise, it's set twice and results in 2 records for the patient
-                        //if ($in['pid']) {
-                        //    $in['benefits'] = $benefits ? $benefits : [];
-                        //    array_push($subscribers, $in);
-                        //    $loop['context'] = $elements[0];
-                        //    $benefits = [];
-                        //}
+                        if ($in['pid']) {
+                            $in['benefits'] = $benefits ? $benefits : [];
+                            array_push($subscribers, $in);
+                            $loop['context'] = $elements[0];
+                            $benefits = [];
+                        }
                         break;
 
                     case 'REF':
@@ -1043,8 +1025,8 @@ MIMEBODY;
                             $in['pid'] = (int)$elements[2];
                             if (!$in['pid']) {
                                 $in['pid'] = (int)self::getPatientMatch(
-                                    $in['fname'],
-                                    $in['lname'],
+                                    $in['subscriber_fname'],
+                                    $in['subscriber_lname'],
                                     $in['subscriber_sex'],
                                     $in['subscriber_dob']
                                 );
@@ -1069,24 +1051,6 @@ MIMEBODY;
                         break;
 
                     case 'EB':
-                        //ALB Next few lines is to separate various service types that are sent in one line with a ^ separator
-                        $subelements3 = explode("^", $elements[3]);
-                        $subcount = count($subelements3);
-                        $subelement3 = '';
-                        if ($subcount > 1) {
-                            for ($i = 0; $i < $subcount; $i++) {
-                                if (in_array($subelements3[i],array('30', '96', '98', 'DG'))) {
-                                    $subelement3 = $subelements3[i];
-                                }
-                            }
-                        }
-                        if ($subelement3 =='') $subelement3 = $elements[3];
-
-                        if (!in_array($subelement3,array('30', '96', '98', 'DG'))) break; //ALB Only limiting to Office visits/surgeries
-                        if ($elements[4] == 'MA') break; //ALB Skip Medicare part A
-
-                        //ALB Changed element[3] to subelement3 in case of multiple service types with a ^ separator
-
                         $eb = array(
                             'type' => $elements[1],
                             'benefit_type' => $codes->get_271_code("EB01", $elements[1]) ? $codes->get_271_code("EB01", $elements[1]) : $elements[1],
@@ -1130,7 +1094,6 @@ MIMEBODY;
                         }
                         $loop['context'] = $elements[0];
                         $benefits = [];
-                        $in = []; //ALB Added this to reset patient at the SE (Segment End) element
                         break;
 
                     case 'IEA':
@@ -1147,7 +1110,6 @@ MIMEBODY;
             }
             // some debug logging
             if (!$GLOBALS['disable_eligibility_log']) {
-                $log .= $heading; //ALB Changed this
                 $log .= "*------------------- " . xlt("271 Returned") . " --------------------*\n" . $new . "\n" . (isset($AAA[0]) ? (xlt("AAA Segments") . ":\n" . print_r($AAA, true)) : "\n") . $elog;
                 $log .= self::makeEligibilityReport($subscribers);
             }
@@ -1161,13 +1123,9 @@ MIMEBODY;
     {
         $binfo = '';
         foreach ($subscribers as $subscriber) {
-            $binfo .= l2br ("\r\n\r\n") . xlt("___________________________________________________________________________") . nl2br ("\r\n\r\n");
-
-            if (($subscriber['fname'] . " " . $subscriber['lname']) != ($subscriber['subscriber_fname'] . " " . $subscriber['subscriber_lname']))  {
-                $binfo .= xlt("Patient") . ": " . $subscriber['fname'] . " " . $subscriber['lname'] . " " . $subscriber['mname'] . nl2br ("\r\n");
-            }
-            $binfo .=  xlt("Subscriber Member") . ": " . $subscriber['subscriber_fname'] . " " . $subscriber['subscriber_lname'] . " " . $subscriber['subscriber_mname'] .
-                nl2br ("\r\n") . xlt("Member Id") . ": " . $subscriber['subscriber_member_id'] . nl2br ("\r\n");
+            $binfo .=
+                xlt("Subscriber Member") . ": " . $subscriber['subscriber_fname'] . " " . $subscriber['subscriber_lname'] . " " . $subscriber['subscriber_mname'] .
+                " " . xlt("Member Id") . ": " . $subscriber['subscriber_member_id'] . " ---*\n";
             $cnt = count($subscriber['benefits']);
             if ($cnt < 1) {
                 $binfo .= "*** " . xlt("Nothing returned to report") . " ***\n";
