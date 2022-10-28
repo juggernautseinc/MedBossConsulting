@@ -170,11 +170,11 @@ if (!empty($_POST['form_csvexport'])) {
 <table class='table'>
 
  <thead class='thead-light'>
- <th class="text-left"> <?php echo xlt('Primary Insurance'); ?> </th>
- <th class='text-right'> <?php echo xlt('Charges'); ?> </th>
- <th class='text-right'> <?php echo xlt('Visits'); ?> </th>
- <th class='text-right'> <?php echo xlt('Patients'); ?> </th>
- <th class='text-right'> <?php echo xlt('Pt %'); ?> </th>
+ <th> <?php echo xlt('Primary Insurance'); ?> </th>
+ <th> <?php echo xlt('Charges'); ?> </th>
+ <th> <?php echo xlt('Visits'); ?> </th>
+ <th> <?php echo xlt('Patients'); ?> </th>
+ <th> <?php echo xlt('Pt %'); ?> </th>
  </thead>
  <tbody>
     <?php
