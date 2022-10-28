@@ -137,7 +137,7 @@ if (!empty($_POST['form_csvexport'])) {
     </div>
 
   </td>
-  <td class='h-100' align='left' valign='middle'>
+  <td class='h-100' valign='middle'>
     <table class='w-100 h-100' style='border-left:1px solid;'>
         <tr>
             <td>
@@ -231,16 +231,16 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_csvexport'])) {
       <td>
             <?php echo text($key); ?>
   </td>
-  <td align='right'>
+  <td >
             <?php echo text(oeFormatMoney($val['charges'])); ?>
   </td>
-  <td align='right'>
+  <td>
             <?php echo text($val['visits']); ?>
   </td>
-  <td align='right'>
+  <td>
             <?php echo text($val['patients']); ?>
   </td>
-  <td align='right'>
+  <td>
             <?php printf("%.1f", $val['patients'] * 100 / $patcount) ?>
   </td>
  </tr>
