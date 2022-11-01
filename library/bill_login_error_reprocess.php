@@ -44,7 +44,7 @@ function authenticationChecker() :void
     $port = 22;
 
     fwrite(STDOUT, "Connecting to [${host}] ...\n");
-    $client = new SFTPClient($host, $port);
+    $client = new X12SFTPClient($host, $port);
     $client->auth_password($user, $pass);
 
     fwrite(STDOUT, "Disconnecting from [${host}] ...\n");
