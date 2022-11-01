@@ -126,7 +126,7 @@ class X12RemoteTracker extends BaseService
     public static function sftpSendLoginErrorFiles()
     {
         $remoteTracker = new X12RemoteTracker();
-        $x12_remotes = $remoteTracker->fetchByStatus(self::STATUS_LOGIN_ERROR);
+        $x12_remotes = $remoteTracker->fetchByStatus($status = self::STATUS_LOGIN_ERROR);
         var_dump($x12_remotes); die;
         $x12_remote['messages'] = [];
         $cryptoGen = new CryptoGen();
