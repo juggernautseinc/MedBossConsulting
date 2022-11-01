@@ -19,9 +19,10 @@ class X12SFTPClient
         $password
     )
     {
+        $credentials = $username . ":" . $password;
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $host);
-        curl_setopt($curl, CURLOPT_USERPWD, $username . ":" . $password);
+        curl_setopt($curl, CURLOPT_URL, "ftp://" . $host);
+        curl_setopt($curl, CURLOPT_USERPWD, $credentials);
         curl_exec($curl);
         if (!curl_errno($curl)) {
             $info = curl_getinfo($curl);
