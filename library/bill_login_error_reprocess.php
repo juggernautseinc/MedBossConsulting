@@ -41,7 +41,8 @@ function authenticationChecker() :void
     $port = 22;
 
     $client = new X12SFTPClient($host['path'], $user['x12_sftp_login'], $pass);
-    var_dump($client);
+    print_r($client, true);
+
 
 }
 
