@@ -35,9 +35,11 @@ function authenticationChecker() :void
     }
 
     // Get user name and password
-    echo $user = X12SFTPClient::x12Username() ?? null;
+    $user = X12SFTPClient::x12Username() ?? null;
+    echo $user;
     $xPass = X12SFTPClient::x12Password() ?? null;
-    echo $pass = $cryptgen->decryptStandard($xPass);
+    $pass = $cryptgen->decryptStandard($xPass);
+    echo $pass;
 
 }
 
