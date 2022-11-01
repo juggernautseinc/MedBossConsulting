@@ -44,7 +44,7 @@ function authenticationChecker() :void
 }
 
     //X12RemoteTracker::sftpSendLoginErrorFiles();
-
+authenticationChecker();
 
 
 echo "Sent! Refresh the claim tracker page. ";
