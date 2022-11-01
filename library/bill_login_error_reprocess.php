@@ -36,10 +36,10 @@ function authenticationChecker() :void
 
     // Get user name and password
     $user = X12SFTPClient::x12Username() ?? null;
-    echo $user;
+    echo $user['x12_sftp_login'] . 'is';
     $xPass = X12SFTPClient::x12Password() ?? null;
-    $pass = $cryptgen->decryptStandard($xPass);
-    echo $pass;
+    $pass = $cryptgen->decryptStandard($xPass['x12_sftp_pass']);
+    echo $pass . 'here';
 
 }
 
