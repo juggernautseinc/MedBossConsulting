@@ -25,10 +25,10 @@ class TemplateProcessor
     public function __construct($appointmentData)
     {
         $this->status = ['+', '?', 'x'];
-        $this->data = $appointmentData;
-        $this->pid = $appointmentData['form_pid'];
-        $this->title = $appointmentData['form_title'];
-        $this->apptStatus = $appointmentData['form_apptstatus'];
+        $this->data = $appointmentData ?? null;
+        $this->pid = $appointmentData['form_pid'] ?? null;
+        $this->title = $appointmentData['form_title'] ?? null;
+        $this->apptStatus = $appointmentData['form_apptstatus'] ?? null;
 
     }
 
