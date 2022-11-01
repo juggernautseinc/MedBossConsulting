@@ -39,8 +39,10 @@ function authenticationChecker() :void
     // Parse Host and Port
     $host = $parsed_url ?? null;
     $port = 22;
-
-    $client = new X12SFTPClient($host, $user, $pass);
+var_dump($host);
+var_dump($pass);
+var_dump($user); die;
+    $client = new X12SFTPClient($host, $user['x12_sftp_login'], $pass);
     var_dump($client);
 
 }
