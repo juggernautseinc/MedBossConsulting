@@ -149,7 +149,7 @@ class X12RemoteTracker extends BaseService
             $claim_file_contents = file_get_contents($claim_file);
             if (false === $claim_file_contents) {
                 $x12_remote['status'] = self::STATUS_CLAIM_FILE_ERROR;
-                $x12_remote['messages'] = "Could not open local claim file: `$claim_file`";
+                $x12_remote['messages'][] = "Could not open local claim file: `$claim_file`";
                 $remoteTracker->update($x12_remote);
                 continue;
             }
@@ -159,7 +159,7 @@ class X12RemoteTracker extends BaseService
             $decrypted_password = $cryptoGen->decryptStandard($x12_remote['x12_sftp_pass']);
             if (false === $sftp->login($x12_remote['x12_sftp_login'], $decrypted_password)) {
                 $x12_remote['status'] = self::STATUS_LOGIN_ERROR;
-                $x12_remote['messages'] = "Invalid Username or Password.";
+                $x12_remote['messages'][] = "Invalid Username or Password.";
                 $x12_remote['messages'] = array_merge($x12_remote['messages'], $sftp->getSFTPErrors());
                 $remoteTracker->update($x12_remote);
                 continue;
