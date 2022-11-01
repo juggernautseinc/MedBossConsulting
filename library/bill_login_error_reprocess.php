@@ -18,9 +18,12 @@ require_once dirname(__FILE__, 2) . '/interface/globals.php';
 
 use OpenEMR\Billing\BillingProcessor\X12RemoteTracker;
 use OpenEMR\Billing\X12SFTPClient;
+use OpenEMR\Common\Crypto\CryptoGen;
 
 function authenticationChecker() :void
 {
+    $cryptgen = new CryptoGen();
+
     $raw_url = X12SFTPClient::x12Url();
     // Parse URL
     $parsed_url = parse_url($raw_url);
@@ -30,6 +33,12 @@ function authenticationChecker() :void
         fwrite(STDERR, "Failed to parse SFTP To Go URL.\n");
         exit(1);
     }
+
+    // Get user name and password
+    echo $user = X12SFTPClient::x12Username() ?? null;
+    $xPass = X12SFTPClient::x12Password() ?? null;
+    echo $pass = $cryptgen->decryptStandard($xPass);
+
 }
 
     //X12RemoteTracker::sftpSendLoginErrorFiles();
