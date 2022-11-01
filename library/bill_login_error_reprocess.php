@@ -28,7 +28,7 @@ function authenticationChecker() :void
     // Parse URL
     $parsed_url = parse_url($raw_url['x12_sftp_host']);
 
-    if($parsed_url === false)
+    if ($parsed_url === false)
     {
         fwrite(STDERR, "Failed to parse SFTP To Go URL.\n");
         exit(1);
@@ -36,10 +36,19 @@ function authenticationChecker() :void
 
     // Get user name and password
     $user = X12SFTPClient::x12Username() ?? null;
-    echo $user['x12_sftp_login'] . 'is';
     $xPass = X12SFTPClient::x12Password() ?? null;
     $pass = $cryptgen->decryptStandard($xPass['x12_sftp_pass']);
-    echo $pass . 'here';
+
+    // Parse Host and Port
+    $host = $parsed_url ?? null;
+    $port = 22;
+
+    fwrite(STDOUT, "Connecting to [${host}] ...\n");
+    $client = new SFTPClient($host, $port);
+    $client->auth_password($user, $pass);
+
+    fwrite(STDOUT, "Disconnecting from [${host}] ...\n");
+    $client->disconnect();
 
 }
 
