@@ -18,7 +18,12 @@ require_once dirname(__FILE__, 2) . '/interface/globals.php';
 
 use OpenEMR\Billing\BillingProcessor\X12RemoteTracker;
 
+try {
+    X12RemoteTracker::sftpSendLoginErrorFiles();
+} catch (Exception $e) {
+    echo "There was a error: " . $e->getMessage();
+    die;
+}
 
-$task = X12RemoteTracker::sftpSendLoginErrorFiles();
 
 echo "Sent! Refresh the claim tracker page. ";
