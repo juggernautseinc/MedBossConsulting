@@ -26,7 +26,7 @@ function authenticationChecker() :void
 
     $raw_url = X12SFTPClient::x12Url();
     // Parse URL
-    $parsed_url = parse_url($raw_url);
+    $parsed_url = parse_url($raw_url['x12_sftp_host']);
 
     if($parsed_url === false)
     {
