@@ -22,7 +22,7 @@ class X12SFTPClient
         $info = '';
         $credentials = $username . ":" . $password;
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, "ftp://" . $host);
+        curl_setopt($curl, CURLOPT_URL, "sftp://" . $host);
         curl_setopt($curl, CURLOPT_USERPWD, $credentials);
         curl_exec($curl);
         if (!curl_errno($curl)) {
