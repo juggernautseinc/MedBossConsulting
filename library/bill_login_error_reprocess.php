@@ -17,13 +17,23 @@ error_reporting(E_ALL);
 require_once dirname(__FILE__, 2) . '/interface/globals.php';
 
 use OpenEMR\Billing\BillingProcessor\X12RemoteTracker;
+use OpenEMR\Billing\X12SFTPClient;
 
-try {
-    X12RemoteTracker::sftpSendLoginErrorFiles();
-} catch (Exception $e) {
-    echo "There was a error: " . $e->getMessage();
-    die;
+function authenticationChecker() :void
+{
+    $raw_url = X12SFTPClient::x12Url();
+    // Parse URL
+    $parsed_url = parse_url($raw_url);
+
+    if($parsed_url === false)
+    {
+        fwrite(STDERR, "Failed to parse SFTP To Go URL.\n");
+        exit(1);
+    }
 }
+
+    //X12RemoteTracker::sftpSendLoginErrorFiles();
+
 
 
 echo "Sent! Refresh the claim tracker page. ";
