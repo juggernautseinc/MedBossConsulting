@@ -27,6 +27,8 @@ class X12SFTPClient
         curl_exec($curl);
         if (!curl_errno($curl)) {
             $info = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        } else {
+            print curl_error();
         }
         curl_close($curl);
         return $info;
