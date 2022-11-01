@@ -15,9 +15,9 @@ class X12SFTPClient
     private $connection;
     private $sftp;
 
-    public function __construct($host, $port=22)
+    public function __construct($host, $port = 22)
     {
-        $this->connection = @ssh2_connect($host, $port);
+        $this->connection = ssh2_connect($host, $port);
         if (! $this->connection)
             throw new Exception("Failed to connect to ${host} on port ${port}.");
     }
@@ -25,11 +25,16 @@ class X12SFTPClient
     // Login with user and password
     public function auth_password($username, $password)
     {
-        if (! @ssh2_auth_password($this->connection, $username, $password))
+        if (! ssh2_auth_password(
+            $this->connection,
+            $username,
+            $password
+            )
+        )
             throw new Exception("Failed to authenticate with username $username " .
                 "and password.");
 
-        $this->sftp = @ssh2_sftp($this->connection);
+        $this->sftp = ssh2_sftp($this->connection);
         if (! $this->sftp)
             throw new Exception("Could not initialize SFTP subsystem.");
     }

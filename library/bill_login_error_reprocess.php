@@ -20,6 +20,7 @@ use OpenEMR\Billing\BillingProcessor\X12RemoteTracker;
 use OpenEMR\Billing\X12SFTPClient;
 use OpenEMR\Common\Crypto\CryptoGen;
 
+const STDOUT = 'php://output';
 function authenticationChecker() :void
 {
     $cryptgen = new CryptoGen();
