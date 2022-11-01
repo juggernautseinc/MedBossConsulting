@@ -25,7 +25,7 @@ class X12SFTPClient
         curl_setopt($curl, CURLOPT_USERPWD, $credentials);
         curl_exec($curl);
         if (!curl_errno($curl)) {
-            $info = curl_getinfo($curl);
+            $info = curl_getinfo($curl, CURLINFO_HTTP_CODE);
             var_dump($info);
         }
         curl_close($curl);
