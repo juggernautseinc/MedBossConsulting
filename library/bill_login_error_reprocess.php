@@ -20,7 +20,5 @@ use OpenEMR\Billing\BillingProcessor\X12RemoteTracker;
 
 
 $task = X12RemoteTracker::sftpSendLoginErrorFiles();
-if (isset($task)) {
-    die($task);
-}
+
 echo "Sent! Refresh the claim tracker page. ";
