@@ -31,6 +31,5 @@ function resetClaimStatus() :string
     if ($client == 'success') {
         return 'Passed';
     }
-        return '<button class="btn-danger">Failed to connect to SFTP host</button>';
-
+        return '<button class="btn-danger">'. xlt('Failed to connect to SFTP host') . '</button>';
 }

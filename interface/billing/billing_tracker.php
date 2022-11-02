@@ -189,9 +189,6 @@ use OpenEMR\OeUI\OemrUI;
                 require_once __DIR__ . "/../../library/bill_login_error_reprocess.php";
                 echo resetClaimStatus();
             ?>
-
-
-
         </div>
     </div>
 </body>
