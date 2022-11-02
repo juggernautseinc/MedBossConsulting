@@ -25,6 +25,7 @@ class X12ClaimRepost
         if (false === $connection->login($username, $password)) {
             return 'failed';
         }
+        return 'success';
     }
 
     public static function x12Url()
