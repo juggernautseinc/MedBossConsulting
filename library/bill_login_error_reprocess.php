@@ -21,17 +21,13 @@ function resetClaimStatus() :void
 {
     $cryptgen = new CryptoGen();
 
-    $raw_url = X12ClaimRepost::x12Url();
-    // Parse URL
-    $parsed_url = parse_url($raw_url['x12_sftp_host']);
-
     // Get user name and password
+    $host = X12ClaimRepost::x12Url() ?? null;
     $user = X12ClaimRepost::x12Username() ?? null;
     $xPass = X12ClaimRepost::x12Password() ?? null;
     $pass = $cryptgen->decryptStandard($xPass['x12_sftp_pass']);
 
     // Parse Host and Port
-    $host = $parsed_url ?? null;
 
     $client = new X12ClaimRepost($host['path'], $user['x12_sftp_login'], $pass);
 
