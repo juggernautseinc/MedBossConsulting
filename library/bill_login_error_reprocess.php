@@ -14,15 +14,14 @@ error_reporting(E_ALL);
 
 require_once dirname(__FILE__, 2) . '/interface/globals.php';
 
-use OpenEMR\Billing\BillingProcessor\X12RemoteTracker;
-use OpenEMR\Billing\X12SFTPClient;
+use OpenEMR\Billing\X12ClaimRepost;
 use OpenEMR\Common\Crypto\CryptoGen;
 
-function authenticationChecker() :void
+function resetClaimStatus() :void
 {
     $cryptgen = new CryptoGen();
 
-    $raw_url = X12SFTPClient::x12Url();
+    $raw_url = X12ClaimRepost::x12Url();
     // Parse URL
     $parsed_url = parse_url($raw_url['x12_sftp_host']);
 
@@ -32,23 +31,18 @@ function authenticationChecker() :void
     }
 
     // Get user name and password
-    $user = X12SFTPClient::x12Username() ?? null;
-    $xPass = X12SFTPClient::x12Password() ?? null;
+    $user = X12ClaimRepost::x12Username() ?? null;
+    $xPass = X12ClaimRepost::x12Password() ?? null;
     $pass = $cryptgen->decryptStandard($xPass['x12_sftp_pass']);
 
     // Parse Host and Port
     $host = $parsed_url ?? null;
-    $port = 22;
 
-    $client = new X12SFTPClient($host['path'], $user['x12_sftp_login'], $pass);
-    print_r($client, true);
+    $client = new X12ClaimRepost($host['path'], $user['x12_sftp_login'], $pass);
 
-
+    X12ClaimRepost::updateStatus();
 }
 
-    //X12RemoteTracker::sftpSendLoginErrorFiles();
-authenticationChecker();
+resetClaimStatus();
 
-
-echo "Sent! Refresh the claim tracker page. ";
 

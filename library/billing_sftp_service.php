@@ -27,6 +27,4 @@ function start_X12_SFTP()
 }
 
 start_X12_SFTP();
-echo "Sent! Refresh the claim tracker page. ";
 
-//echo "<html><script> window.close(); </script></html>";

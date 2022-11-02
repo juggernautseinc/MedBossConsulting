@@ -11,14 +11,20 @@
 namespace OpenEMR\Billing;
 
 
-class X12SFTPClient
+class X12ClaimRepost
 {
+    /**
+     * @throws GuzzleException
+     */
     public function __construct(
         $host,
         $username,
         $password
     )
     {
+        /**
+         * Test the SFTP connection to see if it is working properly
+         */
         $info = '';
         $credentials = $username . ":" . $password;
         $curl = curl_init();
@@ -34,18 +40,23 @@ class X12SFTPClient
         return $info;
     }
 
-    public static function x12Url()
+    public static function x12Url(): bool|array|null
     {
         return sqlQuery('SELECT x12_sftp_host FROM x12_partners WHERE id = 4');
     }
 
-    public static function x12Username()
+    public static function x12Username(): bool|array|null
     {
         return sqlQuery('SELECT x12_sftp_login FROM x12_partners WHERE id = 4');
     }
-    public static function x12Password()
+    public static function x12Password(): bool|array|null
     {
         return sqlQuery('SELECT x12_sftp_pass FROM x12_partners WHERE id = 4');
+    }
+
+    public static function updateStatus(): void
+    {
+        sqlQuery("UPDATE `x12_remote_tracker` SET status = 'waiting' WHERE `status` != 'success' ");
     }
 }
 
