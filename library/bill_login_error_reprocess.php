@@ -14,7 +14,7 @@ require_once dirname(__FILE__, 2) . '/interface/globals.php';
 use OpenEMR\Billing\X12ClaimRepost;
 use OpenEMR\Common\Crypto\CryptoGen;
 
-function resetClaimStatus() :void
+function resetClaimStatus() :string
 {
     $cryptgen = new CryptoGen();
 
@@ -29,12 +29,8 @@ function resetClaimStatus() :void
     $client = new X12ClaimRepost($host['path'], $user['x12_sftp_login'], $pass);
 
     if ($client == 'success') {
-        echo 'Passed';
-    } else {
-        echo 'Failed to connect to SFTP host';
+        return 'Passed';
     }
-    //X12ClaimRepost::updateStatus();
+        return '<button class="btn-danger">Failed to connect to SFTP host</button>';
+
 }
-
-
-
