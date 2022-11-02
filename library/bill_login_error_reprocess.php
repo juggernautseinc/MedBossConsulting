@@ -25,7 +25,7 @@ function resetClaimStatus() :void
     $host = X12ClaimRepost::x12Url() ?? null;
     $user = X12ClaimRepost::x12Username() ?? null;
     $xPass = X12ClaimRepost::x12Password() ?? null;
-    $pass = $cryptgen->decryptStandard($xPass['x12_sftp_pass']);
+    $pass = $cryptgen->decryptStandard($xPass['x12_sftp_pass']) ?? null;
 
     // Parse Host and Port
 
