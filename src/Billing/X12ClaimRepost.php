@@ -10,7 +10,6 @@
 
 namespace OpenEMR\Billing;
 
-use Exception;
 use phpseclib\Net\SFTP;
 
 class X12ClaimRepost
