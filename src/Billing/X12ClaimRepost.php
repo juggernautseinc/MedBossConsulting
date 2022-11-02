@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  *  package OpenEMR
  *  link    https://www.open-emr.org
  *  author  Sherwin Gaddis <sherwingaddis@gmail.com>
@@ -10,11 +10,16 @@
 
 namespace OpenEMR\Billing;
 
+use Exception;
 use phpseclib\Net\SFTP;
 
 class X12ClaimRepost
 {
+    private $connection;
 
+    /**
+     * @throws Exception
+     */
     public function __construct(
         $host,
         $username,
@@ -23,10 +28,14 @@ class X12ClaimRepost
     )
     {
         $connection = new SFTP($host, $port);
-        if (false === $connection->login($username, $password)) {
-            return 'failed';
+        try {
+            $connection->login($username, $password);
+        } catch (Exception $e) {
+            echo $e->getMessage();
         }
-        return 'success';
+        /*if (false === $connection->login($username, $password)) {
+            throw new Exception("Failed to connection to host");
+        }*/
     }
 
     public static function x12Url()
