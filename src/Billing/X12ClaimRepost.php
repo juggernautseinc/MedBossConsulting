@@ -10,8 +10,8 @@
 
 namespace OpenEMR\Billing;
 
-
 use Exception;
+use phpseclib\Net\SFTP;
 
 class X12ClaimRepost
 {
@@ -23,11 +23,12 @@ class X12ClaimRepost
     public function __construct(
         $host,
         $username,
-        $password
+        $password,
+        $port = 22
     )
     {
-        $this->connection = ssh2_connect($host);
-        if (! $this->connection) {
+        $connection = new SFTP($host, $port);
+        if (false === $connection->login($username, $password)) {
             throw new Exception("Failed to connection to host");
         }
 
