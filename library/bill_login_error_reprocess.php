@@ -25,11 +25,6 @@ function resetClaimStatus() :void
     // Parse URL
     $parsed_url = parse_url($raw_url['x12_sftp_host']);
 
-    if ($parsed_url === false)
-    {
-        exit("Failed to parse SFTP To Go URL.\n");
-    }
-
     // Get user name and password
     $user = X12ClaimRepost::x12Username() ?? null;
     $xPass = X12ClaimRepost::x12Password() ?? null;
