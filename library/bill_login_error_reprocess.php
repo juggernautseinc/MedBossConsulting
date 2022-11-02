@@ -40,7 +40,11 @@ function resetClaimStatus() :void
 
     $client = new X12ClaimRepost($host['path'], $user['x12_sftp_login'], $pass);
 
-
+    if ($client == 'success') {
+        echo 'Passed';
+    } else {
+        echo 'Failed to connect';
+    }
     //X12ClaimRepost::updateStatus();
 }
 
