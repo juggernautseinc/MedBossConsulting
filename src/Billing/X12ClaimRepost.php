@@ -26,7 +26,7 @@ class X12ClaimRepost
         $password
     )
     {
-        $this->connection = @ssh2_connect($host);
+        $this->connection = ssh2_connect($host);
         if (! $this->connection) {
             throw new Exception("Failed to connection to host");
         }
