@@ -43,11 +43,10 @@ function resetClaimStatus() :void
     if ($client == 'success') {
         echo 'Passed';
     } else {
-        echo 'Failed to connect';
+        echo 'Failed to connect to SFTP host';
     }
     //X12ClaimRepost::updateStatus();
 }
 
-resetClaimStatus();
 
 
