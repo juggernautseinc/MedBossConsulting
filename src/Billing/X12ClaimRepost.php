@@ -31,7 +31,7 @@ class X12ClaimRepost
         try {
             $connection->login($username, $password);
         } catch (Exception $e) {
-            echo $e->getMessage();
+            echo 'failed'; //$e->getMessage();
         }
         /*if (false === $connection->login($username, $password)) {
             throw new Exception("Failed to connection to host");
