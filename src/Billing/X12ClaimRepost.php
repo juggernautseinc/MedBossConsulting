@@ -23,7 +23,7 @@ class X12ClaimRepost
     public function __construct(
         $host,
         $username,
-        $password,
+        $password
     )
     {
         $this->connection = @ssh2_connect($host);
