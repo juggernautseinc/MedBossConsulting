@@ -34,16 +34,16 @@ class X12ClaimRepost
 
     }
 
-    public static function x12Url(): bool|array|null
+    public static function x12Url()
     {
         return sqlQuery('SELECT x12_sftp_host FROM x12_partners WHERE id = 4');
     }
 
-    public static function x12Username(): bool|array|null
+    public static function x12Username()
     {
         return sqlQuery('SELECT x12_sftp_login FROM x12_partners WHERE id = 4');
     }
-    public static function x12Password(): bool|array|null
+    public static function x12Password()
     {
         return sqlQuery('SELECT x12_sftp_pass FROM x12_partners WHERE id = 4');
     }
