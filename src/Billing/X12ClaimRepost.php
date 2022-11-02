@@ -11,33 +11,27 @@
 namespace OpenEMR\Billing;
 
 
+use Exception;
+
 class X12ClaimRepost
 {
+    private $connection;
+
     /**
-     * @throws GuzzleException
+     * @throws Exception
      */
     public function __construct(
         $host,
         $username,
-        $password
+        $password,
     )
     {
-        /**
-         * Test the SFTP connection to see if it is working properly
-         */
-        $info = '';
-        $credentials = $username . ":" . $password;
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, "sftp://" . $host);
-        curl_setopt($curl, CURLOPT_USERPWD, $credentials);
-        curl_exec($curl);
-        if (!curl_errno($curl)) {
-            $info = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        } else {
-            print curl_error($curl);
+        $this->connection = @ssh2_connect($host);
+        if (! $this->connection) {
+            throw new Exception("Failed to connection to host");
         }
-        curl_close($curl);
-        return $info;
+
+
     }
 
     public static function x12Url(): bool|array|null
@@ -56,7 +50,7 @@ class X12ClaimRepost
 
     public static function updateStatus(): void
     {
-        sqlQuery("UPDATE `x12_remote_tracker` SET status = 'waiting' WHERE `status` != 'success' ");
+        sqlQuery("UPDATE `x12_remote_tracker` SET status = 'waiting' WHERE `status` = 'login-error' ");
     }
 }
 
