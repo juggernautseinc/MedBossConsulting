@@ -40,7 +40,7 @@ function resetClaimStatus() :void
 
     $client = new X12ClaimRepost($host['path'], $user['x12_sftp_login'], $pass);
 
-    echo $client;
+
     //X12ClaimRepost::updateStatus();
 }
 
