@@ -28,14 +28,10 @@ class X12ClaimRepost
     )
     {
         $connection = new SFTP($host, $port);
-        try {
-            $connection->login($username, $password);
-        } catch (Exception $e) {
-            echo 'failed'; //$e->getMessage();
+
+        if (false === $connection->login($username, $password)) {
+            //throw new Exception("Failed to connection to host");
         }
-        /*if (false === $connection->login($username, $password)) {
-            throw new Exception("Failed to connection to host");
-        }*/
     }
 
     public static function x12Url()
