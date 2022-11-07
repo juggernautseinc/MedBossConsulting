@@ -19,9 +19,8 @@ use OpenEMR\Core\Header;
 $genDatapoints = new MonthlyIncomeDataPoints();
 $insurersId = 106;
 $dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
+echo "<pre>"; var_dump($dataPointsToDisplay); echo "</pre>";
 
-$points = implode(",", $dataPointsToDisplay);
-print_r($points, true);
 ?>
 
 <!doctype html>
