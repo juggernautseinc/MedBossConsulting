@@ -109,6 +109,30 @@ var_dump($beginningDepositDate . $endingDepositDate . $insurersId); echo "<br>";
                 $depositArray[] = date('Y') . '-07-31';
                 return $depositArray;
 
+            case 8:
+                $depositArray[] = date('Y') . '-08-01';
+                $depositArray[] = date('Y') . '-08-31';
+                return $depositArray;
+
+            case 9:
+                $depositArray[] = date('Y') . '-09-01';
+                $depositArray[] = date('Y') . '-09-30';
+                return $depositArray;
+
+            case 10:
+                $depositArray[] = date('Y') . '-10-01';
+                $depositArray[] = date('Y') . '-10-31';
+                return $depositArray;
+
+            case 11:
+                $depositArray[] = date('Y') . '-11-01';
+                $depositArray[] = date('Y') . '-11-30';
+                return $depositArray;
+
+            case 12:
+                $depositArray[] = date('Y') . '-12-01';
+                $depositArray[] = date('Y') . '-12-31';
+                return $depositArray;
             default:
                 return xlt('Error finding deposit date array');
         }
