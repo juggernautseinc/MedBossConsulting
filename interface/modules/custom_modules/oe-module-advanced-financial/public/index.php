@@ -40,6 +40,15 @@ $points .= $dataPointsToDisplay;
 
     <div class="container-lg mt-5">
         <h2 class="m-4"><?php echo xlt('Insurance Monthly Income'); ?></h2>
+        <form class="m-4 form">
+            <select name="icompany" class="select2-search--dropdown">
+                <?php
+                        $companies = $genDatapoints->insuranceCompanies();
+                        var_dump($companies);
+                ?>
+
+            </select>
+        </form>
         <div id="graphdiv">
         </div>
 		<div class="mt-5">

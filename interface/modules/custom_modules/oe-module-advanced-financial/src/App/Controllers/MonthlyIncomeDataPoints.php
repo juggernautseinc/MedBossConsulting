@@ -143,4 +143,14 @@ class MonthlyIncomeDataPoints
                 return xlt('Error finding deposit date array');
         }
     }
+
+    public function insuranceCompanies(): array
+    {
+        $list = [];
+        $sql = 'SELECT DISTINCT ic.id, ic.name FROM insurance_companies AS ic, insurance_data AS ind WHERE ic.id = ind.provider';
+        while ($iter = sqlFetchArray($sql)) {
+            $list[] = $iter;
+        }
+        return $list;
+    }
 }
