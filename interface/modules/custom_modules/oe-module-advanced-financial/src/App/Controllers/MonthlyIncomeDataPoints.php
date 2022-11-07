@@ -20,13 +20,13 @@ class MonthlyIncomeDataPoints
     AND ar_session.deposit_date IS NOT NULL AND ar_activity.deleted IS NULL";
 
         $totalpayments = sqlStatement($paymentsforthemonth, [$beginningDepositDate, $endingDepositDate, $insurersId]);
-
+var_dump($totalpayments);
         $u = [];
 
         while ($iter = sqlFetchArray($totalpayments)) {
             $u[] = $iter['net'];
         }
-        var_dump(array_sum($u));
+
         return array_sum($u);
     }
 
@@ -44,7 +44,6 @@ class MonthlyIncomeDataPoints
             }
             $i++;
         }
-        var_dump($dataPointsArray);
         return $dataPointsArray;
     }
 
