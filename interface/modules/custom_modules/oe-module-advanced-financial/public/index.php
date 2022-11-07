@@ -48,7 +48,7 @@ $points .= $dataPointsToDisplay;
 <script>
     g = new Dygraph(
         document.getElementById("graphdiv"),
-        <?php echo substr($points, 0, -1); ?>
+        <?php echo substr($points, 0, -2); ?>
     );
 </script>
 </body>
