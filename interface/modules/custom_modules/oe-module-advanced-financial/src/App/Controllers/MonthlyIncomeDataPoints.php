@@ -18,9 +18,9 @@ class MonthlyIncomeDataPoints
     LEFT JOIN ar_session ON ar_session.session_id = ar_activity.session_id
     WHERE ar_session.payment_type = 'insurance'  AND ar_session.deposit_date BETWEEN ? AND ? AND ar_session.payer_id = ?
     AND ar_session.deposit_date IS NOT NULL AND ar_activity.deleted IS NULL";
-
+print_r([$beginningDepositDate, $endingDepositDate, $insurersId], true);
         $totalpayments = sqlStatement($paymentsforthemonth, [$beginningDepositDate, $endingDepositDate, $insurersId]);
-var_dump($totalpayments);
+
         $u = [];
 
         while ($iter = sqlFetchArray($totalpayments)) {
