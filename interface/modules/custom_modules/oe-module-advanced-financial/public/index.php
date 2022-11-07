@@ -38,7 +38,8 @@ $points .= $dataPointsToDisplay;
 </head>
 <body>
 
-    <div class="container-lg">
+    <div class="container-lg mt-5">
+        <h2><?php xlt('Insurance Monthly Income'); ?></h2>
         <div id="graphdiv">
         </div>
 		<div class="">
