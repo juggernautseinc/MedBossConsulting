@@ -20,7 +20,7 @@ $genDatapoints = new MonthlyIncomeDataPoints();
 $insurersId = 106;
 $dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
 
-$points = '"Month,Total Deposited\n"' . "+\r";
+$points = '"Month,Total Deposited\n"' . " +\r";
 $points .= $dataPointsToDisplay;
 //echo "<pre>"; var_dump($points); echo "</pre>";
 ?>
