@@ -22,7 +22,7 @@ $dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
 
 $points = "Month,Total Deposited \r";
 $points .= $dataPointsToDisplay;
-echo "<pre>"; var_dump($points); echo "</pre>";
+//echo "<pre>"; var_dump($points); echo "</pre>";
 ?>
 
 <!doctype html>
@@ -46,7 +46,7 @@ echo "<pre>"; var_dump($points); echo "</pre>";
 <script>
     g = new Dygraph(
         document.getElementById("graphdiv"),
-
+        <?php echo $points ?>
     );
 </script>
 </body>
