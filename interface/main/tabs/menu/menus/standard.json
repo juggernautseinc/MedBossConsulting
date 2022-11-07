@@ -994,7 +994,7 @@
                 "label" : "Advanced Financial Reporting",
                 "menu_id" : "rep0",
                 "target" : "rep",
-                "url" : "/interface/modules/custom_modules/oe-module-advanced-financial/public/",
+                "url" : "/interface/modules/custom_modules/oe-module-advanced-financial/public/index.php",
                 "children" : [ ],
                 "requirement" : 0,
                 "acl_req" : [ "acct", "rep_a" ]
