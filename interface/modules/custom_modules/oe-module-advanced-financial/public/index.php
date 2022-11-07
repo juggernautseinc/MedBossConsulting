@@ -36,6 +36,12 @@ $points .= $dataPointsToDisplay;
     <?php Header::setupHeader(['common'])?>
     <script src="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.js"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.css" />
+    <script>
+        g = new Dygraph(
+            document.getElementById("graphdiv"),
+            <?php echo $points ?>
+        );
+    </script>
 </head>
 <body>
     <div class="container-lg">
@@ -45,11 +51,6 @@ $points .= $dataPointsToDisplay;
 		</div>
 		&copy; <?php echo date('Y') . " Juggernaut Systems Express" ?>
     </div>
-<script>
-    g = new Dygraph(
-        document.getElementById("graphdiv"),
-        <?php echo $points ?>
-    );
-</script>
+
 </body>
 </html>
