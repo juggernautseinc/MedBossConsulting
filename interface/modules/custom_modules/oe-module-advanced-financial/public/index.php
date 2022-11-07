@@ -33,24 +33,22 @@ $points .= $dataPointsToDisplay;
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo xlt("Graphical Income Report"); ?></title>
-    <?php Header::setupHeader(['common'])?>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.js"></script>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.css" />
-    <script>
-        g = new Dygraph(
-            document.getElementById("graphdiv"),
-            <?php echo $points ?>
-        );
-    </script>
+    <?php Header::setupHeader(['common', 'dygraphs'])?>
+    <link rel="stylesheet" src="/public/assets/modified/dygraphs-2-0-0/dygraph.css" />
 </head>
 <body>
     <div class="container-lg">
-        <div class = "" id="graphdiv">
+        <div id="graphdiv">
 		</div>
 		<div class="">
 		</div>
 		&copy; <?php echo date('Y') . " Juggernaut Systems Express" ?>
     </div>
-
+<script>
+    g = new Dygraph(
+        document.getElementById("graphdiv"),
+        <?php echo $points ?>
+    );
+</script>
 </body>
 </html>
