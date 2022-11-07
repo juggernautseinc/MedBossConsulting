@@ -17,14 +17,14 @@ class MonthlyIncomeDataPoints
         $paymentsforthemonth = "SELECT (ar_activity.pay_amount - ar_activity.adj_amount) AS net FROM `ar_activity` LEFT JOIN ar_session ON ar_session.session_id = ar_activity.session_id WHERE ar_session.payment_type = 'insurance' AND ar_activity.deleted IS NULL AND ar_session.payer_id = 106 ";
 
         $totalpayments = sqlStatement($paymentsforthemonth);
-
+        var_dump($totalpayments);
         $u = [];
 
         while ($iter = sqlFetchArray($totalpayments)) {
             //$u[] = $iter['net'];
             var_dump($iter['net']);
         }
-var_dump($u);
+
         return array_sum($u);
     }
 
