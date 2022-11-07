@@ -29,7 +29,6 @@ class MonthlyIncomeDataPoints
         while ($iter = sqlFetchArray($fetchpayments)) {
             $u[] = $iter['net'];
         }
-var_dump($u);
         return array_sum($u);
     }
 
