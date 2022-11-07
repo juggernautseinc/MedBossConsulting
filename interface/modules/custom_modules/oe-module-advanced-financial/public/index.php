@@ -34,6 +34,7 @@ $points .= $dataPointsToDisplay;
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo xlt("Graphical Income Report"); ?></title>
     <?php Header::setupHeader(['common', 'dygraphs'])?>
+    <link rel="stylesheet" src="/public/assets/modified/dygraphs-2-0-0/dygraph.css" />
 </head>
 <body>
     <div class="container-lg">
