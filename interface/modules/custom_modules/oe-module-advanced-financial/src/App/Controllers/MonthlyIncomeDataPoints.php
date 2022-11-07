@@ -38,7 +38,7 @@ class MonthlyIncomeDataPoints
             $depositDateInfo = $this->depositDate($i);
             $monthIncome = $this->insuranceIncome($depositDateInfo[0], $depositDateInfo[1], $insurersId);
             if ($monthIncome > 0) {
-                $dataPointsArray .= '"' . $depositDateInfo[0] . ',' . $monthIncome . '\n"'. " +\r";
+                $dataPointsArray .= '"' . $depositDateInfo[1] . ',' . $monthIncome . '\n"'. " +\r";
             }
             $i++;
         }
