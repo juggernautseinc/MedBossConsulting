@@ -10,6 +10,7 @@
 
 
 require_once dirname(__DIR__, 4) . '/globals.php';
+require_once dirname(__DIR__) . "/vendor/autoload.php";
 $providerArray = [];
 $providers = sqlStatement("SELECT DISTINCT pc_aid FROM `openemr_postcalendar_events` WHERE pc_aid > 2");
 
