@@ -31,14 +31,14 @@ class MonthlyIncomeDataPoints
     }
 
     public function buildDataPoints($insurersId): array
-    {
+    {  var_dump($insurersId);
         (int)$currentMonth = date('m');
         $dataPointsArray = [];
         $i = 1;
         while ($i <= $currentMonth) {
             $text = self::monthText($i);
-            $depositDateInfo = self::depositDate($i);
-            $monthIncome = self::insuranceIncome($depositDateInfo[0], $depositDateInfo[1], $insurersId);
+            $depositDateInfo = $this->depositDate($i);
+            $monthIncome = $this->insuranceIncome($depositDateInfo[0], $depositDateInfo[1], $insurersId);
             if ($monthIncome > 0) {
                 $dataPointsArray[] = ['label' => $text, 'y' => $monthIncome];
             }
