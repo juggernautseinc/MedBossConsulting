@@ -21,7 +21,7 @@ $insurersId = 106;
 $dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
 
 $points = implode(",", $dataPointsToDisplay);
-var_dump($points);
+print_r($points, true);
 ?>
 
 <!doctype html>
