@@ -30,8 +30,7 @@ function resetClaimStatus() :string
     if ($status) {
         //reset the batches to waiting to be sent when connection comes back online.
         X12ClaimRepost::updateStatus();
-        return '<button class="btn-success">' . xlt('Connection to clearinghouse') . '</button>';
+        return '<button class="btn-success">' . xlt('Connected to clearinghouse') . '</button>';
     }
         return '<button class="btn-danger">' . xlt('Failed to connect to Clearinghouse') . '</button>';
 }
-//resetClaimStatus();
