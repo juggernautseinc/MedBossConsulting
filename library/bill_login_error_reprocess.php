@@ -27,12 +27,11 @@ function resetClaimStatus() :string
     // Parse Host and Port
     $client = new X12ClaimRepost($host['x12_sftp_host'], $user['x12_sftp_login'], $pass);
     $status = $client->getConnectionStatus() ;
-    var_dump($status);
-    if ($client == 'success') {
+    if ($status) {
         //reset the batches to waiting to be sent when connection comes back online.
         X12ClaimRepost::updateStatus();
         return '<button class="btn-success">' . xlt('Connection to clearinghouse') . '</button>';
     }
         return '<button class="btn-danger">' . xlt('Failed to connect to Clearinghouse') . '</button>';
 }
-resetClaimStatus();
+//resetClaimStatus();
