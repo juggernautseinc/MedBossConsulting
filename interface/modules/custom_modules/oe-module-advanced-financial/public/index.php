@@ -12,8 +12,14 @@
 
 require_once dirname(__FILE__, 5) . "/globals.php";
 
+use Juggernaut\App\Controllers\MonthlyIncomeDataPoints;
 use OpenEMR\Core\Header;
 
+$genDatapoints = new MonthlyIncomeDataPoints();
+$insurersId = 106;
+$dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
+
+var_dump($dataPointsToDisplay);
 ?>
 
 <!doctype html>
@@ -28,11 +34,17 @@ use OpenEMR\Core\Header;
 </head>
 <body>
     <div class="container-lg">
-        <div class = "">
+        <div class = "" id="graphdiv">
 		</div>
 		<div class="">
 		</div>
 		&copy; <?php echo date('Y') . " Juggernaut Systems Express" ?>
     </div>
+<script>
+    g = new Dygraph(
+        document.getElementById("graphdiv"),
+
+    );
+</script>
 </body>
 </html>
