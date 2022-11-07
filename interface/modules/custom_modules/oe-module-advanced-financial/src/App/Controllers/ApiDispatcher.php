@@ -9,16 +9,8 @@
  *
  */
 
-namespace OpenEMR\Module\Documo;
-
-use OpenEMR\Module\Documo\Database;
+namespace Juggernaut\App\Controllers;
 
 class ApiDispatcher
 {
-   
-
-    public function __construct()
-    {
-    }
-
 }

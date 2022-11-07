@@ -9,12 +9,8 @@
  *
  */
 
-namespace OpenEMR\Module\Documo;
+namespace Juggernaut\App\Controllers;
 
 class Database
 {
-    public function __construct()
-    {
-    }
-	
 }
