@@ -26,7 +26,7 @@ function resetClaimStatus() :string
 
     // Parse Host and Port
     $client = new X12ClaimRepost($host['x12_sftp_host'], $user['x12_sftp_login'], $pass);
-    var_dump($client);
+    echo $client;
     if ($client == 'success') {
         //reset the batches to waiting to be sent when connection comes back online.
         X12ClaimRepost::updateStatus();
