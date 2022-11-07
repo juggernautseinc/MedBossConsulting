@@ -12,9 +12,14 @@ namespace Juggernaut\App\Controllers;
 
 class MonthlyIncomeDataPoints
 {
-    public function getInsuranceCompaniesId()
+    public function getInsuranceCompaniesId(): array
     {
-        return sqlQuery("select id from insurance_companies");
+        $icids = [];
+        $ids = sqlStatement("select id from insurance_companies");
+        while ($row = sqlFetchArray($ids)) {
+            $icids[] = $row['id'];
+        }
+        return $icids;
     }
     private function insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId)
     {
