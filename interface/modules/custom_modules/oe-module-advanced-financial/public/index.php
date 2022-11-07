@@ -20,7 +20,7 @@ $genDatapoints = new MonthlyIncomeDataPoints();
 $insurersId = 106;
 $dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
 
-print_r($dataPointsToDisplay, true);
+var_dump($dataPointsToDisplay);
 ?>
 
 <!doctype html>
