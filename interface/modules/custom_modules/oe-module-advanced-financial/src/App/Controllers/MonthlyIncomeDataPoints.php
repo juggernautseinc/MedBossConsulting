@@ -14,7 +14,7 @@ class MonthlyIncomeDataPoints
 {
     public function getInsuranceCompaniesId()
     {
-        return sqlQuery("select id from insurance_company");
+        return sqlQuery("select id from insurance_companies");
     }
     private function insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId)
     {
