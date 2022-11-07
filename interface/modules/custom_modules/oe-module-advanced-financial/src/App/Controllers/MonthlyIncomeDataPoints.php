@@ -17,8 +17,8 @@ class MonthlyIncomeDataPoints
         $paymentsforthemonth = "SELECT (ar_activity.pay_amount - ar_activity.adj_amount) AS net FROM `ar_activity`
     LEFT JOIN ar_session ON ar_session.session_id = ar_activity.session_id
     WHERE ar_session.payment_type = 'insurance'  AND ar_session.deposit_date BETWEEN ? AND ? AND ar_session.payer_id = ?
-    AND ar_session.deposit_date IS NOT NULL AND ar_activity.deleted IS NULL";
-//var_dump($paymentsforthemonth); echo "<br>";
+    AND ar_activity.deleted IS NULL";
+
         $totalpayments = sqlStatement($paymentsforthemonth, [$beginningDepositDate, $endingDepositDate, $insurersId]);
 
         $u = [];
