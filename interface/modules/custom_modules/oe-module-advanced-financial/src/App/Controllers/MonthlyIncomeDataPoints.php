@@ -15,7 +15,7 @@ class MonthlyIncomeDataPoints
     public function getInsuranceCompaniesId(): array
     {
         $icids = [];
-        $ids = sqlStatement("select id from insurance_companies");
+        $ids = sqlStatement("select * from insurance_companies");
         while ($row = sqlFetchArray($ids)) {
             $icids[] = $row;
         }
