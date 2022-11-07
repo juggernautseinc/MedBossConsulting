@@ -26,13 +26,12 @@ class MonthlyIncomeDataPoints
         while ($iter = sqlFetchArray($totalpayments)) {
             $u[] = $iter['net'];
         }
-
+        var_dump(array_sum($u));
         return array_sum($u);
     }
 
     public function buildDataPoints($insurersId): array
     {
-
         (int)$currentMonth = date('m');
         $dataPointsArray = [];
         $i = 1;
