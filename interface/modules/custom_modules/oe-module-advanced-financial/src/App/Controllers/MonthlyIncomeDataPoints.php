@@ -28,7 +28,7 @@ class MonthlyIncomeDataPoints
         return array_sum($u);
     }
 
-    public function buildDataPoints($insurersId): array
+    public function buildDataPoints($insurersId): string
     {
         (int)$currentMonth = date('m');
         $dataPointsArray = '';
