@@ -39,12 +39,13 @@ $points .= $dataPointsToDisplay;
 <body>
 
     <div class="container-lg mt-5">
-        <h2><?php xlt('Insurance Monthly Income'); ?></h2>
+        <h2><?php echo xlt('Insurance Monthly Income'); ?></h2>
         <div id="graphdiv">
         </div>
-		<div class="">
+		<div class="mt-3">
+            <?php echo date('Y') . " Juggernaut Systems Express" ?>
 		</div>
-		&copy; <?php echo date('Y') . " Juggernaut Systems Express" ?>
+		&copy;
     </div>
 <script>
     g = new Dygraph(
