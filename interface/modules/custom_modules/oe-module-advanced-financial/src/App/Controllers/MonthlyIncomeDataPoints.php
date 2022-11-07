@@ -19,13 +19,13 @@ class MonthlyIncomeDataPoints
             "WHERE ar_session.payment_type = 'insurance'  AND ar_session.deposit_date BETWEEN ? AND ? " .
             " AND ar_session.payer_id = ? AND ar_session.deposit_date IS NOT NULL AND ar_activity.deleted IS NULL";
 
-        $totalpayments = sqlStatement($paymentsforthemonth, [$beginningDepositDate, $endingDepositDate, $insurersId]);
+        $fetchpayments = sqlStatement($paymentsforthemonth, [$beginningDepositDate, $endingDepositDate, $insurersId]);
         $u = [];
 
-        while ($iter = sqlFetchArray($totalpayments)) {
+        while ($iter = sqlFetchArray($fetchpayments)) {
             $u[] = $iter['net'];
         }
-
+var_dump($u);
         return array_sum($u);
     }
 
