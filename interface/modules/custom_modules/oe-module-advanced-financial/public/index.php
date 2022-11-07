@@ -39,10 +39,10 @@ $points .= $dataPointsToDisplay;
 <body>
 
     <div class="container-lg mt-5">
-        <h2><?php echo xlt('Insurance Monthly Income'); ?></h2>
+        <h2 class="m-4"><?php echo xlt('Insurance Monthly Income'); ?></h2>
         <div id="graphdiv">
         </div>
-		<div class="mt-3">
+		<div class="m-3">
             <?php echo date('Y') . " Juggernaut Systems Express" ?>
 		</div>
 		&copy;
