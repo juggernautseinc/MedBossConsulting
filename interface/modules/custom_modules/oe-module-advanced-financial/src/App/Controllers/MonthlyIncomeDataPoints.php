@@ -14,6 +14,8 @@ class MonthlyIncomeDataPoints
 {
     private function insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId): float
     {
+        require_once dirname(__DIR__, 6) . "/globals.php";
+
         $paymentsforthemonth = "SELECT (ar_activity.pay_amount - ar_activity.adj_amount) AS net FROM `ar_activity`
     LEFT JOIN ar_session ON ar_session.session_id = ar_activity.session_id
     WHERE ar_session.payment_type = 'insurance'  AND ar_session.deposit_date BETWEEN ? AND ? AND ar_session.payer_id = ?
