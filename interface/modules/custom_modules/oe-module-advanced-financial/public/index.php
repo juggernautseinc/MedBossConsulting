@@ -152,6 +152,8 @@ var_dump($u);
                 return xlt('Error finding deposit date array');
         }
     }
+    $data = buildDataPoints($insurersId);
+    var_dump($data);
 ?>
 
 <!doctype html>
