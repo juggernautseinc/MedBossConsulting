@@ -14,6 +14,8 @@ use phpseclib\Net\SFTP;
 
 class X12ClaimRepost
 {
+    private $status;
+
     public function __construct(
         $host,
         $username,
@@ -22,13 +24,12 @@ class X12ClaimRepost
     )
     {
         $connection = new SFTP($host, $port);
-        $status = $connection->login($username, $password);
-        if ($status) {
-            return 'success';
-        }
-        return 'failed';
+        $this->status = $connection->login($username, $password);
+     }
+    public function getConnectionStatus()
+    {
+        return $this->status;
     }
-
     public static function x12Url()
     {
         return sqlQuery('SELECT x12_sftp_host FROM x12_partners WHERE id = 4');
