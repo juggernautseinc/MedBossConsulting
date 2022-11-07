@@ -50,14 +50,14 @@ class ModuleMenuSubscriber implements EventSubscriberInterface
      * @param MenuEvent $menu
      * @return MenuEvent
      */
-    public function onMenuUpdate(MenuEvent $menu)
+    public function onMenuUpdate(MenuEvent $menu): MenuEvent
     {
         $menuItems = $menu->getMenu();
         // we are working with objects so this will modify the objects in memory
         foreach ($menuItems as $menuItem) {
             // We don't use the label as the menu's have been translated at this point
             // We want to update the modules
-            if ($menuItem->menu_id === 'modimg') {
+            if ($menuItem->menu_id === 'modimg' || $menuItem->menu_id === 'patimg') {
                 $this->updateModulesModulesMenu($menuItem);
             } elseif ($menuItem->menu_id === 'repimg') {
                 $this->updateModulesReportsMenu($menuItem);
