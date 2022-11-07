@@ -12,15 +12,6 @@ namespace Juggernaut\App\Controllers;
 
 class MonthlyIncomeDataPoints
 {
-    public function getInsuranceCompaniesId(): array
-    {
-        $icids = [];
-        $ids = sqlStatement("select * from insurance_companies");
-        while ($row = sqlFetchArray($ids)) {
-            $icids[] = $row;
-        }
-        return $icids;
-    }
     private function insuranceIncome($beginningDepositDate, $endingDepositDate, $insurersId)
     {
         $paymentsforthemonth = "SELECT (ar_activity.pay_amount - ar_activity.adj_amount) AS net FROM `ar_activity` " .
