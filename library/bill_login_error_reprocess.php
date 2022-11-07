@@ -18,15 +18,14 @@ function resetClaimStatus() :string
 {
     $cryptgen = new CryptoGen();
 
-    // Get user name and password
+    // Get username and password
     $host = X12ClaimRepost::x12Url() ?? null;
     $user = X12ClaimRepost::x12Username() ?? null;
     $xPass = X12ClaimRepost::x12Password() ?? null;
     $pass = $cryptgen->decryptStandard($xPass['x12_sftp_pass']) ?? null;
 
     // Parse Host and Port
-    var_dump($host); die;
-    $client = new X12ClaimRepost($host['path'], $user['x12_sftp_login'], $pass);
+    $client = new X12ClaimRepost($host['x12_sftp_host'], $user['x12_sftp_login'], $pass);
 
     if ($client == 'success') {
         //reset the batches to waiting to be sent when connection comes back online.
@@ -35,4 +34,3 @@ function resetClaimStatus() :string
     }
         return '<button class="btn-danger">' . xlt('Failed to connect to Clearinghouse') . '</button>';
 }
-resetClaimStatus();
