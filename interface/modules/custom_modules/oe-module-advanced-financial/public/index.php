@@ -37,10 +37,10 @@ $points .= $dataPointsToDisplay;
     <link rel="stylesheet" src="/public/assets/modified/dygraphs-2-0-0/dygraph.css" />
 </head>
 <body>
-<div id="graphdiv">
-</div>
-    <div class="container-lg">
 
+    <div class="container-lg">
+        <div id="graphdiv">
+        </div>
 		<div class="">
 		</div>
 		&copy; <?php echo date('Y') . " Juggernaut Systems Express" ?>
