@@ -11,6 +11,7 @@
  */
 
 require_once dirname(__FILE__, 5) . "/globals.php";
+require_once dirname(__FILE__) . "/../vendor/autoload.php";
 
 use Juggernaut\App\Controllers\MonthlyIncomeDataPoints;
 use OpenEMR\Core\Header;
