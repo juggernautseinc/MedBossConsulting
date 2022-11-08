@@ -14,7 +14,7 @@ use phpseclib\Net\SFTP;
 
 class X12ClaimRepost
 {
-    private $status;
+    private bool $status;
 
     public function __construct(
         $host,
