@@ -14,15 +14,18 @@ require_once dirname(__FILE__, 5) . "/globals.php";
 require_once dirname(__FILE__) . "/../vendor/autoload.php";
 
 use Juggernaut\App\Controllers\MonthlyIncomeDataPoints;
+use Juggernaut\App\Controllers\Database;
+
 use OpenEMR\Core\Header;
 
 $genDatapoints = new MonthlyIncomeDataPoints();
+$data = new Database();
 $insurersId = 106;
 $dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
 
 $points = '"Month,Total Deposited\n"' . " +\r";
 $points .= $dataPointsToDisplay;
-//echo "<pre>"; var_dump($points); echo "</pre>";
+
 ?>
 
 <!doctype html>
@@ -43,7 +46,7 @@ $points .= $dataPointsToDisplay;
         <form class="m-4 form">
             <select name="icompany" class="select2-search--dropdown">
                 <?php
-                        $companies = $genDatapoints->insuranceCompanies();
+                        $companies = $data->insuranceCompanies();
                         var_dump($companies);
                 ?>
 

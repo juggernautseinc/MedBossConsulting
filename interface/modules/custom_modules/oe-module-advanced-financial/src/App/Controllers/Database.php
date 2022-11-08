@@ -13,4 +13,13 @@ namespace Juggernaut\App\Controllers;
 
 class Database
 {
+    public static function insuranceCompanies()
+    {
+        $list = [];
+        $sql = "SELECT DISTINCT ic.id, ic.name FROM insurance_companies AS ic, insurance_data AS ind WHERE ic.id = ind.provider";
+        while ($iter = sqlFetchArray($sql)) {
+            $list[] = $iter;
+        }
+        return $list;
+    }
 }
