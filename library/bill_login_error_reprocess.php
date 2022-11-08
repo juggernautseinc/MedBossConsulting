@@ -20,9 +20,6 @@ function resetClaimStatus() :string
 
     // Get username and password
     $host = X12ClaimRepost::x12Url() ?? null;
-    echo $host;
-    echo 'What';
-    die;
     $user = X12ClaimRepost::x12Username() ?? null;
     $xPass = X12ClaimRepost::x12Password() ?? null;
     $pass = $cryptgen->decryptStandard($xPass['x12_sftp_pass']) ?? null;
@@ -37,6 +34,3 @@ function resetClaimStatus() :string
     }
         return '<button class="btn-danger">' . xlt('Clearinghouse connection failed') . '</button>';
 }
-
-resetClaimStatus();
-echo "What!";
