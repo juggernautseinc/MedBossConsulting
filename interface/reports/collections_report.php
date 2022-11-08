@@ -595,6 +595,10 @@ if (!empty($_POST['form_csvexport'])) {
                                echo "   </select>\n";
                         ?>
                         </td>
+                        <td>
+                            <label><input type='checkbox' name='form_cb_with_insurance'<?php echo ($form_cb_with_insurance) ? ' checked' : ''; ?>>
+                            <?php echo xlt('Patients with Insurance') ?></label>
+                        </td>
                     </tr>
                     </tr>
                         <td class='col-form-label'>
