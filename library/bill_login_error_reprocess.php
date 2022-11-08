@@ -35,5 +35,4 @@ function resetClaimStatus() :string
         return '<button class="btn-success">' . xlt('Connected to clearinghouse') . '</button>';
     }
         return '<button class="btn-danger">' . xlt('Clearinghouse connection failed') . '</button>';
-
 }
