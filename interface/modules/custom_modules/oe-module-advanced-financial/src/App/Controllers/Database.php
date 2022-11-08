@@ -20,6 +20,6 @@ class Database
         while ($iter = sqlFetchArray($sql)) {
             var_dump($iter);
         }
-        //return $list;
+        return 'cat';
     }
 }
