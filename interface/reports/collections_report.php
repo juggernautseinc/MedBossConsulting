@@ -527,7 +527,7 @@ if (!empty($_POST['form_csvexport'])) {
                         <td>
                         <?php  # added dropdown for payors (TLH)
                                $insurancei = getInsuranceProviders();
-                               echo "   <select name='form_payer_id' class='form-control'>\n";
+                               echo "   <select name='form_payer_id' class='form-control' style='width:200px'>\n";
                                echo "    <option value='0'>-- " . xlt('All') . " --</option>\n";
                         foreach ($insurancei as $iid => $iname) {
                             echo "<option value='" . attr($iid) . "'";
