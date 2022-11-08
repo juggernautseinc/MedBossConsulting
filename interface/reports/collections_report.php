@@ -154,6 +154,7 @@ if ($form_payer_id) {
 
 $final_colspan = $form_cb_adate ? 6 : 5;
 $form_cb_with_debt = (!empty($_POST['form_cb_with_debt'])) ? true : false;
+$form_cb_with_insurance  = (!empty($_POST['form_cb_with_debt'])) ? true : false;
 $grand_total_charges     = 0;
 $grand_total_adjustments = 0;
 $grand_total_paid        = 0;
@@ -596,7 +597,14 @@ if (!empty($_POST['form_csvexport'])) {
                         ?>
                         </td>
                         <td>
-                            <label><input type='checkbox' name='form_cb_with_insurance'<?php echo ($form_cb_with_insurance) ? ' checked' : ''; ?>>
+                            <label>
+                            <input type='checkbox' name='form_cb_with_insurance'
+                            <?php
+                                        if ($_POST["form_cb_with_insurance"]) {
+                                            echo 'checked=checked';
+                                        }
+                            ?>
+                            >
                             <?php echo xlt('Patients with Insurance') ?></label>
                         </td>
                     </tr>
@@ -756,6 +764,11 @@ if (!empty($_POST['form_refresh']) || !empty($_POST['form_export']) || !empty($_
         $svcdate = substr($erow['date'], 0, 10);
 
         if ($form_cb_with_debt && $pt_balance <= 0) {
+            unset($erow);
+            continue;
+        }
+
+        if ($_POST['form_cb_with_insurance'] == "on" && $erow["last_level_billed"] == 0) {
             unset($erow);
             continue;
         }
