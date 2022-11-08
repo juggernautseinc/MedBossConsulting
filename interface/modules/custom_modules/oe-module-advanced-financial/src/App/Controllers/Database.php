@@ -15,12 +15,20 @@ class Database
 {
     public static function insuranceCompanies()
     {
-        $list = [];
+        $companies = [];
         $sql = sqlStatement("SELECT DISTINCT ic.id, ic.name " .
             "FROM insurance_companies AS ic, insurance_data AS ind WHERE ic.id = ind.provider");
         while ($iter = sqlFetchArray($sql)) {
-            $list[] = $iter;
+            $companies[] = $iter;
         }
-        return $list;
+        $select = "<select name='icompany' class='select2-search--dropdown'>";
+        $select .= "<option></option>";
+        foreach ($companies as $company) {
+            $select .= "<option value='" . $company['id'] . "'>";
+            $select .= $company['name'];
+            $select .= "</option>";
+        }
+        $select .= "</select>";
+        return $select;
     }
 }
