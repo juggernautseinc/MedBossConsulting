@@ -18,8 +18,8 @@ class Database
         $list = [];
         $sql = "SELECT DISTINCT ic.id, ic.name FROM insurance_companies AS ic, insurance_data AS ind WHERE ic.id = ind.provider";
         while ($iter = sqlFetchArray($sql)) {
-            $list[] = $iter;
+            var_dump($iter);
         }
-        return $list;
+        //return $list;
     }
 }

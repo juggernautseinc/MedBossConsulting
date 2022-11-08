@@ -44,13 +44,13 @@ $points .= $dataPointsToDisplay;
     <div class="container-lg mt-5">
         <h2 class="m-4"><?php echo xlt('Insurance Monthly Income'); ?></h2>
         <form class="m-4 form">
-            <select name="icompany" class="select2-search--dropdown">
+            <select name="icompany" class="select2-search--dropdown"></select>
                 <?php
-                        $companies = $data->insuranceCompanies();
+                        $companies = $data::insuranceCompanies();
                         var_dump($companies);
                 ?>
 
-            </select>
+
         </form>
         <div id="graphdiv">
         </div>
