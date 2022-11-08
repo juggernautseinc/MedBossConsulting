@@ -6,7 +6,7 @@
  *  license https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  */
 
-document.getElementById('icompany').addEventListener('onchange', loadInsuranceCompany);
+document.getElementById('icompany').addEventListener('change', loadInsuranceCompany());
 function loadInsuranceCompany() {
 alert('New company selected');
 }
