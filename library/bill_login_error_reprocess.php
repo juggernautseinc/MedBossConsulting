@@ -21,6 +21,7 @@ function resetClaimStatus() :string
     // Get username and password
     $host = X12ClaimRepost::x12Url() ?? null;
     echo $host;
+    echo 'What';
     die;
     $user = X12ClaimRepost::x12Username() ?? null;
     $xPass = X12ClaimRepost::x12Password() ?? null;
@@ -38,3 +39,4 @@ function resetClaimStatus() :string
 }
 
 resetClaimStatus();
+echo "What!";
