@@ -34,3 +34,5 @@ function resetClaimStatus() :string
     }
         return '<button class="btn-danger">' . xlt('Clearinghouse connection failed') . '</button>';
 }
+
+resetClaimStatus();
