@@ -19,7 +19,9 @@ function resetClaimStatus() :string
     $cryptgen = new CryptoGen();
 
     // Get username and password
-    echo $host = X12ClaimRepost::x12Url() ?? null; die;
+    $host = X12ClaimRepost::x12Url() ?? null;
+    echo $host;
+    die;
     $user = X12ClaimRepost::x12Username() ?? null;
     $xPass = X12ClaimRepost::x12Password() ?? null;
     $pass = $cryptgen->decryptStandard($xPass['x12_sftp_pass']) ?? null;
