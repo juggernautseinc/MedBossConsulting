@@ -21,7 +21,7 @@ class Database
         while ($iter = sqlFetchArray($sql)) {
             $companies[] = $iter;
         }
-        $select = "<select name='icompany' class='select2-search--dropdown'>";
+        $select = "<select name='icompany' id='icompany' class='select2-search--dropdown'>";
         $select .= "<option></option>";
         foreach ($companies as $company) {
             $select .= "<option value='" . $company['id'] . "'>";
