@@ -18,6 +18,9 @@ use Juggernaut\App\Controllers\Database;
 
 use OpenEMR\Core\Header;
 
+if (!empty($_POST)) {
+    var_dump($_POST); die;
+}
 $genDatapoints = new MonthlyIncomeDataPoints();
 $data = new Database();
 
@@ -44,11 +47,12 @@ $points .= $dataPointsToDisplay;
 
     <div class="container-lg mt-5">
         <h2 class="m-4"><?php echo xlt('Insurance Monthly Income'); ?></h2>
-        <form class="m-4 form">
+        <form class="m-4 form" method="post">
                 <?php
                         $companies = $data::insuranceCompanies();
                         echo $companies;
                 ?>
+            <input type="submit" value="Submit">
         </form>
         <div id="graphdiv">
         </div>
