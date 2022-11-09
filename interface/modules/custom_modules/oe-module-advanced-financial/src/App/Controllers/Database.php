@@ -16,8 +16,8 @@ class Database
     public static function insuranceCompanies()
     {
         $companies = [];
-        $sql = sqlStatement("SELECT DISTINCT ic.id, ic.name " .
-            "FROM insurance_companies AS ic, insurance_data AS ind WHERE ic.id = ind.provider");
+        $query = self::companiesQuery();
+        $sql = sqlStatement($query);
         while ($iter = sqlFetchArray($sql)) {
             $companies[] = $iter;
         }
@@ -34,6 +34,13 @@ class Database
 
     public static function firstInsuaranceCompany()
     {
-        return sqlQuery("select ic.id from insurance_companies AS ic, insurance_data AS ind WHERE ic.id = ind.provider");
+        $query = self::companiesQuery();
+        return sqlQuery($query . " ORDER BY ic.id ASC LIMIT 1");
+    }
+
+    private function companiesQuery()
+    {
+        return "SELECT DISTINCT ic.id, ic.name " .
+            "FROM insurance_companies AS ic, insurance_data AS ind WHERE ic.id = ind.provider ";
     }
 }
