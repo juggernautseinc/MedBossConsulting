@@ -20,9 +20,8 @@ use OpenEMR\Core\Header;
 
 $genDatapoints = new MonthlyIncomeDataPoints();
 $data = new Database();
-$insurersId = 106;
+
 $firstInsuranceCompany = $data::firstInsuaranceCompany();
-echo $firstInsuranceCompany['id'];
 $dataPointsToDisplay = $genDatapoints->buildDataPoints($firstInsuranceCompany['id']);
 
 $points = '"Month,Total Deposited\n"' . " +\r";
@@ -53,11 +52,11 @@ $points .= $dataPointsToDisplay;
         </form>
         <div id="graphdiv">
         </div>
-        <div>
+        <div class="mt-3">
             <p><strong><?php echo $firstInsuranceCompany['name']; ?></strong></p>
         </div>
 		<div class="mt-5">
-            &copy; <?php echo date('Y') . " Juggernaut Systems Express" ?>
+            &copy; <?php echo date('Y') . xlt(" Juggernaut Systems Express") ?>
 		</div>
 
     </div>
