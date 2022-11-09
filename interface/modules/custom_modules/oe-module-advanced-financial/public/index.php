@@ -70,6 +70,6 @@ $points .= $dataPointsToDisplay;
         <?php echo substr($points, 0, -2); ?>
     );
 </script>
-<script src="js/report.js"></script>
+
 </body>
 </html>
