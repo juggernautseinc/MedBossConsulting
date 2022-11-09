@@ -23,7 +23,7 @@ $data = new Database();
 $insurersId = 106;
 $firstInsuranceCompany = $data::firstInsuaranceCompany();
 echo $firstInsuranceCompany['id'];
-$dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
+$dataPointsToDisplay = $genDatapoints->buildDataPoints($firstInsuranceCompany['id']);
 
 $points = '"Month,Total Deposited\n"' . " +\r";
 $points .= $dataPointsToDisplay;
@@ -52,6 +52,9 @@ $points .= $dataPointsToDisplay;
                 ?>
         </form>
         <div id="graphdiv">
+        </div>
+        <div>
+            <p><?php echo $firstInsuranceCompany['name']; ?></p>
         </div>
 		<div class="mt-5">
             &copy; <?php echo date('Y') . " Juggernaut Systems Express" ?>
