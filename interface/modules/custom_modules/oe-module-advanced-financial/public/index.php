@@ -22,7 +22,7 @@ $genDatapoints = new MonthlyIncomeDataPoints();
 $data = new Database();
 $insurersId = 106;
 $firstInsuranceCompany = $data::firstInsuaranceCompany();
-echo $firstInsuranceCompany;
+echo $firstInsuranceCompany['id'];
 $dataPointsToDisplay = $genDatapoints->buildDataPoints($insurersId);
 
 $points = '"Month,Total Deposited\n"' . " +\r";
