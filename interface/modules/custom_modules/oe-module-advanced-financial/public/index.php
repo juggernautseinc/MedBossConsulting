@@ -21,13 +21,14 @@ use OpenEMR\Core\Header;
 $genDatapoints = new MonthlyIncomeDataPoints();
 $data = new Database();
 $firstInsuranceCompany = $data::firstInsuaranceCompany();
+
 $selectedCompany = $_POST['icompany'];
+
 if (!empty($_POST['icompany'])) {
     $dataPointsToDisplay = $genDatapoints->buildDataPoints($_POST['icompany']);
 } else {
     $dataPointsToDisplay = $genDatapoints->buildDataPoints($firstInsuranceCompany['id']);
 }
-
 
 $points = '"Month,Total Deposited\n"' . " +\r";
 $points .= $dataPointsToDisplay;
