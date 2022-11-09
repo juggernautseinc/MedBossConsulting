@@ -34,6 +34,6 @@ class Database
 
     public static function firstInsuaranceCompany()
     {
-        return sqlQuery("select id from insurance_companies AS ic, insurance_data AS ind WHERE ic.id = ind.provider");
+        return sqlQuery("select ic.id from insurance_companies AS ic, insurance_data AS ind WHERE ic.id = ind.provider");
     }
 }
