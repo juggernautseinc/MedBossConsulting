@@ -25,7 +25,7 @@ class Database
         $select .= "<option></option>";
         foreach ($companies as $company) {
             $select .= "<option value='" . $company['id'];
-            if (!empty($selectedCompany)) {
+            if (!empty($selectedCompany) && $selectedCompany == $company['id']) {
                 $select .= ' selected ';
             }
             $select .= "'>";
