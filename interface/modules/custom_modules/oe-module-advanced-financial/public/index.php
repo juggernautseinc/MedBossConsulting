@@ -21,6 +21,7 @@ use OpenEMR\Core\Header;
 $genDatapoints = new MonthlyIncomeDataPoints();
 $data = new Database();
 $firstInsuranceCompany = $data::firstInsuaranceCompany();
+$selectedCompany = $_POST['icompany'];
 if (!empty($_POST['icompany'])) {
     $dataPointsToDisplay = $genDatapoints->buildDataPoints($_POST['icompany']);
 } else {
@@ -50,7 +51,7 @@ $points .= $dataPointsToDisplay;
         <h2 class="m-4"><?php echo xlt('Insurance Monthly Income'); ?></h2>
         <form class="m-4 form" method="post">
                 <?php
-                        $companies = $data::insuranceCompanies();
+                        $companies = $data::insuranceCompanies($selectedCompany);
                         echo $companies;
                 ?>
             <input type="submit" value="Submit">

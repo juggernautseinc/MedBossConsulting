@@ -13,7 +13,7 @@ namespace Juggernaut\App\Controllers;
 
 class Database
 {
-    public static function insuranceCompanies()
+    public static function insuranceCompanies($selectedCompany)
     {
         $companies = [];
         $query = self::companiesQuery();
@@ -24,7 +24,11 @@ class Database
         $select = "<select name='icompany' id='icompany' class='select2-search--dropdown'>";
         $select .= "<option></option>";
         foreach ($companies as $company) {
-            $select .= "<option value='" . $company['id'] . "'>";
+            $select .= "<option value='" . $company['id'];
+            if (!empty($selectedCompany)) {
+                $select .= ' selected ';
+            }
+            $select .= "'>";
             $select .= $company['name'];
             $select .= "</option>";
         }
