@@ -24,11 +24,11 @@ class Database
         $select = "<select name='icompany' id='icompany' class='select2-search--dropdown'>";
         $select .= "<option></option>";
         foreach ($companies as $company) {
-            $select .= "<option value='" . $company['id'];
+            $select .= "<option value='" . $company['id'] . "'";
             if (!empty($selectedCompany) && $selectedCompany == $company['id']) {
                 $select .= ' selected ';
             }
-            $select .= "'>";
+            $select .= ">";
             $select .= $company['name'];
             $select .= "</option>";
         }
