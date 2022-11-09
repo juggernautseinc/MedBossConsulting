@@ -31,4 +31,9 @@ class Database
         $select .= "</select>";
         return $select;
     }
+
+    public static function firstInsuaranceCompany()
+    {
+        return sqlQuery("select id from insurance_companies AS ic, insurance_data AS ind WHERE ic.id = ind.provider");
+    }
 }
