@@ -18,14 +18,15 @@ use Juggernaut\App\Controllers\Database;
 
 use OpenEMR\Core\Header;
 
-if (!empty($_POST)) {
-    var_dump($_POST); die;
-}
 $genDatapoints = new MonthlyIncomeDataPoints();
 $data = new Database();
-
 $firstInsuranceCompany = $data::firstInsuaranceCompany();
-$dataPointsToDisplay = $genDatapoints->buildDataPoints($firstInsuranceCompany['id']);
+if (!empty($_POST['icompany'])) {
+    $dataPointsToDisplay = $genDatapoints->buildDataPoints($_POST['icompany']);
+} else {
+    $dataPointsToDisplay = $genDatapoints->buildDataPoints($firstInsuranceCompany['id']);
+}
+
 
 $points = '"Month,Total Deposited\n"' . " +\r";
 $points .= $dataPointsToDisplay;
