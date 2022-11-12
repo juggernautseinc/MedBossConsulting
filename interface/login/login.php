@@ -312,8 +312,8 @@ if ($GLOBALS['login_page_layout'] == 'left') {
               <div class="mx-auto m-4 w-75">
                   <?php if ($_SESSION['site_id'] == 'default') { ?>
                  <span style="alignment: center"> <img src="../../public/images/1stchoiceehrtp.png" ></span>
-                  <?php } else { ?>
-
+                  <?php } elseif ($_SESSION['site_id'] == 'aileenplayterLLC') { ?>
+                      <span style="alignment: center"> <img src="../../public/images/logoail.png" ></span>
 				 <?php } ?>
                    <?php //echo file_get_contents($GLOBALS['images_static_absolute'] . "/login-logo.png"); ?>
               </div>
