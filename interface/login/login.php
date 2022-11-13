@@ -309,7 +309,7 @@ if ($GLOBALS['login_page_layout'] == 'left') {
               <span class="d-inline-block w-40"><?php if ($_SESSION['site_id'] == 'default') { echo $logocode; } ?></span>
             </div>
             <?php } else { ?>
-              <div class="mx-auto m-4 w-75 text-center">
+              <div class="mx-auto w-75 text-center">
                   <?php if ($_SESSION['site_id'] == 'default') { ?>
                  <span style="alignment: center"> <img src="../../public/images/1stchoiceehrtp.png" ></span>
                   <?php } elseif ($_SESSION['site_id'] == 'aileenplayterLLC') { ?>
