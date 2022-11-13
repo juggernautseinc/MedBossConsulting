@@ -314,7 +314,9 @@ if ($GLOBALS['login_page_layout'] == 'left') {
                  <span style="alignment: center"> <img src="../../public/images/1stchoiceehrtp.png" ></span>
                   <?php } elseif ($_SESSION['site_id'] == 'aileenplayterLLC') { ?>
                       <span style="alignment: center"> <img src="../../public/images/logoail.png" ></span>
-				 <?php } ?>
+				 <?php } elseif ($_SESSION['site_id'] == 'reencuentro') { ?>
+                      <span style="alignment: center"> <img src="../../public/images/logo_reencu.png" ></span>
+                  <?php } ?>
                    <?php //echo file_get_contents($GLOBALS['images_static_absolute'] . "/login-logo.png"); ?>
               </div>
             <?php } ?>
