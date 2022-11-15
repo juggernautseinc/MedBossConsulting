@@ -10,11 +10,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{ xlt t='title' }</title>
+    <title>{{ 'title' | js_escape }}</title>
 </head>
 <body>
     <div class="container-fluid">
-        <h1>{ xlt t='Set provider calendar appointment duration' }</h1>
+        <h1>{{'Set provider calendar appointment duration' | js_escape }}</h1>
     </div>
 </body>
 </html>
