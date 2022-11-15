@@ -28,6 +28,6 @@ class AppointmentSubscriber implements EventSubscriberInterface
     public function alertInsuranceCompany(AppointmentSetEvent $event)
     {
         $appointmentData = $event->givenAppointmentData();
-        return new InsuranceNotifications($appointmentData);
+        //return new InsuranceNotifications($appointmentData);
     }
 }
