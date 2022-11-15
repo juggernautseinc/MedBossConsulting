@@ -35,6 +35,6 @@ class CalendarProviderDuration
 
     private function getTemplatePath(): string
     {
-        return dirname(__DIR__ . 3) . DIRECTORY_SEPARATOR . "templates/calendar" . DIRECTORY_SEPARATOR;
+        return dirname(__DIR__ . 4) . DIRECTORY_SEPARATOR . "templates/calendar" . DIRECTORY_SEPARATOR;
     }
 }
