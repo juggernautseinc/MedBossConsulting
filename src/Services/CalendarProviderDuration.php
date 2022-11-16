@@ -51,11 +51,17 @@ class CalendarProviderDuration
         return $list;
     }
 
-    public function updateProviderDuration($updates)
+    public function updateProviderDuration($updates): string
     {
-        foreach ($updates as $key => $update) {
-            $entry = explode("_", $key);
-            var_dump($entry[2]);
+        try {
+            foreach ($updates as $key => $value) {
+                $entry = explode("_", $key);
+                $sql = "REPLACE INTO `postcalendar_provider_duration` SET `provider_id` = ?, `provider_duration` = ?";
+                sqlStatement($sql, [$entry[2], $value]);
+            }
+        } catch (\Exception $e) {
+            return $e->getMessage();
         }
+        return 'success';
     }
 }
