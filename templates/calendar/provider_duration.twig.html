@@ -20,11 +20,11 @@
         </div>
         <div>
             <table class="table table-striped">
-                <th>
-                    <td>{{ "ID" | text }}</td>
-                    <td>{{ "Name" | text }}</td>
-                    <td>{{ "Duration" | text }}</td>
-                </th>
+                <tr>
+                    <th>{{ "ID" | text }}</th>
+                    <th>{{ "Name" | text }}</th>
+                    <th>{{ "Duration" | text }}</th>
+                </tr>
                 {% for provider in providers %}
                  <tr>
                      <td>{{ provider.pc_aid | text }}</td>
