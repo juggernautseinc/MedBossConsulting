@@ -29,7 +29,14 @@
                  <tr>
                      <td>{{ provider.pc_aid | text }}</td>
                      <td>{{ provider.fname| text }}, {{ provider.lname | text }}</td>
-                     <td><input type="text" id="duration" value=""></td>
+                     <td>
+                         <select id="duration" >
+                             <option>{{ "Select a duration" | text }}</option>
+                             <option value=15>{{ "15" | text }}</option>
+                             <option value=30>{{ "30" | text }}</option>
+                             <option value=60>{{ "60" | text }}</option>
+                         </select>
+                     </td>
                  </tr>
                 {% endfor %}
             </table>
