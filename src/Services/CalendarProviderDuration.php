@@ -50,4 +50,12 @@ class CalendarProviderDuration
         }
         return $list;
     }
+
+    public function updateProviderDuration($updates)
+    {
+        foreach ($updates as $key => $update) {
+            $entry = explode("_", $key);
+            var_dump($entry[2]);
+        }
+    }
 }
