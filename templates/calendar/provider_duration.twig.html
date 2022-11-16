@@ -49,6 +49,11 @@
                                         selected
                                      {% endif %}
                              >{{ "30" | text }}</option>
+                             <option value=45
+                                     {% if provider.provider_duration == 45 %}
+                                        selected
+                                     {% endif %}
+                             >{{ "45" | text }}</option>
                              <option value=60
                                      {% if provider.provider_duration == 60 %}
                                         selected
