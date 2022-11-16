@@ -13,6 +13,7 @@ require_once dirname(__DIR__, 3) . "/interface/globals.php";
 use OpenEMR\Services\CalendarProviderDuration;
 
 if (!empty($_POST)) {
+    echo "<pre>";
     var_dump($_POST); die;
 }
 
