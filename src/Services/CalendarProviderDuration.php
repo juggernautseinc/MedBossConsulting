@@ -41,8 +41,10 @@ class CalendarProviderDuration
     public function getCalendarProviderList(): array
     {
         $list = [];
-        $sql = "SELECT DISTINCT `ope`.`pc_aid`, `u`.`fname`, `u`.`lname` FROM `openemr_postcalendar_events` AS ope " .
-                "LEFT JOIN `users` AS u ON `u`.`id` = `ope`.`pc_aid` " .
+        $sql = "SELECT DISTINCT `ope`.`pc_aid`, `u`.`fname`, `u`.`lname`, `ppd`.`provider_duration` " .
+            "FROM `openemr_postcalendar_events` AS ope " .
+            "LEFT JOIN `users` AS u ON `u`.`id` = `ope`.`pc_aid` " .
+            "LEFT JOIN `postcalendar_provider_duration` AS ppd ON `ope`.`pc_aid` = `ppd`.`provider_id`" .
         "WHERE `ope`.`pc_title` = 'In Office' AND `ope`.`pc_aid` != '' AND `u`.`active` = 1 AND `ope`.`pc_aid` != 1";
         $providers = sqlStatement($sql);
         while ($row = sqlFetchArray($providers)) {
