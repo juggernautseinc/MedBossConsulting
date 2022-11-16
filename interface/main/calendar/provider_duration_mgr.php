@@ -17,15 +17,15 @@ use OpenEMR\Services\CalendarProviderDuration;
 $twig = new CalendarProviderDuration();
 
 if (!empty($_POST)) {
-$twig->updateProviderDuration($_POST);
-die;
+$update = $twig->updateProviderDuration($_POST);
 }
 
 $providers = $twig->getCalendarProviderList();
 
 $content = [
     'title' => 'Set Provider Appt Duration',
-    'providers' => $providers
+    'providers' => $providers,
+    'update' => $update
 ];
 
 echo $twig->twigEnv()->render('provider_duration.twig.html', $content);
