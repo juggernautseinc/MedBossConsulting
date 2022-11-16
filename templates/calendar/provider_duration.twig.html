@@ -37,9 +37,21 @@
                      <td>
                          <select class="form-control w-25" id="duration" name="duration_val_{{provider.pc_aid}}" >
                              <option>{{ "Select duration" | text }}</option>
-                             <option value=15>{{ "15" | text }}</option>
-                             <option value=30>{{ "30" | text }}</option>
-                             <option value=60>{{ "60" | text }}</option>
+                             <option value=15
+                                     {% if provider.provider_duration == 15 %}
+                                        selected
+                                     {% endif %}
+                             >{{ "15" | text }}</option>
+                             <option value=30
+                                     {% if provider.provider_duration == 30 %}
+                                        selected
+                                     {% endif %}
+                             >{{ "30" | text }}</option>
+                             <option value=60
+                                     {% if provider.provider_duration == 60 %}
+                                        selected
+                                     {% endif %}
+                             >{{ "60" | text }}</option>
                          </select>
                      </td>
                  </tr>
