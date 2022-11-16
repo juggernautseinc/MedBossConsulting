@@ -41,7 +41,7 @@ class CalendarProviderDuration
     public function getCalendarProviderList(): array
     {
         $list = [];
-        $sql = "SELECT DISTINCT `ope`.`pc_aid`, `u`.`fname`, `u`.`lname`, `ppd`.`provider_duration` " .
+        $sql = "SELECT DISTINCT `ope`.`pc_aid`, `u`.`fname`, `u`.`lname`, `ppd`.`provider_duration`, `ppd`.`id` " .
             "FROM `openemr_postcalendar_events` AS ope " .
             "LEFT JOIN `users` AS u ON `u`.`id` = `ope`.`pc_aid` " .
             "LEFT JOIN `postcalendar_provider_duration` AS ppd ON `ope`.`pc_aid` = `ppd`.`provider_id`" .
@@ -58,8 +58,9 @@ class CalendarProviderDuration
         try {
             foreach ($updates as $key => $value) {
                 $entry = explode("_", $key);
-                $sql = "REPLACE INTO `postcalendar_provider_duration` SET `provider_id` = ?, `provider_duration` = ?";
-                sqlStatement($sql, [$entry[2], $value]);
+                $sql = "REPLACE INTO `postcalendar_provider_duration` 
+    SET id = ?, `provider_id` = ?, `provider_duration` = ?";
+                sqlStatement($sql, [$entry[3], $entry[2], $value]);
             }
         } catch (\Exception $e) {
             return $e->getMessage();

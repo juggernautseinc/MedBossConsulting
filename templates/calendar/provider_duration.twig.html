@@ -35,7 +35,8 @@
                          {{ provider.fname| text }} {{ provider.lname | text }}
                      </td>
                      <td>
-                         <select class="form-control w-25" id="duration" name="duration_val_{{provider.pc_aid}}" >
+                         <select class="form-control w-25" id="duration"
+                                 name="duration_val_{{provider.pc_aid}}_{{provider.id}}" >
                              <option>{{ "Select duration" | text }}</option>
                              <option value=15
                                      {% if provider.provider_duration == 15 %}
