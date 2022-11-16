@@ -30,11 +30,11 @@
                  <tr>
                      <td>
                          {{ provider.pc_aid | text }}
-                         <input type="hidden" value="{{provider.pc_aid}}" name="provider_id">
+                         <input type="hidden" value="{{provider.pc_aid}}" name="provider_id_{{provider.pc_aid}}">
                      </td>
                      <td>{{ provider.fname| text }} {{ provider.lname | text }}</td>
                      <td>
-                         <select id="duration" name="duration_val" >
+                         <select id="duration" name="duration_val_{{provider.pc_aid}}" >
                              <option>{{ "Select a duration" | text }}</option>
                              <option value=15>{{ "15" | text }}</option>
                              <option value=30>{{ "30" | text }}</option>
