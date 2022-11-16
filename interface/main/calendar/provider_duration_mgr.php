@@ -12,6 +12,10 @@ require_once dirname(__DIR__, 3) . "/interface/globals.php";
 
 use OpenEMR\Services\CalendarProviderDuration;
 
+if (!empty($_POST)) {
+    var_dump($_POST); die;
+}
+
 $twig = new CalendarProviderDuration();
 $providers = $twig->getCalendarProviderList();
 

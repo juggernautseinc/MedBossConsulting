@@ -19,6 +19,7 @@
             <h1>{{ "Set provider calendar appointment duration" | text }}</h1>
         </div>
         <div>
+            <form id="durations" name="durations" method="post" action="provider_duration_mgr.php">
             <table class="table table-striped">
                 <tr>
                     <th>{{ "ID" | text }}</th>
@@ -27,10 +28,13 @@
                 </tr>
                 {% for provider in providers %}
                  <tr>
-                     <td>{{ provider.pc_aid | text }}</td>
-                     <td>{{ provider.fname| text }}, {{ provider.lname | text }}</td>
                      <td>
-                         <select id="duration" >
+                         {{ provider.pc_aid | text }}
+                         <input type="hidden" value="{{provider.pc_aid}}" name="provider_id">
+                     </td>
+                     <td>{{ provider.fname| text }} {{ provider.lname | text }}</td>
+                     <td>
+                         <select id="duration" name="duration_val" >
                              <option>{{ "Select a duration" | text }}</option>
                              <option value=15>{{ "15" | text }}</option>
                              <option value=30>{{ "30" | text }}</option>
@@ -40,8 +44,13 @@
                  </tr>
                 {% endfor %}
             </table>
+            <input type="submit" value="Update">
+            </form>
         </div>
 
     </div>
+<script>
+
+</script>
 </body>
 </html>
