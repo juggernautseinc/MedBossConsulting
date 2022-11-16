@@ -18,6 +18,22 @@
         <div class="text-center m-4">
             <h1>{{ "Set provider calendar appointment duration" | text }}</h1>
         </div>
+        <div>
+            <table class="table table-striped">
+                <th>
+                    <td>{{ "ID" | text }}</td>
+                    <td>{{ "Name" | text }}</td>
+                    <td>{{ "Duration" | text }}</td>
+                </th>
+                {% for provider in providers %}
+                 <tr>
+                     <td>{{ provider.pc_aid | text }}</td>
+                     <td>{{ provider.fname| text }}, {{ provider.lname | text }}</td>
+                     <td><input type="text" id="duration" value=""></td>
+                 </tr>
+                {% endfor %}
+            </table>
+        </div>
 
     </div>
 </body>

@@ -13,9 +13,11 @@ require_once dirname(__DIR__, 3) . "/interface/globals.php";
 use OpenEMR\Services\CalendarProviderDuration;
 
 $twig = new CalendarProviderDuration();
+$providers = $twig->getCalendarProviderList();
 
 $content = [
-    'title' => 'Set Provider Appt Duration'
+    'title' => 'Set Provider Appt Duration',
+    'providers' => $providers
 ];
 
 echo $twig->twigEnv()->render('provider_duration.twig.html', $content);

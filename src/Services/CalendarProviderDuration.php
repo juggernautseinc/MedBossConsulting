@@ -37,4 +37,17 @@ class CalendarProviderDuration
     {
         return dirname(__DIR__) . DIRECTORY_SEPARATOR . "../templates/calendar" . DIRECTORY_SEPARATOR;
     }
+
+    public function getCalendarProviderList(): array
+    {
+        $list = [];
+        $sql = "SELECT DISTINCT `ope`.`pc_aid`, `u`.`fname`, `u`.`lname` FROM `openemr_postcalendar_events` AS ope " .
+                "LEFT JOIN `users` AS u ON `u`.`id` = `ope`.`pc_aid` " .
+        "WHERE `ope`.`pc_title` = 'In Office' AND `ope`.`pc_aid` != '' AND `u`.`active` = 1 AND `ope`.`pc_aid` != 1";
+        $providers = sqlStatement($sql);
+        while ($row = sqlFetchArray($providers)) {
+            $list[] = $row;
+        }
+        return $list;
+    }
 }
