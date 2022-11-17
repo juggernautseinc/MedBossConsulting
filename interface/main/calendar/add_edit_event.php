@@ -1693,7 +1693,7 @@ function isRegularRepeat($repeat)
         </select>
         <?php endif ?>
         <label class='col-sm col-form-label' id='tdallday4'><?php echo xlt('duration'); ?></label>
-        <input class="col-sm form-control" id='tdallday5' type='text' size='4' name='form_duration' value='<?php echo $provider_duration //attr($thisduration) ?>' title='<?php echo xla('Event duration in minutes'); ?>' />
+        <input class="col-sm form-control" id='tdallday5' type='text' size='4' name='form_duration' value='<?php echo $provider_duration['provider_duration'] //attr($thisduration) ?>' title='<?php echo xla('Event duration in minutes'); ?>' />
     </div>
     <div class="form-row mb-sm-2">
         <div class="col-sm form-check-inline">
