@@ -1589,6 +1589,7 @@ if ($_GET['group'] === true && $have_group_global_enabled) { ?>
             if ($userid) {
                 if (in_array($urow['id'], $providers_array) || ($urow['id'] == $userid)) {
                     echo " selected";
+                    $id = $userid;
                 }
             }
             echo ">" . text($urow['lname']);
@@ -1599,7 +1600,8 @@ if ($_GET['group'] === true && $have_group_global_enabled) { ?>
         }
 
         echo '</select>';
-
+        $provider_duration = \OpenEMR\Services\CalendarProviderDuration::providerDuration($id);
+        var_dump($provider_duration);
     // =======================================
     // single provider
     // =======================================

@@ -67,4 +67,10 @@ class CalendarProviderDuration
         }
         return 'Success';
     }
+
+    public static function providerDuration($id)
+    {
+        return sqlQuery("SELECT `provider_duration` FROM `postcalendar_provider_duration` WHERE `provider_id` = ?",
+        [$id]);
+    }
 }
