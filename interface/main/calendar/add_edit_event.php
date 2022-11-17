@@ -1150,7 +1150,7 @@ function set_category() {
     if (s.selectedIndex >= 0) {
         var catid = s.options[s.selectedIndex].value;
         f.form_title.value = s.options[s.selectedIndex].text;
-        f.form_duration.value = durations[catid];
+        //f.form_duration.value = durations[catid];
         set_display();
     }
 }
