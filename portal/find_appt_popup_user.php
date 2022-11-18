@@ -352,6 +352,11 @@ if ($_REQUEST['providerid']) {
 
                         $ampmFlag = $ampm;
 file_put_contents("/var/www/html/errors/appt_pt.txt", date("g:i", $utime) . "\r", FILE_APPEND);
+                        $onTheHour = date("g:i", $utime);
+                        if (!str_ends_with($onTheHour, ":00")) {
+file_put_contents("/var/www/html/errors/appt_pt_not.txt", $onTheHour . "\r", FILE_APPEND);
+                        }
+
                         $atitle = "Choose " . date("h:i a", $utime);
                         $adate = getdate($utime);
 
