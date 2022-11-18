@@ -351,7 +351,7 @@ if ($_REQUEST['providerid']) {
                         }
 
                         $ampmFlag = $ampm;
-file_get_contents("/var/www/html/errors/appt_pt.txt", $utime);
+file_put_contents("/var/www/html/errors/appt_pt.txt", $utime);
                         $atitle = "Choose " . date("h:i a", $utime);
                         $adate = getdate($utime);
 
