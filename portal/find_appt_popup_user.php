@@ -354,7 +354,7 @@ if ($_REQUEST['providerid']) {
                         $providerDuration = \OpenEMR\Services\CalendarProviderDuration::providerDuration($providerid);
                         file_put_contents("/var/www/html/errors/provider.txt", $providerDuration . "\r", FILE_APPEND);
                         $onTheHour = date("g:i", $utime);
-                        if (!str_ends_with($onTheHour, ":00") && $providerDuration == 60) {
+                        if (!str_ends_with($onTheHour, ":00") && $providerDuration['provider_duration'] == 60) {
                             continue;
                         }
 
