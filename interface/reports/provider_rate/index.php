@@ -67,7 +67,7 @@ $providers = $providerdata->getProviders();
                             $row['id'] . "'></td>";
                         print "<td><input type='text' id='percent_" . $row['id'] . "' value='"
                             . $rate['percentage'] .
-                            "' name='percentage'></td>";
+                            "' name='percentage' onkeyup='toggleRate(" . $row['id'] . ")'></td>";
                         print "<td><input type='text' id='flat_" . $row['id'] . "' value='" . $rate['flat'] . "' name='flat'></td>";
                         print "<td><button onclick='saveLine(". $row['id'] .")' id='submit'>Update</button></td>";
                         print "</tr>";
@@ -91,6 +91,14 @@ $providers = $providerdata->getProviders();
         })
         .then(data => console.log(data))
         .catch(error => console.log(error))
+    }
+
+    function togglePercentRate(row) {
+        let rowid = 'flat_' + row;
+        let rowvalue = document.getElementById(rowid).value;
+        if (rowvalue.length() > 0) {
+            document.getElementById(rowid).value = '';
+        }
     }
 </script>
 </body>
