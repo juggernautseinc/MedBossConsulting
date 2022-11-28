@@ -67,7 +67,7 @@ $providers = $providerdata->getProviders();
                             $row['id'] . "'></td>";
                         print "<td><input type='text' id='percent_" . $row['id'] . "' value='"
                             . $rate['percentage'] .
-                            "' name='percentage' onkeyup='toggleRate(" . $row['id'] . ")'></td>";
+                            "' name='percentage' onkeyup='togglePercentRate(" . $row['id'] . ")'></td>";
                         print "<td><input type='text' id='flat_" . $row['id'] . "' value='" . $rate['flat'] . "' name='flat'></td>";
                         print "<td><button onclick='saveLine(". $row['id'] .")' id='submit'>Update</button></td>";
                         print "</tr>";
