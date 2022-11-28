@@ -19,9 +19,7 @@ use OpenEMR\Core\Header;
 $providerdata = new ProviderRates();
 
 if (!empty($_POST)) {
-
     $status = $providerdata->savePayrollData($_POST['userid'], $percentage = $_POST['percentage'], $flat = $_POST['flat']);
-    echo $status;
 }
 
 $providers = $providerdata->getProviders();
