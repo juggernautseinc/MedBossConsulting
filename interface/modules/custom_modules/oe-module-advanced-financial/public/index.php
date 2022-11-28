@@ -60,7 +60,10 @@ $points .= $dataPointsToDisplay;
         <div id="graphdiv">
         </div>
         <div class="mt-3">
-            <p><strong><?php echo $firstInsuranceCompany['name']; ?></strong></p>
+            <p><strong><?php
+
+                    echo $firstInsuranceCompany['name'];
+                    ?></strong></p>
         </div>
 		<div class="mt-5">
             &copy; <?php echo date('Y') . xlt(" Juggernaut Systems Express") ?>
