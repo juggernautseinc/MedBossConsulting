@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * This report cross-references appointments with encounters.
  * For a given date, show a line for each appointment with the
  * matching encounter, and also for each encounter that has no
@@ -112,9 +112,9 @@ function endDoctor(&$docrow)
     echo "  <td>\n";
     echo "   &nbsp;";
     $pay = bucks($rate['flat'] * text($docrow['encounters']));
-    $mpay = $rate['flat'] * $docrow['encounters'];
-    echo   $rate['flat'] . " $" . $pay;
-    echo text($docrow['encounters']);
+    //$mpay = $rate['flat'] * $docrow['encounters'];
+    echo   $rate['flat'] . " $" . $pay . " <";
+
     echo "&nbsp;\n";
     echo "  </td>\n";
     echo "  <td>\n";
