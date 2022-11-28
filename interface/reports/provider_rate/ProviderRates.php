@@ -41,11 +41,11 @@ class ProviderRates
                if (!empty($percentage)) {
                    $sql = "UPDATE payroll_data SET percentage = ?, flat = NULL WHERE userid = ?";
                    sqlStatement($sql, [$percentage, $userid]);
-                   return "percentage inserted";
+                   return "percentage inserted " . $percentage;
                } else {
                    $sql = "UPDATE payroll_data SET flat = ?, percentage = NULL WHERE userid = ?";
                    sqlStatement($sql, [$flat, $userid]);
-                   return "flat rate inserted -" . $flat;
+                   return "flat rate inserted " . $flat;
                }
         }
         return 'Failed';
