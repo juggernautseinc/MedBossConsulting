@@ -111,10 +111,16 @@ function endDoctor(&$docrow)
     echo "  </td>\n";
     echo "  <td>\n";
     echo "   &nbsp;";
-    $pay = bucks($rate['flat'] * text($docrow['encounters']));
-    //$mpay = $rate['flat'] * $docrow['encounters'];
-    echo   $rate['flat'] . " $" . $pay . " <";
-
+    if ($rate['flat'] !== NULL || $rate['flat'] > 0) {
+        $pay = bucks($rate['flat'] * text($docrow['encounters']));
+    } else {
+        $pay = bucks($rate['percentage'] * text($docrow['encounters']));
+    }
+    if ($rate['percentage'] !== NULL || $rate['percentage'] > 0) {
+        echo   $rate['percentage'] . "% $" . $pay;
+    } else {
+        echo   $rate['flat'] . " $" . $pay;
+    }
     echo "&nbsp;\n";
     echo "  </td>\n";
     echo "  <td>\n";
