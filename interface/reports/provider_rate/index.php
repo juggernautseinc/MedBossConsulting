@@ -20,8 +20,8 @@ $providerdata = new ProviderRates();
 
 if (!empty($_POST)) {
 
-    $providerdata->savePayrollData($_POST['userid'], $percentage = $_POST['percentage'], $flat = $_POST['flat']);
-
+    $status = $providerdata->savePayrollData($_POST['userid'], $percentage = $_POST['percentage'], $flat = $_POST['flat']);
+    echo $status;
 }
 
 $providers = $providerdata->getProviders();

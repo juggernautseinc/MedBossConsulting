@@ -48,5 +48,6 @@ class ProviderRates
                    return "flat rate inserted -" . $flat;
                }
         }
+        return 'Failed';
     }
 }
