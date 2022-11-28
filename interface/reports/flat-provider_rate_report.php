@@ -625,7 +625,8 @@ if (!empty($_POST['form_refresh'])) {
         echo "  </td>\n";
         echo "  <td>\n";
         echo "   &nbsp;";
-        echo  "$" . array_sum($grand_total_provider_payouts);
+        $grandSum = array_sum($grand_total_provider_payouts);
+        echo  "$" . bucks($grandSum);
         echo "&nbsp;\n";
         echo "  </td>\n";
         echo "  <td>\n";
