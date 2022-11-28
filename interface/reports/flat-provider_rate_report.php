@@ -116,7 +116,7 @@ function endDoctor(&$docrow)
         $mpay = $rate['flat'] * $docrow['encounters'];
     } else {
         $pay = bucks($rate['percentage'] * $docrow['encounters']);
-        $mpay = $rate['flat'] * $docrow['encounters'];
+        $mpay = $rate['percentage'] * $docrow['encounters'];
     }
     if ($rate['percentage'] !== NULL || $rate['percentage'] > 0) {
         echo   $rate['percentage'] . "% $" . $pay;
