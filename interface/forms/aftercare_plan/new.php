@@ -172,7 +172,7 @@ echo "<form method='post' name='my_form' " .
  onclick="parent.closeTab(window.name, false)" /></td>
     </tr>
 </table>
-</form>
+</body>
 <?php
 formFooter();
 ?>

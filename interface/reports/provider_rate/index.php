@@ -63,12 +63,14 @@ $providers = $providerdata->getProviders();
                     while ($row = sqlFetchArray($providers)) {
                         $rate = $providerdata->retreiveRates($row['id']);
                         print "<tr>";
-                        print "<td>" . $row['id'] . ' ' . $row['fname'] . " " . $row['lname'] . "<input type='hidden' name='userid' value='" .
+                        print "<td>" . $row['id'] . ' ' . $row['fname'] . " " . $row['lname'] .
+                            "<input type='hidden' name='userid' value='" .
                             $row['id'] . "'></td>";
                         print "<td><input type='text' id='percent_" . $row['id'] . "' value='"
                             . $rate['percentage'] .
                             "' name='percentage' onkeyup='togglePercentRate(" . $row['id'] . ")'></td>";
-                        print "<td><input type='text' id='flat_" . $row['id'] . "' value='" . $rate['flat'] . "' name='flat'></td>";
+                        print "<td><input type='text' id='flat_" . $row['id'] . "' value='" . $rate['flat'] .
+                            "' name='flat' onkeyup='toggleFlatRate(" . $row['id'] . ")'></td>";
                         print "<td><button onclick='saveLine(". $row['id'] .")' id='submit'>Update</button></td>";
                         print "</tr>";
                     }
@@ -97,7 +99,15 @@ $providers = $providerdata->getProviders();
         let rowid = 'flat_' + row;
         let rowvalue = document.getElementById(rowid).value;
         if (rowvalue.length > 0) {
-            document.getElementById(rowid).value = '';
+            document.getElementById(rowid).value = '0.00';
+        }
+    }
+
+    function toggleFlatRate(row) {
+        let rowid = 'percent_' + row;
+        let rowvalue = document.getElementById(rowid).value;
+        if (rowvalue.length > 0) {
+            document.getElementById(rowid).value = '0.00';
         }
     }
 </script>
