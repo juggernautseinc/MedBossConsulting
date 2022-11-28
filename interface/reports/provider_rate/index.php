@@ -96,7 +96,7 @@ $providers = $providerdata->getProviders();
     function togglePercentRate(row) {
         let rowid = 'flat_' + row;
         let rowvalue = document.getElementById(rowid).value;
-        if (rowvalue.length() > 0) {
+        if (rowvalue.length > 0) {
             document.getElementById(rowid).value = '';
         }
     }
