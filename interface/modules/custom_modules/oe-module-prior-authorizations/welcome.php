@@ -35,12 +35,16 @@ AuthorizationService::registration($clinic);
     </div>
     <div class="m-5">
         <p><?php echo xlt("Thank you for selecting our module to help your practice/clinic run better") ?></p>
-        <p><?php echo xlt("This module auto registers the installation. By installing this module, you are entitled to a limited technical support") ?></p>
+        <p><?php echo xlt("This module auto registers the installation. By installing this module,
+        you are entitled to a limited technical support") ?></p>
         <p><strong><?php echo xlt("This module cost $60/yr"); ?></strong></p>
-        <p><a href="https://link.waveapps.com/9b4fs8-47wwtz" target="_blank"><?php echo xlt('Click here to pay') ?></a></p>
+        <p><a href="https://link.waveapps.com/9b4fs8-47wwtz" target="_blank">
+                <?php echo xlt('Click here to pay') ?></a></p>
     </div>
     <div class="m-5">
-        <p><?php echo xlt("This module was developed by") ?> <a href="https://affordablecustomehr.com/privacy" target="_blank" ><?php echo xlt("Affordable Custom EHR") ?></a></p>
+        <p><?php echo xlt("This module was developed by") ?>
+            <a href="https://affordablecustomehr.com/privacy"  target="_blank" >
+                <?php echo xlt("Affordable Custom EHR") ?></a></p>
         <p><?php echo xlt("Please contact them for technical support of this module") ?></p>
         <p>&copy; <?php echo date('Y')?> <?php echo xlt("Juggernaut Systems Express"); ?></p>
     </div>
