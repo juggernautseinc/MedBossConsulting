@@ -313,7 +313,7 @@ if ($GLOBALS['login_page_layout'] == 'left') {
                   <?php if ($_SESSION['site_id'] == 'default') { ?>
                  <span style="alignment: center"> <img src="../../public/images/1stchoiceehrtp.png" ></span>
                   <?php } elseif ($_SESSION['site_id'] == 'aileenplayterLLC') { ?>
-                      <span style="alignment: center"> <img src="../../public/images/logoail.png" ></span>
+                      <span style="alignment: center"> <img src="../../public/images/logoail.png" style="width:50%"></span>
 				 <?php } elseif ($_SESSION['site_id'] == 'reencuentro') { ?>
                       <span>
                           <img src="../../public/images/logo_reencu.png" style="width:50%"></span>
