@@ -54,7 +54,7 @@ class ListAuthorizations
      * or they have already been using the misc billing options
      * this is a silent function
      */
-    public function insertMissingAuthsFromForm()
+    public static function insertMissingAuthsFromForm()
     {
         $formsAuths = self::formPriorAuth();
         $formMiscBilling = self::formMiscBilling();

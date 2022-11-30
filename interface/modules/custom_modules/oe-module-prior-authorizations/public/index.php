@@ -55,17 +55,12 @@ if (!empty($_POST['token'])) {
     $postData->storeAuthorizationInfo();
 }
 
-
-
 $listData = new ListAuthorizations();
 $listData->setPid($pid);
 $authList = $listData->getAllAuthorizations();
-$listData->insertMissingAuthsFromForm(); //from form prior auth
-
 
 const TABLE_TD = "</td><td>";
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
