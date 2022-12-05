@@ -1053,9 +1053,11 @@ $use_validate_js = $GLOBALS['new_validate'];
     //    document.getElementById('form_changehistory').innerHTML += 'Billing Note last updated by ' + user + ' ' + dateTime + '\n\r';
     //}
 
-    document.getElementById('switch').addEventListener('click', changeInsuranceOrder(event));
-    function changeInsuranceOrder(event) {
+    document.getElementById('switch').addEventListener('click', function(event){
         event.preventDefault();
+        alert('here');
+    });
+    function changeInsuranceOrder() {
         alert('here');
         // let url = '/interface/patient_file/summary/insurance_change.php'
         // dlgopen(url, '_blank' 500, 500, false, 'Change Insurance Co. order' {
