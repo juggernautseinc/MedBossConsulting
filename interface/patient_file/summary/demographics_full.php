@@ -1043,19 +1043,8 @@ $use_validate_js = $GLOBALS['new_validate'];
         });
     })
 
-    //document.getElementById('form_Notes2').addEventListener('click', addNoteEditor);
-    //function addNoteEditor() {
-    //    let current = new Date();
-    //    let cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
-    //    let cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
-    //    let dateTime = cDate + ' ' + cTime;
-    //    let user = '<?php //echo $_SESSION['authUser']; ?>//';
-    //    document.getElementById('form_changehistory').innerHTML += 'Billing Note last updated by ' + user + ' ' + dateTime + '\n\r';
-    //}
-
     document.getElementById('switch').addEventListener('click', function(event){
         event.preventDefault();
-        alert('here');
         let url = '/interface/patient_file/summary/insurance_change.php';
         let title = 'Change Insurance Co. order';
         dlgopen(url, '_blank', 500, 500, '', title, {
