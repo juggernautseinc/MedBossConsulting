@@ -23,7 +23,7 @@ $secondary = $patient_insurance->getOneByPid($_SESSION['pid'], 'secondary');
 $sec_name = $companies->getOneById($secondary['provider']);
 
 $tertiary = $patient_insurance->getOneByPid($_SESSION['pid'], 'tertiary');
-$tri_name = $companies->getOneById($primary['provider']);
+$tri_name = $companies->getOneById($tertiary['provider']);
 
 echo "Stage One!";
 ?>
@@ -73,7 +73,6 @@ echo "Stage One!";
                 </td>
             </tr>
         </table>
-        <input type="">
     </form>
 </body>
 </html>
