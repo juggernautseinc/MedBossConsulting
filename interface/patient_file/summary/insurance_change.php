@@ -50,6 +50,7 @@ echo "Stage One!";
                     </select>
                 </td>
             </tr>
+            <?php if ($sec_name['name']): ?>
             <tr>
                 <td><?php echo xlt('Secondary'); ?></td>
                 <td><?php echo xlt($sec_name['name']); ?></td>
@@ -61,6 +62,8 @@ echo "Stage One!";
                     </select>
                 </td>
             </tr>
+            <?php endif ?>
+            <?php if ($tri_name['name']): ?>
             <tr>
                 <td><?php echo xlt('Tertiary'); ?></td>
                 <td><?php echo xlt($tri_name['name']); ?></td>
@@ -72,6 +75,7 @@ echo "Stage One!";
                     </select>
                 </td>
             </tr>
+            <?php endif ?>
         </table>
     </form>
 </body>
