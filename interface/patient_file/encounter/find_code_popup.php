@@ -219,7 +219,7 @@ $focus = "document.theform.search_term.select();";
             <form>
             <div clas="row align-items-start">
                 <?php
-                 echo $pid, $codetype;
+
                 if ($codetype == 'ICD10' && !empty($pid)) { ?>
                     <div class="col">
                         <h4>Previous Diagnosis</h4>
