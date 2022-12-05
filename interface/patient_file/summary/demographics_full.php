@@ -590,12 +590,6 @@ echo xlt($CapInstype); ?></a></li><?php } ?>
         </ul>
 
     <div class="tabContainer">
-        <div class="row">
-            <div class="col-md-6">
-                <button class="btn btn-primary" id="switch"><?php echo xlt('Switch To'); ?></button>
-            </div>
-        </div>
-
     <?php
     for ($i = 1; $i <= 3; $i++) {
         $result3 = $insurance_info[$i];
@@ -604,6 +598,9 @@ echo xlt($CapInstype); ?></a></li><?php } ?>
      <div class="tab <?php echo $i == 1 ? 'current' : '' ?> h-auto w-auto">
       <div class="row">
         <div class="col-md-6">
+
+                    <button class="btn btn-primary" id="switch"><?php echo xlt('Switch To'); ?></button>
+
          <table class="table table-borderless">
            <tr>
             <td class="align-top">
