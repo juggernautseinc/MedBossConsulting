@@ -1055,10 +1055,11 @@ $use_validate_js = $GLOBALS['new_validate'];
 
     document.getElementById('switch').addEventListener('click', changeInsuranceOrder);
     function changeInsuranceOrder() {
-        let url = '/interface/patient_file/summary/insurance_change.php'
-        dlgopen(url, '_blank' 500, 500, false, 'Change Insurance Co. order' {
-            onClosed: 'refreshme'
-        });
+        alert('here');
+        // let url = '/interface/patient_file/summary/insurance_change.php'
+        // dlgopen(url, '_blank' 500, 500, false, 'Change Insurance Co. order' {
+        //     onClosed: 'refreshme'
+        // });
     }
 
     // This is called from the event editor popup.
