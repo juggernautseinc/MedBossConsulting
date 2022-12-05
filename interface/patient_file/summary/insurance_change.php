@@ -17,7 +17,7 @@ $patient_insurance = new InsuranceService();
 $companies = new InsuranceCompanyService();
 
 $l = $patient_insurance->getOneByPid($_SESSION['pid'], 'primary');
-$name = $companies->getOneById($l['id']);
+$name = $companies->getOneById($l['provider']);
 
 echo "<pre>";
 var_dump($name, $l);
