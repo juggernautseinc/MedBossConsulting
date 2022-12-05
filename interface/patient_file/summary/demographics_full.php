@@ -1052,6 +1052,20 @@ $use_validate_js = $GLOBALS['new_validate'];
         let user = '<?php echo $_SESSION['authUser']; ?>';
         document.getElementById('form_changehistory').innerHTML += 'Billing Note last updated by ' + user + ' ' + dateTime + '\n\r';
     }
+
+    document.getElementById('switch').addEventListener('click', changeInsuranceOrder);
+    function changeInsuranceOrder() {
+        let url = 'insurance_change.php'
+        dlgopen(url, '_blank' 500, 500, false, 'Change Insurance Co. order' {
+            onClosed: 'refreshme'
+        });
+    }
+
+    // This is called from the event editor popup.
+    function refreshme() {
+        top.restoreSession();
+        document.forms[0].submit();
+    }
 </script>
 
 </body>
