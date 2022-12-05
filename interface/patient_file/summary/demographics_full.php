@@ -598,9 +598,9 @@ echo xlt($CapInstype); ?></a></li><?php } ?>
      <div class="tab <?php echo $i == 1 ? 'current' : '' ?> h-auto w-auto">
       <div class="row">
         <div class="col-md-6">
-
+                    <?php if (AclMain::aclCheckCore('admin', 'super')): ?>
                     <button class="btn btn-primary" id="switch"><?php echo xlt('Switch'); ?></button>
-
+                    <?php endif ?>
          <table class="table table-borderless">
            <tr>
             <td class="align-top">
@@ -609,7 +609,8 @@ echo xlt($CapInstype); ?></a></li><?php } ?>
             <td class='required'>:</td>
             <td class="form-row align-items-center">
                 <div class="col-auto">
-                    <a href="../../practice/ins_search.php" class="medium_modal btn btn-primary" onclick="ins_search(<?php echo attr_js($i); ?>)"><?php echo xlt('Search/Add') ?></a>
+                    <a href="../../practice/ins_search.php" class="medium_modal btn btn-primary"
+                       onclick="ins_search(<?php echo attr_js($i); ?>)"><?php echo xlt('Search/Add') ?></a>
                 </div>
                 <div class="col-auto">
                      <select name="i<?php echo attr($i); ?>provider" class="form-control sel2" style="width: 250px;">

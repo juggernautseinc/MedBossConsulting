@@ -13,6 +13,7 @@ require_once dirname(__DIR__, 2) . "/globals.php";
 use OpenEMR\Services\InsuranceCompanyService;
 use OpenEMR\Services\InsuranceService;
 use OpenEMR\Core\Header;
+use OpenEMR\Common\Csrf\CsrfUtils;
 
 $patient_insurance = new InsuranceService();
 $companies = new InsuranceCompanyService();
@@ -40,6 +41,7 @@ echo "<h1>Stage One! Not working yet!!!</h1>";
 </head>
 <body>
     <form id="form" name="theinsuranceform" action="" method="post">
+        <input type="hidden" name="csrf_token_form" value="<?php echo attr(CsrfUtils::collectCsrfToken()); ?>"
         <table class="table table-striped">
             <tr>
                 <td><strong><?php echo xlt('Primary'); ?></strong></td>
@@ -79,6 +81,7 @@ echo "<h1>Stage One! Not working yet!!!</h1>";
             </tr>
             <?php endif ?>
         </table>
+        <input type="submit" value="<?php echo xlt('Submit') ?>" class="form-control">
     </form>
 </body>
 </html>
