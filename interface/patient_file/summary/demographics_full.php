@@ -591,7 +591,9 @@ echo xlt($CapInstype); ?></a></li><?php } ?>
 
     <div class="tabContainer">
         <div class="row">
-            <button><?php echo xlt('Switch To'); ?></button>
+            <div class="col-md-6">
+                <button class="btn btn-primary" id="switch"><?php echo xlt('Switch To'); ?></button>
+            </div>
         </div>
 
     <?php
