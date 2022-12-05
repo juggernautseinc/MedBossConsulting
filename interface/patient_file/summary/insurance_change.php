@@ -15,7 +15,10 @@ use OpenEMR\Services\InsuranceService;
 use OpenEMR\Core\Header;
 use OpenEMR\Common\Csrf\CsrfUtils;
 
-
+if (!empty($_POST)) {
+    var_dump($_POST);
+    die;
+}
 $patient_insurance = new InsuranceService();
 $companies = new InsuranceCompanyService();
 
@@ -41,8 +44,8 @@ echo "<h1>Stage One! Not working yet!!!</h1>";
     <?php Header::setupHeader() ?>
 </head>
 <body>
-    <form id="form" name="theinsuranceform" action="" method="post">
-        <input type="hidden" name="csrf_token_form" value="<?php echo attr(CsrfUtils::collectCsrfToken()); ?>"
+    <form id="form" name="theinsuranceform" action="insurance_change.php" method="post">
+        <input type="hidden" name="csrf_token_form" value="<?php echo attr(CsrfUtils::collectCsrfToken()); ?>">
         <table class="table table-striped">
             <tr>
                 <td><strong><?php echo xlt('Primary'); ?></strong></td>
@@ -82,7 +85,7 @@ echo "<h1>Stage One! Not working yet!!!</h1>";
             </tr>
             <?php endif ?>
         </table>
-        <input type="submit" value="<?php echo xlt('Submit') ?>" class="form-control">
+        <input type="submit" value="<?php echo xlt('Submit'); ?>" class="form-control">
     </form>
 </body>
 </html>
