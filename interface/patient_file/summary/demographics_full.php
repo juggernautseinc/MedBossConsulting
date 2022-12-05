@@ -1055,7 +1055,7 @@ $use_validate_js = $GLOBALS['new_validate'];
     // This is called from the event editor popup.
     function refreshme() {
         top.restoreSession();
-        document.forms[0].submit();
+        document.location.reload();
     }
 </script>
 
