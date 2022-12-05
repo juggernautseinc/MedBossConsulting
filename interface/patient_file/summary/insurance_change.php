@@ -12,6 +12,7 @@ require_once dirname(__DIR__, 2) . "/globals.php";
 
 use OpenEMR\Services\InsuranceCompanyService;
 use OpenEMR\Services\InsuranceService;
+use OpenEMR\Core\Header;
 
 $patient_insurance = new InsuranceService();
 $companies = new InsuranceCompanyService();
@@ -34,7 +35,8 @@ echo "Stage One!";
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title><?php echo xlt('Change Order'); ?></title>
+    <?php Header::setupHeader() ?>
 </head>
 <body>
     <form id="form" name="theinsuranceform" action="" method="post">
@@ -43,7 +45,7 @@ echo "Stage One!";
                 <td><?php echo xlt('Primary'); ?></td>
                 <td><?php echo xlt($pri_name['name']); ?></td>
                 <td>
-                    <select name="pritype" id="pritype">
+                    <select name="pritype" id="pritype" class="form-control ml-2">
                         <option></option>
                         <option value="secondary"><?php echo xlt('Secondary') ?></option>
                         <option value="tertiary"><?php echo xlt('Tertiary') ?></option>
@@ -55,7 +57,7 @@ echo "Stage One!";
                 <td><?php echo xlt('Secondary'); ?></td>
                 <td><?php echo xlt($sec_name['name']); ?></td>
                 <td>
-                    <select name="sectype" id="sectype">
+                    <select name="sectype" id="sectype" class="form-control ml-2">
                         <option></option>
                         <option value="primary"><?php echo xlt('Primary') ?></option>
                         <option value="tertiary"><?php echo xlt('Tertiary') ?></option>
@@ -68,7 +70,7 @@ echo "Stage One!";
                 <td><?php echo xlt('Tertiary'); ?></td>
                 <td><?php echo xlt($tri_name['name']); ?></td>
                 <td>
-                    <select name="tr1type" id="tr1type">
+                    <select name="tr1type" id="tr1type" class="form-control ml-2">
                         <option></option>
                         <option value="secondary"><?php echo xlt('Primary') ?></option>
                         <option value="tertiary"><?php echo xlt('Secondary') ?></option>
