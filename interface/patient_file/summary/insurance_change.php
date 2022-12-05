@@ -26,7 +26,7 @@ $sec_name = $companies->getOneById($secondary['provider']);
 $tertiary = $patient_insurance->getOneByPid($_SESSION['pid'], 'tertiary');
 $tri_name = $companies->getOneById($tertiary['provider']);
 
-echo "Stage One!";
+echo "<h1>Stage One! Not working yet!!!</h1>";
 ?>
 <!doctype html>
 <html lang="en">
@@ -42,10 +42,10 @@ echo "Stage One!";
     <form id="form" name="theinsuranceform" action="" method="post">
         <table class="table table-striped">
             <tr>
-                <td><?php echo xlt('Primary'); ?></td>
-                <td><?php echo xlt($pri_name['name']); ?></td>
+                <td><strong><?php echo xlt('Primary'); ?></strong></td>
+                <td><?php echo xlt($pri_name['name']); ?></strong></td>
                 <td>
-                    <select name="pritype" id="pritype" class="form-control ml-2">
+                    <select name="pritype" id="pritype" class="form-control ml-2 w-25">
                         <option></option>
                         <option value="secondary"><?php echo xlt('Secondary') ?></option>
                         <option value="tertiary"><?php echo xlt('Tertiary') ?></option>
@@ -54,10 +54,10 @@ echo "Stage One!";
             </tr>
             <?php if ($sec_name['name']): ?>
             <tr>
-                <td><?php echo xlt('Secondary'); ?></td>
+                <td><strong><?php echo xlt('Secondary'); ?></strong></td>
                 <td><?php echo xlt($sec_name['name']); ?></td>
                 <td>
-                    <select name="sectype" id="sectype" class="form-control ml-2">
+                    <select name="sectype" id="sectype" class="form-control ml-2 w-25">
                         <option></option>
                         <option value="primary"><?php echo xlt('Primary') ?></option>
                         <option value="tertiary"><?php echo xlt('Tertiary') ?></option>
@@ -67,10 +67,10 @@ echo "Stage One!";
             <?php endif ?>
             <?php if ($tri_name['name']): ?>
             <tr>
-                <td><?php echo xlt('Tertiary'); ?></td>
+                <td><strong><?php echo xlt('Tertiary'); ?></strong></td>
                 <td><?php echo xlt($tri_name['name']); ?></td>
                 <td>
-                    <select name="tr1type" id="tr1type" class="form-control ml-2">
+                    <select name="tr1type" id="tr1type" class="form-control ml-2 w-25">
                         <option></option>
                         <option value="secondary"><?php echo xlt('Primary') ?></option>
                         <option value="tertiary"><?php echo xlt('Secondary') ?></option>

@@ -1047,7 +1047,7 @@ $use_validate_js = $GLOBALS['new_validate'];
         event.preventDefault();
         let url = '/interface/patient_file/summary/insurance_change.php';
         let title = 'Change Insurance Co. order';
-        dlgopen(url, '_blank', 500, 500, '', title, {
+        dlgopen(url, '_blank', 800, 500, '', title, {
             onClosed: 'refreshme'
         });
     });
