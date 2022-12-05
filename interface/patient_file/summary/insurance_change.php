@@ -10,4 +10,13 @@
 
 require_once dirname(__DIR__, 2) . "/globals.php";
 
+use OpenEMR\Services\InsuranceCompanyService;
+use OpenEMR\Services\InsuranceService;
+
+$patient_insurance = new InsuranceService();
+$companies = new InsuranceCompanyService();
+
+$l = $patient_insurance->getOneByPid($_SESSION['pid'], 'primary');
+
+var_dump($l);
 echo "Stage One!";
