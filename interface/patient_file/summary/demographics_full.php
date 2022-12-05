@@ -599,7 +599,7 @@ echo xlt($CapInstype); ?></a></li><?php } ?>
       <div class="row">
         <div class="col-md-6">
 
-                    <button class="btn btn-primary" id="switch"><?php echo xlt('Switch To'); ?></button>
+                    <button class="btn btn-primary" id="switch"><?php echo xlt('Switch'); ?></button>
 
          <table class="table table-borderless">
            <tr>
