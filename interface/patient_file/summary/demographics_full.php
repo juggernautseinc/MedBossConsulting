@@ -1053,7 +1053,7 @@ $use_validate_js = $GLOBALS['new_validate'];
         document.getElementById('form_changehistory').innerHTML += 'Billing Note last updated by ' + user + ' ' + dateTime + '\n\r';
     }
 
-    document.getElementById('switch').addEventListener('click', changeInsuranceOrder());
+    document.getElementById('switch').addEventListener('click', changeInsuranceOrder);
     function changeInsuranceOrder() {
         preventDefault();
         alert('here');
