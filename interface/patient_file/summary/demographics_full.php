@@ -590,6 +590,9 @@ echo xlt($CapInstype); ?></a></li><?php } ?>
         </ul>
 
     <div class="tabContainer">
+        <div class="row">
+            <button><?php echo xlt('Switch To'); ?></button>
+        </div>
 
     <?php
     for ($i = 1; $i <= 3; $i++) {
