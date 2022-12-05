@@ -17,6 +17,6 @@ $patient_insurance = new InsuranceService();
 $companies = new InsuranceCompanyService();
 
 $l = $patient_insurance->getOneByPid($_SESSION['pid'], 'primary');
-
+echo "<pre>";
 var_dump($l);
 echo "Stage One!";
