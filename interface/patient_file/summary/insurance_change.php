@@ -15,10 +15,6 @@ use OpenEMR\Services\InsuranceService;
 use OpenEMR\Core\Header;
 use OpenEMR\Common\Csrf\CsrfUtils;
 
-if (!empty($_POST)) {
-    var_dump($_POST['csrf_token_form']);
-    die;
-}
 
 $patient_insurance = new InsuranceService();
 $companies = new InsuranceCompanyService();
