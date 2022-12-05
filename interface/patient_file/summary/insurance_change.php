@@ -45,7 +45,7 @@ echo "<h1>Stage One! Not working yet!!!</h1>";
                 <td><strong><?php echo xlt('Primary'); ?></strong></td>
                 <td><?php echo xlt($pri_name['name']); ?></strong></td>
                 <td>
-                    <select name="pritype" id="pritype" class="form-control ml-2 w-25">
+                    <select name="pritype" id="pritype" class="form-control ml-2">
                         <option></option>
                         <option value="secondary"><?php echo xlt('Secondary') ?></option>
                         <option value="tertiary"><?php echo xlt('Tertiary') ?></option>
@@ -57,7 +57,7 @@ echo "<h1>Stage One! Not working yet!!!</h1>";
                 <td><strong><?php echo xlt('Secondary'); ?></strong></td>
                 <td><?php echo xlt($sec_name['name']); ?></td>
                 <td>
-                    <select name="sectype" id="sectype" class="form-control ml-2 w-25">
+                    <select name="sectype" id="sectype" class="form-control ml-2">
                         <option></option>
                         <option value="primary"><?php echo xlt('Primary') ?></option>
                         <option value="tertiary"><?php echo xlt('Tertiary') ?></option>
@@ -70,7 +70,7 @@ echo "<h1>Stage One! Not working yet!!!</h1>";
                 <td><strong><?php echo xlt('Tertiary'); ?></strong></td>
                 <td><?php echo xlt($tri_name['name']); ?></td>
                 <td>
-                    <select name="tr1type" id="tr1type" class="form-control ml-2 w-25">
+                    <select name="tr1type" id="tr1type" class="form-control ml-2">
                         <option></option>
                         <option value="secondary"><?php echo xlt('Primary') ?></option>
                         <option value="tertiary"><?php echo xlt('Secondary') ?></option>
