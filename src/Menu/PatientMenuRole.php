@@ -232,9 +232,8 @@ EOT;
                 </ul>
             </div>
 EOB;
-        //$str_bot .= $dispatcher->dispatch(new PatientMenuLoadEvent(), PatientMenuLoadEvent::EVENT_PATIENT_MENU_LOAD);
         $str_bot .= <<<EOB
-            <div id="patientstatuschange">
+            <div id="custompatientnav">
             </div>
 EOB;
         $str_bot .= <<<EOB

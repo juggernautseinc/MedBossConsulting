@@ -1952,11 +1952,11 @@ if ($track_is_registered) {
             $patient_status = sqlQuery("SELECT `status` FROM `patient_status` WHERE `pid` = ? ORDER BY `statusId` DESC LIMIT 1", [$_SESSION['pid']]);
             if ($patient_status['status'] != 'inactive') {
                 ?>
-                document.getElementById('patientstatuschange').innerHTML = '<button class="btn btn-danger" id="addButton">Mark Inactive</button>';
+                document.getElementById('custompatientnav').innerHTML = '<button class="btn btn-danger" id="addButton">Mark Inactive</button>';
                 <?php
             } else {
                 ?>
-                document.getElementById('patientstatuschange').innerHTML = '<button class="btn btn-success" id="addButton">Mark Active</button>';
+                document.getElementById('custompatientnav').innerHTML = '<button class="btn btn-success" id="addButton">Mark Active</button>';
                 <?php
             }
 
