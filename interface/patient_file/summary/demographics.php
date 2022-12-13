@@ -1960,7 +1960,7 @@ if ($track_is_registered) {
                 <?php
             }
 
-            $GLOBALS["kernel"]->getEventDispatcher()->dispatch(RenderEvent::EVENT_RENDER_JAVA, new RenderEvent($pid), 10);
+            $GLOBALS["kernel"]->getEventDispatcher()->dispatch(RenderEvent::EVENT_RENDER_POST_PAGELOAD, new RenderEvent($pid), 10);
         }
     ?>
 </script>
