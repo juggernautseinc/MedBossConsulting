@@ -1947,23 +1947,23 @@ if ($track_is_registered) {
             $("#eligibility").get(0).scrollIntoView();
         }
     });
-    <?php
-    if (AclMain::aclCheckCore('admin', 'super') || AclMain::aclCheckCore('acct', 'bill')) {
-            $patient_status = sqlQuery("SELECT `status` FROM `patient_status` WHERE `pid` = ? ORDER BY `statusId` DESC LIMIT 1", [$_SESSION['pid']]);
-            if ($patient_status['status'] != 'inactive') {
-                ?>
-                document.getElementById('custompatientnav').innerHTML = '<button class="btn btn-danger" id="addButton">Mark Inactive</button>';
-                <?php
-            } else {
-                ?>
-                document.getElementById('custompatientnav').innerHTML = '<button class="btn btn-success" id="addButton">Mark Active</button>';
-                <?php
-            }
-
-            $GLOBALS["kernel"]->getEventDispatcher()->dispatch(RenderEvent::EVENT_RENDER_POST_PAGELOAD, new RenderEvent($pid), 10);
-        }
-    ?>
 </script>
+<?php
+    if (AclMain::aclCheckCore('admin', 'super') || AclMain::aclCheckCore('acct', 'bill')) {
+        $patient_status = sqlQuery("SELECT `status` FROM `patient_status` WHERE `pid` = ? ORDER BY `statusId` DESC LIMIT 1", [$_SESSION['pid']]);
+        if ($patient_status['status'] != 'inactive') {
+            ?>
+            document.getElementById('custompatientnav').innerHTML = '<button class="btn btn-danger" id="addButton">Mark Inactive</button>';
+            <?php
+        } else {
+            ?>
+            document.getElementById('custompatientnav').innerHTML = '<button class="btn btn-success" id="addButton">Mark Active</button>';
+            <?php
+        }
+
+        $GLOBALS["kernel"]->getEventDispatcher()->dispatch(RenderEvent::EVENT_RENDER_POST_PAGELOAD, new RenderEvent($pid), 10);
+    }
+?>
 
 </body>
 </html>
