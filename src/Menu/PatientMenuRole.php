@@ -231,15 +231,10 @@ EOT;
         $str_bot = <<<EOB
                 </ul>
             </div>
-EOB;
-        $str_bot .= <<<EOB
             <div id="custompatientnav">
             </div>
-EOB;
-        $str_bot .= <<<EOB
             </nav>
-EOB;
-
+        EOB;
         echo $str_bot . "\r\n";
 
         return;
