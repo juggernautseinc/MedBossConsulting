@@ -12,6 +12,7 @@
  */
 
 
+use OpenEMR\Common\Acl\AclMain;
 use OpenEMR\Menu\MenuEvent;
 use OpenEMR\Menu\PatientMenuEvent;
 use OpenEMR\Events\PatientDemographics\RenderEvent;
