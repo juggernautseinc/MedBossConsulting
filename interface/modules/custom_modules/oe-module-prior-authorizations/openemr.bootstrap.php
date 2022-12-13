@@ -54,7 +54,7 @@ function oe_module_priorauth_patient_menu_item(PatientMenuEvent $menuEvent)
 }
 
 function renderButtonPostLoad(Event $event) {
-
+    if (AclMain::aclCheckCore('admin', 'super') || AclMain::aclCheckCore('acct', 'bill')) {
     $patient_status = sqlQuery("SELECT `status` FROM `patient_status` WHERE `pid` = ? ORDER BY `statusId` DESC LIMIT 1", [$_SESSION['pid']]);
     if ($patient_status['status'] != 'inactive') {
     ?>
@@ -97,6 +97,7 @@ function renderButtonPostLoad(Event $event) {
         });
     </script
 <?php
+    }
 }
 
 /**

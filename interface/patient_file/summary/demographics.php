@@ -1949,10 +1949,7 @@ if ($track_is_registered) {
     });
 </script>
 <?php
-    if (AclMain::aclCheckCore('admin', 'super') || AclMain::aclCheckCore('acct', 'bill')) {
-
-        $GLOBALS["kernel"]->getEventDispatcher()->dispatch(RenderEvent::EVENT_RENDER_POST_PAGELOAD, new RenderEvent($pid), 10);
-    }
+    $GLOBALS["kernel"]->getEventDispatcher()->dispatch(RenderEvent::EVENT_RENDER_POST_PAGELOAD, new RenderEvent($pid), 10);
 ?>
 
 </body>
