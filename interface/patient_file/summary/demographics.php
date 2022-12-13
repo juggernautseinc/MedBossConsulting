@@ -1950,16 +1950,6 @@ if ($track_is_registered) {
 </script>
 <?php
     if (AclMain::aclCheckCore('admin', 'super') || AclMain::aclCheckCore('acct', 'bill')) {
-        $patient_status = sqlQuery("SELECT `status` FROM `patient_status` WHERE `pid` = ? ORDER BY `statusId` DESC LIMIT 1", [$_SESSION['pid']]);
-        if ($patient_status['status'] != 'inactive') {
-            ?><script>
-            document.getElementById('custompatientnav').innerHTML = '<button class="btn btn-danger" id="addButton">Mark Inactive</button>';
-        </script><?php
-        } else {
-            ?><script>
-            document.getElementById('custompatientnav').innerHTML = '<button class="btn btn-success" id="addButton">Mark Active</button>';
-            </script><?php
-        }
 
         $GLOBALS["kernel"]->getEventDispatcher()->dispatch(RenderEvent::EVENT_RENDER_POST_PAGELOAD, new RenderEvent($pid), 10);
     }
