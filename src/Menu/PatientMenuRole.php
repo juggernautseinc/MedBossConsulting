@@ -231,8 +231,6 @@ EOT;
         $str_bot = <<<EOB
                 </ul>
             </div>
-            <div id="custompatientnav">
-            </div>
             </nav>
         EOB;
         echo $str_bot . "\r\n";
