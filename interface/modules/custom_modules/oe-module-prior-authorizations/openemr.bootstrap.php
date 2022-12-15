@@ -62,17 +62,24 @@ function renderButtonPostLoad(Event $event) {
         (AclMain::aclCheckCore('admin', 'super')  || AclMain::aclCheckCore('acct', 'bill'))) {
     ?>
     <script>
-        document.getElementById('custompatientnav').innerHTML =
-            '<button class="btn btn-danger" id="addButton">Mark Inactive</button>';
+        let navbar = document.querySelector('nav.navbar:first-of-type');
+        let ele = document.createElement("div");
+        ele.id = "customepatientnav";
+        ele.innerHTML = '<button class="btn btn-danger" id="addButton">Mark Inactive</button>'
+        navbar.appendChild(ele);
     </script>
-    <?php
+        <?php
     } else {
-    ?>
-    <script>
-        document.getElementById('custompatientnav').innerHTML =
-            '<button class="btn btn-success" id="addButton">Mark Active</button>';
-    </script>
-    <?php
+        ?>
+        <script>
+            let navbar = document.querySelector('nav.navbar:first-of-type');
+            let ele = document.createElement("div");
+            ele.id = "customepatientnav";
+            ele.innerHTML = '<button class="btn btn-success" id="addButton">Mark Active</button>';
+            navbar.appendChild(ele);
+        </script>
+
+        <?php
     }
     ?>
     <script>

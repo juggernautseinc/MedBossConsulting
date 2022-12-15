@@ -91,8 +91,10 @@ const TABLE_TD = "</td><td>";
 <body>
     <div class="container">
         <div class="m-4">
-                <span style="font-size: xx-large; padding-right: 20px"><?php echo xlt('Prior Authorization Manager'); ?></span>
-                <a href="../../../../patient_file/summary/demographics.php" onclick="top.restoreSession()" title="Go Back">
+                <span style="font-size: xx-large; padding-right: 20px">
+                    <?php echo xlt('Prior Authorization Manager'); ?></span>
+                <a href="../../../../patient_file/summary/demographics.php"
+                   onclick="top.restoreSession()" title="Go Back">
                     <i id="advanced-tooltip" class="fa fa-undo fa-2x small" aria-hidden="true"></i></a>
 
         </div>
@@ -109,21 +111,26 @@ const TABLE_TD = "</td><td>";
                 <input type="hidden" id="id" name="id" value="">
                 <div class="form-row">
                     <div class="col">
-                        <input class="form-control" id="authorization" name="authorization" value="" placeholder="<?php echo xlt('Authorization Number') ?>">
+                        <input class="form-control" id="authorization" name="authorization" value=""
+                               placeholder="<?php echo xlt('Authorization Number') ?>">
                     </div>
                     <div class="col">
-                        <input class="form-control" id="units" name="units" value="" placeholder="<?php echo xlt('Units') ?>">
+                        <input class="form-control" id="units" name="units" value=""
+                               placeholder="<?php echo xlt('Units') ?>">
                     </div>
                     <div class="col">
-                        <input class="form-control datepicker" id="start_date" name="start_date" value="" placeholder="<?php echo xlt('Start Date') ?>" readonly>
+                        <input class="form-control datepicker" id="start_date" name="start_date" value=""
+                               placeholder="<?php echo xlt('Start Date') ?>" readonly>
                     </div>
                     <div class="col">
-                        <input class="form-control datepicker" id="end_date" name="end_date" value="" placeholder="<?php echo xlt('End Date') ?>" readonly>
+                        <input class="form-control datepicker" id="end_date" name="end_date" value=""
+                               placeholder="<?php echo xlt('End Date') ?>" readonly>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col">
-                        <input class="form-control" id="cpts" name="cpts" value="" placeholder="<?php echo xlt('CPTs') ?>">
+                        <input class="form-control" id="cpts" name="cpts" value=""
+                               placeholder="<?php echo xlt('CPTs') ?>">
                     </div>
                 </div>
                 <div class="form-row">
@@ -163,9 +170,11 @@ const TABLE_TD = "</td><td>";
                                 print TABLE_TD . $iter['end_date'];
                             }
                             print TABLE_TD . $iter['cpt'];
-                            print TABLE_TD . " <button class='btn btn-primary' onclick=getRowData(" . $iter['id'] . ")>" . xlt('Edit') . "</button>
+                            print TABLE_TD . " <button class='btn btn-primary' onclick=getRowData(" . $iter['id'] . ")>"
+                                . xlt('Edit') . "</button>
                             <input type='hidden' id='" . $iter['id'] . "' value='" . $editData . "' ></td>";
-                            print "<td><a class='btn btn-danger' href='#' onclick=removeEntry(" . $iter['id'] . ")>" . xlt('Delete') . "</a></td>";
+                            print "<td><a class='btn btn-danger' href='#' onclick=removeEntry(" . $iter['id'] . ")>"
+                                . xlt('Delete') . "</a></td>";
 
                             print "</tr>";
                         }
