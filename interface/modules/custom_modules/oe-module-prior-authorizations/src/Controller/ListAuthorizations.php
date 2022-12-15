@@ -10,8 +10,6 @@
 
 namespace Juggernaut\OpenEMR\Modules\PriorAuthModule\Controller;
 
-use OpenEMR\Common\Database\QueryUtils;
-
 class ListAuthorizations
 {
     private $pid;
@@ -37,7 +35,7 @@ class ListAuthorizations
         return sqlStatement($sql, [$this->pid]);
     }
 
-    private function getAuthsFromModulePriorAuth()
+    private static function getAuthsFromModulePriorAuth(): array
     {
         $sql = "SELECT auth_num FROM module_prior_authorizations WHERE pid = ?";
         $auths = sqlStatement($sql, [$_SESSION['pid']]);
@@ -54,38 +52,39 @@ class ListAuthorizations
      * or they have already been using the misc billing options
      * this is a silent function
      */
-    public static function insertMissingAuthsFromForm()
+    public static function insertMissingAuthsFromForm(): void
     {
         $formsAuths = self::formPriorAuth();
         $formMiscBilling = self::formMiscBilling();
         $array_merger = array_push($formsAuths, $formMiscBilling) ?? null;
         $moduleAuths = self::getAuthsFromModulePriorAuth() ?? null;
-        $insertArray = array_diff($moduleAuths, $array_merger);
+        if (is_array($moduleAuths) && is_array($array_merger)) {
+            $insertArray = array_diff($moduleAuths, $array_merger);
 
-        if (!empty($insertArray)) {
-            foreach ($insertArray as $auth) {
-                $isinstalled = sqlQuery("SELECT 1 FROM `form_prior_auth` LIMIT 1");
-                if ($isinstalled !== FALSE) {
-                    $getinfo = sqlQuery("SELECT date_from, date_to FROM `form_prior_auth` WHERE `prior_auth_number` = ? ORDER BY `id` DESC LIMIT 1 ", [$auth]);
-                }
-                if (!empty($getinfo['date_from'])) {
-                    $saveInfoWithDate = "INSERT INTO `module_prior_authorizations` SET `id` = '', `pid` = ?, `auth_num` = ?, `start_date` = ?, `end_date` = ?";
-                    $bindArray = [$_SESSION['pid'], $auth, $getinfo['date_from'], $getinfo['date_to']];
-                    sqlStatement($saveInfoWithDate, $bindArray);
-                } elseif (!empty($auth)) {
-                    $saveInfoWithDate = "INSERT INTO `module_prior_authorizations` SET `id` = '', `pid` = ?, `auth_num` = ?";
-                    $bindArray = [$_SESSION['pid'], $auth];
-                    sqlStatement($saveInfoWithDate, $bindArray);
+            if (!empty($insertArray)) {
+                foreach ($insertArray as $auth) {
+                    $isinstalled = sqlQuery("SELECT 1 FROM `form_prior_auth` LIMIT 1");
+                    if ($isinstalled !== FALSE) {
+                        $getinfo = sqlQuery("SELECT date_from, date_to FROM `form_prior_auth` WHERE `prior_auth_number` = ? ORDER BY `id` DESC LIMIT 1 ", [$auth]);
+                    }
+                    if (!empty($getinfo['date_from'])) {
+                        $saveInfoWithDate = "INSERT INTO `module_prior_authorizations` SET `id` = '', `pid` = ?, `auth_num` = ?, `start_date` = ?, `end_date` = ?";
+                        $bindArray = [$_SESSION['pid'], $auth, $getinfo['date_from'], $getinfo['date_to']];
+                        sqlStatement($saveInfoWithDate, $bindArray);
+                    } elseif (!empty($auth)) {
+                        $saveInfoWithDate = "INSERT INTO `module_prior_authorizations` SET `id` = '', `pid` = ?, `auth_num` = ?";
+                        $bindArray = [$_SESSION['pid'], $auth];
+                        sqlStatement($saveInfoWithDate, $bindArray);
+                    }
                 }
             }
         }
     }
-
     /**
      * @return array
      * from form prior auth
      */
-    private function formPriorAuth(): array
+    private static function formPriorAuth(): array
     {
         $doesExist = sqlQuery("SELECT table_name FROM information_schema.tables WHERE table_name = 'form_form_prior_auth'");
         $auths_array = [];
@@ -103,7 +102,7 @@ class ListAuthorizations
     /**
      * @return array
      */
-    private function formMiscBilling()
+    private static function formMiscBilling()
     {
         $sql = "select prior_auth_number from form_misc_billing_options where pid = ?";
         $auths = sqlStatement($sql, [$_SESSION['pid']]);
