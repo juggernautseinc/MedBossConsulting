@@ -91,7 +91,7 @@ class X125010837I
         }
         $out .= "NM1" .       // Loop 1000A Submitter stays in the 837I
             "*" . "41" .
-            "*" . "2-" .
+            "*" . "2" .
             "*" . trim($billingFacilityName) .
             "*" .
             "*" .
