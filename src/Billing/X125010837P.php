@@ -1624,7 +1624,7 @@ class X125010837P
                 if ($claim->x12_submitter_name()) {
                     // non-person entity
                     $out .= "2" .
-                        "*1" . trim($claim->x12_submitter_name()) .
+                        "*" . trim($claim->x12_submitter_name()) .
                         "*" .
                         "*" .
                         "*" .
