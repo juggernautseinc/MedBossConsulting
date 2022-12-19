@@ -1654,7 +1654,6 @@ class X125010837P
                     "*" . "2";
                 // check for 3rd party
                 if ($claim->x12_submitter_name()) {
-                    $submittername = $claim->x12_submitter_name();
                     $out .= "*" . trim($claim->x12_submitter_name()) .
                         "*" .
                         "*" .
