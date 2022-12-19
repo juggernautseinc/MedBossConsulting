@@ -1662,7 +1662,7 @@ class X125010837P
                         "*" .
                         "*" .
                         "*" . "46" .
-                        "*"  /*$claim->x12_sender_id()*/;
+                        "*" . $claim->x12_sender_id();
                     // else use provider's group name
                 } else {
                     $billingFacilityName = substr($claim->billingFacilityName(), 0, 60);
@@ -2320,7 +2320,7 @@ class X125010837P
         }
 
         // Diagnoses, up to $max_per_seg per HI segment.
-        $max_per_seg = 12;
+        $max_per_seg = 20;
         $da = $claim->diagArray();
         if ($claim->diagtype == "ICD9") {
             $diag_type_code = 'BK';
