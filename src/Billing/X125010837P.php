@@ -1617,7 +1617,7 @@ class X125010837P
             // check entity type for NM*102 1 == person, 2 == non-person entity
             // SY = ssn so is 1 or person but we also check for a 3rd party submitter
             if ($claim->federalIdType() == "SY") {
-                $out .= "NM1-" . // Loop 1000A Submitter
+                $out .= "NM1" . // Loop 1000A Submitter
                     "*" . "41" .
                     "*";
                 // check for 3rd party submitter name entered in practice settings x12 partner
@@ -1649,12 +1649,12 @@ class X125010837P
                 }
                 // non-person entity, use 2
             } else {
-                $out .= "NM1--" .
+                $out .= "NM1" .
                     "*" . "41" .
                     "*" . "2";
                 // check for 3rd party
                 if ($claim->x12_submitter_name()) {
-                    $out .= "*" . $claim->x12_submitter_name() .
+                    $out .= "*" . trim($claim->x12_submitter_name()) .
                         "*" .
                         "*" .
                         "*" .
