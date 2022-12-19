@@ -1624,7 +1624,7 @@ class X125010837P
                 if ($claim->x12_submitter_name()) {
                     // non-person entity
                     $out .= "2" .
-                        "*" . trim($claim->x12_submitter_name()) .
+                        "*" . $claim->x12_submitter_name() .
                         "*" .
                         "*" .
                         "*" .
@@ -1649,7 +1649,7 @@ class X125010837P
                 }
                 // non-person entity, use 2
             } else {
-                $out .= "NM1" .
+                $out .= "NM1--" .
                     "*" . "41" .
                     "*" . "2";
                 // check for 3rd party
