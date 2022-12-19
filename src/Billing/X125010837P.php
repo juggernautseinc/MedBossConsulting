@@ -2048,6 +2048,9 @@ class X125010837P
         // Segment REF (Billing Provider Secondary Identification) omitted.
 
         if (!$claim->isSelfOfInsured()) {
+            if ($claim->x12_submitter_name() == 'WAYSTAR') {
+                $HLcount++;
+            }
             ++$edicount;
             $out .= "HL" .        // Loop 2000C Patient Information
                 "*" . $HLcount .
