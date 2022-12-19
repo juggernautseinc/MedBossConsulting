@@ -2335,7 +2335,7 @@ class X125010837P
                 ++$edicount;
                 $out .= "HI";         // Health Diagnosis Codes
             }
-            $out .= "*" . $diag_type_code . ":" . $diag;
+            $out .= "*" . $diag_type_code . ":-" . $diag;
             if ($claim->diagtype == "ICD9") {
                 $diag_type_code = 'BF';
             } else {
