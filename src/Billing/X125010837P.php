@@ -1654,6 +1654,7 @@ class X125010837P
                     "*" . "2";
                 // check for 3rd party
                 if ($claim->x12_submitter_name()) {
+                    $submittername = $claim->x12_submitter_name();
                     $out .= "*" . trim($claim->x12_submitter_name()) .
                         "*" .
                         "*" .
@@ -1661,7 +1662,7 @@ class X125010837P
                         "*" .
                         "*" .
                         "*" . "46" .
-                        "*" . $claim->x12_sender_id();
+                        "*"  /*$claim->x12_sender_id()*/;
                     // else use provider's group name
                 } else {
                     $billingFacilityName = substr($claim->billingFacilityName(), 0, 60);
