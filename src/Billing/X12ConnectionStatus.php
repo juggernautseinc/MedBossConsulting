@@ -12,7 +12,7 @@ namespace OpenEMR\Billing;
 
 use phpseclib\Net\SFTP;
 
-class X12ClaimRepost
+class X12ConnectionStatus
 {
     private bool $status;
 
@@ -50,6 +50,21 @@ class X12ClaimRepost
                                 status = 'waiting',
                                 messages = NULL
                             WHERE `status` = 'login-error'");
+    }
+
+    public static function arrayOfX12Partners(): array
+    {
+        $x12_ids = [];
+        $partners = sqlStatement("SELECT id FROM `x12_partners`");
+        while ($partner = sqlFetchArray($partners)) {
+            $x12_ids[] = $partners;
+        }
+        return $x12_ids;
+    }
+
+    public static function getPartnerConnection($partnerId)
+    {
+        return sqlQuery('SELECT `x12_sftp_host`, `x12_sftp_login`,`x12_sftp_pass` FROM `x12_partners` WHERE id = ?', [$partnerId]);
     }
 }
 
