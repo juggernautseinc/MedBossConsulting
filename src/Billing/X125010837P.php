@@ -2320,7 +2320,7 @@ class X125010837P
         }
 
         // Diagnoses, up to $max_per_seg per HI segment.
-        $max_per_seg = 20;
+        $max_per_seg = 12;
         $da = $claim->diagArray();
         if ($claim->diagtype == "ICD9") {
             $diag_type_code = 'BK';
@@ -2336,7 +2336,7 @@ class X125010837P
                 ++$edicount;
                 $out .= "HI";         // Health Diagnosis Codes
             }
-            $out .= "*" . $diag_type_code . ":" . $diag;
+            $out .= "*" . $diag_type_code . ":" . trim($diag);
             if ($claim->diagtype == "ICD9") {
                 $diag_type_code = 'BF';
             } else {
