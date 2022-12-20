@@ -190,7 +190,7 @@ class ApplicationTable
 
         if ($oelog) {
             $this->portalLog('profile audit transaction', $audit['patient_id'], $logsql, $audit, $result, 'See portal audit activity');
-            //auditSQLEvent( $logsql, $result, $audit );
+            auditSQLEvent( $logsql, $result, $audit );
         }
 
         return $return;
