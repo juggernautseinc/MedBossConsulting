@@ -53,7 +53,7 @@ class EDI270
         //   '00' No Security Information Present
         //   (No Meaningful Information in I04)
         $ISA[4] = str_pad("0000000000", 10, " ");         // Security Information
-        $ISA[5] = str_pad($X12info['x12_isa05'], 2, " ");              // Interchange ID Qualifier
+        $ISA[5] = str_pad($X12info['x12_isa05'], 2, " ") . 248863;              // Interchange ID Qualifier
         $ISA[6] = str_pad($X12info['x12_sender_id'], 15, " ");      // INTERCHANGE SENDER ID
         $ISA[7] = str_pad($X12info['x12_isa07'], 2, " ");              // Interchange ID Qualifier
         $ISA[8] = str_pad($X12info['x12_receiver_id'], 15, " ");      // INTERCHANGE RECEIVER ID
