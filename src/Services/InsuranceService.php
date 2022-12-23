@@ -85,6 +85,17 @@ class InsuranceService extends BaseService
             return sqlQuery($sql, array($pid, $type));
     }
 
+    public function getAllByPid(): array
+    {
+        $payer = [];
+        $sql = "SELECT `id`.`type`, `ic`.`name` FROM `insurance_data` id LEFT JOIN `insurance_companies` ic ON `id`.`provider` = `ic`.`id` WHERE `id`.`pid` = ?";
+        $listPayers = sqlStatement($sql,[$_SESSION['pid']]);
+        while ($row = sqlFetchArray($listPayers)) {
+            $payer[] = $row;
+        }
+        return $payer;
+    }
+
     public function getOne($uuid)
     {
 
