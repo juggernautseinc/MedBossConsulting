@@ -108,7 +108,6 @@ class InsuranceService extends BaseService
 
     public function getAll($search = array(), $isAndCondition = true)
     {
-return $search;
         // Validating and Converting Patient UUID to PID
         // Validating and Converting UUID to ID
         if (isset($search['pid'])) {
