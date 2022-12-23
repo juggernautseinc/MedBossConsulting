@@ -10,6 +10,8 @@
 
 require_once dirname(__DIR__, 2) . "/globals.php";
 
+use OpenEMR\Services\InsuranceCompanyService;
+use OpenEMR\Services\InsuranceService;
 use OpenEMR\Services\SwitchPatientInsurance;
 use OpenEMR\Core\Header;
 use OpenEMR\Common\Csrf\CsrfUtils;
@@ -20,7 +22,10 @@ if (!empty($_POST)) {
     }
 }
 
-$insurances = new SwitchPatientInsurance();
+$insurances = new SwitchPatientInsurance(
+        InsuranceCompanyService::class,
+    InsuranceService::class
+);
 $list = $insurances->listPatientInsurances();
 
 var_dump($list); die;
