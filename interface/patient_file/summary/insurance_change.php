@@ -22,9 +22,11 @@ if (!empty($_POST)) {
     }
 }
 
+$insuranceCompanyService = InsuranceCompanyService::class;
+$insuranceService = InsuranceService::class;
 $insurances = new SwitchPatientInsurance(
-        InsuranceCompanyService::class,
-    InsuranceService::class
+    $insuranceCompanyService,
+    $insuranceService
 );
 $list = $insurances->listPatientInsurances();
 
