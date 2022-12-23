@@ -25,6 +25,7 @@ class SwitchPatientInsurance
 
     public function listPatientInsurances()
     {
-        return $this->insuranceservice->getAll([$_SESSION['pid']]);
+        $search = [$_SESSION['pid']];
+        return $this->insuranceservice->getAll($search);
     }
 }
