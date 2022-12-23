@@ -27,7 +27,7 @@ $insurances = new SwitchPatientInsurance(
     new InsuranceService()
 );
 $list = $insurances->listPatientInsurances();
-
+echo "<pre>";
 var_dump($list); die;
 
 $primary = $patient_insurance->getOneByPid($_SESSION['pid'], 'primary');
