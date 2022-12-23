@@ -10,8 +10,7 @@
 
 require_once dirname(__DIR__, 2) . "/globals.php";
 
-use OpenEMR\Services\InsuranceCompanyService;
-use OpenEMR\Services\InsuranceService;
+use OpenEMR\Services\SwitchPatientInsurance;
 use OpenEMR\Core\Header;
 use OpenEMR\Common\Csrf\CsrfUtils;
 
@@ -19,11 +18,12 @@ if (!empty($_POST)) {
     if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token_form"])) {
         CsrfUtils::csrfNotVerified();
     }
-    var_dump($_POST);
-    die;
 }
-$patient_insurance = new InsuranceService();
-$companies = new InsuranceCompanyService();
+
+$insurances = new SwitchPatientInsurance();
+$list = $insurances->listPatientInsurances();
+
+var_dump($list); die;
 
 $primary = $patient_insurance->getOneByPid($_SESSION['pid'], 'primary');
 $pri_name = $companies->getOneById($primary['provider']);
