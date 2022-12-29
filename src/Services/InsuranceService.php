@@ -88,8 +88,9 @@ class InsuranceService extends BaseService
     public function getAllByPid(): array
     {
         $payer = [];
-        $sql = "SELECT `id`.`type`, `ic`.`name` FROM `insurance_data` id LEFT JOIN `insurance_companies` ic ON `id`.`provider` = `ic`.`id` WHERE `id`.`pid` = ?";
-        $listPayers = sqlStatement($sql,[$_SESSION['pid']]);
+        $sql = "SELECT `id`.`type`, `ic`.`name` FROM `insurance_data` id LEFT JOIN `insurance_companies` ic
+        ON `id`.`provider` = `ic`.`id` WHERE `id`.`pid` = ?";
+        $listPayers = sqlStatement($sql, [$_SESSION['pid']]);
         while ($row = sqlFetchArray($listPayers)) {
             $payer[] = $row;
         }
