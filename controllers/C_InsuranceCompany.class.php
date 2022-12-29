@@ -21,11 +21,6 @@ class C_InsuranceCompany extends Controller
         $this->assign("SUPPORT_ENCOUNTER_CLAIMS", $GLOBALS['support_encounter_claims']);
         $this->assign("SUPPORT_ELIGIBILITY_REQUESTS", $GLOBALS['enable_oa']);
         $this->InsuranceCompany = new InsuranceCompany();
-        $this->paginate = new SmartyPaginate();
-        //require connection
-        $this->paginate->connect();
-        //set items per page
-        $this->paginate->setLimit(50);
 
     }
 
