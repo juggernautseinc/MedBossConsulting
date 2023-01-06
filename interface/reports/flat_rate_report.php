@@ -277,7 +277,7 @@ if (!empty($_POST['form_refresh'])) {
     <?php echo text(oeFormatShortDate($form_from_date)) . " &nbsp; " . xlt('to{{Range}}') . " &nbsp; " . text(oeFormatShortDate($form_to_date)); ?>
 </div>
 
-<form method='post' id='theform' action='flat-provider_rate_report.php' onsubmit='return top.restoreSession()'>
+<form method='post' id='theform' action='flat_rate_report.php' onsubmit='return top.restoreSession()'>
 <input type="hidden" name="csrf_token_form" value="<?php echo attr(CsrfUtils::collectCsrfToken()); ?>" />
 
 <div id="report_parameters">
