@@ -27,17 +27,6 @@ $insurances = new SwitchPatientInsurance(
     new InsuranceService()
 );
 $list = $insurances->listPatientInsurances();
-echo "<pre>";
-var_dump($list); die;
-
-$primary = $patient_insurance->getOneByPid($_SESSION['pid'], 'primary');
-$pri_name = $companies->getOneById($primary['provider']);
-
-$secondary = $patient_insurance->getOneByPid($_SESSION['pid'], 'secondary');
-$sec_name = $companies->getOneById($secondary['provider']);
-
-$tertiary = $patient_insurance->getOneByPid($_SESSION['pid'], 'tertiary');
-$tri_name = $companies->getOneById($tertiary['provider']);
 
 echo "<h1>Stage One! Not working yet!!!</h1>";
 ?>
