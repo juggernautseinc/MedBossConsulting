@@ -44,7 +44,7 @@ if (!empty($_POST)) {
     }
 }
 
-if (AclMain::aclCheckCore('patient', 'report') || AclMain::aclCheckCore('admin', 'super')) {
+if (AclMain::aclCheckCore('patient', 'report') || !AclMain::aclCheckCore('admin', 'notification')) {
     echo "<title>Payroll Report</title>";
     die(xlt("Unauthorized access."));
 }
