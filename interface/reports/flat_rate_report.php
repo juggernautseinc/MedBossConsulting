@@ -223,7 +223,7 @@ if (!empty($_POST['form_refresh'])) {
 ?>
 <html>
 <head>
-    <title><?php echo xlt('Earnings Report'); ?></title>
+    <title><?php echo xlt('Provider Earnings Report'); ?></title>
 
     <?php Header::setupHeader(['datetime-picker', 'report-helper']); ?>
 
@@ -271,7 +271,7 @@ if (!empty($_POST['form_refresh'])) {
 
 <body class="body_top">
 
-<span class='title'><?php echo xlt('Report'); ?> - <?php echo xlt('Earning Report'); ?></span>
+<span class='title'><?php echo xlt('Providers'); ?> - <?php echo xlt('Earning Report'); ?></span>
 
 <div id="report_parameters_daterange">
     <?php echo text(oeFormatShortDate($form_from_date)) . " &nbsp; " . xlt('to{{Range}}') . " &nbsp; " . text(oeFormatShortDate($form_to_date)); ?>
