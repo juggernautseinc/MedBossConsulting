@@ -394,9 +394,10 @@ if (!empty($_POST['form_refresh'])) {
         $docrow = array('docname' => '', 'charges' => 0, 'copays' => 0, 'encounters' => 0);
 
         while ($row = sqlFetchArray($res)) {
+            var_dump($row); continue;
             $userid = $row['id'];
 
-            if (/*$_SESSION['authUserID']*/ 16 !== $row['id']) {
+            if (/*$_SESSION['authUserID']*/ 16 != $row['id']) {
                 continue;
             }
             $patient_id = $row['pid'];
