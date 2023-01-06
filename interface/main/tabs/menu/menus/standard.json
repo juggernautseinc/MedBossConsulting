@@ -1151,7 +1151,18 @@
             "children" : [ ],
             "requirement" : 0,
             "acl_req" : [ "acct", "rep_a" ]
-        } ],
+        }, {
+                "label": "Flat Rate Earnings",
+                "menu_id": "rep0",
+                "target": "rep",
+                "url": "/interface/reports/flat_rate_report.php",
+                "children": [],
+                "requirement": 0,
+                "acl_req": [
+                    "patients",
+                    "demo"
+                ]
+            } ],
         "requirement" : 0
     }, {
         "label" : "Inventory",

@@ -231,7 +231,8 @@
   {
       "label": "Reports",
       "menu_id": "repimg",
-      "children": [{
+      "children": [
+          {
               "label": "Flat Rate Earnings",
               "menu_id": "rep0",
               "target": "rep",
