@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * This report cross-references appointments with encounters.
  * For a given date, show a line for each appointment with the
  * matching encounter, and also for each encounter that has no
@@ -36,7 +36,7 @@ use OpenEMR\Billing\BillingUtilities;
 use OpenEMR\Common\Csrf\CsrfUtils;
 use OpenEMR\Core\Header;
 use OpenEMR\Services\FacilityService;
-use OpenEMR\Common\Acl\AclMain;
+
 
 if (!empty($_POST)) {
     if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token_form"])) {
@@ -44,10 +44,6 @@ if (!empty($_POST)) {
     }
 }
 
-if ( !AclMain::aclCheckCore('admin', 'super')) {
-    echo "<title>Payroll Report</title>";
-    die(xlt("Unauthorized access."));
-}
 
 $facilityService = new FacilityService();
 
@@ -56,9 +52,11 @@ $alertmsg = ''; // not used yet but maybe later
 $grand_total_charges    = 0;
 $grand_total_copays     = 0;
 $grand_total_encounters = 0;
+$grand_total_provider_payouts = [];
+$userid = '';
 
 function identity() {
-    $sql = "SELECT fname, lname  FROM users WHERE id = ?";
+    $sql = "SELECT fname, lname  FROM users WHERE id = ? AND active = 1";
     $name = sqlQuery($sql, [$_SESSION['authUserID']]);
     return $name['lname'] . ", " . $name['fname'] ;
 }
@@ -94,21 +92,37 @@ function bucks($amount)
 
 function endDoctor(&$docrow)
 {
-    global $grand_total_charges, $grand_total_copays, $grand_total_encounters;
+    global $grand_total_charges, $grand_total_copays, $grand_total_encounters, $grand_total_provider_payouts;
     if (!$docrow['docname']) {
         return;
     }
-/* removed because not needed
+    $nametoid = explode(",", $docrow['docname']);
+    $fname = trim($nametoid[1]);
+    $lname = trim($nametoid[0]);
+    $thedoc = sqlQuery("SELECT `id` FROM `users` WHERE `lname` LIKE ? AND `fname` LIKE ? AND active = 1", [$lname, $fname]);
+
+    $rate = getRate($thedoc['id']);
     echo " <tr class='report_totals'>\n";
     echo "  <td colspan='5'>\n";
-    echo "   &nbsp;" . xlt('Totals for') . ' ' . text($docrow['docname']) . "\n";
+    echo "   &nbsp;" . $thedoc['id'] . xlt(' Totals for') . ' ' . text($docrow['docname']) . "\n";
     echo "  </td>\n";
     echo "  <td>\n";
     echo "   &nbsp;" . text($docrow['encounters']) . "&nbsp;\n";
     echo "  </td>\n";
     echo "  <td>\n";
     echo "   &nbsp;";
-    echo text(bucks($docrow['charges']));
+    if ($rate['flat'] !== NULL || $rate['flat'] > 0) {
+        $pay = bucks($rate['flat'] * text($docrow['encounters']));
+        $mpay = $rate['flat'] * $docrow['encounters'];
+    } else {
+        $pay = bucks($rate['percentage'] * $docrow['encounters']);
+        $mpay = $rate['percentage'] * $docrow['encounters'];
+    }
+    if ($rate['percentage'] !== NULL || $rate['percentage'] > 0) {
+        echo   $rate['percentage'] . "% $" . $pay;
+    } else {
+        echo   $rate['flat'] . " $" . $pay;
+    }
     echo "&nbsp;\n";
     echo "  </td>\n";
     echo "  <td>\n";
@@ -120,11 +134,11 @@ function endDoctor(&$docrow)
     echo "   &nbsp;\n";
     echo "  </td>\n";
     echo " </tr>\n";
-*/
+
     $grand_total_charges     += $docrow['charges'];
     $grand_total_copays      += $docrow['copays'];
     $grand_total_encounters  += $docrow['encounters'];
-
+    $grand_total_provider_payouts[] = $mpay;
     $docrow['charges']     = 0;
     $docrow['copays']      = 0;
     $docrow['encounters']  = 0;
@@ -263,7 +277,7 @@ if (!empty($_POST['form_refresh'])) {
     <?php echo text(oeFormatShortDate($form_from_date)) . " &nbsp; " . xlt('to{{Range}}') . " &nbsp; " . text(oeFormatShortDate($form_to_date)); ?>
 </div>
 
-<form method='post' id='theform' action='flat_rate_report.php' onsubmit='return top.restoreSession()'>
+<form method='post' id='theform' action='flat-provider_rate_report.php' onsubmit='return top.restoreSession()'>
 <input type="hidden" name="csrf_token_form" value="<?php echo attr(CsrfUtils::collectCsrfToken()); ?>" />
 
 <div id="report_parameters">
@@ -371,7 +385,7 @@ if (!empty($_POST['form_refresh'])) {
 <th> <?php echo xlt('Charges'); ?>&nbsp; </th>
 <th> <?php echo xlt('Docs'); ?>&nbsp; </th>
 <th> <?php echo xlt('Billed'); ?> </th>
-<th> &nbsp;<?php echo xlt('Error'); ?> </th>
+
 </thead>
 <tbody>
     <?php
@@ -380,13 +394,8 @@ if (!empty($_POST['form_refresh'])) {
         $docrow = array('docname' => '', 'charges' => 0, 'copays' => 0, 'encounters' => 0);
 
         while ($row = sqlFetchArray($res)) {
-            $userid = 16; //$row['id'];
-            if ($_SESSION['authUserID'] !== $row['id']) {
-                //continue;
-            }
-            if ($row['lname'] == 'Unapplied') {
-                continue;
-            }
+            $userid = $row['id'];
+
             $patient_id = $row['pid'];
             $encounter  = $row['encounter'];
             $docname    = $row['docname'] ? $row['docname'] : xl('Unknown');
@@ -395,6 +404,13 @@ if (!empty($_POST['form_refresh'])) {
                 endDoctor($docrow);
             }
 
+            if ($docname === 'Unknown') {
+                 continue;
+            }
+
+            if ($row['lname'] == 'Unapplied') {
+                continue;
+            }
             $errmsg  = "";
             $billed  = "Y";
             $charges = 0;
@@ -568,9 +584,9 @@ if (!empty($_POST['form_refresh'])) {
          <td>
                 <?php echo text($billed); ?>
          </td>
-         <td style='color:#cc0000'>
+         <!--<td style='color:#cc0000'>
                 <?php echo $errmsg; ?>&nbsp;
-         </td>
+         </td>-->
         </tr>
                 <?php
             } // end of details line
@@ -602,15 +618,15 @@ if (!empty($_POST['form_refresh'])) {
 
         echo " <tr class='report_totals'>\n";
         echo "  <td colspan='5'>\n";
-        echo "   &nbsp;" . xlt('Totals Payout') . "\n";
+        echo "   &nbsp;" . xlt('Total Provider Payouts') . "\n";
         echo "  </td>\n";
         echo "  <td>\n";
         echo "   &nbsp;&nbsp;\n";
         echo "  </td>\n";
         echo "  <td>\n";
         echo "   &nbsp;";
-        $payrate = getRate($userid);
-        echo  "$" . text($grand_total_encounters) * $payrate['flat'];
+        $grandSum = array_sum($grand_total_provider_payouts);
+        echo  "$" . bucks($grandSum);
         echo "&nbsp;\n";
         echo "  </td>\n";
         echo "  <td>\n";
@@ -627,10 +643,7 @@ if (!empty($_POST['form_refresh'])) {
 </table>
     <div>
         <p>
-            Payouts are based on the number of billed visits. <strong>Unbilled visits are not counted</strong>.
-        </p>
-        <p>
-            If you want to print this report, save report to PDF. Then email it in.
+            Payouts are based on the number of billed visits. Unbilled visits are not counted.
         </p>
     </div>
 </div> <!-- end the apptenc_report_results -->
