@@ -382,7 +382,7 @@ if (!empty($_POST['form_refresh'])) {
         while ($row = sqlFetchArray($res)) {
             $userid = 16; //$row['id'];
             if ($_SESSION['authUserID'] !== $row['id']) {
-                continue;
+                //continue;
             }
             if ($row['lname'] == 'Unapplied') {
                 continue;
