@@ -13,9 +13,16 @@
 
 use Juggernaut\App\Model\NotificationModel;
 use Juggernaut\App\Controllers\SendMessage;
+
 $process = new NotificationModel();
 
 $personsToBeContacted = $process->getAppointments();
+
+if (empty($personsToBeContacted)) {
+    $process->resetBackgroundService();
+    die('nothing to process');
+}
+
 foreach ($personsToBeContacted as $person) {
      if ($person['phone_cell'] == '') {
          continue;
@@ -37,6 +44,7 @@ foreach ($personsToBeContacted as $person) {
     $safe = array($person['pid'], $person['pc_eid'], 'TEXTBELT', $message, 'SMS' || '', $patient_info, $response, $person['pc_eventDate'], $person['pc_endDate'], $person['pc_startTime'], $person['pc_endTime'], $sdate);
 
     $db_loginsert = sqlStatement($sql_loginsert, $safe);
+    $process->resetBackgroundService();
 }
 
 function message($person): string

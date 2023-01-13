@@ -52,7 +52,7 @@ class NotificationModel
 
     public function getAppointments(): array
     {
-        require_once dirname(__DIR__, 6) . '/../library/appointments.inc.php';
+        require_once dirname(__DIR__, 7) . '/library/appointments.inc.php';
 
         $nDays = self::numberOfDays();
         $date = date("Y-m-d",strtotime($nDays));
@@ -82,6 +82,11 @@ class NotificationModel
                 $numDays = '+4 days';
         }
         return $numDays;
+    }
+
+    public function resetBackgroundService(): void
+    {
+        sqlQuery("update background_services set running = 0 where name = 'SMS_REMINDERS';");
     }
 
     public function getTimeZoneInfo()
