@@ -20,7 +20,7 @@ $providers = sqlStatement("SELECT DISTINCT pc_aid FROM `openemr_postcalendar_eve
 while ($prow = sqlFetchArray($providers)) {
      $providerArray[] = $prow['pc_aid'];
 }
-var_dump($providers); die;
+var_dump($providerArray); die;
 foreach ($providerArray as $key => $value) {
     $apptDate = date('Y-m-d', strtotime(' +1 day'));
     $appts = sqlStatement("SELECT pc_title, pc_startTime FROM `openemr_postcalendar_events` " .
