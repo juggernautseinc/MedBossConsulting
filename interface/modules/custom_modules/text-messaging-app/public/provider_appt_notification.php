@@ -44,3 +44,5 @@ foreach ($providerArray as $key => $value) {
         SendMessage::outBoundMessage($cell, $message);
     }
 }
+
+sqlStatement("update background_services set running = 0 where name = 'Provider_Reminders'");
