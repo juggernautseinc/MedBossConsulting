@@ -28,7 +28,7 @@ foreach ($providerArray as $key => $value) {
     $facility = sqlQuery("SELECT facility FROM `users` WHERE id = ?", [$value]);
 
     $message = "Your " . $facility['facility'] . " schedule for today: \r\n";
-    echo $message;
+
     $mcount = 0;
     while ($arow = sqlFetchArray($appts)) {
             $message .= $arow['pc_title'] . ", " . $arow['pc_startTime'] . "\r\n";
