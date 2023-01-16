@@ -36,10 +36,26 @@ foreach ($personsToBeContacted as $person) {
 
     $sdate = date("Y-m-d H:i:s");
     $patient_info = '';
-    $patient_info = $person['title'] . " " . $person['fname'] . " " . $person['mname'] . " " . $person['lname'] . "|||" . $person['phone_cell'] . "|||" . $person['email'];
-    $data_info = $person['pc_eventDate'] . "|||" . $person['pc_endDate'] . "|||" . $person['pc_startTime'] . "|||" . $person['pc_endTime'];
+    $patient_info = $person['title'] . " " . $person['fname'] . " " . $person['mname'] . " " . $person['lname'] .
+        "|||" . $person['phone_cell'] . "|||" . $person['email'];
+    $data_info = $person['pc_eventDate'] . "|||" . $person['pc_endDate'] . "|||" . $person['pc_startTime'] . "|||" .
+        $person['pc_endTime'];
     $sdate = date("Y-m-d H:i:s");
-    $sql_loginsert = "INSERT INTO `notification_log` ( `iLogId` , `pid` , `pc_eid` , `sms_gateway_type` , `message` , `type` , `patient_info` , `smsgateway_info` , `pc_eventDate` , `pc_endDate` , `pc_startTime` , `pc_endTime` , `dSentDateTime` ) VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?,?)";
+    $sql_loginsert = "INSERT INTO `notification_log` (
+                                `iLogId`,
+                                `pid`,
+                                `pc_eid`,
+                                `sms_gateway_type`,
+                                `message`,
+                                `type`,
+                                `patient_info`,
+                                `smsgateway_info`,
+                                `pc_eventDate`,
+                                `pc_endDate`,
+                                `pc_startTime`,
+                                `pc_endTime`,
+                                `dSentDateTime`
+                                ) VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?,?)";
 
     $safe = array($person['pid'], $person['pc_eid'], 'TEXTBELT', $message, 'SMS' || '', $patient_info, $response, $person['pc_eventDate'], $person['pc_endDate'], $person['pc_startTime'], $person['pc_endTime'], $sdate);
 
@@ -49,5 +65,9 @@ foreach ($personsToBeContacted as $person) {
 
 function message($person): string
 {
-        return "You have an appointment on " . $person['pc_eventDate'] . " at " . $person['pc_startTime'] . ". " . $person['name'];
+        return "You have an appointment on " .
+            $person['pc_eventDate'] .
+            " at " .
+            $person['pc_startTime'] .
+            ". with " . $person['name'] . "Please reply to this message if you need to change your appointment";
 }

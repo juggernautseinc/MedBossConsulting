@@ -31,10 +31,12 @@ class AppointmentsSubscriber implements EventSubscriberInterface
      * @param AppointmentSetEvent $event
      * @return EmailNotification
      */
-    public function appointmentChanged(AppointmentSetEvent $event)
+    public function appointmentChanged(AppointmentSetEvent $event): EmailNotification
     {
         $appointmentdata = $event->givenAppointmentData();
-        file_put_contents("/var/www/html/errors/apptStatus1.txt", print_r($appointmentdata, true), FILE_APPEND);
+        if ($appointmentdata['form_apptstatus'] == '+') {
+            new TextAppointmentStatusChange($appointmentdata);
+        }
         return new EmailNotification($appointmentdata);
     }
 }

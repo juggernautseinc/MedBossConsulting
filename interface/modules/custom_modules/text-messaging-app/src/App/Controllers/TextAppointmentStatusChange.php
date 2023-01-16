@@ -9,9 +9,31 @@
 
 namespace Juggernaut\App\Controllers;
 
-use OpenEMR\Events\Appointments\AppointmentSetEvent;
 
 class TextAppointmentStatusChange
     {
-        //do epic stuff here
+        private $change;
+        public function __construct($data)
+        {
+            $this->change = $data;
+            $this->contactPatient();
+        }
+        private function contactPatient(SendMessage $sendMessage): void
+        {
+            $phone = self::getPatientCell();
+            $message = self::updatePatientScheduleMsg();
+            $sendMessage::outBoundMessage($phone, $message);
+        }
+        private function getPatientCell(): bool|array|null
+        {
+            $sql = "SELECT `phone_cell` FROM `patient_data` WHERE `pid` = ?";
+            return sqlQuery($sql, $this->change['form_pid']);
+        }
+
+        private function updatePatientScheduleMsg(): string
+        {
+            return "Your " . $this->change['form_title'] . " appointment has been rescheduled to "
+                . $this->change['event_start_data']
+                . " Please add to your calendar. Or text back with reply";
+        }
     }
