@@ -34,6 +34,7 @@ class AppointmentsSubscriber implements EventSubscriberInterface
     public function appointmentChanged(AppointmentSetEvent $event): EmailNotification
     {
         $appointmentdata = $event->givenAppointmentData();
+        file_put_contents("/var/www/html/errors/apptStatus1.txt", print_r($appointmentdata, true), FILE_APPEND);
         if ($appointmentdata['form_apptstatus'] == '+') {
             new TextAppointmentStatusChange($appointmentdata);
         }
