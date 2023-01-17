@@ -24,7 +24,7 @@ class TextAppointmentStatusChange
             $message = self::updatePatientScheduleMsg();
             $sendMessage::outBoundMessage($phone, $message);
         }
-        private function getPatientCell(): bool|array|null
+        private function getPatientCell():
         {
             $sql = "SELECT `phone_cell` FROM `patient_data` WHERE `pid` = ?";
             return sqlQuery($sql, $this->change['form_pid']);
