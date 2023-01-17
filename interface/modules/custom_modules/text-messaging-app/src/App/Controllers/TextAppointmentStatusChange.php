@@ -33,7 +33,7 @@ class TextAppointmentStatusChange
         private function updatePatientScheduleMsg(): string
         {
             return "Your " . $this->change['form_title'] . " appointment has been rescheduled to "
-                . $this->change['event_start_data']
+                . $this->change['form_date']
                 . " Please add to your calendar. Or text back with reply";
         }
     }
