@@ -21,14 +21,15 @@ $providers = sqlStatement("SELECT DISTINCT pc_aid FROM `openemr_postcalendar_eve
 while ($prow = sqlFetchArray($providers)) {
     $events = fetchAppointments('2023-01-25', '2023-01-25', '', $prow['pc_aid']);
     echo $prow['pc_aid'] . "<br>";
+    $eventsList = '';
     foreach ($events as $event) {
-        echo $event['pc_catname'] . " " . $event['pc_startTime'] . ", ";
+        $eventsList .= $event['pc_catname'] . " " . $event['pc_startTime'] . ", ";
     }
+    echo $eventsList;
 }
 
 
-echo "<pre>";
-//var_dump($events);
+
 die;
 foreach ($providerArray as $key => $value) {
     $apptDate = date('Y-m-d', strtotime(' +1 day'));
