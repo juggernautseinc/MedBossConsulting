@@ -11,6 +11,7 @@
 
 require_once dirname(__DIR__, 4) . '/globals.php';
 require_once dirname(__DIR__) . "/vendor/autoload.php";
+require_once ($GLOBALS['srcdir'] . "/appointments.inc.php");
 
 use Juggernaut\App\Controllers\SendMessage;
 
