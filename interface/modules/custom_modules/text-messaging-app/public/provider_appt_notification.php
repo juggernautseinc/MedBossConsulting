@@ -15,12 +15,13 @@ require_once dirname(__DIR__) . "/vendor/autoload.php";
 use Juggernaut\App\Controllers\SendMessage;
 
 $providerArray = [];
-$providers = sqlStatement(
+/*$providers = sqlStatement(
     "SELECT DISTINCT `pc_aid` FROM `openemr_postcalendar_events` WHERE `pc_aid` > 2 ORDER BY `pc_aid` ASC"
-);
+);*/
+$providers = sqlStatement("SELECT `id` FROM `users` WHERE `authorized` = 1 ");
 
 while ($prow = sqlFetchArray($providers)) {
-     $providerArray[] = $prow['pc_aid'];
+     $providerArray[] = $prow['id'];
 }
 
 foreach ($providerArray as $key => $value) {
