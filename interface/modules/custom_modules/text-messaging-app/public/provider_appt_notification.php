@@ -31,7 +31,7 @@ foreach ($providerArray as $key => $value) {
     $providerAppointments = fetchAppointments($apptDate, $apptDate, null, $value,);
     $listOfAppointments = '';
     foreach ($providerAppointments as $appointment) {
-        $listOfAppointments .= $appointment['pc_title'] . " " . $appointment['pc_startTime'] . " " . $appointment['pc_aid'];
+        $listOfAppointments .= $appointment['pc_title'] . " " . $appointment['pc_startTime'] . " " . $appointment['uprovider_id'];
     }
     $message = "Your schedule for today: " . $listOfAppointments . " \r\n";
 
