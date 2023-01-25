@@ -27,6 +27,7 @@ while ($prow = sqlFetchArray($providers)) {
 
 foreach ($providerArray as $key => $value) {
     $apptDate = date('Y-m-d');
+    echo $value . "<br>";
     $providerAppointments = fetchAppointments($apptDate, $apptDate, null, $value,);
     $listOfAppointments = '';
     foreach ($providerAppointments as $appointment) {
