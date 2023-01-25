@@ -15,7 +15,9 @@ require_once dirname(__DIR__) . "/vendor/autoload.php";
 use Juggernaut\App\Controllers\SendMessage;
 
 $providerArray = [];
-$providers = sqlStatement("SELECT DISTINCT pc_aid FROM `openemr_postcalendar_events` WHERE pc_aid > 2");
+$providers = sqlStatement(
+    "SELECT DISTINCT `pc_aid` FROM `openemr_postcalendar_events` WHERE `pc_aid` > 2 ORDER BY `pc_aid` ASC"
+);
 
 while ($prow = sqlFetchArray($providers)) {
      $providerArray[] = $prow['pc_aid'];
