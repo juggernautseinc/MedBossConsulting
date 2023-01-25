@@ -15,7 +15,7 @@ require_once ($GLOBALS['srcdir'] . "/appointments.inc.php");
 
 use Juggernaut\App\Controllers\SendMessage;
 
-$providerAppointments = fetchAppointments('2023-01-25');
+$providerAppointments = fetchAppointments('2023-01-25', '2023-01-25');
 var_dump($providerAppointments);
 
 $providerArray = [];
