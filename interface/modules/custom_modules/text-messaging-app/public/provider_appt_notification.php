@@ -16,8 +16,9 @@ require_once ($GLOBALS['srcdir'] . "/appointments.inc.php");
 use Juggernaut\App\Controllers\SendMessage;
 
 $providerAppointments = fetchAppointments('2023-01-25', '2023-01-25');
+echo "<pre>";
 var_dump($providerAppointments);
-
+echo "</pre>";
 $providerArray = [];
 /*$providers = sqlStatement(
     "SELECT DISTINCT `pc_aid` FROM `openemr_postcalendar_events` WHERE `pc_aid` > 2 ORDER BY `pc_aid` ASC"
