@@ -22,7 +22,7 @@ while ($prow = sqlFetchArray($providers)) {
     $events = fetchAppointments('2023-01-25', '2023-01-25', '', $prow['pc_aid']);
     echo $prow['pc_aid'] . "<br>";
     foreach ($events as $event) {
-        echo $event['pc_catname'] . " " . $event['pc_startTime'];
+        echo $event['pc_catname'] . " " . $event['pc_startTime'] . ", ";
     }
 }
 
