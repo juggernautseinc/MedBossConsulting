@@ -37,7 +37,7 @@ foreach ($providerArray as $key => $value) {
         $mcount++;
     }
     if ($mcount == 0) {
-        $message .= "None";
+        $message .= "None " . $value;
     }
     $number = sqlQuery("SELECT phonecell FROM `users` WHERE id = ?", [$value]);
 
