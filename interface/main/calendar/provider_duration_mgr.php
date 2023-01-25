@@ -15,7 +15,7 @@ use OpenEMR\Services\CalendarProviderDuration;
 
 
 $twig = new CalendarProviderDuration();
-
+$update = '';
 if (!empty($_POST)) {
 $update = $twig->updateProviderDuration($_POST);
 }
