@@ -19,11 +19,16 @@ $providerArray = [];
 $providers = sqlStatement("SELECT DISTINCT pc_aid FROM `openemr_postcalendar_events` WHERE pc_aid > 2");
 
 while ($prow = sqlFetchArray($providers)) {
-    $providerArray[] = $prow['pc_aid'];
+    $events = fetchAppointments('2023-01-25', '2023-01-25', '', $prow['pc_aid']);
+    echo $prow['pc_aid'] . "<br>";
+    foreach ($events as $event) {
+        echo $event['pc_catname'] . " " . $event['pc_startTime'];
+    }
 }
-$events = fetchAppointments('2023-01-25', '2023-01-25');
+
+
 echo "<pre>";
-var_dump($events);
+//var_dump($events);
 die;
 foreach ($providerArray as $key => $value) {
     $apptDate = date('Y-m-d', strtotime(' +1 day'));
