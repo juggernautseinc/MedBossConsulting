@@ -20,6 +20,7 @@ $providers = sqlStatement("SELECT DISTINCT pc_aid FROM `openemr_postcalendar_eve
 while ($prow = sqlFetchArray($providers)) {
     $providerArray[] = $prow['pc_aid'];
 }
+$events = fetchNextXAppts('2023-01-25', null, null, false);
 
 foreach ($providerArray as $key => $value) {
     $apptDate = date('Y-m-d', strtotime(' +1 day'));
