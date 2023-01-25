@@ -19,8 +19,9 @@ $providerArray = [];
 $providers = sqlStatement("SELECT DISTINCT pc_aid FROM `openemr_postcalendar_events` WHERE pc_aid > 2");
 
 while ($prow = sqlFetchArray($providers)) {
-    $events = fetchAppointments('2023-01-25', '2023-01-25', '', $prow['pc_aid']);
-    echo $prow['pc_aid'] . "<br>";
+    $apptDate = date('Y-m-d');
+    $events = fetchAppointments($apptDate, $apptDate, '', $prow['pc_aid']);
+
     $eventsList = '';
     foreach ($events as $event) {
         $eventsList .= $event['pc_catname'] . " " . $event['pc_startTime'] . ", ";
@@ -30,6 +31,13 @@ while ($prow = sqlFetchArray($providers)) {
        echo $message = 'None';
     } else {
        echo $message = "Your schedule for today: " . $eventsList;
+    }
+
+    $number = sqlQuery("SELECT phonecell FROM `users` WHERE id = ?", [$prow['pc_aid']]);
+
+    if (!empty($number['phonecell'])) {
+        $cell = str_replace("-", "", $number['phonecell']);
+        //SendMessage::outBoundMessage($cell, $message);
     }
 }
 
