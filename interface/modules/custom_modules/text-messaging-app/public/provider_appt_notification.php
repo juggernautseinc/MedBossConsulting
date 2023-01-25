@@ -27,7 +27,7 @@ foreach ($providerArray as $key => $value) {
         " WHERE pc_aid = ? AND pc_eventDate = ? ORDER BY pc_startTime ASC", [$value, $apptDate]);
     $facility = sqlQuery("SELECT facility FROM `users` WHERE id = ?", [$value]);
 
-    $message = "Your " . $facility['facility'] . $apptDate . " schedule for today:-  \r\n";
+    $message = "Your " . $facility['facility'] . " schedule for today:- " . $apptDate . " \r\n";
 
     $mcount = 0;
     while ($arow = sqlFetchArray($appts)) {
