@@ -25,7 +25,12 @@ while ($prow = sqlFetchArray($providers)) {
     foreach ($events as $event) {
         $eventsList .= $event['pc_catname'] . " " . $event['pc_startTime'] . ", ";
     }
-    echo $eventsList;
+    $message = '';
+    if (empty($eventsList)) {
+       echo $message = 'None';
+    } else {
+       echo $message = "Your schedule for today: " . $eventsList;
+    }
 }
 
 
