@@ -20,7 +20,9 @@ $providerArray = [];
     "SELECT DISTINCT `pc_aid` FROM `openemr_postcalendar_events` WHERE `pc_aid` > 2 ORDER BY `pc_aid` ASC"
 );*/
 $providers = sqlStatement("SELECT `id` FROM `users` WHERE `authorized` = 1 ");
-
+echo "<pre>";
+$events = fetchEvents('2023-01-25', '2023-01-25');
+echo "</pre>";
 while ($prow = sqlFetchArray($providers)) {
      $providerArray[] = $prow['id'];
 }
