@@ -1578,7 +1578,7 @@ class X125010837P
             "*" . "000000001" .
             "*" . $claim->x12gsisa14() .
             "*" . $claim->x12gsisa15() .
-            "*:" .
+            //"*:" .
             "~\n";
 
         $out .= "GS" .
@@ -1628,7 +1628,7 @@ class X125010837P
                         "*" .
                         "*" .
                         "*" .
-                        "*" .
+                        //"*" .
                         "*" . "46" .
                         "*" . $claim->x12_sender_id();
                     // use provider name since using ssn as tax id
@@ -1660,7 +1660,7 @@ class X125010837P
                         "*" .
                         "*" .
                         "*" .
-                        "*" .
+                        //"*" .
                         "*" . "46" .
                         "*" . $claim->x12_sender_id();
                     // else use provider's group name
