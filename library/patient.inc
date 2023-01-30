@@ -155,6 +155,10 @@ function getInsuranceProvidersExtra()
     return $returnval;
 }
 
+function getPrimaryPlanName($pid)
+{
+    return sqlQuery("SELECT `plan_name` FROM `insurance_data` WHERE `pid` = ? AND type = 'primary'", [$pid]);
+}
 // ----------------------------------------------------------------------------
 // Get one facility row.  If the ID is not specified, then get either the
 // "main" (billing) facility, or the default facility of the currently

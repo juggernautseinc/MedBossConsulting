@@ -771,7 +771,9 @@ if (!$_REQUEST['flb_table']) {
                             <?php echo xlt($appointment['pc_title']); ?>
                         </td>
                         <td>
-                             <?php echo xlt('Popeye'); ?>
+                             <?php
+                             $plan = getPrimaryPlanName($appointment['pc_pid']);
+                             echo xlt($plan); ?>
                         </td>
                         <?php
                         if (count($chk_prov) > 1) { ?>
