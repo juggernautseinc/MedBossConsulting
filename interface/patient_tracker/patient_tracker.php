@@ -444,6 +444,9 @@ if (!$_REQUEST['flb_table']) {
                         <td class="dehead text-center text-ovr-dark" name="kiosk_hide">
                             <?php echo xlt('Visit Type'); ?>
                         </td>
+                        <td class="dehead text-center text-ovr-dark" name="kiosk_hide">
+                             <?php echo xlt('Plan') ?>
+                        </td>
                         <?php if (count($chk_prov) > 1) { ?>
                             <td class="dehead text-center d-sm-table-cell text-ovr-dark">
                                 <?php echo xlt('Provider'); ?>
@@ -766,6 +769,9 @@ if (!$_REQUEST['flb_table']) {
                         ?>
                         <td class="detail text-center" name="kiosk_hide">
                             <?php echo xlt($appointment['pc_title']); ?>
+                        </td>
+                        <td>
+                             <?php echo xlt('Popeye'); ?>
                         </td>
                         <?php
                         if (count($chk_prov) > 1) { ?>
