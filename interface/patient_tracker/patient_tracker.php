@@ -770,7 +770,7 @@ if (!$_REQUEST['flb_table']) {
                         <td class="detail text-center" name="kiosk_hide">
                             <?php echo xlt($appointment['pc_title']); ?>
                         </td>
-                        <td>
+                        <td class="detail text-center" name="kiosk_hide">
                              <?php
                              $plan = getPrimaryPlanName($appointment['pc_pid']);
                              echo xlt($plan); ?>
