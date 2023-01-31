@@ -1572,13 +1572,13 @@ class X125010837P
             "*" . $claim->x12gsisa07() .
             "*" . $claim->x12gsreceiverid() .
             //"*" . "030911" .  // dummy data replace by billing_process.php
-            "*" . "1630" . // ditto
+            //"*" . "1630" . // ditto
             "*" . "^" .
             "*" . "00501" .
             "*" . "000000001" .
             "*" . $claim->x12gsisa14() .
             "*" . $claim->x12gsisa15() .
-            //"*:" .
+            "*:" .
             "~\n";
 
         $out .= "GS" .
