@@ -45,7 +45,7 @@ class X125010837I
             "*" . $claim->x12gsisa07() .
             "*" . $claim->x12gsreceiverid() .
             // date of transmission "*030911" .
-            //"*" . date('Ymd', $today) .
+            "*" . date('Ymd', $today) .
             //Time of transmission "*1630" .
             "*" . date('Hi', $today) .
             "*" . "^" .
