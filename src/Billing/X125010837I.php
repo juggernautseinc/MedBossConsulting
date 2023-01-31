@@ -47,7 +47,7 @@ class X125010837I
             // date of transmission "*030911" .
             "*" . date('Ymd', $today) .
             //Time of transmission "*1630" .
-            "*" . date('Hi', $today) .
+            //"*" . date('Hi', $today) .
             "*" . "^" .
             "*" . "00501" .
             "*" . "000000001" .

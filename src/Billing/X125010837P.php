@@ -38,14 +38,14 @@ class X125010837P
         $out .= "ISA" .
             "*" . $claim->x12gsisa01() .
             "*" . $claim->x12gsisa02() .
-            //"*" . $claim->x12gsisa03() .
+            "*" . $claim->x12gsisa03() .
             "*" . $claim->x12gsisa04() .
             "*" . $claim->x12gsisa05() .
             "*" . $claim->x12_sender_id() .
             "*" . $claim->x12gsisa07() .
             "*" . $claim->x12gsreceiverid() .
             "*" . "030911" .  // dummy data replaced by billing_process.php
-            "*" . "1630" . // ditto
+            //"*" . "1630" . // ditto
             "*" . "^" .
             "*" . "00501" .
             "*" . "000000001" .
