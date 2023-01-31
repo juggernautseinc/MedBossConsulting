@@ -49,7 +49,7 @@ class X125010837I
             //Time of transmission "*1630" .
             "*" . date('Hi', $today) .
             "*" . "^" .
-            "*" . "00501" .
+            //"*" . "00501" .
             "*" . "000000001" .
             "*" . $claim->x12gsisa14() .
             "*" . $claim->x12gsisa15() .
