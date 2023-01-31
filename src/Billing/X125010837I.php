@@ -38,7 +38,7 @@ class X125010837I
         $out .= "ISA" .
             "*" . $claim->x12gsisa01() .
             "*" . $claim->x12gsisa02() .
-            "*" . $claim->x12gsisa03() .
+            //"*" . $claim->x12gsisa03() .
             "*" . $claim->x12gsisa04() .
             "*" . $claim->x12gsisa05() .
             "*" . $claim->x12gssenderid() .
