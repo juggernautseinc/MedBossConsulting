@@ -202,8 +202,9 @@ class BillingClaimBatch
                     $bat_recvid = trim($elems[8]);
                     $bat_sender = (!empty($GS02)) ? $GS02 : $bat_sendid;
                     //$this->bat_content = substr($seg, 0, 70) . "$this->bat_yymmdd*$this->bat_hhmm*" . $elems[11] . "*" . $elems[12] . "*$this->bat_icn*" . $elems[14] . "*" . $elems[15] . "*:~";
-                    $this->bat_content = substr($seg, 0, 70) . "$this->bat_yymmdd*$this->bat_hhmm*" . $elems[11] . "*" . $elems[12] . "*$this->bat_icn*" . $elems[15] . "*:~";
-                }
+
+                    $this->bat_content = substr($seg, 0, 70) . "$this->bat_yymmdd*$this->bat_hhmm*" . $elems[11] . "*" . $elems[12] . "*$this->bat_icn*" . $elems[14] . "*" . $elems[15] . "*:~";
+                }  file_put_contents("/var/www/html/errors/x12.txt", print_r($this->bat_content, true));
                 continue;
             } elseif (!$this->bat_content) {
                 die("Error:<br />\nInput must begin with 'ISA'; " . "found '" . text($elems[0]) . "' instead");
