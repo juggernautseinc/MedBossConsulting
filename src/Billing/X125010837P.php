@@ -1661,6 +1661,7 @@ class X125010837P
                         "*" .
                         "*" .
                         //"*" .
+                        //WayStar
                         "*" . "46" .
                         "*" . $claim->x12_sender_id();
                     // else use provider's group name
@@ -2049,20 +2050,20 @@ class X125010837P
         // Segment REF (Billing Provider Secondary Identification) omitted.
 
         if (!$claim->isSelfOfInsured()) {
-            ++$edicount;
+            /*++$edicount;
             $out .= "HL" .        // Loop 2000C Patient Information
                 "*" . $HLcount .
                 "*" . $HLSubscriber .
                 "*" . "23" .
                 "*" . "0" .
-                "~\n";
+                "~\n";*/
 
             $HLcount++;
             ++$edicount;
-            $out .= "PAT" .
+            /*$out .= "PAT" .
                 "*" . $claim->insuredRelationship() .
-                "~\n";
-
+                "~\n";*/
+            //removed for wayStar
             ++$edicount;
             $out .= "NM1" .       // Loop 2010CA Patient
                 "*" . "QC" .

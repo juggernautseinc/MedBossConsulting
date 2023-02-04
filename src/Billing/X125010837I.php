@@ -296,14 +296,15 @@ class X125010837I
 
 
         if (!$claim->isSelfOfInsured()) {
+            /*++$HLcount;
             ++$edicount;
             $out .= "HL" .        // Loop 2000C Patient Information
-                "*" . "$HLcount" .
+                "*" . $HLcount .
                 "*$HLSubscriber" .
                 "*23" .
                 "*0" .
-                "~\n";
-            $HLcount++;
+                "~\n";*/
+
             ++$edicount;
             $out .= "PAT" .
                 "*" . $claim->insuredRelationship() .
