@@ -773,7 +773,8 @@ if (!$_REQUEST['flb_table']) {
                         <td class="detail text-center" name="kiosk_hide">
                              <?php
                              $plan = getPrimaryPlanName($appointment['pc_pid']);
-                             echo xlt($plan['plan_name']); ?>
+                             echo xlt($plan['plan_name']) . "" . $appointment['pc_pid'];
+                             ?>
                         </td>
                         <?php
                         if (count($chk_prov) > 1) { ?>
