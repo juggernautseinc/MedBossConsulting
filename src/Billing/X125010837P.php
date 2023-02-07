@@ -2060,9 +2060,9 @@ class X125010837P
 
             $HLcount++;
             ++$edicount;
-            /*$out .= "PAT" .
+            $out .= "PAT" .
                 "*" . $claim->insuredRelationship() .
-                "~\n";*/
+                "~\n";
             //removed for wayStar
             ++$edicount;
             $out .= "NM1" .       // Loop 2010CA Patient
