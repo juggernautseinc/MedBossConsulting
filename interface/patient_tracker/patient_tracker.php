@@ -773,7 +773,7 @@ if (!$_REQUEST['flb_table']) {
                         <td class="detail text-center" name="kiosk_hide">
                              <?php
                              $plan = getPrimaryPlanName($appointment['pc_pid']);
-                             echo $plan['plan_name'];
+                             echo var_dump($plan) . " " . $plan['plan_name'];
                              ?>
                         </td>
                         <?php
