@@ -157,7 +157,7 @@ function getInsuranceProvidersExtra()
 
 function getPrimaryPlanName($pid)
 {
-    return sqlQuery("SELECT `plan_name` FROM `insurance_data` WHERE `pid` = ? AND type = 'primary'", [$pid]);
+    return sqlQuery("SELECT `plan_name` FROM `insurance_data` WHERE `pid` = ? AND type = 'primary' AND `plan_name` != ''", [$pid]);
 }
 // ----------------------------------------------------------------------------
 // Get one facility row.  If the ID is not specified, then get either the
